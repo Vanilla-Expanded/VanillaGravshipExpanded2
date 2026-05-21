@@ -29,19 +29,14 @@
 			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3609835606</steamWorkshopUrl>
 			<downloadUrl>https://github.com/Vanilla-Expanded/VanillaGravshipExpanded</downloadUrl>
 		</li>
-
-		
 	</modDependencies>
 	<loadAfter>
-		
 		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
 		<li>vanillaexpanded.gravship</li>
-
 	</loadAfter>
-  <incompatibleWith>
-    <li>Bulldog.VanillaChemfuelExpandedOdysseyPatch</li>
-  </incompatibleWith>
-
+	<incompatibleWith>
+		<li>Bulldog.VanillaChemfuelExpandedOdysseyPatch</li>
+	</incompatibleWith>
 	<packageId>vanillaexpanded.gravship2</packageId>
 	<description>Todo
 </description>
