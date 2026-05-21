@@ -642,4 +642,92 @@
 			<drawSize>(5,5)</drawSize>
 		</graphicData>
 	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedSmallWeaponPlatform</defName>
+		<label>destroyed small weapon platform</label>
+		<description>The remains of a small gravship artillery platform, twisted and wrecked after the destruction of the weapon it once held. Now only serves as salvage.</description>
+		<size>(3,3)</size>
+		<costList>
+		
+			<GravlitePanel>40</GravlitePanel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+			<Steel>200</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravshipArtillery_Base_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedMediumWeaponPlatform</defName>
+		<label>destroyed medium weapon platform</label>
+		<description>The remains of a medium gravship artillery platform, twisted and wrecked after the destruction of the weapon it once held. Now only serves as salvage.</description>
+		<size>(5,5)</size>
+		<costList>
+		
+			<GravlitePanel>60</GravlitePanel>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<Steel>400</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravshipArtillery_Base_Normal</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(5,5)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedLargeWeaponPlatform</defName>
+		<label>destroyed large weapon platform</label>
+		<description>The remains of a large gravship artillery platform, twisted and wrecked after the destruction of the weapon it once held. Now only serves as salvage.</description>
+		<size>(7,7)</size>
+		<costList>
+		
+			<GravlitePanel>80</GravlitePanel>
+			<ComponentIndustrial>14</ComponentIndustrial>
+			<Steel>600</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>1000</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravshipArtillery_Base_Large</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(7,7)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGiantWeaponPlatform</defName>
+		<label>destroyed giant weapon platform</label>
+		<description>The remains of a giant orbital station artillery platform, twisted and wrecked after the destruction of the weapon it once held. Now only serves as salvage.</description>
+		<size>(9,9)</size>
+		<costList>
+		
+			<GravlitePanel>200</GravlitePanel>
+			<ComponentIndustrial>30</ComponentIndustrial>
+			<Steel>1000</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>1000</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravshipArtillery_Base_Giant</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(9,9)</drawSize>
+		</graphicData>
+	</ThingDef>
 </Defs>

@@ -343,4 +343,36 @@
 			</li>
 		</value>
 	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_PointDefenseTurret"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedSmallWeaponPlatform</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_GaussGun"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedSmallWeaponPlatform</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_JavelinPod"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedSmallWeaponPlatform</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_AnticraftCaster"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedSmallWeaponPlatform</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
 </Patch>
