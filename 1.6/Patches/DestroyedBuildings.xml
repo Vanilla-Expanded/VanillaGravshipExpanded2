@@ -1,0 +1,10 @@
+<Patch>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_SmallOxygenTank"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VQEA_DestroyedSmallOxygenTank</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+</Patch>
