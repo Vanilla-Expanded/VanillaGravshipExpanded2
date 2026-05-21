@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedLargeOxygenTank</defName>
+		<label>destroyed large oxygen tank</label>
+		<description>This massive tank once held the gravship's life support, but it is now ruptured and useless. Its immense structure can still yield a good amount of scrap metal.</description>
+		<size>(3,3)</size>
+		<costList>
+			<Steel>200</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedLargeOxygenTank</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedLifeSupportSystem</defName>
+		<label>destroyed algae oxygenator</label>
+		<description>A destroyed device that once processed harvested oxyalgae into breathable oxygen. The conversion components are ruptured, and it no longer supplies gas to the oxygen network.</description>
+		<size>(2,2)</size>
+		<costList>
+			<Steel>160</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedLifeSupportTank</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedLargeChemfuelTank</defName>
+		<label>destroyed large astrofuel tank</label>
+		<description>The shattered remains of a massive astrofuel storage tank, once used to supply fuel for the thrusters on a gravship. Its frame still holds recoverable materials.</description>
+		<size>(3,3)</size>
+		<costList>
+			<Steel>200</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedLargeAstrofuelTank</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGiantAstrofuelTank</defName>
+		<label>destroyed giant astrofuel tank</label>
+		<description>The shattered remains of a monumental astrofuel storage tank, once used to supply fuel for the thrusters on a gravship. Its frame still holds recoverable materials.</description>
+		<size>(6,3)</size>
+		<costList>
+			<Steel>500</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>350</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGiantAstrofuelTank</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(6,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedAstrofuelSynthesizer</defName>
+		<label>destroyed astrofuel synthesizer</label>
+		<description>The ruined remains of a specialized structure that once refined chemfuel into high-grade astrofuel. It is no longer connected to the astrofuel pipe network or any astrofuel tanks and cannot operate.</description>
+		<size>(4,2)</size>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedAstrofuelSynthesizer</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(5,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedAstrofuelGenerator</defName>
+		<label>destroyed astrofuel generator</label>
+		<description>Destroyed astrofuel generator, which was once capable of converting astrofuel into power.</description>
+		<size>(2,2)</size>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedAstrofuelGenerator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedIndustrialAstrofuelGenerator</defName>
+		<label>destroyed industrial astrofuel generator</label>
+		<description>An industrial-sized, destroyed astrofuel generator, which was once capable of converting astrofuel into power.</description>
+		<size>(3,3)</size>
+		<costList>
+			<Steel>180</Steel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedIndustrialAstrofuelGenerator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedAstropurifier</defName>
+		<label>destroyed astropurifier</label>
+		<description>A gravtech unit that enhanced the precision and stability of astrofuel refinement. Broken down beyond repair now.</description>
+		<size>(2,2)</size>
+		<costList>
+			<Steel>80</Steel>
+			<GravlitePanel>40</GravlitePanel>
+			<ComponentSpacer>8</ComponentSpacer>
+		</costList>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedAstropurifier</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedFuelOptimizer</defName>
+		<label>destroyed astrofuel optimizer</label>
+		<description>A destroyed gravtech unit that once allowed grav engine lift to coordinate more efficiently with traditional thrusters. Nothing but scrap now.</description>
+		<size>(2,2)</size>
+		<costList>
+			<Steel>100</Steel>
+			<GravlitePanel>40</GravlitePanel>
+			<ComponentSpacer>6</ComponentSpacer>
+		</costList>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedAstrofuelOptimizer</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedOxygenReclaimer</defName>
+		<label>destroyed oxygen reclaimer</label>
+		<description>A broken down unit that extracted traces of oxygen from surrounding gases. Wrecked beyond repair now, can be salvaged for scrap.</description>
+		<size>(2,2)</size>
+		<costList>
+			<Steel>100</Steel>
+			<GravlitePanel>50</GravlitePanel>
+			<ComponentSpacer>5</ComponentSpacer>
+		</costList>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedOxygenReclaimer</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedLargeHeatsink</defName>
+		<label>destroyed large heatsink</label>
+		<description>This large heatsink once cooled the gravship’s systems, but it has burned out. Some steel can still be recovered from the wreck.</description>
+		<size>(3,3)</size>
+		<costList>
+			<Steel>200</Steel>
+			<Gold>60</Gold>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedHeatsinkLarge</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGravheatAbsorber</defName>
+		<label>destroyed gravheat absorber</label>
+		<description>A warped, scorched, and inoperable specialized thermal sink, originally used to instantly cool a grav engine, is now useless for its primary function due to melted internal systems and cracked shielding. However, its dense, exotic metal casing and components can still be salvaged.</description>
+		<size>(3,3)</size>
+		<costList>
+			<Steel>160</Steel>
+			<Gold>60</Gold>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravheatAbsorber</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGiantThruster</defName>
+		<label>destroyed giant thruster</label>
+		<description>This colossal thruster once propelled massive gravships across the orbit, but is now a wreck of twisted metal. Its sheer size means a substantial haul of salvageable materials remains.</description>
+		<size>(3,3)</size>
+		<costList>
+			<Steel>300</Steel>
+			<BlocksVacstone>100</BlocksVacstone>
+			<ComponentSpacer>6</ComponentSpacer>
+		</costList>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGiantAstrofuelThruster</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedPilotCockpit</defName>
+		<label>destroyed pilot cockpit</label>
+		<description>The remains of a gravjumper's control interface, shattered and useless for piloting, but still containing salvageable scrap metal.</description>
+		<size>(1, 2)</size>
+		<costList>
+			<Steel>70</Steel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedPilotCockpit</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedPilotConsole</defName>
+		<label>destroyed pilot console</label>
+		<description>The remains of a gravship's control interface, shattered and useless for piloting, but still containing salvageable scrap metal.</description>
+		<size>(3, 2)</size>
+		<costList>
+			<Steel>140</Steel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedPilotConsole</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3.7, 2.6)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedPilotBridge</defName>
+		<label>destroyed pilot bridge</label>
+		<description>The remains of a gravhulk's control interface, shattered and useless for piloting, but still containing salvageable scrap metal.</description>
+		<size>(5, 3)</size>
+		<costList>
+			<Steel>260</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedPilotBridge</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(6, 4)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedCopilotConsole</defName>
+		<label>destroyed co-pilot console</label>
+		<description>A broken control panel that once supported the pilot console, now reduced to scrap.</description>
+		<size>(3, 1)</size>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedCoPilotConsole</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(4, 3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedTargetingTerminal</defName>
+		<label>destroyed targeting terminal</label>
+		<description>The shattered remains of a targeting terminal. Its screens are cracked and dark, and its sensitive aiming mechanisms are twisted and inoperable. It is nothing more than salvage now.</description>
+		<size>(1, 1)</size>
+		<costList>
+			<Steel>30</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedTargetingTerminal</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2, 2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGunnerSubpersonaCore</defName>
+		<label>destroyed gunner subpersona core</label>
+		<description>A shattered and inert gravship gunnery core. The advanced processing unit that once housed a specialized combat subpersona is cracked, and the core's connection ports are twisted and useless. It can be salvaged for some complex components.</description>
+		<size>(1, 1)</size>
+		<costList>
+			<Steel>30</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGunnerSubpersonaCore</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1, 1)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGravtechConsole</defName>
+		<label>destroyed gravtech console</label>
+		<description>An interface used to analyze gravdata, now shattered and useless. The screens are dark and cracked, and the delicate gravdata analysis components are twisted and inoperable. It is nothing more than salvage now.</description>
+		<size>(3,1)</size>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>125</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravtechResearchBench</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(4, 2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedFlightComputer</defName>
+		<label>destroyed flight computer</label>
+		<description>A completely destroyed computational unit that used to optimize gravdata collection. Can be disassembled to yield whatever components it has left.</description>
+		<size>(2,1)</size>
+		<costList>
+			<Steel>40</Steel>
+			<GravlitePanel>20</GravlitePanel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<ComponentSpacer>6</ComponentSpacer>
+		</costList>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedFlightComputer</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3, 2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGravFieldAmplifier</defName>
+		<label>destroyed grav field amplifier</label>
+		<description>The shattered remains of an advanced ultratech device that once dramatically increased a gravship's size and build area. The core systems are utterly destroyed, but a specialized gravcore may still be salvaged from the wreckage.</description>
+		<size>(3,3)</size>
+		<costList>
+			<Gravcore>2</Gravcore>
+			<GravlitePanel>80</GravlitePanel>
+			<ComponentSpacer>4</ComponentSpacer>
+			<Steel>180</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravFieldAmplifier</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedMaintenanceHub</defName>
+		<label>destroyed maintenance hub</label>
+		<description>A completely destroyed system that used to optimize and automate routines across the gravship. Can be salvaged for some resources.</description>
+		<size>(2,2)</size>
+		<costList>
+			<Steel>80</Steel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentSpacer>3</ComponentSpacer>
+			<GravlitePanel>60</GravlitePanel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravshipMaintenanceHub</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedCapacitorHarmonizer</defName>
+		<label>destroyed capacitor harmonizer</label>
+		<description>A blown up device that balanced and synchronized energy flow between capacitors. Can be deconstructed to yield some resources back.</description>
+		<size>(2,2)</size>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentSpacer>6</ComponentSpacer>
+			<GravlitePanel>60</GravlitePanel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedCapacitorHarmonizer</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGravlift</defName>
+		<label>destroyed gravlift</label>
+		<description>A mangled wreck of a complex stabilization device. The core thrusters are fused and the gravitic dampeners shattered, rendering it useless for flight or stability, however, its mass of exotic metals and components can be deconstructed for a valuable resource yield.</description>
+		<size>(2,2)</size>
+		<costList>
+			<Gravcore>1</Gravcore>
+			<GravlitePanel>60</GravlitePanel>
+			<ComponentSpacer>4</ComponentSpacer>
+		</costList>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravlift</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedEngineeringConsole</defName>
+		<label>destroyed engineering console</label>
+		<description>A shattered interface that was used to monitor the maintenance status of all gravship components. Can be salvaged for some scrap.</description>
+		<size>(3,1)</size>
+		<costList>
+			<Steel>150</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>125</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedEngineeringConsole</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(4,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGravcorePowerCell</defName>
+		<label>destroyed gravcore power cell</label>
+		<description>A destroyed power generator, once capable of passively harvesting gravitational wave energy and amplifying adjacent power cells. Some resources may still be salvaged from it.</description>
+		<size>(1,1)</size>
+		<costList>
+			<GravlitePanel>50</GravlitePanel>
+			<ComponentSpacer>2</ComponentSpacer>
+			<Steel>60</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravcorePowerCell</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGravcorePowerCoil</defName>
+		<label>destroyed gravcore power coil</label>
+		<description>A massive gravtech reactor, now utterly destroyed, with its reinforced coils twisted and inert, can be salvaged for its valuable components.</description>
+		<size>(3,3)</size>
+		<costList>
+			<Gravcore>2</Gravcore>
+			<GravlitePanel>120</GravlitePanel>
+			<ComponentSpacer>5</ComponentSpacer>
+			<Steel>100</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravcorePowerCoil</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGravjumperEngine</defName>
+		<label>destroyed gravjumper engine</label>
+		<description>The mangled remains of a gravjumper engine, now useless for short-range jumps. It seems the gravity field collapse did not result in any detonation, so it can still be salvaged for a valuable gravcore.</description>
+		<size>(1,1)</size>
+		<costList>
+			<Gravcore>1</Gravcore>
+			<GravlitePanel>50</GravlitePanel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<Steel>60</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravJumperEngine</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGravEngine</defName>
+		<label>destroyed gravship engine</label>
+		<description>The collapsed remains of a gravship engine, no longer capable of lifting the vessel. It seems the gravity field collapse did not result in any detonation, so it can still be salvaged for a valuable gravcore.</description>
+		<size>(3,3)</size>
+		<costList>
+			<Gravcore>2</Gravcore>
+			<GravlitePanel>120</GravlitePanel>
+			<ComponentSpacer>8</ComponentSpacer>
+			<Steel>180</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravEngine</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_DamagedBuildingBase">
+		<defName>VGE_DestroyedGravhulkEngine</defName>
+		<label>destroyed gravhulk engine</label>
+		<description>The huge, destroyed wreck of a gravhulk engine, no longer operational. It seems the gravity field collapse did not result in any detonation, so it can still be salvaged for a valuable gravcore.</description>
+		<size>(5,5)</size>
+		<costList>
+			<Gravcore>2</Gravcore>
+			<GravlitePanel>200</GravlitePanel>
+			<ComponentSpacer>16</ComponentSpacer>
+			<Plasteel>200</Plasteel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>1500</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravHulkEngine</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(5,5)</drawSize>
+		</graphicData>
+	</ThingDef>
+</Defs>

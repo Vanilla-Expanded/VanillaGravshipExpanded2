@@ -7,4 +7,340 @@
 			</li>
 		</value>
 	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VQEA_DestroyedSmallOxygenTank"]/costList</xpath>
+		<value>
+			<costList>
+				<Steel>100</Steel>
+			</costList>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="ChemfuelTank"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VQEA_DestroyedSmallAstrofuelTank</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="GravFieldExtender"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VQEA_DestroyedGravExtender</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VQEA_DestroyedGravExtender"]/costList</xpath>
+		<value>
+			<costList>
+				<Steel>80</Steel>
+				<Gravcore>1</Gravcore>
+				<GravlitePanel>30</GravlitePanel>
+				<ComponentIndustrial>2</ComponentIndustrial>
+			</costList>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="SmallThruster"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VQEA_DestroyedSmallThruster</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VQEA_DestroyedSmallThruster"]/costList</xpath>
+		<value>
+			<costList>
+				<Steel>180</Steel>
+				<ComponentIndustrial>4</ComponentIndustrial>
+			</costList>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="LargeThruster"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VQEA_DestroyedLargeThruster</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VQEA_DestroyedLargeThruster"]/costList</xpath>
+		<value>
+			<costList>
+				<Steel>220</Steel>
+				<BlocksVacstone>50</BlocksVacstone>
+				<ComponentIndustrial>6</ComponentIndustrial>
+			</costList>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_SmallHeatsink"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VQEA_DestroyedSmallHeatsink</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VQEA_DestroyedSmallHeatsink"]/costList</xpath>
+		<value>
+			<costList>
+				<Steel>140</Steel>
+				<Gold>30</Gold>
+				<ComponentIndustrial>3</ComponentIndustrial>
+			</costList>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_LargeOxygenTank"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedLargeOxygenTank</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_LifeSupportSystem"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedLifeSupportSystem</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="LargeChemfuelTank"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedLargeChemfuelTank</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_GiantAstrofuelTank"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGiantAstrofuelTank</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_AstrofuelSynthesizer"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedAstrofuelSynthesizer</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_AstrofuelGenerator"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedAstrofuelGenerator</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_IndustrialAstrofuelGenerator"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedIndustrialAstrofuelGenerator</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_Astropurifier"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedAstropurifier</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="FuelOptimizer"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedFuelOptimizer</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_OxygenReclaimer"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedOxygenReclaimer</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_LargeHeatsink"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedLargeHeatsink</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_GravheatAbsorber"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGravheatAbsorber</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_GiantThruster"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGiantThruster</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_PilotCockpit"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedPilotCockpit</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="PilotConsole"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedPilotConsole</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_PilotBridge"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedPilotBridge</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_CopilotConsole"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedCopilotConsole</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_TargetingTerminal"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedTargetingTerminal</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_GunnerSubpersonaCore"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGunnerSubpersonaCore</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_GravtechConsole"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGravtechConsole</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_FlightComputer"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedFlightComputer</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_GravFieldAmplifier"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGravFieldAmplifier</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_MaintenanceHub"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedMaintenanceHub</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_CapacitorHarmonizer"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedCapacitorHarmonizer</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_Gravlift"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGravlift</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_EngineeringConsole"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedEngineeringConsole</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="GravcorePowerCell"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGravcorePowerCell</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_GravcorePowerCoil"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGravcorePowerCoil</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_GravjumperEngine"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGravjumperEngine</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGravEngine</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VGE_GravhulkEngine"]</xpath>
+		<value>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedGravhulkEngine</replacementBuilding>
+			</li>
+		</value>
+	</Operation>
 </Patch>
