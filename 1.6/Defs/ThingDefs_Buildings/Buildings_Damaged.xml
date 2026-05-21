@@ -370,8 +370,9 @@
 		<description>A shattered and inert gravship gunnery core. The advanced processing unit that once housed a specialized combat subpersona is cracked, and the core's connection ports are twisted and useless. It can be salvaged for some complex components.</description>
 		<size>(1, 1)</size>
 		<costList>
-			<Steel>30</Steel>
-			<ComponentIndustrial>2</ComponentIndustrial>
+			<Steel>50</Steel>
+			<ComponentSpacer>4</ComponentSpacer>
+			<GravlitePanel>20</GravlitePanel>
 		</costList>
 		<statBases>
 			<MaxHitPoints>50</MaxHitPoints>
