@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef Abstract="True" ParentName="AnimalThingBase" Name="VGE_BaseInsect">
+		<statBases>
+			<ToxicResistance>1</ToxicResistance>
+			<ToxicEnvironmentResistance>0.8</ToxicEnvironmentResistance>
+			<VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
+			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
+			<ComfyTemperatureMax>250</ComfyTemperatureMax>
+		</statBases>
+		<race>
+			<fleshType>Insectoid</fleshType>
+			<bloodDef>Filth_BloodInsect</bloodDef>
+			<meatColor>(160,168,139)</meatColor>
+			<meatMarketValue>0.5</meatMarketValue>
+			<foodType>OmnivoreAnimal, AnimalProduct</foodType>
+			<manhunterOnDamageChance>0.50</manhunterOnDamageChance>
+			<soundEating>Insectoid_Eat</soundEating>
+			<canBeVacuumBurnt>false</canBeVacuumBurnt>
+		</race>
+		<ingredient>
+			<mergeCompatibilityTags>
+				<li MayRequire="Ludeon.RimWorld.Ideology">InsectMeat</li>
+			</mergeCompatibilityTags>
+		</ingredient>
+	</ThingDef>
+</Defs>

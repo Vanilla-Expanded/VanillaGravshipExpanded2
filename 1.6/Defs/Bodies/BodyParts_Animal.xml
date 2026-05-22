@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Worm parts -->
+	<BodyPartDef>
+		<defName>VGE_FirstWormSegment</defName>
+		<label>first body segment</label>
+		<hitPoints>25</hitPoints>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>ManipulationLimbCore</li>
+			<li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+	<BodyPartDef>
+		<defName>VGE_SecondWormSegment</defName>
+		<label>second body segment</label>
+		<hitPoints>25</hitPoints>
+		<skinCovered>true</skinCovered>
+	</BodyPartDef>
+	<BodyPartDef>
+		<defName>VGE_ThirdWormSegment</defName>
+		<label>third body segment</label>
+		<hitPoints>25</hitPoints>
+		<skinCovered>true</skinCovered>
+	</BodyPartDef>
+	<BodyPartDef>
+		<defName>VGE_FourthWormSegment</defName>
+		<label>fourth body segment</label>
+		<hitPoints>25</hitPoints>
+		<skinCovered>true</skinCovered>
+	</BodyPartDef>
+	<BodyPartDef>
+		<defName>VGE_EcholocationOrgan</defName>
+		<label>echolocation organ</label>
+		<hitPoints>10</hitPoints>
+		<permanentInjuryChanceFactor>15</permanentInjuryChanceFactor>
+		<delicate>true</delicate>
+		<skinCovered>true</skinCovered>
+		<socketed>false</socketed>
+		<beautyRelated>false</beautyRelated>
+		<tags>
+			<li>SightSource</li>
+		</tags>
+		<hitChanceFactors>
+			<li>
+				<key>Blunt</key>
+				<value>0</value>
+			</li>
+		</hitChanceFactors>
+	</BodyPartDef>
+</Defs>

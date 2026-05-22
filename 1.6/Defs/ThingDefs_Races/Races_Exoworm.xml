@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--  Exoworm -->
+	<ThingDef ParentName="VGE_BaseInsect">
+		<defName>VGE_Exoworm</defName>
+		<label>exoworm</label>
+		<description>A large, genetically-engineered worm-like insectoid, adapted to survive in the vacuum of space. Once the worker caste of an artificial ecosystem designed to fight mechanoid invasions, it is now often encountered without its deadlier insectoid cousins. Still, its size and rapidly regenerating body makes it a durable and dangerous foe in combat. A eusocial creature, it cannot reproduce individually.</description>
+		<statBases>
+			<MoveSpeed>2.25</MoveSpeed>
+			<Flammability>0.7</Flammability>			
+			<MarketValue>80</MarketValue>
+			<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.26</ArmorRating_Sharp>
+			<ArmorRating_Heat>2</ArmorRating_Heat>			
+			<Wildness>0.2</Wildness>
+			<LeatherAmount>0</LeatherAmount>
+			<MeatAmount>0</MeatAmount>
+		</statBases>
+		<tools>
+			<li>
+				<label>mandibles</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>5</power>
+				<armorPenetration>0.07</armorPenetration>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<armorPenetration>0.06</armorPenetration>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.1</chanceFactor>
+			</li>
+		</tools>
+		<comps>
+		<li Class="VEF.AnimalBehaviours.CompProperties_Regeneration">
+				<rateInTicks>360</rateInTicks>
+				<healAmount>50</healAmount>
+				<healOneTendOne>true</healOneTendOne>
+				<healAll>false</healAll>
+			</li>
+		</comps>
+		<race>
+			<deathAction Class="VEF.AnimalBehaviours.DeathActionProperties_VanishInsect">
+				
+				<filth>Filth_BloodInsect</filth>
+				<filthCountRange>1~3</filthCountRange>
+				
+			</deathAction>
+			<body>VGE_WormWithArmor</body>
+			<baseHungerRate>0.08</baseHungerRate>
+			<manhunterOnTameFailChance>0</manhunterOnTameFailChance>
+			
+			<baseBodySize>0.2</baseBodySize>
+			<baseHealthScale>0.25</baseHealthScale>
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<lifeExpectancy>10</lifeExpectancy>
+			<trainability>Intermediate</trainability>
+			
+			<lifeStageAges>
+				<li>
+					<def>EusocialInsectLarva</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>EusocialInsectJuvenile</def>
+					<minAge>0.03</minAge>
+				</li>
+				<li>
+					<def>EusocialInsectAdult</def>
+					<minAge>0.4</minAge>
+					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
+					<soundDeath>Pawn_Megascarab_Death</soundDeath>
+					<soundCall>Pawn_Megascarab_Call</soundCall>
+					<soundAngry>Pawn_Megascarab_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="InsectKindBase">
+		<defName>VGE_Exoworm</defName>
+		<label>exoworm</label>
+		<race>VGE_Exoworm</race>
+		<combatPower>30</combatPower>
+		<ecoSystemWeight>0.50</ecoSystemWeight>
+		<aiAvoidCover>false</aiAvoidCover>
+		<defendPointRadius>0</defendPointRadius>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Insectoids/Exoworm</texPath>
+					<color>(140,124,112)</color>
+				
+					<drawSize>0.75</drawSize>
+				</bodyGraphicData>
+				
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Insectoids/Exoworm</texPath>
+					<drawSize>0.9</drawSize>
+					
+					<color>(140,124,112)</color>
+				</bodyGraphicData>
+			
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Insectoids/Exoworm</texPath>
+					<drawSize>1.2</drawSize>
+					
+					<color>(140,124,112)</color>
+					<shadowData>
+						<volume>(0.5, 0.7, 0.43)</volume>
+						<offset>(0,0,-0.1)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+</Defs>
