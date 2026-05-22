@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--  Exopede -->
+	<ThingDef ParentName="VGE_BaseInsect">
+		<defName>VGE_Exopede</defName>
+		<label>exopede</label>
+		<description>A large bioengineered insectoid roughly the size of a deer. The exopede is heavily armored and adapted to survive the frigid vacuum of space, and functions as a middle-caste hive worker, performing most tasks and defending the hive with its powerful appendages. While heavily protected and dangerous in combat, its movement is relatively slow on open ground.</description>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<Flammability>0.5</Flammability>
+			<MarketValue>240</MarketValue>
+			<ArmorRating_Blunt>0.18</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.64</ArmorRating_Sharp>
+			<Wildness>0.3</Wildness>
+			<LeatherAmount>0</LeatherAmount>
+		</statBases>
+		<tools>
+			<li>
+				<label>head claw</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadClaw</linkedBodyPartsGroup>
+				<armorPenetration>0.1</armorPenetration>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<armorPenetration>0.09</armorPenetration>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<body>VGE_WormWithArmorAndHeadClaw</body>
+			<baseHungerRate>0.32</baseHungerRate>
+			<manhunterOnTameFailChance>0</manhunterOnTameFailChance>
+			<baseBodySize>1</baseBodySize>
+			<baseHealthScale>2.8</baseHealthScale>
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<lifeExpectancy>6</lifeExpectancy>
+			<trainability>Advanced</trainability>
+			<lifeStageAges>
+				<li>
+					<def>EusocialInsectLarva</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>EusocialInsectJuvenile</def>
+					<minAge>0.03</minAge>
+				</li>
+				<li>
+					<def>EusocialInsectAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_Spelopede_Pain</soundWounded>
+					<soundDeath>Pawn_Spelopede_Death</soundDeath>
+					<soundCall>Pawn_Spelopede_Call</soundCall>
+					<soundAngry>Pawn_Spelopede_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="InsectKindBase">
+		<defName>VGE_Exopede</defName>
+		<label>exopede</label>
+		<race>VGE_Exopede</race>
+		<combatPower>85</combatPower>
+		<ecoSystemWeight>0.50</ecoSystemWeight>
+		<aiAvoidCover>false</aiAvoidCover>
+		<defendPointRadius>0</defendPointRadius>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Insectoids/Exopede</texPath>
+					<color>(124, 115, 96)</color>
+					<drawSize>1</drawSize>
+				</bodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Insectoids/Exopede</texPath>
+					<drawSize>1.25</drawSize>
+					<color>(124, 115, 96)</color>
+				</bodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Insectoids/Exopede</texPath>
+					<drawSize>1.65</drawSize>
+					<color>(124, 115, 96)</color>
+					<shadowData>
+						<volume>(0.5, 0.7, 0.43)</volume>
+						<offset>(0,0,-0.1)</offset>
+					</shadowData>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+</Defs>
