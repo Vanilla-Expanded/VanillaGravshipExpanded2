@@ -14,6 +14,12 @@ namespace VanillaGravshipExpanded2
 		{
 			DefOfHelper.EnsureInitializedInCtor(typeof(InternalDefOf));
 		}
-		
-	}
+
+		[MayRequireBiotech]
+		public static GeneDef PerfectImmunity;
+
+		public static HediffDef VGE_ExowormInfestation;
+
+
+    }
 }

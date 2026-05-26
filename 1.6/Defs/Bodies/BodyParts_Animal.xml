@@ -48,4 +48,20 @@
 			</li>
 		</hitChanceFactors>
 	</BodyPartDef>
+	<BodyPartDef>
+		<defName>VGE_Worm</defName>
+		<label>worm</label>
+		<hitPoints>3</hitPoints>
+		<frostbiteVulnerability>1</frostbiteVulnerability>
+		<tags>
+			<li>BloodPumpingSource</li>
+			<li>BloodFiltrationSource</li>
+			<li>MetabolismSource</li>
+			<li>BreathingSource</li>
+			<li>MovingLimbCore</li>
+			<li>ManipulationLimbCore</li>
+			<li>SightSource</li>
+			<li>ConsciousnessSource</li>
+		</tags>
+	</BodyPartDef>
 </Defs>

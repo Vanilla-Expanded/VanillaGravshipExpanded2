@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+	<DamageDef ParentName="Bite">
+		<defName>VGE_ExowormInfestation</defName>
+		<label>exoworm infestation</label>
+		<workerClass>VanillaGravshipExpanded2.DamageWorker_ExowormInfestation</workerClass>
+		
+	</DamageDef>
+	
+</Defs>

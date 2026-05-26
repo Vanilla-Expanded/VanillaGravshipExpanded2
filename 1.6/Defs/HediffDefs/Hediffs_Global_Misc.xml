@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HediffDef>
+		<defName>VGE_NoPain</defName>
+		<description>This creature has a reduced pain sensitivity, and it takes longer to be downed due to pain.</description>
+		<label>no pain sensitivity</label>
+		<defaultLabelColor>(.8,0,0)</defaultLabelColor>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<stages>
+			<li>
+				<painFactor>0</painFactor>
+				<statOffsets>
+					<PainShockThreshold>1</PainShockThreshold>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>VGE_ExowormInfestation</defName>
+		<label>exoworm infestation</label>
+		<description>Parasitic exoworm larvae burrowing and growing within the flesh. As it matures, it will consume local tissue and cause extreme pain. Without aggressive treatment and a strong immune response, the worm will eventually erupt from the body part.</description>
+		<makesSickThought>true</makesSickThought>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<tendable>true</tendable>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>10</baseTendDurationHours>
+				<severityPerDayTended>-0.45</severityPerDayTended>
+			</li>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>0.75</severityPerDayNotImmune>
+				<immunityPerDaySick>0.6</immunityPerDaySick>
+				<severityPerDayImmune>-0.8</severityPerDayImmune>
+				<immunityPerDayNotSick>-0.5</immunityPerDayNotSick>
+			</li>
+			
+			<li Class="VEF.AnimalBehaviours.HediffCompProperties_SpawnPawnOnMaxSeverity">
+				<pawnKindOptions>
+					<li>VGE_Exoworm</li>
+				</pawnKindOptions>
+				<filthCreated>Filth_BloodInsect</filthCreated>
+				<filthCountRange>2~5</filthCountRange>
+				<sound>Hive_Spawn</sound>
+				<damage>Cut</damage>
+				<damageAmount>4~8</damageAmount>
+			</li>
+			<li Class="HediffCompProperties_Discoverable">
+				<sendLetterWhenDiscovered>true</sendLetterWhenDiscovered>
+				<discoverLetterLabel> Exoworm gestation: {0}</discoverLetterLabel>
+				<discoverLetterText>{0} has been infected with exoworm larva. They need immediate and constant medical care, or the worm will eventually crawl out of them.</discoverLetterText>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>minor</label>
+				<painOffset>0.04</painOffset>
+				<becomeVisible>false</becomeVisible>
+			</li>
+			<li>
+				<label>minor</label>
+				<painOffset>0.04</painOffset>
+				<minSeverity>0.12</minSeverity>
+			</li>
+			<li>
+				<minSeverity>0.4</minSeverity>
+				<label>wriggling</label>
+				<painOffset>0.12</painOffset>
+			</li>
+			<li>
+				<minSeverity>0.75</minSeverity>
+				<label>bulging</label>
+				<painOffset>0.24</painOffset>
+				<vomitMtbDays>1</vomitMtbDays>
+			</li>
+			<li>
+				<minSeverity>0.94</minSeverity>
+				<label>erupting</label>
+				<vomitMtbDays>0.5</vomitMtbDays>
+				<painOffset>0.5</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.1</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>
