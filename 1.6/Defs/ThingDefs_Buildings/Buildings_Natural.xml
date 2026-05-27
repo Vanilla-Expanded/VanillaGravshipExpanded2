@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="BuildingNaturalBase">
+		<defName>VGE_ExoHive_Building</defName>
+		<label>exohive</label>
+		<description>A hive of giant insects of an exo-geneline. If activated, it will spawn additional insects and hives over time, as well as valuable insect jelly. It may occasionally move and fight when threatened.</description>
+		<thingClass>Hive</thingClass>
+		<graphicData>
+			<texPath>Things/Insectoids/Structures/ExoHive</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.6</drawSize>
+		</graphicData>
+		<uiIconScale>0.65</uiIconScale>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>false</rotatable>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<pathCost>42</pathCost>
+		<receivesSignals>true</receivesSignals>
+		<blockWind>true</blockWind>
+		<tickerType>Normal</tickerType>
+		<passability>PassThroughOnly</passability>
+		<killedLeavings>
+			<InsectJelly>45</InsectJelly>
+		</killedLeavings>
+		<comps>
+			<li Class="VanillaGravshipExpanded2.CompProperties_TurnIntoMovingHive">
+				<healthPercentage>0.5</healthPercentage>
+				<turnInto>VGE_Exohive</turnInto>
+			</li>
+			<li Class="CompProperties_CanBeDormant">
+				<startsDormant>true</startsDormant>
+				<canWakeUpFogged>false</canWakeUpFogged>
+			</li>
+			<li Class="CompProperties_WakeUpDormant"/>
+			<li Class="CompProperties_SpawnerPawn">
+				<spawnablePawnKinds>
+					<li>VGE_Exoworm</li>
+				</spawnablePawnKinds>
+				<lordJob>LordJob_DefendAndExpandHive</lordJob>
+				<spawnSound>Hive_Spawn</spawnSound>
+				<initialPawnsPoints>200</initialPawnsPoints>
+				<maxSpawnedPawnsPoints>500</maxSpawnedPawnsPoints>
+				<lordJoinRadius>10</lordJoinRadius>
+			</li>
+			<li Class="CompProperties_SelfhealHitpoints">
+				<ticksPerHeal>6000</ticksPerHeal>
+				<!-- 60k ticks = 1 day, 10 hp per day -->
+			</li>
+			<li Class="CompProperties_SpawnerHives"/>
+			<li Class="CompProperties_Spawner">
+				<thingToSpawn>InsectJelly</thingToSpawn>
+				<spawnCount>20</spawnCount>
+				<spawnIntervalRange>26000~30000</spawnIntervalRange>
+				<spawnMaxAdjacent>40</spawnMaxAdjacent>
+				<spawnForbidden>true</spawnForbidden>
+				<saveKeysPrefix>jelly</saveKeysPrefix>
+			</li>
+			<li Class="CompProperties_Spawner">
+				<thingToSpawn>GlowPod</thingToSpawn>
+				<spawnCount>1</spawnCount>
+				<spawnIntervalRange>30000~60000</spawnIntervalRange>
+				<spawnMaxAdjacent>1</spawnMaxAdjacent>
+				<saveKeysPrefix>pod</saveKeysPrefix>
+				<inheritFaction>true</inheritFaction>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<heatPerSecond>6</heatPerSecond>
+				<heatPushMaxTemperature>38</heatPushMaxTemperature>
+			</li>
+			<li Class="CompProperties_SpawnerFilth">
+				<filthDef>Filth_Slime</filthDef>
+				<spawnCountOnSpawn>10</spawnCountOnSpawn>
+				<spawnMtbHours>4</spawnMtbHours>
+				<spawnRadius>5</spawnRadius>
+			</li>
+			<li Class="CompProperties_Maintainable">
+				<ticksHealthy>60000</ticksHealthy>
+				<ticksNeedsMaintenance>60000</ticksNeedsMaintenance>
+				<damagePerTickRare>10</damagePerTickRare>
+			</li>
+		</comps>
+	</ThingDef>
+	
+
+	<ThingDef ParentName="BuildingNaturalBase">
+		<defName>VGE_GiantWormspitter</defName>
+		<label>giant wormspitter</label>
+		<description>A massive megaworm partially buried within an asteroid, with only its spitting apparatus exposed. This creature is adept at launching specialized pods over considerable distances that rupture on impact, releasing aggressive exoworms. It serves as a long-range defense for the infested asteroids and exohives.</description>
+		<uiIconPath>Things/Insectoids/Structures/GiantWormspitter_MenuIcon</uiIconPath>
+		<thingClass>Building_TurretGun</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<killedLeavings>
+			<InsectJelly>40</InsectJelly>
+		</killedLeavings>
+		<graphicData>
+			<texPath>Things/Insectoids/Structures/InsectoidGravshipTurret_Base</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2.5, 2.5)</drawSize>
+			<drawOffset>(0,0,-0.1)</drawOffset>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+			<shadowData>
+				<volume>(1.5,0.35,1.4)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<stealable>false</stealable>
+		<rotatable>false</rotatable>
+		<size>(3,3)</size>
+		<statBases>
+			<MaxHitPoints>600</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<MarketValue>1150</MarketValue>
+			<ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<fillPercent>0.3</fillPercent>
+		<hasTooltip>true</hasTooltip>
+		<soundImpactDefault>Hive_Spawn</soundImpactDefault>
+
+		<building>
+			<turretTopDrawSize>3</turretTopDrawSize>
+			<turretGunDef>VGE_GiantWormspitter_Gun</turretGunDef>
+			<destroySound>Hive_Spawn</destroySound>
+			<playTargetAcquiredSound>false</playTargetAcquiredSound>
+			<turretBurstCooldownTime>25</turretBurstCooldownTime>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<designationHotKey>Misc3</designationHotKey>
+		<uiIconScale>0.95</uiIconScale>
+		<comps>
+			<li Class="CompProperties_SelfhealHitpoints">
+				<ticksPerHeal>250</ticksPerHeal>
+				<!-- 60k ticks = 1 day, 10 hp per day -->
+			</li>
+			
+			<li Class="VEF.Buildings.CompProperties_BuildingCalls">
+				<soundDefs>
+					<li>Pawn_BigInsect_Call</li>
+				</soundDefs>
+				<interval>6~12</interval>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>VGE_GiantWormspitter_Gun</defName>
+		<label>giant wormspitter</label>
+			<description>A massive megaworm partially buried within an asteroid, with only its spitting apparatus exposed. This creature is adept at launching specialized pods over considerable distances that rupture on impact, releasing aggressive exoworms. It serves as a long-range defense for the infested asteroids and exohives.</description>
+		<graphicData>
+			<texPath>Things/Insectoids/Structures/GiantWormspitter_TurretTop</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<RangedWeapon_Cooldown>12.5</RangedWeapon_Cooldown>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Mass>40</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+				<warmupTime>12.5</warmupTime>
+				
+				<defaultCooldownTime>12.5</defaultCooldownTime>
+			
+				<defaultProjectile>VGE_GiantWormspitter_Projectile</defaultProjectile>
+				<requireLineOfSight>false</requireLineOfSight>
+				<minRange>3.9</minRange>
+				<range>500</range>
+				<burstShotCount>1</burstShotCount>
+				<!--<soundCast>VFEI2_AcidSpray_Resolve</soundCast>-->
+				<muzzleFlashScale>16</muzzleFlashScale>
+				<consumeFuelPerShot>0</consumeFuelPerShot>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+	<ThingDef ParentName="BaseGrenadeProjectile">
+		<defName>VGE_GiantWormspitter_Projectile</defName>
+		<label>giant wormspitter projectile</label>
+		<graphicData>
+			<texPath>Things/Projectile/ExowormProjectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<thingClass>Projectile_SpawnsThing</thingClass>
+		<projectile>
+			<speed>21</speed>
+			<flyOverhead>true</flyOverhead>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>0</damageAmountBase>
+			
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>Hive_Spawn</soundExplode>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+			<spawnsThingDef>VGE_GiantWormspitter_Releaser</spawnsThingDef>
+			<tryAdjacentFreeSpaces>true</tryAdjacentFreeSpaces>
+		</projectile>
+	</ThingDef>
+</Defs>

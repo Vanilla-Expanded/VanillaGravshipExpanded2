@@ -20,6 +20,10 @@ namespace VanillaGravshipExpanded2
 
 		public static HediffDef VGE_ExowormInfestation;
 
+		public static ThingDef VGE_GiantWormspitter;
+
+		public static SoundDef VEG_InsectoidTurretTargetAcquired;
+
 
     }
 }

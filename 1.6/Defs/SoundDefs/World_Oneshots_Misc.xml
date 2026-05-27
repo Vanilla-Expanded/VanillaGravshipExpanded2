@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Defs>
+
+
+	<SoundDef>
+		<defName>VEG_InsectoidTurretTargetAcquired</defName>
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<onCamera>true</onCamera>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Misc/InsectTurret/InsectTurret_LockOn</clipPath>
+					</li>
+				</grains>
+				<volumeRange>50</volumeRange>
+				<muteWhenPaused>False</muteWhenPaused>
+				<tempoAffectedByGameSpeed>False</tempoAffectedByGameSpeed>
+			</li>
+		</subSounds>
+	</SoundDef>
+</Defs>

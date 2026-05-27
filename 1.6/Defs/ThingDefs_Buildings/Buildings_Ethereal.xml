@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="BuildingNaturalBase">
+		<defName>VGE_GiantWormspitter_Releaser</defName>
+		<label>exoworm</label>
+		<description>An incoming exoworm.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Things/Projectile/ExowormProjectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.3</fillPercent>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<Flammability>0.4</Flammability>
+			<Beauty>-6</Beauty>
+		</statBases>
+		<building>
+			<isInert>true</isInert>
+			<claimable>false</claimable>
+			<deconstructible>false</deconstructible>
+			<repairable>false</repairable>
+			<quickTargetable>true</quickTargetable>
+			<isTargetable>true</isTargetable>
+			<expandHomeArea>false</expandHomeArea>
+		</building>
+		<comps>
+			<li Class="CompProperties_Lifespan">
+				<lifespanTicks>1</lifespanTicks>
+			</li>
+			<li Class="VanillaGravshipExpanded2.CompProperties_SpawnPawnOnDestroyed">
+				<filthCreated>Filth_Slime</filthCreated>
+				<filthCountRange>1~2</filthCountRange>
+				<pawnKind>VGE_Exoworm</pawnKind>
+				<sound>Hive_Spawn</sound>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>
