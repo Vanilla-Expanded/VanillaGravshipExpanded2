@@ -15,12 +15,15 @@ namespace VanillaGravshipExpanded2
         {
             if (parent.PositionHeld.InBounds(previousMap))
             {
-                for (int i = 0; i < Props.filthCountRange.RandomInRange; i++)
-                {
-                    IntVec3 c;
-                    CellFinder.TryFindRandomReachableNearbyCell(parent.PositionHeld, previousMap, 2, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out c);
-                    FilthMaker.TryMakeFilth(c, previousMap, Props.filthCreated);
+                if (parent.PositionHeld.GetTerrain(previousMap) != null) {
+                    for (int i = 0; i < Props.filthCountRange.RandomInRange; i++)
+                    {
+                        IntVec3 c;
+                        CellFinder.TryFindRandomReachableNearbyCell(parent.PositionHeld, previousMap, 2, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out c);
+                        FilthMaker.TryMakeFilth(c, previousMap, Props.filthCreated);
+                    }
                 }
+                
                 if (Props.sound != null)
                 {
                     Props.sound.PlayOneShot(new TargetInfo(parent.PositionHeld, previousMap, false));

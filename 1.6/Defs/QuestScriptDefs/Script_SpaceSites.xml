@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<QuestScriptDef>
+		<defName>VGE_OpportunitySite_InfestedAsteroid</defName>
+		<randomlySelectable>false</randomlySelectable>
+		<givenBy>
+			<li>OrbitalScanner</li>
+		</givenBy>
+		<rootSelectionWeight>1</rootSelectionWeight>
+		<isRootSpecial>true</isRootSpecial>
+		<autoAccept>true</autoAccept>
+		<questNameRules>
+			<rulesStrings>
+				<li>questName->Infested Asteroid</li>
+			</rulesStrings>
+		</questNameRules>
+		<questDescriptionRules>
+			<rulesStrings>
+				<li>questDescription-> [discoveryMethod] the location of an asteroid infested with insectoids. The creatures have carved tunnels into the rock, filling them with debris and salvage from passing wrecks.\n\nThe asteroid could hold great value, but the infestation will not be easy to dislodge. You detect clear signs of insectoid activity.\n\nYou can reach the asteroid with transport pods, shuttles, or a gravship. Equip your colonists with sufficient orbital apparel before departing.</li>
+			</rulesStrings>
+		</questDescriptionRules>
+		<questDescriptionAndNameRules>
+			<rulesStrings>
+      </rulesStrings>
+		</questDescriptionAndNameRules>
+		<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+		<root Class="QuestNode_Sequence">
+			<nodes>
+				<li Class="QuestNode_IsSet">
+					<name>discoveryMethod</name>
+					<elseNode Class="QuestNode_RandomNode">
+						<nodes>
+							<li Class="QuestNode_Set">
+								<name>discoveryMethod</name>
+								<value>You have discovered</value>
+							</li>
+						</nodes>
+					</elseNode>
+				</li>
+				<li Class="QuestNode_Root_Asteroid">
+					<layerDef>Orbit</layerDef>
+					<worldObjectDef>VGE_InfestedAsteroid</worldObjectDef>
+					
+				</li>
+			</nodes>
+		</root>
+	</QuestScriptDef>
+</Defs>

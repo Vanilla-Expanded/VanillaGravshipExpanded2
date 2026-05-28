@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<MapGeneratorDef ParentName="SpaceMapGenerator">
+		<defName>VGE_InfestedAsteroid</defName>
+		<label>infested asteroid</label>
+		<genSteps>
+			<li>VGE_InfestedAsteroid</li>
+			<li>VGE_InsectLair_Asteroid</li>
+			<li>AsteroidBasicTransportPods</li>
+			<li>AncientMiningCharge_Asteroid</li>
+			<li>AncientExplosivesCrate_Asteroid</li>
+			<li>AncientDrillPlatform_Asteroid</li>
+			<li>AncientTuneller_Asteroid</li>
+			<li>MechShipChunk_Asteroid</li>
+			<li>RockChunks</li>
+		</genSteps>
+	</MapGeneratorDef>
+	<GenStepDef>
+		<defName>VGE_InfestedAsteroid</defName>
+		<order>200</order>
+		<genStep Class="GenStep_Asteroid">
+			<numChunks>1~1</numChunks>
+			<ruinsChance>0.5</ruinsChance>
+			<archeanTreeChance>0.25</archeanTreeChance>
+			<mineableCounts>
+				<MineableGold>14~22</MineableGold>
+				<MineableSilver>50~70</MineableSilver>
+				<MineableSteel>80~110</MineableSteel>
+				<MineableUranium>15~25</MineableUranium>
+				<MineablePlasteel>12~15</MineablePlasteel>
+				<MineableComponentsIndustrial>65~85</MineableComponentsIndustrial>
+				<MineableJade>20~35</MineableJade>
+			</mineableCounts>
+		</genStep>
+	</GenStepDef>
+	<GenStepDef>
+		<defName>VGE_InsectLair_Asteroid</defName>
+		<order>551</order>
+		<genStep Class="VanillaGravshipExpanded2.GenStep_InsectLairAsteroid">
+			<wormKnotAmount>3~3</wormKnotAmount>
+			<wormspitterAmount>1~2</wormspitterAmount>
+			<exohiveAmount>5~9</exohiveAmount>
+			<mineableAmounts>2~4</mineableAmounts>
+			<eggSacsInRooms>10~15</eggSacsInRooms>
+			<mineableCounts>
+				<VGE_TwistedSteel>20~30</VGE_TwistedSteel>
+				<VGE_TwistedMachinery>3~6</VGE_TwistedMachinery>
+				<VGE_TwistedElectronics>1~2</VGE_TwistedElectronics>
+				<VGE_TwistedGravlite>3~10</VGE_TwistedGravlite>
+			</mineableCounts>
+		</genStep>
+	</GenStepDef>
+</Defs>

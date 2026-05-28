@@ -15,7 +15,7 @@
 		<fillPercent>0.3</fillPercent>
 		<rotatable>false</rotatable>
 		<tickerType>Normal</tickerType>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<terrainAffordanceNeeded/>
 		<statBases>
 			<MaxHitPoints>20</MaxHitPoints>
 			<Flammability>0.4</Flammability>
@@ -23,6 +23,7 @@
 		</statBases>
 		<building>
 			<isInert>true</isInert>
+			<isEdifice>false</isEdifice>
 			<claimable>false</claimable>
 			<deconstructible>false</deconstructible>
 			<repairable>false</repairable>

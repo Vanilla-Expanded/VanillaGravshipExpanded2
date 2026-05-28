@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+ 
+  <WorldObjectDef ParentName="GeneratedAsteroid">
+    <defName>VGE_InfestedAsteroid</defName>
+    <description>A vacstone asteroid that has been infested by insectoids. Inside, the creatures have collected debris and salvage from orbital wrecks. The infestation is strong, and any attempt to clear the asteroid will mean heavy resistance.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+    <label>infested asteroid</label>
+
+    <expandingIconTexture>UI/MapIcons/VGE_InfestedAsteroid</expandingIconTexture>
+    <mapGenerator>VGE_InfestedAsteroid</mapGenerator>
+  </WorldObjectDef>
+ 
+</Defs>
