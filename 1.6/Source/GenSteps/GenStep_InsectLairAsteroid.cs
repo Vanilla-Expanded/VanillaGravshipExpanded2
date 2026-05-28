@@ -35,6 +35,7 @@ namespace VanillaGravshipExpanded2
         public IntRange wormspitterAmount;
         public IntRange exohiveAmount;
         public IntRange mineableAmounts;
+        public IntRange eggSacsInRooms;
 
         private enum ThreatPOIType
         {
@@ -279,7 +280,7 @@ namespace VanillaGravshipExpanded2
                     switch (miscPOIType)
                     {
                         case MiscPOIType.EggSacs:
-                            GenerateEggSacs(intVec, map, Rand.Range(5, 10));
+                            GenerateEggSacs(intVec, map, eggSacsInRooms.RandomInRange);
                             GenerateHermeticCratePOI(intVec, map);
                             break;
                         case MiscPOIType.BoomShrooms:
@@ -384,35 +385,6 @@ namespace VanillaGravshipExpanded2
         }
 
 
-
-        private void GenerateBossRoom(IntVec3 loc, Map map)
-        {
-            if (!CellFinder.TryRandomClosewalkCellNear(loc, map, 5, out var result))
-            {
-                return;
-            }
-            Pawn pawn = PawnGenerator.GeneratePawn(PawnKindDefOf.HiveQueen, Faction.OfInsects);
-            pawn.TryGetComp<CompCanBeDormant>().ToSleep();
-            GenSpawn.Spawn(pawn, result, map);
-            LordMaker.MakeNewLord(Faction.OfInsects, new LordJob_HiveQueen(Faction.OfInsects, result, 12f, sendWokenUpMessage: false), map, Gen.YieldSingle(pawn));
-            int num = Rand.Range(3, 4);
-            GenerateEggSacs(loc, map, num);
-            int num2 = (int)BossHivesThreatPointsCurve.Evaluate(StorytellerUtility.DefaultThreatPointsNow(Find.AnyPlayerHomeMap));
-            for (int i = 0; i < num2; i++)
-            {
-                if (CellFinder.TryRandomClosewalkCellNear(loc, map, 5, out var result2, (IntVec3 c) => GenSpawn.CanSpawnAt(ThingDefOf.Hive, c, map)))
-                {
-                    HiveUtility.SpawnHive(result2, map, WipeMode.VanishOrMoveAside, spawnInsectsImmediately: false, canSpawnHives: false, canSpawnInsects: true, dormant: true);
-                }
-            }
-
-            Rot4 rot = Rot4.Random;
-            if (CellFinder.TryRandomClosewalkCellNear(loc, map, 5, out var result3, (IntVec3 c) => GenSpawn.CanSpawnAt(ThingDefOf.AncientHermeticCrate, c, map, rot)))
-            {
-                RoomGenUtility.SpawnCrate(ThingDefOf.AncientHermeticCrate, result3, map, rot, ThingSetMakerDefOf.MapGen_HighValueCrate);
-            }
-
-        }
 
         private void GenerateInsectHivePOI(IntVec3 loc, Map map)
         {
