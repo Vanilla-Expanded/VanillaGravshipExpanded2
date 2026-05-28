@@ -215,7 +215,7 @@
 		<thingClass>Building</thingClass>
 		<category>Building</category>
 		<graphicData>
-			<texPath>Things/Building/EggSac</texPath>
+			<texPath>Things/Insectoids/Structures/ExowormEggSac</texPath>
 			<graphicClass>Graphic_Random</graphicClass>
 		</graphicData>
 		<altitudeLayer>Building</altitudeLayer>
@@ -257,7 +257,8 @@
 		<label>exoworm cocoon</label>
 		<description>A stasis cocoon containing an exoworm.\n\nWhen conditions are inhospitable, insects sometimes form stasis cocoons and burrow underground. These cocoons keep insects safe from fire, extreme temperatures, and other threats for years.\n\nPollutants can stimulate cocoons and cause them to resurface, and strong pollutants can attract cocoons from great distances.\n\nCocoons do nothing if they are not disturbed. If a cocoon is disturbed or destroyed, the insect within will awaken and attack, triggering other nearby cocoons in the process.</description>
 		<graphicData>
-			<texPath>Things/Building/CocoonLocust</texPath>
+			<texPath>Things/Insectoids/Structures/CocoonExoworm</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
 		</graphicData>
 		<building>
 			<combatPower>55</combatPower>
