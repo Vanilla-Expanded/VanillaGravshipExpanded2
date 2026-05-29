@@ -40,8 +40,10 @@
 			<wormKnotAmount>3~3</wormKnotAmount>
 			<wormspitterAmount>1~2</wormspitterAmount>
 			<exohiveAmount>5~9</exohiveAmount>
-			<mineableAmounts>2~4</mineableAmounts>
+			<mineableAmounts>1~2</mineableAmounts>
 			<eggSacsInRooms>10~15</eggSacsInRooms>
+			<numMiscPOIsRange>6~10</numMiscPOIsRange>
+			<numThreatPOIsRange>4~7</numThreatPOIsRange>
 			<mineableCounts>
 				<VGE_TwistedSteel>20~30</VGE_TwistedSteel>
 				<VGE_TwistedMachinery>3~6</VGE_TwistedMachinery>

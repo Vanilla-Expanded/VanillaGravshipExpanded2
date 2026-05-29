@@ -36,6 +36,8 @@ namespace VanillaGravshipExpanded2
         public IntRange exohiveAmount;
         public IntRange mineableAmounts;
         public IntRange eggSacsInRooms;
+        public IntRange numMiscPOIsRange;
+        public IntRange numThreatPOIsRange;
 
         private enum ThreatPOIType
         {
@@ -46,8 +48,7 @@ namespace VanillaGravshipExpanded2
         private enum MiscPOIType
         {
             EggSacs,
-            BoomShrooms,
-            Mushrooms,
+            Metals,
             Corpses
         }
 
@@ -65,10 +66,7 @@ namespace VanillaGravshipExpanded2
 
         private const int BurrowWallSize = 154;
 
-        private static readonly IntRange NumThreatPOIsRange = new IntRange(2, 3);
-
-        private static readonly IntRange NumMiscPOIsRange = new IntRange(3, 5);
-
+    
         private static readonly IntRange GravlitePanelCount = new IntRange(100, 150);
 
         private static readonly SimpleCurve HivesFromThreatPointsCurve = new SimpleCurve
@@ -79,7 +77,7 @@ namespace VanillaGravshipExpanded2
         new CurvePoint(10000f, 8f)
     };
 
-       
+
 
         private static readonly SimpleCurve HiveThreatPointsCurve = new SimpleCurve
     {
@@ -118,8 +116,8 @@ namespace VanillaGravshipExpanded2
                 }
             }
 
-          
-            for (int i = 0; i < NumThreatPOIsRange.max + NumMiscPOIsRange.max + 1; i++)
+
+            for (int i = 0; i < numThreatPOIsRange.max + numMiscPOIsRange.max + 1; i++)
             {
                 IntVec3 pOILocation = GetPOILocation(map);
                 if (pOILocation.IsValid)
@@ -241,7 +239,7 @@ namespace VanillaGravshipExpanded2
 
         private void GenerateThreatPOIs(Map map)
         {
-            int randomInRange = NumThreatPOIsRange.RandomInRange;
+            int randomInRange = numThreatPOIsRange.RandomInRange;
             for (int i = 0; i < randomInRange; i++)
             {
                 ThreatPOIType threatPOIType = Rand.EnumValue<ThreatPOIType>();
@@ -259,7 +257,7 @@ namespace VanillaGravshipExpanded2
                         case ThreatPOIType.InsectCocoons:
                             GenerateInsectCocoonPOI(intVec, map);
                             break;
-                        
+
                     }
                 }
             }
@@ -267,7 +265,7 @@ namespace VanillaGravshipExpanded2
 
         private void GenerateMiscPOIs(Map map)
         {
-            int randomInRange = NumMiscPOIsRange.RandomInRange;
+            int randomInRange = numMiscPOIsRange.RandomInRange;
             for (int i = 0; i < randomInRange; i++)
             {
                 MiscPOIType miscPOIType = Rand.EnumValue<MiscPOIType>();
@@ -283,20 +281,16 @@ namespace VanillaGravshipExpanded2
                             GenerateEggSacs(intVec, map, eggSacsInRooms.RandomInRange);
                             GenerateHermeticCratePOI(intVec, map);
                             break;
-                        case MiscPOIType.BoomShrooms:
-                            GeneratePlants(ThingDefOf.Boomshroom, intVec, map, Rand.Range(5, 10));
+                        case MiscPOIType.Metals:
+                            GenerateRandomMetal(intVec, map);
                             GenerateHermeticCratePOI(intVec, map);
                             break;
-                        case MiscPOIType.Mushrooms:
-                            GeneratePlants(ThingDefOf.Plant_Psilocap, intVec, map, Rand.Range(5, 10));
-                            GeneratePlants(ThingDefOf.Agarilux, intVec, map, Rand.Range(5, 10));
-                            GenerateHermeticCratePOI(intVec, map);
-                            break;
+
                         case MiscPOIType.Corpses:
                             GenStep_UndercaveInterest.GenerateCorpsePile(map, intVec);
                             GenerateHermeticCratePOI(intVec, map);
                             break;
-                      
+
 
                     }
                 }
@@ -384,7 +378,23 @@ namespace VanillaGravshipExpanded2
             }
         }
 
+        private void GenerateRandomMetal(IntVec3 loc, Map map)
+        {
+            MineableCountConfig mineable = mineableCounts.RandomElement();
 
+            ThingDef thingDef = mineable?.mineable;
+            if (thingDef != null)
+            {              
+                foreach (IntVec3 item in GridShapeMaker.IrregularLump(loc, map, mineable.countRange.RandomInRange, Validator))
+                {
+                    GenSpawn.Spawn(thingDef, item, map);                 
+                }
+                bool Validator(IntVec3 cell)
+                {                    
+                        return true;                    
+                }
+            }
+        }
 
         private void GenerateInsectHivePOI(IntVec3 loc, Map map)
         {
@@ -413,17 +423,7 @@ namespace VanillaGravshipExpanded2
             }
         }
 
-        private void GeneratePlants(ThingDef plantDef, IntVec3 loc, Map map, int count)
-        {
-            for (int i = 0; i < count; i++)
-            {
-                Thing thing = ThingMaker.MakeThing(plantDef);
-                if (GenPlace.TryPlaceThing(thing, loc, map, ThingPlaceMode.Radius, out var _, null, (IntVec3 c) => c.GetPlant(map) == null, null, 5))
-                {
-                    (thing as Plant).Growth = Mathf.Clamp01(WildPlantSpawner.InitialGrowthRandomRange.RandomInRange);
-                }
-            }
-        }
+
 
         private void TryPlaceSludge(IntVec3 cell, Map map)
         {
