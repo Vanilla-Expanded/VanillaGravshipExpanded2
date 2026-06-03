@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ResearchProjectDef ParentName="VGE_GravtechResearchBase">
+    <defName>VGE_AdvancedGravshipWeaponry</defName>
+    <label>advanced gravship weaponry</label>
+    <description>Construct advanced gravship weaponry and targeting consoles, as well as gravship bombardment targeters.</description>
+    <baseCost>1600</baseCost>
+    <prerequisites>
+      <li>AdvancedGravtech</li>
+    </prerequisites>
+    <researchViewX>5.00</researchViewX>
+    <researchViewY>1.50</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="VGE_GravtechResearchBase">
+    <defName>VGE_GravshipDefenses</defName>
+    <label>gravship defenses</label>
+    <description>Reinforce the gravship by constructing gravship armor and subarmor, as well as gravship shield generators, making it much more resistant to enemy fire.</description>
+    <baseCost>1600</baseCost>
+    <prerequisites>
+      <li>AdvancedGravtech</li>
+    </prerequisites>
+    <researchViewX>5.00</researchViewX>
+    <researchViewY>2.50</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="VGE_GravtechResearchBase">
+    <defName>VGE_AdvancedOrbitalTech</defName>
+    <label>advanced orbital tech</label>
+    <description>Construct various buildings and apparel that improve the comfort and security of living in harsh vacuum of space.</description>
+    <baseCost>1600</baseCost>
+    <prerequisites>
+      <li>AdvancedGravtech</li>
+    </prerequisites>
+    <researchViewX>5.00</researchViewX>
+    <researchViewY>3.50</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="VGE_GravtechResearchBase">
+    <defName>VGE_Warpods</defName>
+    <label>warpods</label>
+    <description>Develop and construct various warpods for planetary bombardment, including high-explosive, EMP, incendiary and antigrain, as well as a way to rapidly deploy your boarding parties using hellpods.</description>
+    <baseCost>1600</baseCost>
+    <prerequisites>
+      <li>AdvancedGravtech</li>
+    </prerequisites>
+    <researchViewX>5.00</researchViewX>
+    <researchViewY>4.50</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>
