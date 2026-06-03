@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <RootNamespace>VanillaGravshipExpanded2</RootNamespace>
     <AssemblyName>VanillaGravshipExpanded2</AssemblyName>
     <LangVersion>latest</LangVersion>
@@ -43,6 +43,9 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="VanillaGravshipExpanded">
+      <HintPath>..\..\..\VanillaGravshipExpanded\1.6\Assemblies\VanillaGravshipExpanded.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
