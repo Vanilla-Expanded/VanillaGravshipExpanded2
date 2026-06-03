@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="VanillaGravshipExpanded">
       <HintPath>..\..\..\VanillaGravshipExpanded\1.6\Assemblies\VanillaGravshipExpanded.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
