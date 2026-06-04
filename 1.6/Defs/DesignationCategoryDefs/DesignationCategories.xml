@@ -10,7 +10,7 @@
 		<modExtensions>
 			<li Class="VanillaGravshipExpanded.NestedCategoryExtension">
 				<parentCategory>Odyssey</parentCategory>
-				<iconTexPath>UI/SubcategoryIcons/SubcategoryIcon_Platform</iconTexPath>
+				<iconTexPath>UI/SubcategoryIcons/SubcategoryIcon_Designer</iconTexPath>
 			</li>
 		</modExtensions>
 	</DesignationCategoryDef>

@@ -73,7 +73,7 @@
 		<drawHighlight>true</drawHighlight>
 		<drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
 		<building>
-			<turretTopDrawSize>2</turretTopDrawSize>
+			<turretTopDrawSize>2.5</turretTopDrawSize>
 			<ai_combatDangerous>true</ai_combatDangerous>
 		</building>
 		<placeWorkers>
