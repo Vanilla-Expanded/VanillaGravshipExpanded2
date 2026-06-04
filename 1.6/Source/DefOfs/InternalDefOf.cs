@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +32,14 @@ namespace VanillaGravshipExpanded2
         public static PawnKindDef VGE_ExowormKnot;
 
         public static SoundDef VEG_InsectoidTurretTargetAcquired;
-
-
+		public static TerrainDef VGE_GravshipSubarmor;
+		public static DesignationCategoryDef VGE_Designer;
+		public static DesignationCategoryDef Odyssey;
+		[DefAlias("VGE_EmptySpace")]
+		public static WorldObjectDef VGE_EmptySpaceObj;
+		public static MapGeneratorDef VGE_EmptySpace;
+		public static SoundDef OrbitalTargeter_Fire;
+		public static StatDef VGE_GravshipTargeting;
+		public static ThingDef VGE_GravshipArmor;
     }
 }

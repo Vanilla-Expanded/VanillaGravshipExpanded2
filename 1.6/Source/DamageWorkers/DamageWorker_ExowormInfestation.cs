@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -8,8 +8,8 @@ namespace VanillaGravshipExpanded2
 {
     public class DamageWorker_ExowormInfestation : DamageWorker_Bite
     {
-     
-        protected override void ApplySpecialEffectsToPart(Pawn pawn, float totalDamage, DamageInfo dinfo, DamageWorker.DamageResult result)
+
+        public override void ApplySpecialEffectsToPart(Pawn pawn, float totalDamage, DamageInfo dinfo, DamageWorker.DamageResult result)
         {
             base.ApplySpecialEffectsToPart(pawn, totalDamage, dinfo, result);
             if (!pawn.IsGhoul && !pawn.RaceProps.IsMechanoid && pawn.genes?.HasActiveGene(InternalDefOf.PerfectImmunity)!=true
@@ -24,8 +24,6 @@ namespace VanillaGravshipExpanded2
                     pawn.health.AddHediff(InternalDefOf.VGE_ExowormInfestation, dinfo.HitPart, null, null);
                 }
 
-                    
-               
             }
 
         }

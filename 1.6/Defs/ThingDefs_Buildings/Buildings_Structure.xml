@@ -196,4 +196,43 @@
 		<filthLeaving>Filth_MachineBits</filthLeaving>
 		<scatterableOnMapGen>false</scatterableOnMapGen>
 	</ThingDef>
+
+	<ThingDef ParentName="Wall">
+		<defName>VGE_GravshipArmor</defName>
+		<label>gravship armor</label>
+		<description>A heavily reinforced airtight wall designed to withstand extreme impacts and hostile fire in the vacuum of space. The wall connects directly into the underlying substructure, meaning it can only be built on a gravship.</description>
+		<graphicData>
+			<texPath>Things/Structures/Platform/Gravarmor/GravshipArmorHull_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<uiIconPath>Things/Structures/Platform/Gravarmor/GravshipArmorHull_MenuIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>2000</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>900</WorkToBuild>
+		</statBases>
+		<passability>Impassable</passability>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>1</staticSunShadowHeight>
+		<useStuffTerrainAffordance>false</useStuffTerrainAffordance>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<designationCategory>VGE_Platform</designationCategory>
+		<uiOrder>1851</uiOrder>
+		<building>
+			<isAirtight>true</isAirtight>
+		</building>
+		<costList>
+			<GravlitePanel>1</GravlitePanel>
+		</costList>
+		<stuffCategories Inherit="False">
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>14</costStuffCount>
+		<researchPrerequisites>
+			<li>VGE_GravshipDefenses</li>
+		</researchPrerequisites>
+	</ThingDef>
 </Defs>

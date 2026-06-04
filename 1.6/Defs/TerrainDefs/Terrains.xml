@@ -47,11 +47,14 @@
         <label>ancient substructure</label>
         <description>A foundation of an orbital vessel, now twisted and warped. Doesn't seem to offer anything of value.</description>
         <texturePath>Terrain/AncientSubstructureTerrain</texturePath>
+        <uiIconPath>Terrain/AncientSubstructure_MenuIcon</uiIconPath>
         <fertility>0</fertility>
         <pathCost>3</pathCost>
         <edgeType>Hard</edgeType>
         <renderPrecedence>399</renderPrecedence>
         <designationCategory>VGE_Designer</designationCategory>
+        <isFoundation>true</isFoundation>
+        <layerable>true</layerable>
         <affordances Inherit="false">
             <li>Substructure</li>
             <li>Walkable</li>
@@ -61,6 +64,7 @@
         </statBases>
         <tags>
             <li>Substructure</li>
+            <li>VGE_AncientSubstructure</li>
         </tags>
     </TerrainDef>
 
@@ -69,6 +73,7 @@
         <label>subcreep</label>
         <description>An insectoid-made lightweight sponge-goop structure with creep on top that forms the surface of an exohive. Only things on top of this substructure can be lifted by the grav engine's levitation field. This floor must be constructed within range of a grav engine. Supports insectoid structures and significantly hinders non-insectoid movement.</description>
         <texturePath>Terrain/Subcreep</texturePath>
+        <uiIconPath>Terrain/Subcreep_MenuIcon</uiIconPath>
         <edgeType>FadeRough</edgeType>
         <renderPrecedence>70</renderPrecedence>
         <isPaintable>false</isPaintable>
@@ -83,6 +88,8 @@
             <MarketValue>14</MarketValue>
             <Mass>1</Mass>
         </statBases>
+        <isFoundation>true</isFoundation>
+        <terrainAffordanceNeeded IsNull="True"></terrainAffordanceNeeded>
         <affordances Inherit="false">
             <li MayRequire="OskarPotocki.VFE.Insectoid2">VFEI2_Creep</li>
             <li>Substructure</li>
@@ -95,7 +102,24 @@
             <li>Substructure</li>
             <li>VFEI2_Creep</li>
             <li>DestroyableByArtillery</li>
+            <li>VGE_Subcreep</li>
         </tags>
+        <spaceEdgeGraphicData>
+            <OShapeTexPath>Terrain/SubcreepBorder/SubcreepBorder_OShape</OShapeTexPath>
+            <UShapeTexPath>Terrain/SubcreepBorder/SubcreepBorder_UShape</UShapeTexPath>
+            <CornerInnerTexPath>Terrain/SubcreepBorder/SubcreepBorder_CornerInner</CornerInnerTexPath>
+            <CornerOuterTexPath>Terrain/SubcreepBorder/SubcreepBorder_CornerOuter</CornerOuterTexPath>
+            <FlatTexPath>Terrain/SubcreepBorder/SubcreepBorder_Flat</FlatTexPath>
+            <LoopLeftTexPath>Terrain/SubcreepBorder/SubcreepProps_Right</LoopLeftTexPath>
+            <LoopRightTexPath>Terrain/SubcreepBorder/SubcreepProps_Right</LoopRightTexPath>
+            <LoopSingleTexPath>Terrain/SubcreepBorder/SubcreepProps_Right</LoopSingleTexPath>
+            <LoopTexPaths>
+                <li>Terrain/SubcreepBorder/SubcreepProps_Loops</li>
+            </LoopTexPaths>
+        </spaceEdgeGraphicData>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.SubstructureEdgeGraphicsExtension" />
+        </modExtensions>
     </TerrainDef>
 
 </Defs>

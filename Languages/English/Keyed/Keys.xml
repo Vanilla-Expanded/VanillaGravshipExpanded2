@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
-	
+	<VGE_GenerateEmptyOrbit>Generate empty orbit</VGE_GenerateEmptyOrbit>
+	<VGE_GenerateEmptyOrbitDesc>Open up an empty orbital map to build prefabs for export on.</VGE_GenerateEmptyOrbitDesc>
+	<VGE_FireBombardmentTargeter>Fire {0}</VGE_FireBombardmentTargeter>
+	<VGE_FireBombardmentTargeterDesc>Fire {0} at target location. The gravship bombardment targeter will enter a brief cooldown period before it can be used to fire again.</VGE_FireBombardmentTargeterDesc>
+	<VGE_TargeterOnCooldown>Cooldown: {0}</VGE_TargeterOnCooldown>
+	<VGE_TargeterNoAmmo>Can't fire: No ammo.</VGE_TargeterNoAmmo>
+	<VGE_NeedsLinkedTargetingTerminal>Can't fire: Needs a linked targeting terminal.</VGE_NeedsLinkedTargetingTerminal>
+	<VGE_TargeterOutOfRange>Can't fire: Out of range.</VGE_TargeterOutOfRange>
+	<VGE_TargetingConsoleOnlyGravshipArtillery>Targeting console can only link with gravship artillery.</VGE_TargetingConsoleOnlyGravshipArtillery>
+	<VGE_LinkWithTurretConsoleDesc>Select a turret to link with. This targeting console will be used to operate that turret.</VGE_LinkWithTurretConsoleDesc>
+	<VGE_UnlinkWithTurretConsoleDesc>Break the current link to a turret, allowing you to link with a different turret.</VGE_UnlinkWithTurretConsoleDesc>
+	<VGE_SelectLinkedTurretConsoleDesc>Show the linked turret.</VGE_SelectLinkedTurretConsoleDesc>
+	<VGE_LinkWithTurretTargeterDesc>Select a turret to link with. This orbital targeter will be used to operate that turret.</VGE_LinkWithTurretTargeterDesc>
+	<VGE_UnlinkWithTurretTargeterDesc>Break the current link to a turret, allowing you to link with a different turret.</VGE_UnlinkWithTurretTargeterDesc>
+	<VGE_SelectLinkedTurretTargeterDesc>Show the linked turret.</VGE_SelectLinkedTurretTargeterDesc>
 </LanguageData>
