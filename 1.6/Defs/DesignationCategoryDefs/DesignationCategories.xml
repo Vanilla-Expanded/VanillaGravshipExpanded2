@@ -1,0 +1,17 @@
+<Defs>
+	<DesignationCategoryDef>
+		<defName>VGE_Designer</defName>
+		<label>designer</label>
+		<description>Structures for designing gravships.</description>
+		<order>150</order>
+		<specialDesignatorClasses>
+			<li>VanillaGravshipExpanded2.Designator_GenerateEmptyOrbit</li>
+		</specialDesignatorClasses>
+		<modExtensions>
+			<li Class="VanillaGravshipExpanded.NestedCategoryExtension">
+				<parentCategory>Odyssey</parentCategory>
+				<iconTexPath>UI/SubcategoryIcons/SubcategoryIcon_Platform</iconTexPath>
+			</li>
+		</modExtensions>
+	</DesignationCategoryDef>
+</Defs>
