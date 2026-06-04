@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/PawnKindDef[@Name="InsectKindBase"]/moveSpeedFactorByTerrainTag</xpath>
+    <value>
+      <li>
+        <key>VGE_Subcreep</key>
+        <value>4.75</value>
+      </li>
+    </value>
+  </Operation>
+</Patch>

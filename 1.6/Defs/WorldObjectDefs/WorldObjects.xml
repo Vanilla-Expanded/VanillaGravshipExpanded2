@@ -9,5 +9,35 @@
     <expandingIconTexture>UI/MapIcons/VGE_InfestedAsteroid</expandingIconTexture>
     <mapGenerator>VGE_InfestedAsteroid</mapGenerator>
   </WorldObjectDef>
- 
+
+    <WorldObjectDef ParentName="SpaceSite">
+        <defName>VGE_EmptySpace</defName>
+        <label>empty space</label>
+        <description>An empty space.</description>
+        <canBePlayerHome>true</canBePlayerHome>
+        <treatAsPlayerHome>true</treatAsPlayerHome>
+        <worldObjectClass>VanillaGravshipExpanded2.EmptySpace</worldObjectClass>
+        <canHaveMap>true</canHaveMap>
+        <modExtensions>
+            <li Class="VEF.Maps.WorldObjectExtension">
+                <disableObjectSpawnDefs>true</disableObjectSpawnDefs>
+            </li>
+        </modExtensions>
+    </WorldObjectDef>
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>VGE_EmptySpace</defName>
+        <label>empty space</label>
+        <ignoreAreaRevealedLetter>true</ignoreAreaRevealedLetter>
+        <disableCallAid>true</disableCallAid>
+        <genSteps>
+            <li>VGE_EmptySpace</li>
+        </genSteps>
+    </MapGeneratorDef>
+
+    <GenStepDef>
+        <defName>VGE_EmptySpace</defName>
+        <order>100</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_EmptySpace" />
+    </GenStepDef>
+	
 </Defs>
