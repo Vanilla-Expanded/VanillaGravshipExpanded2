@@ -1,0 +1,48 @@
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/TerrainDef[defName="OrbitalPlatform"]</xpath>
+        <value>
+            <designationCategory>VGE_Designer</designationCategory>
+            <uiIconPath>Terrain/OrbitalPlatform_MenuIcon</uiIconPath>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/TerrainDef[defName="MechanoidPlatform"]</xpath>
+        <value>
+            <designationCategory>VGE_Designer</designationCategory>
+            <uiIconPath>Terrain/MechanoidOrbitalPlatform_MenuIcon</uiIconPath>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/TerrainDef[defName="Space"]</xpath>
+        <value>
+            <designationCategory>VGE_Designer</designationCategory>
+            <uiIconPath>Terrain/Space_MenuIcon</uiIconPath>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/TerrainDef[defName="VGE_AncientOrbitalPlatform"]</xpath>
+        <value>
+            <designationCategory>VGE_Designer</designationCategory>
+            <uiIconPath>Terrain/AncientOrbitalPlatform_MenuIcon</uiIconPath>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/TerrainDef[defName="VGE_MechanoidSubstructure"]</xpath>
+        <value>
+            <designationCategory>VGE_Designer</designationCategory>
+            <uiIconPath>Terrain/MechanoidSubstructure_MenuIcon</uiIconPath>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/TerrainDef[defName="VGE_DamagedSubstructure"]</xpath>
+        <value>
+            <designationCategory>VGE_Designer</designationCategory>
+        </value>
+    </Operation>
+</Patch>

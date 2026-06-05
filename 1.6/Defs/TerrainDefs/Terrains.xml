@@ -56,14 +56,12 @@
         <isFoundation>true</isFoundation>
         <layerable>true</layerable>
         <affordances Inherit="false">
-            <li>Substructure</li>
             <li>Walkable</li>
         </affordances>
         <statBases>
             <CleaningTimeFactor>0.9</CleaningTimeFactor>
         </statBases>
         <tags>
-            <li>Substructure</li>
             <li>VGE_AncientSubstructure</li>
         </tags>
     </TerrainDef>
@@ -92,14 +90,12 @@
         <terrainAffordanceNeeded IsNull="True"></terrainAffordanceNeeded>
         <affordances Inherit="false">
             <li MayRequire="OskarPotocki.VFE.Insectoid2">VFEI2_Creep</li>
-            <li>Substructure</li>
             <li>Walkable</li>
         </affordances>
         <fertility>0</fertility>
         <uiOrder>2020</uiOrder>
         <designationCategory>VGE_Designer</designationCategory>
         <tags>
-            <li>Substructure</li>
             <li>VFEI2_Creep</li>
             <li>DestroyableByArtillery</li>
             <li>VGE_Subcreep</li>
