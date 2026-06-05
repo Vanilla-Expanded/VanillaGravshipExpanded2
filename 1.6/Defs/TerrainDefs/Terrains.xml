@@ -64,10 +64,21 @@
         <tags>
             <li>VGE_AncientSubstructure</li>
         </tags>
+        <spaceEdgeGraphicData Inherit="False">
+            <OShapeTexPath>Terrain/AncientSubstructureBorder/AncientSubstructureBorder_OShape</OShapeTexPath>
+            <UShapeTexPath>Terrain/AncientSubstructureBorder/AncientSubstructureBorder_UShape</UShapeTexPath>
+            <CornerInnerTexPath>Terrain/AncientSubstructureBorder/AncientSubstructureBorder_CornerInner</CornerInnerTexPath>
+            <CornerOuterTexPath>Terrain/AncientSubstructureBorder/AncientSubstructureBorder_CornerOuter</CornerOuterTexPath>
+            <FlatTexPath>Terrain/AncientSubstructureBorder/AncientSubstructureBorder_Flat</FlatTexPath>
+            <LoopLeftTexPath>Terrain/AncientSubstructureProps/AncientSubstructureProps_Left</LoopLeftTexPath>
+            <LoopRightTexPath>Terrain/AncientSubstructureProps/AncientSubstructureProps_Right</LoopRightTexPath>
+            <LoopSingleTexPath>Terrain/AncientSubstructureProps/AncientSubstructureProps_Single</LoopSingleTexPath>
+            <LoopTexPaths>
+                <li>Terrain/AncientSubstructureProps/AncientSubstructureProps_Loops</li>
+            </LoopTexPaths>
+        </spaceEdgeGraphicData>
         <modExtensions>
-            <li Class="VanillaGravshipExpanded.SubstructureEdgeGraphicsExtension">
-                <renderAsSubstructure>True</renderAsSubstructure>
-            </li>
+            <li Class="VanillaGravshipExpanded.SubstructureEdgeGraphicsExtension" />
         </modExtensions>
     </TerrainDef>
 
