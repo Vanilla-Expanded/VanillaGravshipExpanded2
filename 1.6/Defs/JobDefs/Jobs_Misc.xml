@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<JobDef>
+		<defName>VGE_FormKnot</defName>
+		<driverClass>VanillaGravshipExpanded2.JobDriver_FormKnot</driverClass>
+		<reportString>forming a knot.</reportString>
+		<casualInterruptible>false</casualInterruptible>
+	</JobDef>
+</Defs>

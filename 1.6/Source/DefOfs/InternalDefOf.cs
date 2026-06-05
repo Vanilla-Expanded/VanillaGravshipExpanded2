@@ -20,6 +20,7 @@ namespace VanillaGravshipExpanded2
 
 		public static HediffDef VGE_ExowormInfestation;
 
+		public static ThingDef VGE_Exoworm;
 		public static ThingDef VGE_GiantWormspitter;
         public static ThingDef VGE_ExoHive_Building;
         public static ThingDef VGE_TwistedSteel;
@@ -32,7 +33,7 @@ namespace VanillaGravshipExpanded2
         public static PawnKindDef VGE_ExowormKnot;
 
         public static SoundDef VEG_InsectoidTurretTargetAcquired;
-		
+
 		public static TerrainDef VGE_GravshipSubarmor;
         public static TerrainDef VGE_Subcreep;
 
@@ -44,5 +45,7 @@ namespace VanillaGravshipExpanded2
 		public static SoundDef OrbitalTargeter_Fire;
 		public static StatDef VGE_GravshipTargeting;
 		public static ThingDef VGE_GravshipArmor;
-    }
+		public static JobDef VGE_FormKnot;
+		public static SoundDef Hive_Spawn;
+	}
 }
