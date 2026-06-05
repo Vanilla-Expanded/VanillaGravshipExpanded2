@@ -110,7 +110,7 @@ namespace VanillaGravshipExpanded2
             ModuleBase moduleBase = new Perlin(0.1, 0.9, 1.5, 4, Rand.Int, QualityMode.Medium);
             foreach (IntVec3 allCell in map.AllCells)
             {
-                if (allCell.GetEdifice(map) == null && GenConstruct.CanBuildOnTerrain(TerrainDefOf.InsectSludge, allCell, map, Rot4.North) && moduleBase.GetValue(allCell) > 0.2f)
+                if (allCell.GetEdifice(map) == null && GenConstruct.CanBuildOnTerrain(InternalDefOf.VGE_Subcreep, allCell, map, Rot4.North) && moduleBase.GetValue(allCell) > 0.2f)
                 {
                     TryPlaceSludge(allCell, map);
                 }
@@ -129,7 +129,7 @@ namespace VanillaGravshipExpanded2
             SpawnOres(map, parms);
             foreach (IntVec3 allCell2 in map.AllCells)
             {
-                if (Rand.Chance(0.02f) && allCell2.GetTerrain(map) == TerrainDefOf.InsectSludge)
+                if (Rand.Chance(0.02f) && allCell2.GetTerrain(map) == InternalDefOf.VGE_Subcreep)
                 {
                     Thing thing = ThingMaker.MakeThing(InternalDefOf.VGE_EggSac);
                     thing.SetFaction(Faction.OfInsects);
@@ -146,7 +146,7 @@ namespace VanillaGravshipExpanded2
 
             foreach (IntVec3 allCell3 in map.AllCells.InRandomOrder())
             {
-                if (allCell3.GetTerrain(map) == TerrainDefOf.InsectSludge && !allCell3.Roofed(map))
+                if (allCell3.GetTerrain(map) == InternalDefOf.VGE_Subcreep && !allCell3.Roofed(map))
                 {
                     Thing thing = ThingMaker.MakeThing(InternalDefOf.VGE_GiantWormspitter);
                     thing.SetFaction(Faction.OfInsects);
@@ -161,7 +161,7 @@ namespace VanillaGravshipExpanded2
 
             foreach (IntVec3 allCell4 in map.AllCells.InRandomOrder())
             {
-                if (allCell4.GetTerrain(map) == TerrainDefOf.InsectSludge && allCell4.Walkable(map))
+                if (allCell4.GetTerrain(map) == InternalDefOf.VGE_Subcreep && allCell4.Walkable(map))
                 {
                     Pawn p = PawnGenerator.GeneratePawn(InternalDefOf.VGE_ExowormKnot, Faction.OfInsects);
                     GenSpawn.Spawn(p, allCell4, map);
@@ -427,9 +427,10 @@ namespace VanillaGravshipExpanded2
 
         private void TryPlaceSludge(IntVec3 cell, Map map)
         {
-            if (GenConstruct.CanBuildOnTerrain(TerrainDefOf.InsectSludge, cell, map, Rot4.North))
+            if (GenConstruct.CanBuildOnTerrain(InternalDefOf.VGE_Subcreep, cell, map, Rot4.North))
             {
-                map.terrainGrid.SetTerrain(cell, TerrainDefOf.InsectSludge);
+                map.terrainGrid.SetTerrain(cell, InternalDefOf.VGE_Subcreep);
+               
                 if (Rand.Chance(0.2f))
                 {
                     GenSpawn.Spawn(ThingDefOf.Filth_Slime, cell, map);

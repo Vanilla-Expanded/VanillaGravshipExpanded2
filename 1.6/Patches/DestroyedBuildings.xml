@@ -1,4 +1,11 @@
 <Patch>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="VGE_DamagedBuildingBase"]</xpath>
+		<value>
+			<designationCategory>VGE_Designer</designationCategory>
+		</value>
+	</Operation>
 	<Operation Class="PatchOperationAddModExtension">
 		<xpath>Defs/ThingDef[defName="VGE_SmallOxygenTank"]</xpath>
 		<value>

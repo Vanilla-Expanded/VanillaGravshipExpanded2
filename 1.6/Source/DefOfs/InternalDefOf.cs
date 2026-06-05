@@ -32,8 +32,11 @@ namespace VanillaGravshipExpanded2
         public static PawnKindDef VGE_ExowormKnot;
 
         public static SoundDef VEG_InsectoidTurretTargetAcquired;
+		
 		public static TerrainDef VGE_GravshipSubarmor;
-		public static DesignationCategoryDef VGE_Designer;
+        public static TerrainDef VGE_Subcreep;
+
+        public static DesignationCategoryDef VGE_Designer;
 		public static DesignationCategoryDef Odyssey;
 		[DefAlias("VGE_EmptySpace")]
 		public static WorldObjectDef VGE_EmptySpaceObj;
