@@ -64,6 +64,11 @@
         <tags>
             <li>VGE_AncientSubstructure</li>
         </tags>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.SubstructureEdgeGraphicsExtension">
+                <renderAsSubstructure>True</renderAsSubstructure>
+            </li>
+        </modExtensions>
     </TerrainDef>
 
     <TerrainDef ParentName="FloorBase">
