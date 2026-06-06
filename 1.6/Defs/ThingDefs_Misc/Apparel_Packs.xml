@@ -157,6 +157,20 @@
     <tradeTags>
       <li>Clothing</li>
     </tradeTags>
+    <modExtensions>
+      <li Class="VEF.Apparels.ApparelExtension">
+        <moveSpeedFactorByTerrainTag>
+          <li>
+            <key>Space</key>
+            <value>
+              <li>
+                <moveSpeedFactor>27.5</moveSpeedFactor>
+              </li>
+            </value>
+          </li>
+        </moveSpeedFactorByTerrainTag>
+      </li>
+    </modExtensions>
   </ThingDef>
 
 </Defs>
