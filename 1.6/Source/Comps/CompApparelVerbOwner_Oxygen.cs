@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using VanillaGravshipExpanded;
 using VanillaGravshipExpanded2.UI;
@@ -82,7 +83,31 @@ public class CompApparelVerbOwner_Oxygen : CompApparelVerbOwner_Charged
             return false;
         }
 
+        var map = parent.MapHeld;
+        if (map != null && LayerPreventsCast(map.Tile))
+        {
+            var layer = map.Tile.LayerDef;
+            reason = "CannotPerformPlanetLayer".Translate(layer.gerundLabel.Named("GERUND"), layer.label.Named("LAYER"));
+            return false;
+        }
+
         return true;
+    }
+
+    private bool LayerPreventsCast(PlanetTile tile)
+    {
+        if (!tile.Valid)
+            return false;
+
+        foreach (var verbProperties in VerbProperties)
+        {
+            if (!verbProperties.layerWhitelist.NullOrEmpty() && !verbProperties.layerWhitelist.Contains(tile.LayerDef))
+                return true;
+            if (!verbProperties.layerBlacklist.NullOrEmpty() && verbProperties.layerBlacklist.Contains(tile.LayerDef))
+                return true;
+        }
+
+        return false;
     }
 
     public override IEnumerable<Gizmo> CompGetWornGizmosExtra()
