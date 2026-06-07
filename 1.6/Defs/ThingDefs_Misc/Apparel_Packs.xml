@@ -33,10 +33,10 @@
         <onlyManualCast>True</onlyManualCast>
         <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
         <warmupTime>0.5</warmupTime>
-        <warmupEffecter>JumpWarmupEffect</warmupEffecter>
+        <warmupEffecter>VGE_AstrorigWarmupEffect</warmupEffecter>
         <requireLineOfSight>true</requireLineOfSight>
-        <flightEffecterDef>JumpFlightEffect</flightEffecterDef>
-        <soundLanding>JumpPackLand</soundLanding>
+        <flightEffecterDef>VGE_AstrorigFlightEffect</flightEffecterDef>
+<!--        <soundLanding>VGE_AstrorigLand</soundLanding>-->
         <targetParams>
           <canTargetLocations>true</canTargetLocations>
           <canTargetPawns>false</canTargetPawns>
