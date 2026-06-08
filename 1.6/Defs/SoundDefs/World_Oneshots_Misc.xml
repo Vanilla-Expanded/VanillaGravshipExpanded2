@@ -18,4 +18,59 @@
 			</li>
 		</subSounds>
 	</SoundDef>
+
+  <SoundDef>
+    <defName>VGE_AstrorigLand</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/Astrorig/Astrorig_Land_01a</clipPath>
+          </li>
+        </grains>
+        <volumeRange>15</volumeRange>
+        <pitchRange>1</pitchRange>
+        <canVacuumDampen>false</canVacuumDampen>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>VGE_AstrorigLaunch</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipPath>Misc/Astrorig/Astrorig_Launch</clipPath>
+          </li>
+        </grains>
+        <volumeRange>20</volumeRange>
+        <pitchRange>1</pitchRange>
+        <canVacuumDampen>false</canVacuumDampen>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>VGE_AstrorigPreLaunch</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/Astrorig/Astrorig_Prelaunch_01a</clipPath>
+          </li>
+        </grains>
+        <volumeRange>20</volumeRange>
+        <pitchRange>1</pitchRange>
+        <canVacuumDampen>false</canVacuumDampen>
+      </li>
+    </subSounds>
+  </SoundDef>
+
 </Defs>

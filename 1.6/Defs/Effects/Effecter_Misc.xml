@@ -4,11 +4,11 @@
   <EffecterDef>
     <defName>VGE_AstrorigFlightEffect</defName>
     <children>
-<!--      <li>-->
-<!--        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>-->
-<!--        <spawnLocType>OnSource</spawnLocType>-->
-<!--        <soundDef>VGE_AstrorigLaunch</soundDef>-->
-<!--      </li>-->
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <spawnLocType>OnSource</spawnLocType>
+        <soundDef>VGE_AstrorigLaunch</soundDef>
+      </li>
       <li>
         <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
         <spawnLocType>OnSource</spawnLocType>
@@ -57,11 +57,11 @@
   <EffecterDef>
     <defName>VGE_AstrorigWarmupEffect</defName>
     <children>
-<!--      <li>-->
-<!--        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>-->
-<!--        <spawnLocType>OnSource</spawnLocType>-->
-<!--        <soundDef>VGE_AstrorigPreLaunch</soundDef>-->
-<!--      </li>-->
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <spawnLocType>OnSource</spawnLocType>
+        <soundDef>VGE_AstrorigPreLaunch</soundDef>
+      </li>
       <li>
         <subEffecterClass>SubEffecter_SprayerTriggeredDelayed</subEffecterClass>
         <spawnLocType>OnSource</spawnLocType>

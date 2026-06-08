@@ -36,7 +36,7 @@
         <warmupEffecter>VGE_AstrorigWarmupEffect</warmupEffecter>
         <requireLineOfSight>true</requireLineOfSight>
         <flightEffecterDef>VGE_AstrorigFlightEffect</flightEffecterDef>
-<!--        <soundLanding>VGE_AstrorigLand</soundLanding>-->
+        <soundLanding>VGE_AstrorigLand</soundLanding>
         <targetParams>
           <canTargetLocations>true</canTargetLocations>
           <canTargetPawns>false</canTargetPawns>
