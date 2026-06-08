@@ -57,12 +57,16 @@
         <layerable>true</layerable>
         <affordances Inherit="false">
             <li>Walkable</li>
+            <li>Light</li>
+            <li>Medium</li>
+            <li>Heavy</li>
         </affordances>
         <statBases>
             <CleaningTimeFactor>0.9</CleaningTimeFactor>
         </statBases>
         <tags>
             <li>VGE_AncientSubstructure</li>
+            <li>DestroyableByArtillery</li>
         </tags>
         <spaceEdgeGraphicData Inherit="False">
             <OShapeTexPath>Terrain/AncientSubstructureBorder/AncientSubstructureBorder_OShape</OShapeTexPath>

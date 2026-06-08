@@ -48,6 +48,7 @@
 		<drawerType>MapMeshOnly</drawerType>
 		<filthLeaving>Filth_MachineBits</filthLeaving>
 		<scatterableOnMapGen>false</scatterableOnMapGen>
+		<designationCategory>VGE_Designer</designationCategory>
 	</ThingDef>
 	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
 		<defName>VGE_TwistedMachinery</defName>
@@ -97,6 +98,7 @@
 		<drawerType>MapMeshOnly</drawerType>
 		<filthLeaving>Filth_MachineBits</filthLeaving>
 		<scatterableOnMapGen>false</scatterableOnMapGen>
+		<designationCategory>VGE_Designer</designationCategory>
 	</ThingDef>
 	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
 		<defName>VGE_TwistedElectronics</defName>
@@ -146,6 +148,7 @@
 		<drawerType>MapMeshOnly</drawerType>
 		<filthLeaving>Filth_MachineBits</filthLeaving>
 		<scatterableOnMapGen>false</scatterableOnMapGen>
+		<designationCategory>VGE_Designer</designationCategory>
 	</ThingDef>
 	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
 		<defName>VGE_TwistedGravlite</defName>
@@ -195,6 +198,7 @@
 		<drawerType>MapMeshOnly</drawerType>
 		<filthLeaving>Filth_MachineBits</filthLeaving>
 		<scatterableOnMapGen>false</scatterableOnMapGen>
+		<designationCategory>VGE_Designer</designationCategory>
 	</ThingDef>
 
 	<ThingDef ParentName="Wall">
