@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -68,8 +69,9 @@ namespace VanillaGravshipExpanded2
 
         public override void Impact(Thing hitThing, bool blockedByShield = false)
         {
+            var things = innerContainer.ToList();
             var explosiveProps = warpodDef.GetCompProperties<CompProperties_Explosive>();
-            GenExplosion.DoExplosion(Position, Map, explosiveProps.explosiveRadius, explosiveProps.explosiveDamageType, launcher, explosiveProps.damageAmountBase, explosiveProps.armorPenetrationBase, explosiveProps.explosionSound, warpodDef, null, null, explosiveProps.postExplosionSpawnThingDef, explosiveProps.postExplosionSpawnChance, explosiveProps.postExplosionSpawnThingCount, explosiveProps.postExplosionGasType, null, 255, explosiveProps.applyDamageToExplosionCellsNeighbors, explosiveProps.preExplosionSpawnThingDef, explosiveProps.preExplosionSpawnChance, explosiveProps.preExplosionSpawnThingCount, explosiveProps.chanceToStartFire, explosiveProps.damageFalloff);
+            GenExplosion.DoExplosion(Position, Map, explosiveProps.explosiveRadius, explosiveProps.explosiveDamageType, launcher, explosiveProps.damageAmountBase, explosiveProps.armorPenetrationBase, explosiveProps.explosionSound, warpodDef, null, null, explosiveProps.postExplosionSpawnThingDef, explosiveProps.postExplosionSpawnChance, explosiveProps.postExplosionSpawnThingCount, explosiveProps.postExplosionGasType, null, 255, explosiveProps.applyDamageToExplosionCellsNeighbors, explosiveProps.preExplosionSpawnThingDef, explosiveProps.preExplosionSpawnChance, explosiveProps.preExplosionSpawnThingCount, explosiveProps.chanceToStartFire, explosiveProps.damageFalloff, null, things);
             if (warpodDef.GetCompProperties<CompProperties_Transporter>().massCapacity > 0)
             {
                 innerContainer.TryDropAll(Position, Map, ThingPlaceMode.Near);
