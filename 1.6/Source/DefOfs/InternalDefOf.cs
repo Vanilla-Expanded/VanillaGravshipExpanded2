@@ -47,5 +47,9 @@ namespace VanillaGravshipExpanded2
 		public static ThingDef VGE_GravshipArmor;
 		public static JobDef VGE_FormKnot;
 		public static SoundDef Hive_Spawn;
+
+		public static ThingDef VGE_WarpodLeaving;
+		public static ThingDef VGE_WarpodIncoming;
+		public static WorldObjectDef VGE_TravellingWarpod;
 	}
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
- 
+
   <WorldObjectDef ParentName="GeneratedAsteroid">
     <defName>VGE_InfestedAsteroid</defName>
     <description>A vacstone asteroid that has been infested by insectoids. Inside, the creatures have collected debris and salvage from orbital wrecks. The infestation is strong, and any attempt to clear the asteroid will mean heavy resistance.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
@@ -39,5 +39,19 @@
         <order>100</order>
         <genStep Class="VanillaGravshipExpanded2.GenStep_EmptySpace" />
     </GenStepDef>
-	
-</Defs>
+
+    <WorldObjectDef>
+      <defName>VGE_TravellingWarpod</defName>
+      <label>warpod</label>
+      <description>A warpod in flight.</description>
+      <worldObjectClass>VanillaGravshipExpanded2.TravellingWarpod</worldObjectClass>
+      <texture>Things/Structures/Combat/Warpods/Warpod_HighExplosive</texture>
+      <useDynamicDrawer>true</useDynamicDrawer>
+      <expandingIcon>true</expandingIcon>
+      <expandingIconTexture>Things/Structures/Combat/Warpods/Warpod_HighExplosive</expandingIconTexture>
+      <expandingIconPriority>65</expandingIconPriority>
+      <expandMore>true</expandMore>
+      <fullyExpandedInSpace>true</fullyExpandedInSpace>
+      <validLaunchTarget>false</validLaunchTarget>
+    </WorldObjectDef>
+  </Defs>

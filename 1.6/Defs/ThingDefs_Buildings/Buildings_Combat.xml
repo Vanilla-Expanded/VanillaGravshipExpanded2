@@ -475,7 +475,7 @@
 			</li>
 		</verbs>
 		<modExtensions>
-			<li Class="VanillaGravshipExpanded.TurretExtension_SubstructureDamage">
+			<li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
 				<substructureDamageRadius>1.9</substructureDamageRadius>
 			</li>
 		</modExtensions>
@@ -601,7 +601,7 @@
 			</turretTopLoadedGraphic>
 		</building>
 		<modExtensions>
-			<li Class="VanillaGravshipExpanded.TurretExtension_SubstructureDamage">
+			<li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
 				<substructureDamageRadius>1</substructureDamageRadius>
 			</li>
 		</modExtensions>

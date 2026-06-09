@@ -15,4 +15,7 @@
 	<VGE_LinkWithTurretTargeterDesc>Select a turret to link with. This orbital targeter will be used to operate that turret.</VGE_LinkWithTurretTargeterDesc>
 	<VGE_UnlinkWithTurretTargeterDesc>Break the current link to a turret, allowing you to link with a different turret.</VGE_UnlinkWithTurretTargeterDesc>
 	<VGE_SelectLinkedTurretTargeterDesc>Show the linked turret.</VGE_SelectLinkedTurretTargeterDesc>
+	<VGE_LaunchWarpod>Launch warpod</VGE_LaunchWarpod>
+	<VGE_LaunchWarpodDesc>Launch this sub-orbital warpod towards a precise target destination.</VGE_LaunchWarpodDesc>
+	<VGE_WarpodLocationNeedRevealed>Can't launch warpods here: location needs to be revealed.</VGE_WarpodLocationNeedRevealed>
 </LanguageData>

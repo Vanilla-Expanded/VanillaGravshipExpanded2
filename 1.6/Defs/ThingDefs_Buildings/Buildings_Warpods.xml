@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BuildingBase" Name="VGE_WarpodBase" Abstract="True">
+    <size>(1,1)</size>
+    <rotatable>false</rotatable>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <pathCost>50</pathCost>
+    <fillPercent>0.5</fillPercent>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>VGE_Combat</designationCategory>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>-10</Beauty>
+    </statBases>
+    <placeWorkers>
+      <li>PlaceWorker_NeedsFuelingPort</li>
+      <li>PlaceWorker_NotUnderRoof</li>
+    </placeWorkers>
+    <uiIconScale>0.65</uiIconScale>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_WarpodBase">
+    <defName>VGE_Warpod_HighExplosive</defName>
+    <label>high-explosive warpod</label>
+    <description>A launchable sub-orbital missile pod designed to deliver a high-explosive payload at extreme speed. Its velocity ensures it won't be intercepted by point defense systems, allowing it to penetrate and detonate within enemy gravships and orbital stations. Explodes when damaged.</description>
+    <graphicData>
+      <texPath>Things/Structures/Combat/Warpods/Warpod_HighExplosive</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+    </statBases>
+    <costList>
+      <Steel>75</Steel>
+      <Chemfuel>45</Chemfuel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Transporter">
+        <compClass>VanillaGravshipExpanded2.CompTransporter_Warpod</compClass>
+        <massCapacity>0</massCapacity>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>5.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <damageAmountBase>50</damageAmountBase>
+        <armorPenetrationBase>0.1</armorPenetrationBase>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>120~360</wickTicks>
+      </li>
+      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod" />
+    </comps>
+    <modExtensions>
+      <li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
+        <substructureDamageRadius>2.9</substructureDamageRadius>
+      </li>
+    </modExtensions>
+    <researchPrerequisites>
+      <li>VGE_Warpods</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_WarpodBase">
+    <defName>VGE_Warpod_EMP</defName>
+    <label>EMP warpod</label>
+    <description>A launchable sub-orbital missile pod designed to deliver a powerful electromagnetic pulse device at extreme speed. Its velocity ensures it won't be intercepted by point defense systems, allowing it to penetrate and detonate within enemy gravships and orbital stations, temporarily disabling electronics. Explodes when damaged.</description>
+    <graphicData>
+      <texPath>Things/Structures/Combat/Warpods/Warpod_EMP</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+    </statBases>
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Transporter">
+        <compClass>VanillaGravshipExpanded2.CompTransporter_Warpod</compClass>
+        <massCapacity>0</massCapacity>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>14.9</explosiveRadius>
+        <explosiveDamageType>EMP</explosiveDamageType>
+        <damageAmountBase>80</damageAmountBase>
+        <armorPenetrationBase>0</armorPenetrationBase>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>120~360</wickTicks>
+      </li>
+      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod" />
+    </comps>
+    <researchPrerequisites>
+      <li>VGE_Warpods</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_WarpodBase">
+    <defName>VGE_Warpod_Incendiary</defName>
+    <label>incendiary warpod</label>
+    <description>A launchable sub-orbital missile pod designed to deliver a massive astrofuel payload at extreme speed. Its velocity ensures it won't be intercepted by point defense systems, allowing it to penetrate and detonate within enemy gravships and orbital stations, unleashing a large astrofuel explosion. Explodes when damaged.</description>
+    <graphicData>
+      <texPath>Things/Structures/Combat/Warpods/Warpod_Incendiary</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToBuild>2800</WorkToBuild>
+    </statBases>
+    <costList>
+      <Steel>75</Steel>
+      <VGE_Astrofuel>45</VGE_Astrofuel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Transporter">
+        <compClass>VanillaGravshipExpanded2.CompTransporter_Warpod</compClass>
+        <massCapacity>0</massCapacity>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>5.9</explosiveRadius>
+        <explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
+        <damageAmountBase>18</damageAmountBase>
+        <armorPenetrationBase>0</armorPenetrationBase>
+        <postExplosionSpawnThingDef>VGE_Filth_Astrofuel</postExplosionSpawnThingDef>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>4</postExplosionSpawnThingCount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>120~360</wickTicks>
+      </li>
+      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod" />
+    </comps>
+    <researchPrerequisites>
+      <li>VGE_Warpods</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_WarpodBase">
+    <defName>VGE_Warpod_Antigrain</defName>
+    <label>antigrain warpod</label>
+    <description>A launchable sub-orbital missile pod designed to deliver a devastating antimatter payload at extreme speed. Its velocity ensures it won't be intercepted by point defense systems, allowing it to penetrate and detonate within enemy gravships and orbital stations, completely obliterating the target area. Explodes when damaged.</description>
+    <graphicData>
+      <texPath>Things/Structures/Combat/Warpods/Warpod_Antigrain</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToBuild>3600</WorkToBuild>
+    </statBases>
+    <costList>
+      <Steel>30</Steel>
+      <Shell_AntigrainWarhead>1</Shell_AntigrainWarhead>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Transporter">
+        <compClass>VanillaGravshipExpanded2.CompTransporter_Warpod</compClass>
+        <massCapacity>0</massCapacity>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>19.9</explosiveRadius>
+        <explosiveDamageType>BombSuper</explosiveDamageType>
+        <damageAmountBase>550</damageAmountBase>
+        <armorPenetrationBase>1.3</armorPenetrationBase>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>360~600</wickTicks>
+      </li>
+      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod" />
+    </comps>
+    <modExtensions>
+      <li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
+        <substructureDamageRadius>5.9</substructureDamageRadius>
+      </li>
+    </modExtensions>
+    <researchPrerequisites>
+      <li>VGE_Warpods</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_WarpodBase">
+    <defName>VGE_Warpod_Hellpod</defName>
+    <label>hellpod</label>
+    <description>A launchable sub-orbital combat pod designed to carry people, items, or animals. Traveling at extreme speed, it avoids interception by point defense systems, but detonates on impact before immediately ejecting its cargo. It is ideal for surprise attacks, reinforcing battles, or transporting critical supplies and personnel to a specific location.</description>
+    <graphicData>
+      <texPath>Things/Structures/Combat/Warpods/Warpod_Hellpod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToBuild>1400</WorkToBuild>
+    </statBases>
+    <costList>
+      <Steel>70</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Transporter">
+        <compClass>VanillaGravshipExpanded2.CompTransporter_Warpod</compClass>
+        <restEffectiveness>0.8</restEffectiveness>
+        <canChangeAssignedThingsAfterStarting>true</canChangeAssignedThingsAfterStarting>
+        <massCapacity>150</massCapacity>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <damageAmountBase>50</damageAmountBase>
+        <armorPenetrationBase>0.1</armorPenetrationBase>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>120~360</wickTicks>
+      </li>
+      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod" />
+    </comps>
+    <researchPrerequisites>
+      <li>VGE_Warpods</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="SkyfallerBase">
+    <defName>VGE_WarpodLeaving</defName>
+    <label>warpod (leaving)</label>
+    <thingClass>VanillaGravshipExpanded2.WarpodLeaving</thingClass>
+    <graphicData>
+      <texPath>Things/Structures/Combat/Warpods/Warpod_HighExplosive</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutFlying</shaderType>
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <skyfaller>
+      <movementType>Decelerate</movementType>
+      <reversed>true</reversed>
+      <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
+      <shadowSize>(2, 2)</shadowSize>
+      <anticipationSound>DropPod_Leaving</anticipationSound>
+      <anticipationSoundTicks>-10</anticipationSoundTicks>
+      <ticksToImpactRange>-40~-15</ticksToImpactRange>
+      <rotateGraphicTowardsDirection>true</rotateGraphicTowardsDirection>
+    </skyfaller>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>VGE_WarpodIncoming</defName>
+    <label>warpod (incoming)</label>
+    <thingClass>VanillaGravshipExpanded2.Projectile_Warpod</thingClass>
+    <graphicData>
+      <texPath>Things/Structures/Combat/Warpods/Warpod_HighExplosive</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutFlying</shaderType>
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <speed>85</speed>
+      <flyOverhead>true</flyOverhead>
+    </projectile>
+  </ThingDef>
+</Defs>
