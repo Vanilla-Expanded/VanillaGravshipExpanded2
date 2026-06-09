@@ -54,7 +54,9 @@
         <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
         <wickTicks>120~360</wickTicks>
       </li>
-      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod" />
+      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod">
+        <minFuelCost>5</minFuelCost>
+      </li>
     </comps>
     <modExtensions>
       <li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
@@ -95,7 +97,9 @@
         <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
         <wickTicks>120~360</wickTicks>
       </li>
-      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod" />
+      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod">
+        <minFuelCost>5</minFuelCost>
+      </li>
     </comps>
     <researchPrerequisites>
       <li>VGE_Warpods</li>
@@ -129,13 +133,15 @@
         <explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
         <damageAmountBase>18</damageAmountBase>
         <armorPenetrationBase>0</armorPenetrationBase>
-        <postExplosionSpawnThingDef>VGE_Filth_Astrofuel</postExplosionSpawnThingDef>
-        <postExplosionSpawnChance>1</postExplosionSpawnChance>
-        <postExplosionSpawnThingCount>4</postExplosionSpawnThingCount>
+        <preExplosionSpawnThingDef>VGE_Filth_Astrofuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>1</preExplosionSpawnChance>
+        <preExplosionSpawnThingCount>4</preExplosionSpawnThingCount>
         <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
         <wickTicks>120~360</wickTicks>
       </li>
-      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod" />
+      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod">
+        <minFuelCost>5</minFuelCost>
+      </li>
     </comps>
     <researchPrerequisites>
       <li>VGE_Warpods</li>
@@ -172,7 +178,9 @@
         <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
         <wickTicks>360~600</wickTicks>
       </li>
-      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod" />
+      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod">
+        <minFuelCost>5</minFuelCost>
+      </li>
     </comps>
     <modExtensions>
       <li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
@@ -215,7 +223,9 @@
         <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
         <wickTicks>120~360</wickTicks>
       </li>
-      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod" />
+      <li Class="VanillaGravshipExpanded2.CompProperties_Launchable_Warpod">
+        <minFuelCost>5</minFuelCost>
+      </li>
     </comps>
     <researchPrerequisites>
       <li>VGE_Warpods</li>
