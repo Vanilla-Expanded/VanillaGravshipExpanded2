@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="VGE_AirlockBase" ParentName="DoorBase" Abstract="True">
+    <description>A specialized, heavily reinforced door that functions as a physical security barrier and an automated atmospheric seal. When powered, it ensures a rapid, safe transition between pressurized and vacuum areas by maintaining an atmospheric seal and managing pressure during operation. Colonists will not cross it without required vacuum resistance.</description>
+    <thingClass>VanillaGravshipExpanded2.Building_Airlock</thingClass>
+    <statBases>
+      <Flammability>0</Flammability>
+    </statBases>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <stuffCategories Inherit="False">
+      <li>Metallic</li>
+    </stuffCategories>
+    <useStuffTerrainAffordance>true</useStuffTerrainAffordance>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <useBlueprintGraphicAsGhost>true</useBlueprintGraphicAsGhost>
+    <designationCategory>VGE_Vacuum</designationCategory>
+    <building>
+      <isAirtight>true</isAirtight>
+      <isSupportDoor>true</isSupportDoor>
+      <blueprintClass>Blueprint_Door</blueprintClass>
+    </building>
+    <researchPrerequisites>
+      <li>OrbitalTech</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+    <uiOrder>2015</uiOrder>
+    <comps>
+      <li Class="VanillaGravshipExpanded.CompProperties_VacCheckpoint">
+        <onlyShowGizmoWhenRelevant>true</onlyShowGizmoWhenRelevant>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef Name="VGE_AirlockMultiCellBase" ParentName="VGE_AirlockBase" Abstract="True">
+    <thingClass>VanillaGravshipExpanded2.Building_MultiTileAirlock</thingClass>
+    <rotatable>true</rotatable>
+    <placeWorkers>
+      <li>PlaceWorker_MultiCellDoor</li>
+    </placeWorkers>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_AirlockBase">
+    <defName>VGE_AirlockDoor</defName>
+    <label>airlock door (1x1)</label>
+    <statBases>
+      <MaxHitPoints>160</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor1x1_Mover</texPath>
+    </graphicData>
+    <uiIconPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor_MenuIcon_south</uiIconPath>
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <GravlitePanel>5</GravlitePanel>
+    </costList>
+    <costStuffCount>25</costStuffCount>
+    <building>
+      <blueprintClass>Blueprint_Build</blueprintClass>
+      <blueprintGraphicData>
+        <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor_MenuIcon</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>EdgeDetect</shaderType>
+        <drawSize>(2, 2)</drawSize>
+      </blueprintGraphicData>
+      <isSupportDoor>true</isSupportDoor>
+      <doorTopGraphic>
+        <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor_Top</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(2, 2)</drawSize>
+      </doorTopGraphic>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>100</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_AirlockMultiCellBase">
+    <defName>VGE_Airlock2x1Door</defName>
+    <label>airlock door (2x1)</label>
+    <statBases>
+      <MaxHitPoints>320</MaxHitPoints>
+      <WorkToBuild>6000</WorkToBuild>
+    </statBases>
+    <size>(2, 1)</size>
+    <graphicData>
+      <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor2x1_Mover</texPath>
+      <drawSize>(2, 1)</drawSize>
+    </graphicData>
+    <uiIconPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor2x1_MenuIcon_south</uiIconPath>
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <GravlitePanel>10</GravlitePanel>
+    </costList>
+    <costStuffCount>50</costStuffCount>
+    <building>
+      <blueprintClass>Blueprint_Build</blueprintClass>
+      <blueprintGraphicData>
+        <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor2x1_MenuIcon</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>EdgeDetect</shaderType>
+        <drawSize>(2.5, 2)</drawSize>
+      </blueprintGraphicData>
+      <isSupportDoor>true</isSupportDoor>
+      <doorTopGraphic>
+        <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor2x1_Top</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(2.5, 2)</drawSize>
+      </doorTopGraphic>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_AirlockMultiCellBase">
+    <defName>VGE_Airlock3x1Door</defName>
+    <label>airlock door (3x1)</label>
+    <statBases>
+      <MaxHitPoints>480</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+    </statBases>
+    <size>(3, 1)</size>
+    <graphicData>
+      <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor3x1_Mover</texPath>
+      <drawSize>(3, 1)</drawSize>
+    </graphicData>
+    <uiIconPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor3x1_MenuIcon_south</uiIconPath>
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <GravlitePanel>15</GravlitePanel>
+    </costList>
+    <costStuffCount>75</costStuffCount>
+    <building>
+      <blueprintClass>Blueprint_Build</blueprintClass>
+      <blueprintGraphicData>
+        <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor3x1_MenuIcon</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>EdgeDetect</shaderType>
+        <drawSize>(4, 2)</drawSize>
+      </blueprintGraphicData>
+      <isSupportDoor>true</isSupportDoor>
+      <doorTopGraphic>
+        <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor3x1_Top</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(4, 2)</drawSize>
+      </doorTopGraphic>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_AirlockMultiCellBase">
+    <defName>VGE_Airlock5x1Door</defName>
+    <label>airlock door (5x1)</label>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <WorkToBuild>12000</WorkToBuild>
+    </statBases>
+    <size>(5, 1)</size>
+    <graphicData>
+      <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor5x1_Mover</texPath>
+      <drawSize>(5, 1)</drawSize>
+    </graphicData>
+    <uiIconPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor5x1_MenuIcon_south</uiIconPath>
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <GravlitePanel>25</GravlitePanel>
+    </costList>
+    <costStuffCount>125</costStuffCount>
+    <building>
+      <blueprintClass>Blueprint_Build</blueprintClass>
+      <blueprintGraphicData>
+        <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor5x1_MenuIcon</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>EdgeDetect</shaderType>
+        <drawSize>(6, 2)</drawSize>
+      </blueprintGraphicData>
+      <isSupportDoor>true</isSupportDoor>
+      <doorTopGraphic>
+        <texPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor5x1_Top</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(6, 2)</drawSize>
+      </doorTopGraphic>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>
