@@ -9,6 +9,8 @@ namespace VanillaGravshipExpanded2
 {
     public class CompLaunchable_Warpod : CompLaunchable
     {
+        private static List<CompLaunchable_Warpod> selectedWarpodsToLaunch;
+
         public CompRefuelable FuelingPortSource => FuelingPortUtility.FuelingPortGiverAtFuelingPortCell(parent.Position, parent.Map).GetComp<CompRefuelable>();
         public bool ConnectedToFuelingPort => FuelingPortUtility.FuelingPortGiverAtFuelingPortCell(parent.Position, parent.Map) is Building;
         public override CompRefuelable Refuelable => FuelingPortSource;
@@ -21,7 +23,7 @@ namespace VanillaGravshipExpanded2
             {
                 defaultLabel = "VGE_LaunchWarpod".Translate(),
                 defaultDesc = "VGE_LaunchWarpodDesc".Translate(),
-                icon = parent.def.uiIcon,
+                icon = ContentFinder<Texture2D>.Get("UI/Gizmo/LaunchWarpods"),
                 action = TryStartChoosingWarpodDestination
             };
 
@@ -76,6 +78,11 @@ namespace VanillaGravshipExpanded2
         private void StartChoosingWarpodDestination()
         {
             ResetCachedTile();
+            selectedWarpodsToLaunch = Find.Selector.SelectedObjects
+                .OfType<Thing>()
+                .Select(t => t.TryGetComp<CompLaunchable_Warpod>())
+                .Where(c => c != null && c.CanLaunch().Accepted)
+                .ToList();
             CameraJumper.TryJump(CameraJumper.GetWorldTarget(new GlobalTargetInfo(parent.Map.Tile)));
             Find.WorldSelector.ClearSelection();
             Find.WorldTargeter.BeginTargeting(ChoseWorldTarget, true, null, false, () =>
@@ -146,23 +153,29 @@ namespace VanillaGravshipExpanded2
         private void LaunchWarpodTo(Map destMap, PlanetTile destTile, IntVec3 destCell)
         {
             var finalCell = destCell;
-            var traversalDistance = Find.WorldGrid.TraversalDistanceBetween(parent.Map.Tile, destTile, true, int.MaxValue, true);
-            var amount = Mathf.Max(FuelNeededToLaunchAtDist(traversalDistance, destMap.TileInfo.Layer), 1f);
-            Refuelable.ConsumeFuel(amount);
-            var activeTransporter = (ActiveTransporter)ThingMaker.MakeThing(ThingDefOf.ActiveDropPod);
-            activeTransporter.Contents = new ActiveTransporterInfo();
-            activeTransporter.Contents.innerContainer.TryAddRangeOrTransfer(Transporter.GetDirectlyHeldThings(), true, true);
-            activeTransporter.Contents.sentTransporterDef = parent.def;
-            activeTransporter.Rotation = parent.Rotation;
-            var leaving = (WarpodLeaving)SkyfallerMaker.MakeSkyfaller(InternalDefOf.VGE_WarpodLeaving, activeTransporter);
-            leaving.destinationTile = destTile;
-            leaving.worldObjectDef = InternalDefOf.VGE_TravellingWarpod;
-            leaving.arrivalAction = new TransportersArrivalAction_WarpodStrike(destMap.Parent, finalCell, parent.Faction);
-            var sourceMap = parent.Map;
-            var sourcePos = parent.Position;
-            Transporter.CleanUpLoadingVars(sourceMap);
-            parent.Destroy();
-            GenSpawn.Spawn(leaving, sourcePos, sourceMap);
+            foreach (var warpod in selectedWarpodsToLaunch)
+            {
+                var traversalDistance = Find.WorldGrid.TraversalDistanceBetween(warpod.parent.Map.Tile, destTile, true, int.MaxValue, true);
+                var amount = Mathf.Max(warpod.FuelNeededToLaunchAtDist(traversalDistance, destMap.TileInfo.Layer), 5f);
+                warpod.Refuelable.ConsumeFuel(amount);
+
+                var activeTransporter = (ActiveTransporter)ThingMaker.MakeThing(ThingDefOf.ActiveDropPod);
+                activeTransporter.Contents = new ActiveTransporterInfo();
+                activeTransporter.Contents.innerContainer.TryAddRangeOrTransfer(warpod.Transporter.GetDirectlyHeldThings(), true, true);
+                activeTransporter.Contents.sentTransporterDef = warpod.parent.def;
+                activeTransporter.Rotation = warpod.parent.Rotation;
+
+                var leaving = (WarpodLeaving)SkyfallerMaker.MakeSkyfaller(InternalDefOf.VGE_WarpodLeaving, activeTransporter);
+                leaving.destinationTile = destTile;
+                leaving.worldObjectDef = InternalDefOf.VGE_TravellingWarpod;
+                leaving.arrivalAction = new TransportersArrivalAction_WarpodStrike(destMap.Parent, finalCell, warpod.parent.Faction);
+
+                var sourceMap = warpod.parent.Map;
+                var sourcePos = warpod.parent.Position;
+                warpod.Transporter.CleanUpLoadingVars(sourceMap);
+                warpod.parent.Destroy();
+                GenSpawn.Spawn(leaving, sourcePos, sourceMap);
+            }
         }
     }
 }
