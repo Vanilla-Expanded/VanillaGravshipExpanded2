@@ -260,7 +260,7 @@
 		<graphicData>
 			<texPath>Things/Structures/Destroyed/DestroyedGiantAstrofuelThruster</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(5,5)</drawSize>
+			<drawSize>(4,4)</drawSize>
 		</graphicData>
 	</ThingDef>
 	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoDestroyedBuilding">
