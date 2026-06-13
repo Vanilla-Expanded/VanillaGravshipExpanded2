@@ -8,8 +8,6 @@ public class Building_MultiTileAirlock : Building_Airlock
 {
     private bool tmpStuckOpen;
 
-    public override bool CanDrawMovers => def.Size.x != 1 || def.size.z != 1;
-
     public override void Tick()
     {
         base.Tick();
