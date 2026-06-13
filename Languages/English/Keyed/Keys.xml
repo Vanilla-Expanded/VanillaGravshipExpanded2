@@ -18,4 +18,5 @@
 	<VGE_LaunchWarpod>Launch warpod</VGE_LaunchWarpod>
 	<VGE_LaunchWarpodDesc>Launch this sub-orbital warpod towards a precise target destination.</VGE_LaunchWarpodDesc>
 	<VGE_WarpodLocationNeedRevealed>Can't launch warpods here: location needs to be revealed.</VGE_WarpodLocationNeedRevealed>
+	<VGE_MustBePlacedInSpace>Must be placed in space.</VGE_MustBePlacedInSpace>
 </LanguageData>

@@ -703,4 +703,63 @@
 			<armorPenetrationBase>0.5</armorPenetrationBase>
 		</projectile>
 	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>VGE_Gravmine</defName>
+		<label>gravmine</label>
+		<description>A high-explosive device designed for space-based combat. It features a large detection radius that triggers a powerful blast detonation upon the approach of any target, including enemy gravships. It can only be constructed in space.</description>
+		<thingClass>VanillaGravshipExpanded2.Building_Gravmine</thingClass>
+		<graphicData>
+			<texPath>Things/Structures/Combat/Gravmine</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<stealable>false</stealable>
+		<designationCategory>VGE_Combat</designationCategory>
+		<uiOrder>2050</uiOrder>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>1800</WorkToBuild>
+			<Flammability>0.6</Flammability>
+			<Beauty>-10</Beauty>
+			<TrapSpringChance>1.0</TrapSpringChance>
+		</statBases>
+		<size>(1,1)</size>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.3</fillPercent>
+		<costList>
+			<Shell_HighExplosive>4</Shell_HighExplosive>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>VGE_Warpods</li>
+		</researchPrerequisites>
+		<building>
+			<isTrap>true</isTrap>
+			<trapPeacefulWildAnimalsSpringChanceFactor>0.25</trapPeacefulWildAnimalsSpringChanceFactor>
+			<expandHomeArea>false</expandHomeArea>
+			<ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<placeWorkers>
+			<li>VanillaGravshipExpanded2.PlaceWorker_OnlyInSpace</li>
+		</placeWorkers>
+		<terrainAffordanceNeeded IsNull="True"></terrainAffordanceNeeded>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>7.9</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<damageAmountBase>50</damageAmountBase>
+				<startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+				<wickTicks>60</wickTicks>
+			</li>
+			<li Class="CompProperties_MoteEmitter">
+				<mote>VGE_GravmineRadius</mote>
+				<emissionInterval>240</emissionInterval>
+			</li>
+		</comps>
+		<specialDisplayRadius>5.9</specialDisplayRadius>
+	</ThingDef>
 </Defs>

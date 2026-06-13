@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="MoteBase">
+        <defName>VGE_GravmineRadius</defName>
+        <mote>
+            <fadeInTime>0.5</fadeInTime>
+            <solidTime>0.5</solidTime>
+            <fadeOutTime>2</fadeOutTime>
+        </mote>
+        <drawOffscreen>true</drawOffscreen>
+        <graphicData>
+            <texPath>Things/Mote/ActivatorProximityRadius</texPath>
+            <shaderType>MoteProximityScannerRadius</shaderType>
+            <color>(1, 1, 1, 0.15)</color>
+            <drawSize>11.8</drawSize>
+            <shaderParameters>
+                <_smokeScrollSpeed>0.05</_smokeScrollSpeed>
+                <_rotationSpeed>0.05</_rotationSpeed>
+                <_smokeAmount>0.5</_smokeAmount>
+                <_MainTex>/Things/Mote/ActivatorProximityRadius</_MainTex>
+                <_ScanTex>/Things/Mote/ActivatorProximityScanning</_ScanTex>
+                <_SmokeTex>/Things/Mote/SmokeTiled</_SmokeTex>
+            </shaderParameters>
+        </graphicData>
+    </ThingDef>
+</Defs>
