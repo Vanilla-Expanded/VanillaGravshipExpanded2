@@ -9,7 +9,7 @@
         </mote>
         <drawOffscreen>true</drawOffscreen>
         <graphicData>
-            <texPath>Things/Mote/ActivatorProximityRadius</texPath>
+            <texPath>Things/Mote/GravmineProximityRadius</texPath>
             <shaderType>MoteProximityScannerRadius</shaderType>
             <color>(1, 1, 1, 0.15)</color>
             <drawSize>11.8</drawSize>
@@ -17,8 +17,8 @@
                 <_smokeScrollSpeed>0.05</_smokeScrollSpeed>
                 <_rotationSpeed>0.05</_rotationSpeed>
                 <_smokeAmount>0.5</_smokeAmount>
-                <_MainTex>/Things/Mote/ActivatorProximityRadius</_MainTex>
-                <_ScanTex>/Things/Mote/ActivatorProximityScanning</_ScanTex>
+                <_MainTex>/Things/Mote/GravmineProximityRadius</_MainTex>
+                <_ScanTex>/Things/Mote/GravmineProximityScanning</_ScanTex>
                 <_SmokeTex>/Things/Mote/SmokeTiled</_SmokeTex>
             </shaderParameters>
         </graphicData>
