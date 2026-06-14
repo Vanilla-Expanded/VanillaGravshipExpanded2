@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <!-- Change description -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/description/text()</xpath>
+    <value>A shielding device that can protect a gravship. It modulates the grav field to create a short-lived momentum repulsor surface that blocks projectiles. It works against normal shots and mortars. Those inside can still shoot out.\n\nIt must be charged before use. Active shields generate structural heat which if not absorbed by heatsinks, will be vented into the gravship. One gravship can support four gravship shield generators.</value>
+  </Operation>
+
+  <!-- Change graphic and draw size -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/graphicData/texPath/text()</xpath>
+    <value>Things/Structures/Combat/GravshipShieldGenerator</value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/graphicData/drawSize/text()</xpath>
+    <value>(4, 4)</value>
+  </Operation>
+
+  <!-- Add/change designation category -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/designationCategory</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/designationCategory/text()</xpath>
+      <value>VGE_Combat</value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]</xpath>
+      <value>
+        <designationCategory>VGE_Combat</designationCategory>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- Add stats -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/statBases</xpath>
+    <value>
+      <VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+    </value>
+  </Operation>
+
+  <!-- Add or replace stats -->
+  <!-- Technically, could be handled by the previous "Add stats", but some other mod could add this one. So we may replace it. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/statBases/WorkToBuild</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/statBases/WorkToBuild/text()</xpath>
+      <value>7500</value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/statBases</xpath>
+      <value>
+        <WorkToBuild>7500</WorkToBuild>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- Add comps -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/comps</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
+    </value>
+  </Operation>
+
+  <!-- Add research prerequisites -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/researchPrerequisites</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/researchPrerequisites</xpath>
+      <value>
+        <li>VGE_GravshipDefenses</li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]</xpath>
+      <value>
+        <researchPrerequisites>
+          <li>VGE_GravshipDefenses</li>
+        </researchPrerequisites>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- Increase max connected count -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/comps/li[@Class="CompProperties_GravshipFacility"]/maxSimultaneous/text()</xpath>
+    <value>4</value>
+  </Operation>
+
+  <!-- Remove gravship shield generator from loot rewards -->
+  <!-- Uncomment if we want to do this. -->
+<!--  <Operation Class="PatchOperationRemove">-->
+<!--    <xpath>Defs/ThingSetMakerDef[defName="Reward_GravshipUpgrade"]/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li/text()="GravshipShieldGenerator"]</xpath>-->
+<!--  </Operation>-->
+
+  <!-- Remove GravshipUpgrade tag? -->
+
+</Patch>
