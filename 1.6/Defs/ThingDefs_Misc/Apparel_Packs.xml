@@ -37,6 +37,7 @@
         <requireLineOfSight>true</requireLineOfSight>
         <flightEffecterDef>VGE_AstrorigFlightEffect</flightEffecterDef>
         <soundLanding>VGE_AstrorigLand</soundLanding>
+        <rangeStat>VGE_OxygenJumpRange</rangeStat>
         <targetParams>
           <canTargetLocations>true</canTargetLocations>
           <canTargetPawns>false</canTargetPawns>
@@ -78,7 +79,7 @@
       <Mass>4</Mass>
 <!--      <Flammability>0.4</Flammability>-->
       <EquipDelay>2</EquipDelay>
-      <JumpRange>32.9</JumpRange>
+      <VGE_OxygenJumpRange>32.9</VGE_OxygenJumpRange>
     </statBases>
     <equippedStatOffsets>
       <ToxicEnvironmentResistance>0.8</ToxicEnvironmentResistance>
