@@ -762,4 +762,96 @@
 		</comps>
 		<specialDisplayRadius>5.9</specialDisplayRadius>
 	</ThingDef>
+
+  <ThingDef ParentName="GravshipComponentBase">
+    <defName>VGE_LargeGravshipShieldGenerator</defName>
+    <label>large gravship shield generator</label>
+    <description>A large-scale shielding device that can protect a gravship. It modulates the grav field to create a short-lived momentum repulsor surface that blocks projectiles. It works against normal shots and mortars. Those inside can still shoot out. It must be charged before use. Active shields generate structural heat which if not absorbed by heatsinks, will be vented into the gravship. One gravship can support two large gravship shield generators.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Structures/Combat/LargeGravshipShieldGenerator</texPath>
+      <drawSize>(6, 6)</drawSize>
+    </graphicData>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <drawOffscreen>true</drawOffscreen>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <Flammability>0.3</Flammability>
+      <Mass>80</Mass>
+      <WorkToBuild>14000</WorkToBuild>
+      <VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+    </statBases>
+    <size>(5, 5)</size>
+    <fillPercent>0.6</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>20</pathCost>
+    <canOverlapZones>false</canOverlapZones>
+    <costList>
+      <Gravcore>1</Gravcore>
+      <Steel>300</Steel>
+      <GravlitePanel>100</GravlitePanel>
+      <ComponentSpacer>10</ComponentSpacer>
+    </costList>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <specialDisplayRadius>36.9</specialDisplayRadius>
+    <designationCategory>VGE_Combat</designationCategory>
+    <comps>
+      <li Class="CompProperties_GravshipFacility">
+        <requiresLOS>false</requiresLOS>
+        <maxSimultaneous>2</maxSimultaneous>
+        <maxDistance>500</maxDistance>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>500</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Interactable">
+        <compClass>CompInteractable_GravshipShieldGenerator</compClass>
+        <ticksToActivate>120</ticksToActivate>
+        <jobString>activate</jobString>
+        <activateTexPath>UI/Commands/ActivateGravshipShield</activateTexPath>
+        <soundActivate>GravshipShieldGenerator_Activate</soundActivate>
+        <requiresPower>false</requiresPower>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+      <li Class="CompProperties_ProjectileInterceptor">
+        <compClass>CompGravshipShieldGenerator</compClass>
+        <radius>36.9</radius>
+        <interceptGroundProjectiles>true</interceptGroundProjectiles>
+        <interceptAirProjectiles>true</interceptAirProjectiles>
+        <color>(0.4, 0.4, 0.4)</color>
+        <reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+        <activeSound>BulletShield_Ambience</activeSound>
+        <hitPoints>1000</hitPoints>
+        <hitPointsRestoreInstantlyAfterCharge>false</hitPointsRestoreInstantlyAfterCharge>
+        <startWithMaxHitPoints>false</startWithMaxHitPoints>
+        <chargeDurationTicks>20000</chargeDurationTicks> <!-- 8 hours -->
+        <minIdleAlpha>0.2</minIdleAlpha>
+        <drawWithNoSelection>True</drawWithNoSelection>
+        <disarmedByEmpForTicks>3000</disarmedByEmpForTicks>
+        <gizmoTipKey>GravshipShieldTip</gizmoTipKey>
+        <alwaysShowHitpointsGizmo>true</alwaysShowHitpointsGizmo>
+        <rechargeHitPointsIntervalTicks>75</rechargeHitPointsIntervalTicks>
+
+        <activated>true</activated>
+        <activeDuration>12000</activeDuration> <!-- 100 seconds -->
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
+      <li Class="CompProperties_Breakdownable" />
+    </comps>
+    <researchPrerequisites>
+      <li>VGE_GravshipDefenses</li>
+    </researchPrerequisites>
+    <tradeTags>
+      <li>GravshipUpgrade</li>
+    </tradeTags>
+  </ThingDef>
+
 </Defs>

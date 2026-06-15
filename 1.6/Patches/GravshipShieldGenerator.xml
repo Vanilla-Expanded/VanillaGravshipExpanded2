@@ -62,6 +62,7 @@
     <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/comps</xpath>
     <value>
       <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
+      <li Class="CompProperties_Breakdownable" />
     </value>
   </Operation>
 
