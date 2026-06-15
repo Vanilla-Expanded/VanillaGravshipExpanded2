@@ -91,6 +91,21 @@
     <value>4</value>
   </Operation>
 
+  <!-- UI order -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/uiOrder</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/uiOrder/text()</xpath>
+      <value>2700</value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]</xpath>
+      <value>
+        <uiOrder>2650</uiOrder>
+      </value>
+    </nomatch>
+  </Operation>
+
   <!-- Remove gravship shield generator from loot rewards -->
   <!-- Uncomment if we want to do this. -->
 <!--  <Operation Class="PatchOperationRemove">-->

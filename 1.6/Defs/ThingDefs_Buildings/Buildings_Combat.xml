@@ -852,6 +852,7 @@
     <tradeTags>
       <li>GravshipUpgrade</li>
     </tradeTags>
+    <uiOrder>2650</uiOrder>
   </ThingDef>
 
 </Defs>
