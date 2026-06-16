@@ -821,8 +821,7 @@
           <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
         </targetingParameters>
       </li>
-      <li Class="CompProperties_ProjectileInterceptor">
-        <compClass>CompGravshipShieldGenerator</compClass>
+      <li Class="VanillaGravshipExpanded2.CompProperties_GravshipShieldGeneratorWithHeat">
         <radius>36.9</radius>
         <interceptGroundProjectiles>true</interceptGroundProjectiles>
         <interceptAirProjectiles>true</interceptAirProjectiles>
@@ -842,6 +841,11 @@
 
         <activated>true</activated>
         <activeDuration>12000</activeDuration> <!-- 100 seconds -->
+
+        <maxHeat>300</maxHeat>
+        <passiveHeatGeneration>3</passiveHeatGeneration>
+        <heatPerDamage>0.1</heatPerDamage>
+        <heatDissipation>1</heatDissipation>
       </li>
       <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
       <li Class="CompProperties_Breakdownable" />

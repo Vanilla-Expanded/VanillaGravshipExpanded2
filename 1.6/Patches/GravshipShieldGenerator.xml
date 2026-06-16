@@ -106,6 +106,29 @@
     </nomatch>
   </Operation>
 
+  <!-- Change comp props type for shield generator comp to our own -->
+  <Operation Class="PatchOperationAttributeSet">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/comps/li[@Class="CompProperties_ProjectileInterceptor"]</xpath>
+    <attribute>Class</attribute>
+    <value>VanillaGravshipExpanded2.CompProperties_GravshipShieldGeneratorWithHeat</value>
+  </Operation>
+
+  <!-- Remove the compClass for shield generator comp, as our comp props handle it -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/comps/li[@Class="VanillaGravshipExpanded2.CompProperties_GravshipShieldGeneratorWithHeat"]/compClass</xpath>
+  </Operation>
+
+  <!-- Add our properties to the shield generator -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/comps/li[@Class="VanillaGravshipExpanded2.CompProperties_GravshipShieldGeneratorWithHeat"]</xpath>
+    <value>
+      <maxHeat>50</maxHeat>
+      <passiveHeatGeneration>1</passiveHeatGeneration>
+      <heatPerDamage>0.1</heatPerDamage>
+      <heatDissipation>1</heatDissipation>
+    </value>
+  </Operation>
+
   <!-- Remove gravship shield generator from loot rewards -->
   <!-- Uncomment if we want to do this. -->
 <!--  <Operation Class="PatchOperationRemove">-->
