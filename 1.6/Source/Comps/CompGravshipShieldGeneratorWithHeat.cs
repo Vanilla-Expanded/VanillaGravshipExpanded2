@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using System.Collections.Generic;
+using RimWorld;
 using VanillaGravshipExpanded;
 using Verse;
 
@@ -45,6 +46,23 @@ public class CompGravshipShieldGeneratorWithHeat : CompGravshipShieldGenerator
         }
 
         storedHeat += manager.AddHeat(heat, true, false, false);
+        var maxHeat = EffectiveMaxHeat;
+        if (storedHeat > maxHeat)
+        {
+            storedHeat = maxHeat;
+            currentHitPoints = 0;
+            startedChargingTick = Find.TickManager.TicksGame;
+            activatedTick = Find.TickManager.TicksGame - Props.activeDuration;
+            Messages.Message("VGE_ShieldOverheated".Translate(), MessageTypeDefOf.CautionInput, false);
+            if (Props.explosionRadius > 0f && Props.explosionDamageDef != null)
+                GenExplosion.DoExplosion(parent.Position, parent.Map, Props.explosionRadius, Props.explosionDamageDef, parent, Props.explosionDamage);
+
+            var breakdownComp = parent.GetComp<CompBreakdownable>();
+            if (breakdownComp == null)
+                startedChargingTick = Find.TickManager.TicksGame + Props.chargeDurationTicks;
+            else
+                breakdownComp.DoBreakdown();
+        }
     }
 
     public override void PostExposeData()
@@ -58,6 +76,36 @@ public class CompGravshipShieldGeneratorWithHeat : CompGravshipShieldGenerator
 
     public override string CompInspectStringExtra()
     {
-        return "VGE_HeatsinkHeatStored".Translate(ActualStoredHeat.ToString("F1"), Props.maxHeat.ToString("F1"));
+        return "VGE_ShieldInternalHeat".Translate(ActualStoredHeat.ToString("F1"), Props.maxHeat.ToString("F1"));
+    }
+
+    public override IEnumerable<Gizmo> CompGetGizmosExtra()
+    {
+        yield return new Gizmo_ProjectileInterceptorHitPointsWithHeat
+        {
+            interceptor = this,
+        };
+
+        foreach (var gizmo in base.CompGetGizmosExtra())
+            yield return gizmo;
+
+        if (DebugSettings.ShowDevGizmos && Active)
+        {
+            yield return new Command_Action
+            {
+                defaultLabel = "DEV: Remove heat",
+                action = () => storedHeat = 0f,
+            };
+            yield return new Command_Action
+            {
+                defaultLabel = "DEV: Add 1 heat",
+                action = () => TryPushHeat(CompHeatManager.BaseHeatsinkCapacityMultiplier),
+            };
+            yield return new Command_Action
+            {
+                defaultLabel = "DEV: Overheat",
+                action = () => TryPushHeat(EffectiveMaxHeat + CompHeatManager.BaseHeatsinkCapacityMultiplier),
+            };
+        }
     }
 }

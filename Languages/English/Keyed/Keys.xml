@@ -19,4 +19,9 @@
 	<VGE_LaunchWarpodDesc>Launch this sub-orbital warpod towards a precise target destination.</VGE_LaunchWarpodDesc>
 	<VGE_WarpodLocationNeedRevealed>Can't launch warpods here: location needs to be revealed.</VGE_WarpodLocationNeedRevealed>
 	<VGE_MustBePlacedInSpace>Must be placed in space.</VGE_MustBePlacedInSpace>
+
+  <!-- Gravship shield -->
+  <VGE_ShieldOverheated>Gravship shield generator has overheated due to lack of empty heatsinks. Consider building more heatsinks.</VGE_ShieldOverheated>
+  <VGE_ShieldOverheatedGizmo>Overheated</VGE_ShieldOverheatedGizmo>
+  <VGE_ShieldInternalHeat>Heat units stored internally: {0}/{1}</VGE_ShieldInternalHeat>
 </LanguageData>

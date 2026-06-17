@@ -118,6 +118,12 @@
     <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/comps/li[@Class="VanillaGravshipExpanded2.CompProperties_GravshipShieldGeneratorWithHeat"]/compClass</xpath>
   </Operation>
 
+  <!-- We use our custom gizmo that handles double cooldown duration, so remove the original one. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/comps/li[@Class="VanillaGravshipExpanded2.CompProperties_GravshipShieldGeneratorWithHeat"]/alwaysShowHitpointsGizmo/text()</xpath>
+    <value>false</value>
+  </Operation>
+
   <!-- Add our properties to the shield generator -->
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/comps/li[@Class="VanillaGravshipExpanded2.CompProperties_GravshipShieldGeneratorWithHeat"]</xpath>
@@ -125,7 +131,10 @@
       <maxHeat>50</maxHeat>
       <passiveHeatGeneration>1</passiveHeatGeneration>
       <heatPerDamage>0.1</heatPerDamage>
-      <heatDissipation>1</heatDissipation>
+      <heatDissipationPerHour>1</heatDissipationPerHour>
+      <explosionRadius>2.9</explosionRadius>
+      <explosionDamageDef>Flame</explosionDamageDef>
+      <explosionDamage>-1</explosionDamage> <!-- Default value. Damage def determines damage. -->
     </value>
   </Operation>
 

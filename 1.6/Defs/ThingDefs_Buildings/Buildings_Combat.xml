@@ -836,7 +836,7 @@
         <drawWithNoSelection>True</drawWithNoSelection>
         <disarmedByEmpForTicks>3000</disarmedByEmpForTicks>
         <gizmoTipKey>GravshipShieldTip</gizmoTipKey>
-        <alwaysShowHitpointsGizmo>true</alwaysShowHitpointsGizmo>
+        <alwaysShowHitpointsGizmo>false</alwaysShowHitpointsGizmo> <!-- We use our custom gizmo that handles double cooldown duration. -->
         <rechargeHitPointsIntervalTicks>75</rechargeHitPointsIntervalTicks>
 
         <activated>true</activated>
@@ -845,7 +845,10 @@
         <maxHeat>300</maxHeat>
         <passiveHeatGeneration>3</passiveHeatGeneration>
         <heatPerDamage>0.1</heatPerDamage>
-        <heatDissipation>1</heatDissipation>
+        <heatDissipationPerHour>1</heatDissipationPerHour>
+        <explosionRadius>2.9</explosionRadius>
+        <explosionDamageDef>Flame</explosionDamageDef>
+        <explosionDamage>-1</explosionDamage> <!-- Default value. Damage def determines damage. -->
       </li>
       <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
       <li Class="CompProperties_Breakdownable" />
