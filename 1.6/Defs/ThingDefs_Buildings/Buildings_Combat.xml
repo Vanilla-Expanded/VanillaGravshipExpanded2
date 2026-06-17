@@ -712,7 +712,7 @@
 		<graphicData>
 			<texPath>Things/Structures/Combat/Gravmine</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1,1)</drawSize>
+			<drawSize>(2,2)</drawSize>
 		</graphicData>
 		<rotatable>false</rotatable>
 		<tickerType>Normal</tickerType>
