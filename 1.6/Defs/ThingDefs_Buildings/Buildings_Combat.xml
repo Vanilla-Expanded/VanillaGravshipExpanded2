@@ -836,8 +836,7 @@
 				<heatDissipationPerHour>1</heatDissipationPerHour>
 				<explosionRadius>2.9</explosionRadius>
 				<explosionDamageDef>Flame</explosionDamageDef>
-				<explosionDamage>-1</explosionDamage>
-				<!-- Default value. Damage def determines damage. -->
+				<explosionDamage>-1</explosionDamage> <!-- Default value - damage def determines damage. -->
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable"/>
 			<li Class="CompProperties_Breakdownable"/>
@@ -849,5 +848,19 @@
 			<li>GravshipUpgrade</li>
 		</tradeTags>
 		<uiOrder>2650</uiOrder>
+    <modExtensions>
+      <li Class="VEF.Buildings.ProjectileInterceptorExtension">
+        <healthColorPoints>
+          <li>
+            <healthPercent>0.1</healthPercent>
+            <color>(1.0, 0.0, 0.0)</color>
+          </li>
+          <li>
+            <healthPercent>0.5</healthPercent>
+            <color>(1.0, 0.65, 0.0)</color>
+          </li>
+        </healthColorPoints>
+      </li>
+    </modExtensions>
 	</ThingDef>
 </Defs>
