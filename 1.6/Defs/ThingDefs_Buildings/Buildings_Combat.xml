@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
 	<ThingDef ParentName="VGE_GravshipBuildingBase">
 		<defName>VGE_TargetingConsole</defName>
 		<label>targeting console</label>
@@ -38,15 +37,19 @@
 			<li>VGE_AdvancedGravshipWeaponry</li>
 		</researchPrerequisites>
 		<comps>
-			<li Class="CompProperties_Forbiddable" />
+			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Mannable">
 				<compClass>VanillaGravshipExpanded.CompMannableWithFailReason</compClass>
 				<manWorkType>Violent, Intellectual</manWorkType>
 			</li>
 		</comps>
 		<uiOrder>2005</uiOrder>
+		<modExtensions>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedTargetingConsole</replacementBuilding>
+			</li>
+		</modExtensions>
 	</ThingDef>
-
 	<ThingDef Name="VGE_GravshipCompactTurretBase" ParentName="BuildingBase" Abstract="True">
 		<thingClass>Building_TurretGun</thingClass>
 		<size>(1,1)</size>
@@ -81,9 +84,9 @@
 			<li>PlaceWorker_ShowTurretRadius</li>
 		</placeWorkers>
 		<comps>
-			<li Class="CompProperties_Forbiddable" />
-			<li Class="CompProperties_Flickable" />
-			<li Class="CompProperties_Breakdownable" />
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
 			<li Class="CompProperties_Stunnable">
 				<affectedDamageDefs>
 					<li>Stun</li>
@@ -92,7 +95,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-
 	<ThingDef Name="VGE_GravshipHeavyArtilleryBase" ParentName="VGE_GravshipArtilleryBase" Abstract="True">
 		<statBases>
 			<MaxHitPoints>900</MaxHitPoints>
@@ -110,12 +112,14 @@
 			<li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
 				<rotationSpeed>45</rotationSpeed>
 			</li>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedMediumWeaponPlatform</replacementBuilding>
+			</li>
 		</modExtensions>
 		<researchPrerequisites>
 			<li>VGE_AdvancedGravshipWeaponry</li>
 		</researchPrerequisites>
 	</ThingDef>
-
 	<ThingDef ParentName="VGE_GravshipCompactTurretBase">
 		<defName>VGE_GravshipMinigunTurret</defName>
 		<label>gravship minigun turret</label>
@@ -164,7 +168,6 @@
 		</building>
 		<tickerType>Normal</tickerType>
 	</ThingDef>
-
 	<ThingDef ParentName="BaseWeaponTurret">
 		<defName>VGE_Gun_GravshipMinigun</defName>
 		<label>gravship minigun</label>
@@ -193,7 +196,6 @@
 			</li>
 		</verbs>
 	</ThingDef>
-
 	<ThingDef ParentName="VGE_GravshipCompactTurretBase">
 		<defName>VGE_GravshipAutocannonTurret</defName>
 		<label>gravship autocannon turret</label>
@@ -242,7 +244,6 @@
 		</building>
 		<tickerType>Normal</tickerType>
 	</ThingDef>
-
 	<ThingDef ParentName="BaseWeaponTurret">
 		<defName>VGE_Gun_GravshipAutocannon</defName>
 		<label>gravship autocannon</label>
@@ -272,7 +273,6 @@
 			</li>
 		</verbs>
 	</ThingDef>
-
 	<ThingDef ParentName="BaseBullet">
 		<defName>VGE_Bullet_GravshipAutocannon</defName>
 		<label>autocannon shell</label>
@@ -288,7 +288,6 @@
 			<stoppingPower>0.5</stoppingPower>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="VGE_GravshipCompactTurretBase">
 		<defName>VGE_GravshipUraniumSlugTurret</defName>
 		<label>gravship uranium slug turret</label>
@@ -341,7 +340,6 @@
 		</building>
 		<tickerType>Normal</tickerType>
 	</ThingDef>
-
 	<ThingDef ParentName="BaseWeaponTurret">
 		<defName>VGE_Gun_GravshipUraniumSlug</defName>
 		<label>gravship uranium slug gun</label>
@@ -370,7 +368,6 @@
 			</li>
 		</verbs>
 	</ThingDef>
-
 	<ThingDef ParentName="BaseBullet">
 		<defName>VGE_Bullet_GravshipUraniumSlug</defName>
 		<label>uranium slug</label>
@@ -387,7 +384,6 @@
 			<stoppingPower>0.5</stoppingPower>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="VGE_GravshipHeavyArtilleryBase">
 		<defName>VGE_GaussHowitzer</defName>
 		<label>gauss howitzer</label>
@@ -443,7 +439,6 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-
 	<ThingDef ParentName="BaseWeaponTurret">
 		<defName>VGE_Gun_GaussHowitzer</defName>
 		<label>gauss howitzer</label>
@@ -480,7 +475,6 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-
 	<ThingDef ParentName="BaseBullet">
 		<defName>VGE_Bullet_GaussHowitzer</defName>
 		<label>Gauss howitzer shot</label>
@@ -505,7 +499,6 @@
 			<soundAmbient>MortarRound_Ambient</soundAmbient>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="VGE_GravshipHeavyArtilleryBase">
 		<defName>VGE_JavelinLauncher</defName>
 		<label>javelin launcher</label>
@@ -564,7 +557,6 @@
 			<li>PlaceWorker_TurretTop</li>
 		</placeWorkers>
 	</ThingDef>
-
 	<ThingDef ParentName="BaseWeaponTurret">
 		<defName>VGE_Gun_JavelinLauncher</defName>
 		<label>javelin launcher</label>
@@ -606,7 +598,6 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-
 	<ThingDef ParentName="VGE_GravshipHeavyArtilleryBase">
 		<defName>VGE_AnticraftEmitter</defName>
 		<label>anticraft emitter</label>
@@ -635,14 +626,13 @@
 				<basePowerConsumption>10000</basePowerConsumption>
 				<idlePowerDraw>100</idlePowerDraw>
 			</li>
-			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Flickable"/>
 			<li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
 				<worldMapAttackRange>36</worldMapAttackRange>
 				<firingMode>GroundToSpace, SpaceToSpace, SpaceToGround</firingMode>
 			</li>
 		</comps>
 	</ThingDef>
-
 	<ThingDef ParentName="BaseWeaponTurret">
 		<defName>VGE_Gun_AnticraftEmitter</defName>
 		<label>anticraft emitter</label>
@@ -685,7 +675,6 @@
 			</li>
 		</verbs>
 	</ThingDef>
-
 	<ThingDef ParentName="BaseBullet">
 		<defName>VGE_Bullet_AnticraftEmitter</defName>
 		<label>anticraft emitter beam</label>
@@ -703,7 +692,6 @@
 			<armorPenetrationBase>0.5</armorPenetrationBase>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="BuildingBase">
 		<defName>VGE_Gravmine</defName>
 		<label>gravmine</label>
@@ -746,7 +734,7 @@
 		<placeWorkers>
 			<li>VanillaGravshipExpanded2.PlaceWorker_OnlyInSpace</li>
 		</placeWorkers>
-		<terrainAffordanceNeeded IsNull="True"></terrainAffordanceNeeded>
+		<terrainAffordanceNeeded IsNull="True"/>
 		<comps>
 			<li Class="CompProperties_Explosive">
 				<explosiveRadius>7.9</explosiveRadius>
@@ -762,104 +750,104 @@
 		</comps>
 		<specialDisplayRadius>5.9</specialDisplayRadius>
 	</ThingDef>
-
-  <ThingDef ParentName="GravshipComponentBase">
-    <defName>VGE_LargeGravshipShieldGenerator</defName>
-    <label>large gravship shield generator</label>
-    <description>A large-scale shielding device that can protect a gravship. It modulates the grav field to create a short-lived momentum repulsor surface that blocks projectiles. It works against normal shots and mortars. Those inside can still shoot out. It must be charged before use. Active shields generate structural heat which if not absorbed by heatsinks, will be vented into the gravship. One gravship can support two large gravship shield generators.</description>
-    <graphicData>
-      <graphicClass>Graphic_Single</graphicClass>
-      <texPath>Things/Structures/Combat/LargeGravshipShieldGenerator</texPath>
-      <drawSize>(6, 6)</drawSize>
-    </graphicData>
-    <drawerType>MapMeshAndRealTime</drawerType>
-    <drawOffscreen>true</drawOffscreen>
-    <tickerType>Normal</tickerType>
-    <statBases>
-      <MaxHitPoints>800</MaxHitPoints>
-      <Flammability>0.3</Flammability>
-      <Mass>80</Mass>
-      <WorkToBuild>14000</WorkToBuild>
-      <VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
-    </statBases>
-    <size>(5, 5)</size>
-    <fillPercent>0.6</fillPercent>
-    <passability>PassThroughOnly</passability>
-    <pathCost>20</pathCost>
-    <canOverlapZones>false</canOverlapZones>
-    <costList>
-      <Gravcore>1</Gravcore>
-      <Steel>300</Steel>
-      <GravlitePanel>100</GravlitePanel>
-      <ComponentSpacer>10</ComponentSpacer>
-    </costList>
-    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
-    <specialDisplayRadius>36.9</specialDisplayRadius>
-    <designationCategory>VGE_Combat</designationCategory>
-    <comps>
-      <li Class="CompProperties_GravshipFacility">
-        <requiresLOS>false</requiresLOS>
-        <maxSimultaneous>2</maxSimultaneous>
-        <maxDistance>500</maxDistance>
-      </li>
-      <li Class="CompProperties_Flickable" />
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>500</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Interactable">
-        <compClass>CompInteractable_GravshipShieldGenerator</compClass>
-        <ticksToActivate>120</ticksToActivate>
-        <jobString>activate</jobString>
-        <activateTexPath>UI/Commands/ActivateGravshipShield</activateTexPath>
-        <soundActivate>GravshipShieldGenerator_Activate</soundActivate>
-        <requiresPower>false</requiresPower>
-        <targetingParameters>
-          <canTargetBuildings>false</canTargetBuildings>
-          <canTargetAnimals>false</canTargetAnimals>
-          <canTargetMechs>false</canTargetMechs>
-          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
-        </targetingParameters>
-      </li>
-      <li Class="VanillaGravshipExpanded2.CompProperties_GravshipShieldGeneratorWithHeat">
-        <radius>36.9</radius>
-        <interceptGroundProjectiles>true</interceptGroundProjectiles>
-        <interceptAirProjectiles>true</interceptAirProjectiles>
-        <color>(0.4, 0.4, 0.4)</color>
-        <reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
-        <activeSound>BulletShield_Ambience</activeSound>
-        <hitPoints>1000</hitPoints>
-        <hitPointsRestoreInstantlyAfterCharge>false</hitPointsRestoreInstantlyAfterCharge>
-        <startWithMaxHitPoints>false</startWithMaxHitPoints>
-        <chargeDurationTicks>20000</chargeDurationTicks> <!-- 8 hours -->
-        <minIdleAlpha>0.2</minIdleAlpha>
-        <drawWithNoSelection>True</drawWithNoSelection>
-        <disarmedByEmpForTicks>3000</disarmedByEmpForTicks>
-        <gizmoTipKey>GravshipShieldTip</gizmoTipKey>
-        <alwaysShowHitpointsGizmo>false</alwaysShowHitpointsGizmo> <!-- We use our custom gizmo that handles double cooldown duration. -->
-        <rechargeHitPointsIntervalTicks>75</rechargeHitPointsIntervalTicks>
-
-        <activated>true</activated>
-        <activeDuration>12000</activeDuration> <!-- 100 seconds -->
-
-        <maxHeat>300</maxHeat>
-        <passiveHeatGeneration>3</passiveHeatGeneration>
-        <heatPerDamage>0.1</heatPerDamage>
-        <heatDissipationPerHour>1</heatDissipationPerHour>
-        <explosionRadius>2.9</explosionRadius>
-        <explosionDamageDef>Flame</explosionDamageDef>
-        <explosionDamage>-1</explosionDamage> <!-- Default value. Damage def determines damage. -->
-      </li>
-      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
-      <li Class="CompProperties_Breakdownable" />
-    </comps>
-    <researchPrerequisites>
-      <li>VGE_GravshipDefenses</li>
-    </researchPrerequisites>
-    <tradeTags>
-      <li>GravshipUpgrade</li>
-    </tradeTags>
-    <uiOrder>2650</uiOrder>
-  </ThingDef>
-
+	<ThingDef ParentName="GravshipComponentBase">
+		<defName>VGE_LargeGravshipShieldGenerator</defName>
+		<label>large gravship shield generator</label>
+		<description>A large-scale shielding device that can protect a gravship. It modulates the grav field to create a short-lived momentum repulsor surface that blocks projectiles. It works against normal shots and mortars. Those inside can still shoot out. It must be charged before use. Active shields generate structural heat which if not absorbed by heatsinks, will be vented into the gravship. One gravship can support two large gravship shield generators.</description>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Structures/Combat/LargeGravshipShieldGenerator</texPath>
+			<drawSize>(6, 6)</drawSize>
+		</graphicData>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<drawOffscreen>true</drawOffscreen>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>800</MaxHitPoints>
+			<Flammability>0.3</Flammability>
+			<Mass>80</Mass>
+			<WorkToBuild>14000</WorkToBuild>
+			<VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+		</statBases>
+		<size>(5, 5)</size>
+		<fillPercent>0.6</fillPercent>
+		<passability>PassThroughOnly</passability>
+		<pathCost>20</pathCost>
+		<canOverlapZones>false</canOverlapZones>
+		<costList>
+			<Gravcore>1</Gravcore>
+			<Steel>300</Steel>
+			<GravlitePanel>100</GravlitePanel>
+			<ComponentSpacer>10</ComponentSpacer>
+		</costList>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<specialDisplayRadius>36.9</specialDisplayRadius>
+		<designationCategory>VGE_Combat</designationCategory>
+		<comps>
+			<li Class="CompProperties_GravshipFacility">
+				<requiresLOS>false</requiresLOS>
+				<maxSimultaneous>2</maxSimultaneous>
+				<maxDistance>500</maxDistance>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>500</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Interactable">
+				<compClass>CompInteractable_GravshipShieldGenerator</compClass>
+				<ticksToActivate>120</ticksToActivate>
+				<jobString>activate</jobString>
+				<activateTexPath>UI/Commands/ActivateGravshipShield</activateTexPath>
+				<soundActivate>GravshipShieldGenerator_Activate</soundActivate>
+				<requiresPower>false</requiresPower>
+				<targetingParameters>
+					<canTargetBuildings>false</canTargetBuildings>
+					<canTargetAnimals>false</canTargetAnimals>
+					<canTargetMechs>false</canTargetMechs>
+					<onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+				</targetingParameters>
+			</li>
+			<li Class="VanillaGravshipExpanded2.CompProperties_GravshipShieldGeneratorWithHeat">
+				<radius>36.9</radius>
+				<interceptGroundProjectiles>true</interceptGroundProjectiles>
+				<interceptAirProjectiles>true</interceptAirProjectiles>
+				<color>(0.4, 0.4, 0.4)</color>
+				<reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+				<activeSound>BulletShield_Ambience</activeSound>
+				<hitPoints>1000</hitPoints>
+				<hitPointsRestoreInstantlyAfterCharge>false</hitPointsRestoreInstantlyAfterCharge>
+				<startWithMaxHitPoints>false</startWithMaxHitPoints>
+				<chargeDurationTicks>20000</chargeDurationTicks>
+				<!-- 8 hours -->
+				<minIdleAlpha>0.2</minIdleAlpha>
+				<drawWithNoSelection>True</drawWithNoSelection>
+				<disarmedByEmpForTicks>3000</disarmedByEmpForTicks>
+				<gizmoTipKey>GravshipShieldTip</gizmoTipKey>
+				<alwaysShowHitpointsGizmo>false</alwaysShowHitpointsGizmo>
+				<!-- We use our custom gizmo that handles double cooldown duration. -->
+				<rechargeHitPointsIntervalTicks>75</rechargeHitPointsIntervalTicks>
+				<activated>true</activated>
+				<activeDuration>12000</activeDuration>
+				<!-- 100 seconds -->
+				<maxHeat>300</maxHeat>
+				<passiveHeatGeneration>3</passiveHeatGeneration>
+				<heatPerDamage>0.1</heatPerDamage>
+				<heatDissipationPerHour>1</heatDissipationPerHour>
+				<explosionRadius>2.9</explosionRadius>
+				<explosionDamageDef>Flame</explosionDamageDef>
+				<explosionDamage>-1</explosionDamage>
+				<!-- Default value. Damage def determines damage. -->
+			</li>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<researchPrerequisites>
+			<li>VGE_GravshipDefenses</li>
+		</researchPrerequisites>
+		<tradeTags>
+			<li>GravshipUpgrade</li>
+		</tradeTags>
+		<uiOrder>2650</uiOrder>
+	</ThingDef>
 </Defs>

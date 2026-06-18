@@ -730,4 +730,65 @@
 			<drawSize>(9,9)</drawSize>
 		</graphicData>
 	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoDestroyedBuilding">
+		<defName>VGE_DestroyedTargetingConsole</defName>
+		<label>destroyed targeting console</label>
+		<description>The shattered remains of a large targeting console. Its screens are cracked and dark, and its sensitive aiming mechanisms are twisted and inoperable. It is nothing more than salvage now.</description>
+		<size>(3,1)</size>
+		<costList>
+			<GravlitePanel>45</GravlitePanel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>130</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedTargetingConsole</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(4,2)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoDestroyedBuilding">
+		<defName>VGE_DestroyedWarComputer</defName>
+		<label>destroyed warcomputer</label>
+		<description>The shattered remains of a warcomputer. Its advanced tactical processing systems are offline and completely unresponsive. While the unit is beyond repair, the core housing contains a valuable, intact gravcore that can still be salvaged.</description>
+		<size>(3,3)</size>
+		<costList>
+			<Gravcore>1</Gravcore>
+			<GravlitePanel>60</GravlitePanel>
+			<ComponentSpacer>4</ComponentSpacer>
+			<Steel>90</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedWarComputer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoDestroyedBuilding">
+		<defName>VGE_DestroyedGravlockTether</defName>
+		<label>destroyed gravlock tether</label>
+		<description>The ruined remains of a gravlock tether that once anchored an orbital station in place. The core stabilization systems are completely shattered, but its bulky frame can still be deconstructed to yield valuable salvage, including a gravcore.</description>
+		<size>(5,5)</size>
+		<costList>
+			<Gravcore>1</Gravcore>		
+		</costList>
+		<statBases>
+			<MaxHitPoints>2500</MaxHitPoints>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/DestroyedGravlockTether</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(5,5)</drawSize>
+		</graphicData>
+	</ThingDef>
 </Defs>
