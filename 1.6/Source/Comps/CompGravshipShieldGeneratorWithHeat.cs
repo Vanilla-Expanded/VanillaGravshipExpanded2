@@ -22,7 +22,7 @@ public class CompGravshipShieldGeneratorWithHeat : CompGravshipShieldGenerator
 
         if (parent.IsHashIntervalTick(GenTicks.TickRareInterval, delta))
         {
-            storedHeat -= Props.HeatDissipation;
+            storedHeat -= Props.HeatDissipationPerRareTick;
             if (storedHeat < 0f)
                 storedHeat = 0f;
             if (Active)

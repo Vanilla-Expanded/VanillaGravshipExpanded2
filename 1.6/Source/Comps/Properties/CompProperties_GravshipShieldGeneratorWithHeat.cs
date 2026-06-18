@@ -16,7 +16,8 @@ public class CompProperties_GravshipShieldGeneratorWithHeat : CompProperties_Pro
 
     public float PassiveHeatGeneration => passiveHeatGeneration * CompHeatManager.BaseHeatsinkCapacityMultiplier;
     public float HeatPerDamage => heatPerDamage * CompHeatManager.BaseHeatsinkCapacityMultiplier;
-    public float HeatDissipation => heatDissipationPerHour * CompHeatManager.HeatMultiplier * CompHeatManager.HeatsinkCapacityMultiplier;
+    public float HeatDissipationPerHour => heatDissipationPerHour * CompHeatManager.HeatMultiplier * CompHeatManager.HeatsinkCapacityMultiplier;
+    public float HeatDissipationPerRareTick => HeatDissipationPerHour * ((float)GenTicks.TickRareInterval / GenDate.TicksPerHour);
 
     public CompProperties_GravshipShieldGeneratorWithHeat() => compClass = typeof(CompGravshipShieldGeneratorWithHeat);
 }
