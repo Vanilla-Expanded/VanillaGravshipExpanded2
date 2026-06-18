@@ -128,7 +128,7 @@
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]/comps/li[@Class="VanillaGravshipExpanded2.CompProperties_GravshipShieldGeneratorWithHeat"]</xpath>
     <value>
-      <maxHeat>50</maxHeat>
+      <maxHeat>100</maxHeat>
       <passiveHeatGeneration>1</passiveHeatGeneration>
       <heatPerDamage>0.1</heatPerDamage>
       <heatDissipationPerHour>1</heatDissipationPerHour>
