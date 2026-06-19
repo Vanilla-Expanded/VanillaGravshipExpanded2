@@ -19,7 +19,17 @@ namespace VanillaGravshipExpanded2
         {
             base.OnHacked(hacker, suppressMessages);
             GiveGravdata();
-            parent.Destroy(DestroyMode.KillFinalize);
+            var storedPos = parent.Position;
+            var storedMap = parent.Map;
+            var storedRot = parent.Rotation;
+            parent.Destroy(DestroyMode.Vanish);
+            var extension = parent.def.GetModExtension<WreckedBuildingReplacementExtension>();
+            var buildingToMake = GenSpawn.Spawn(ThingMaker.MakeThing(extension.replacementBuilding), storedPos, storedMap);
+            buildingToMake.Rotation = storedRot;
+            if (buildingToMake.def.CanHaveFaction)
+            {
+                buildingToMake.SetFaction(parent.Faction);
+            }
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()

@@ -446,7 +446,6 @@
 		<graphicData>
 			<texPath>Things/Structures/Combat/GravshipTurrets/GaussHowitzer_TurretTop</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawOffset>(0,0,0.1)</drawOffset>
 		</graphicData>
 		<verbs>
 			<li>
@@ -515,6 +514,7 @@
 			<turretGunDef>VGE_Gun_JavelinLauncher</turretGunDef>
 			<turretBurstCooldownTime>40</turretBurstCooldownTime>
 			<turretTopDrawSize>6</turretTopDrawSize>
+			<turretTopOffset>(0, -0.5)</turretTopOffset>
 			<turretBurstWarmupTime>5</turretBurstWarmupTime>
 			<relatedBuildCommands>
 				<li>VGE_TargetingTerminal</li>
@@ -564,7 +564,6 @@
 		<graphicData>
 			<texPath>Things/Structures/Combat/GravshipTurrets/JavelinLauncher_TurretTop</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawOffset>(0,0,0.1)</drawOffset>
 		</graphicData>
 		<verbs>
 			<li>
@@ -614,6 +613,7 @@
 			<turretGunDef>VGE_Gun_AnticraftEmitter</turretGunDef>
 			<turretBurstCooldownTime>20</turretBurstCooldownTime>
 			<turretTopDrawSize>6</turretTopDrawSize>
+			<turretTopOffset>(0, -0.5)</turretTopOffset>
 			<turretBurstWarmupTime>10</turretBurstWarmupTime>
 			<relatedBuildCommands>
 				<li>VGE_TargetingTerminal</li>
@@ -640,7 +640,6 @@
 		<graphicData>
 			<texPath>Things/Structures/Combat/GravshipTurrets/AnticraftEmitter_TurretTop</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawOffset>(0,0,0.1)</drawOffset>
 		</graphicData>
 		<statBases>
 			<AccuracyTouch>0.9</AccuracyTouch>
@@ -912,5 +911,120 @@
 				<replacementBuilding>VGE_DestroyedWarComputer</replacementBuilding>
 			</li>
 		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="VGE_MechTurretBase">
+		<defName>VGE_EnemyGaussBombard</defName>
+		<label>enemy gauss bombard</label>
+		<description>A heavy, slow-firing electromagnetic launcher that discharges bursts of two kinetic impactors. Designed to bombard locations designated by an orbital bombardment targeter.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+		<thingClass>VanillaGravshipExpanded.Building_EnemyMechTurret</thingClass>
+		<designationCategory>VGE_Designer</designationCategory>
+		<uiIconPath>Things/Enemy/EnemyGaussBombard/EnemyGaussBombard_MenuIcon</uiIconPath>
+		<graphicData>
+			<texPath>Things/Structures/Artillery/GravshipArtillery_Base_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+		<size>(3,3)</size>
+		<statBases>
+			<MaxHitPoints>350</MaxHitPoints>
+			<Flammability>0.4</Flammability>
+			<Beauty>-25</Beauty>
+			<ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+		</statBases>
+		<passability>Impassable</passability>
+		<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<building>
+			<turretGunDef>VGE_Gun_EnemyGaussBombard</turretGunDef>
+			<turretBurstCooldownTime>60</turretBurstCooldownTime>
+			<turretBurstWarmupTime>12</turretBurstWarmupTime>
+			<turretTopOffset>(0, -0.5)</turretTopOffset>
+			<turretTopDrawSize>4</turretTopDrawSize>
+			<deconstructible>true</deconstructible>
+		</building>
+		<costList>
+			<Steel>40</Steel>
+			<GravlitePanel>10</GravlitePanel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<comps>
+			<li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+				<worldMapAttackRange>16</worldMapAttackRange>
+				<firingMode>SpaceToGround, SpaceToSpace, GroundToSpace, GroundToGround</firingMode>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+				<rotationSpeed>35</rotationSpeed>
+			</li>
+			<li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+				<barrels>
+					<li>(-0.4, 0, 1.5)</li>
+					<li>(0.4, 0, 1.5)</li>
+				</barrels>
+			</li>
+		</modExtensions>
+		<tickerType>Normal</tickerType>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+		</placeWorkers>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>VGE_Gun_EnemyGaussBombard</defName>
+		<label>enemy gauss bombard</label>
+		<description>A heavy, slow-firing electromagnetic launcher.</description>
+		<graphicData>
+			<texPath>Things/Enemy/EnemyGaussBombard/EnemyGaussBombard_TurretTop</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawOffset>(0,0,0.3)</drawOffset>
+		</graphicData>
+		<verbs>
+			<li>
+				<verbClass>VanillaGravshipExpanded.Verb_ShootWithSmoke</verbClass>
+				<defaultProjectile>VGE_Bullet_GaussBombard</defaultProjectile>
+				<range>99999</range>
+				<minRange>11.9</minRange>
+				<burstShotCount>2</burstShotCount>
+				<ticksBetweenBurstShots>18</ticksBetweenBurstShots>
+				<soundCast>VGE_GravshipHowitzer</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>14</muzzleFlashScale>
+				<forcedMissRadius>20.9</forcedMissRadius>
+				<requireLineOfSight>false</requireLineOfSight>
+				<consumeFuelPerShot>0</consumeFuelPerShot>
+				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+				<isMortar>true</isMortar>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>VGE_Bullet_GaussBombard</defName>
+		<label>gauss bombard shot</label>
+		<graphicData>
+			<texPath>Things/Projectiles/GaussShot_VerySmall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<thingClass>VanillaGravshipExpanded.Projectile_Gauss</thingClass>
+		<projectile>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>40</damageAmountBase>
+			<armorPenetrationBase>0.15</armorPenetrationBase>
+			<speed>50</speed>
+			<explosionRadius>6.9</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+			<stoppingPower>1.0</stoppingPower>
+			<soundImpact>BulletImpact_Metal</soundImpact>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+		</projectile>
 	</ThingDef>
 </Defs>
