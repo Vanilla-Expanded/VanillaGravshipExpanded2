@@ -767,7 +767,7 @@
 			<Beauty>0</Beauty>
 		</statBases>
 		<graphicData>
-			<texPath>Things/Structures/Destroyed/DestroyedWarComputer</texPath>
+			<texPath>Things/Structures/Destroyed/DestroyedWarcomputer</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(4,4)</drawSize>
 		</graphicData>

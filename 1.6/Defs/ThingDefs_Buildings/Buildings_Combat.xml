@@ -37,7 +37,7 @@
 			<li>VGE_AdvancedGravshipWeaponry</li>
 		</researchPrerequisites>
 		<comps>
-			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Forbiddable" />
 			<li Class="CompProperties_Mannable">
 				<compClass>VanillaGravshipExpanded.CompMannableWithFailReason</compClass>
 				<manWorkType>Violent, Intellectual</manWorkType>
@@ -84,9 +84,9 @@
 			<li>PlaceWorker_ShowTurretRadius</li>
 		</placeWorkers>
 		<comps>
-			<li Class="CompProperties_Forbiddable"/>
-			<li Class="CompProperties_Flickable"/>
-			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Forbiddable" />
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable" />
 			<li Class="CompProperties_Stunnable">
 				<affectedDamageDefs>
 					<li>Stun</li>
@@ -626,7 +626,7 @@
 				<basePowerConsumption>10000</basePowerConsumption>
 				<idlePowerDraw>100</idlePowerDraw>
 			</li>
-			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Flickable" />
 			<li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
 				<worldMapAttackRange>36</worldMapAttackRange>
 				<firingMode>GroundToSpace, SpaceToSpace, SpaceToGround</firingMode>
@@ -702,6 +702,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(2,2)</drawSize>
 		</graphicData>
+		<uiIconScale>0.6</uiIconScale>
 		<rotatable>false</rotatable>
 		<tickerType>Normal</tickerType>
 		<stealable>false</stealable>
@@ -734,7 +735,7 @@
 		<placeWorkers>
 			<li>VanillaGravshipExpanded2.PlaceWorker_OnlyInSpace</li>
 		</placeWorkers>
-		<terrainAffordanceNeeded IsNull="True"/>
+		<terrainAffordanceNeeded IsNull="True" />
 		<comps>
 			<li Class="CompProperties_Explosive">
 				<explosiveRadius>7.9</explosiveRadius>
@@ -789,7 +790,7 @@
 				<maxSimultaneous>2</maxSimultaneous>
 				<maxDistance>500</maxDistance>
 			</li>
-			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Flickable" />
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<basePowerConsumption>500</basePowerConsumption>
@@ -836,10 +837,10 @@
 				<heatDissipationPerHour>1</heatDissipationPerHour>
 				<explosionRadius>2.9</explosionRadius>
 				<explosionDamageDef>Flame</explosionDamageDef>
-				<explosionDamage>-1</explosionDamage> <!-- Default value - damage def determines damage. -->
+				<explosionDamage>-1</explosionDamage>				<!-- Default value - damage def determines damage. -->
 			</li>
-			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable"/>
-			<li Class="CompProperties_Breakdownable"/>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
+			<li Class="CompProperties_Breakdownable" />
 		</comps>
 		<researchPrerequisites>
 			<li>VGE_GravshipDefenses</li>
@@ -848,19 +849,68 @@
 			<li>GravshipUpgrade</li>
 		</tradeTags>
 		<uiOrder>2650</uiOrder>
-    <modExtensions>
-      <li Class="VEF.Buildings.ProjectileInterceptorExtension">
-        <healthColorPoints>
-          <li>
-            <healthPercent>0.1</healthPercent>
-            <color>(1.0, 0.0, 0.0)</color>
-          </li>
-          <li>
-            <healthPercent>0.5</healthPercent>
-            <color>(1.0, 0.65, 0.0)</color>
-          </li>
-        </healthColorPoints>
-      </li>
-    </modExtensions>
+		<modExtensions>
+			<li Class="VEF.Buildings.ProjectileInterceptorExtension">
+				<healthColorPoints>
+					<li>
+						<healthPercent>0.1</healthPercent>
+						<color>(1.0, 0.0, 0.0)</color>
+					</li>
+					<li>
+						<healthPercent>0.5</healthPercent>
+						<color>(1.0, 0.65, 0.0)</color>
+					</li>
+				</healthColorPoints>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>VGE_HostileWarcomputer</defName>
+		<label>hostile warcomputer</label>
+		<description>The tactical core of an orbital warplatform. This advanced supercomputer maintains active target locks and manages the platform's long-range artillery systems. It can be accessed and hacked to download a payload of gravdata, scaling based on progress on the currently selected gravtech research project. Destroying or hacking the warcomputer will disable the platform entirely.</description>
+		<designationCategory>VGE_Designer</designationCategory>
+		<statBases>
+			<MaxHitPoints>1000</MaxHitPoints>
+			<Mass>30</Mass>
+			<Flammability>0.6</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Enemy/EnemyWarcomputer/HostileSupercomputer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		<size>(3,3)</size>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<rotatable>false</rotatable>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.6</fillPercent>
+		<pathCost>20</pathCost>
+		<building>
+			<deconstructible>true</deconstructible>
+		</building>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<costList>
+			<Gravcore>1</Gravcore>
+			<GravlitePanel>60</GravlitePanel>
+			<ComponentSpacer>4</ComponentSpacer>
+			<Steel>90</Steel>
+		</costList>
+		<comps>
+			<li Class="VanillaGravshipExpanded2.CompProperties_HostileWarcomputer_Hackable">
+				<defence>3000</defence>
+				<effectHacking>HackingTerminal</effectHacking>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>4</glowRadius>
+				<glowColor>(255, 40, 40, 0)</glowColor>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+				<replacementBuilding>VGE_DestroyedWarComputer</replacementBuilding>
+			</li>
+		</modExtensions>
 	</ThingDef>
 </Defs>

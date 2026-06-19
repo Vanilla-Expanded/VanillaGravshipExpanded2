@@ -51,5 +51,6 @@ namespace VanillaGravshipExpanded2
 		public static ThingDef VGE_WarpodLeaving;
 		public static ThingDef VGE_WarpodIncoming;
 		public static WorldObjectDef VGE_TravellingWarpod;
+		public static ThingDef VGE_GravshipBlackBox;
 	}
 }
