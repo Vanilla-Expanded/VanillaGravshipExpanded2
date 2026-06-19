@@ -400,6 +400,7 @@
 			<turretGunDef>VGE_Gun_GaussHowitzer</turretGunDef>
 			<turretBurstCooldownTime>30</turretBurstCooldownTime>
 			<turretTopDrawSize>7</turretTopDrawSize>
+			<turretTopOffset>(0, 0.5)</turretTopOffset>
 			<turretBurstWarmupTime>4</turretBurstWarmupTime>
 			<relatedBuildCommands>
 				<li>VGE_TargetingTerminal</li>
@@ -514,7 +515,7 @@
 			<turretGunDef>VGE_Gun_JavelinLauncher</turretGunDef>
 			<turretBurstCooldownTime>40</turretBurstCooldownTime>
 			<turretTopDrawSize>6</turretTopDrawSize>
-			<turretTopOffset>(0, -0.5)</turretTopOffset>
+			<turretTopOffset>(0, 0.5)</turretTopOffset>
 			<turretBurstWarmupTime>5</turretBurstWarmupTime>
 			<relatedBuildCommands>
 				<li>VGE_TargetingTerminal</li>
@@ -613,7 +614,7 @@
 			<turretGunDef>VGE_Gun_AnticraftEmitter</turretGunDef>
 			<turretBurstCooldownTime>20</turretBurstCooldownTime>
 			<turretTopDrawSize>6</turretTopDrawSize>
-			<turretTopOffset>(0, -0.5)</turretTopOffset>
+			<turretTopOffset>(0, 0.5)</turretTopOffset>
 			<turretBurstWarmupTime>10</turretBurstWarmupTime>
 			<relatedBuildCommands>
 				<li>VGE_TargetingTerminal</li>
@@ -938,8 +939,8 @@
 			<turretGunDef>VGE_Gun_EnemyGaussBombard</turretGunDef>
 			<turretBurstCooldownTime>60</turretBurstCooldownTime>
 			<turretBurstWarmupTime>12</turretBurstWarmupTime>
-			<turretTopOffset>(0, -0.5)</turretTopOffset>
 			<turretTopDrawSize>4</turretTopDrawSize>
+			<turretTopOffset>(0, 0.5)</turretTopOffset>
 			<deconstructible>true</deconstructible>
 		</building>
 		<costList>
