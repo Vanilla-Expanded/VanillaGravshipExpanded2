@@ -97,9 +97,9 @@
 	</ThingDef>
 	<ThingDef Name="VGE_GravshipHeavyArtilleryBase" ParentName="VGE_GravshipArtilleryBase" Abstract="True">
 		<statBases>
-			<MaxHitPoints>900</MaxHitPoints>
+			<MaxHitPoints>1000</MaxHitPoints>
 			<Flammability>0.4</Flammability>
-			<WorkToBuild>25000</WorkToBuild>
+			<WorkToBuild>45000</WorkToBuild>
 			<Beauty>-40</Beauty>
 		</statBases>
 		<size>(5,5)</size>
@@ -391,17 +391,17 @@
 		<thingClass>VanillaGravshipExpanded.Building_GravshipTurret</thingClass>
 		<uiIconPath>Things/Structures/Combat/GravshipTurrets/GaussHowitzer_MenuIcon</uiIconPath>
 		<costList>
-			<Steel>400</Steel>
-			<GravlitePanel>60</GravlitePanel>
+			<Steel>750</Steel>
+			<GravlitePanel>120</GravlitePanel>
 			<Uranium>120</Uranium>
-			<ComponentIndustrial>10</ComponentIndustrial>
+			<ComponentIndustrial>14</ComponentIndustrial>
 		</costList>
 		<building>
 			<turretGunDef>VGE_Gun_GaussHowitzer</turretGunDef>
 			<turretBurstCooldownTime>30</turretBurstCooldownTime>
 			<turretTopDrawSize>7</turretTopDrawSize>
 			<turretTopOffset>(0, 0.5)</turretTopOffset>
-			<turretBurstWarmupTime>4</turretBurstWarmupTime>
+			<turretBurstWarmupTime>8</turretBurstWarmupTime>
 			<relatedBuildCommands>
 				<li>VGE_TargetingTerminal</li>
 				<li>VGE_TargetingConsole</li>
@@ -488,7 +488,7 @@
 			<damageDef>Bomb</damageDef>
 			<damageAmountBase>50</damageAmountBase>
 			<armorPenetrationBase>0.15</armorPenetrationBase>
-			<speed>90</speed>
+			<speed>135</speed>
 			<explosionRadius>4.9</explosionRadius>
 			<flyOverhead>true</flyOverhead>
 			<stoppingPower>2.5</stoppingPower>
@@ -506,9 +506,9 @@
 		<thingClass>VanillaGravshipExpanded.Building_JavelinLauncher</thingClass>
 		<uiIconPath>Things/Structures/Combat/GravshipTurrets/JavelinLauncher_MenuIcon</uiIconPath>
 		<costList>
-			<Steel>400</Steel>
-			<GravlitePanel>60</GravlitePanel>
-			<ComponentIndustrial>10</ComponentIndustrial>
+			<Steel>750</Steel>
+			<GravlitePanel>120</GravlitePanel>
+			<ComponentIndustrial>14</ComponentIndustrial>
 			<VGE_Astrofuel>120</VGE_Astrofuel>
 		</costList>
 		<building>
@@ -516,7 +516,7 @@
 			<turretBurstCooldownTime>40</turretBurstCooldownTime>
 			<turretTopDrawSize>6</turretTopDrawSize>
 			<turretTopOffset>(0, 0.5)</turretTopOffset>
-			<turretBurstWarmupTime>5</turretBurstWarmupTime>
+			<turretBurstWarmupTime>10</turretBurstWarmupTime>
 			<relatedBuildCommands>
 				<li>VGE_TargetingTerminal</li>
 				<li>VGE_TargetingConsole</li>
@@ -605,9 +605,9 @@
 		<thingClass>VanillaGravshipExpanded.Building_AnticraftEmitter</thingClass>
 		<uiIconPath>Things/Structures/Combat/GravshipTurrets/AnticraftEmitter_MenuIcon</uiIconPath>
 		<costList>
-			<Steel>400</Steel>
-			<GravlitePanel>60</GravlitePanel>
-			<ComponentSpacer>4</ComponentSpacer>
+			<Steel>750</Steel>
+			<GravlitePanel>120</GravlitePanel>
+			<ComponentSpacer>6</ComponentSpacer>
 			<ComponentIndustrial>10</ComponentIndustrial>
 		</costList>
 		<building>
@@ -624,7 +624,7 @@
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>10000</basePowerConsumption>
+				<basePowerConsumption>200000</basePowerConsumption>
 				<idlePowerDraw>100</idlePowerDraw>
 			</li>
 			<li Class="CompProperties_Flickable" />
@@ -689,7 +689,7 @@
 			<flyOverhead>true</flyOverhead>
 			<beamMoteDef>VGE_Mote_BeamRepeaterLaser</beamMoteDef>
 			<beamStartOffset>2.5</beamStartOffset>
-			<armorPenetrationBase>0.5</armorPenetrationBase>
+			<armorPenetrationBase>0.85</armorPenetrationBase>
 		</projectile>
 	</ThingDef>
 	<ThingDef ParentName="BuildingBase">
