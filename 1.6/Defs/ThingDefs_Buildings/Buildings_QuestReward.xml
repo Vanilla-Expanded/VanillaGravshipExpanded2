@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="VGE_GravshipArtillerySmallBase">
+        <defName>VGE_AtrofireLauncher</defName>
+        <label>astrofire launcher</label>
+        <description>A compact multi-tube missile platform that shoots a volley of four rapid missiles that explode and carry a payload of astrofuel, setting the area hit on astrofire. Meant for fast, hard-hitting strikes against exposed gravships and unarmored surface forces. Requires a linked targeting terminal with an operator to function. It draws power directly from the grav engine.</description>
+        <thingClass>VanillaGravshipExpanded.Building_JavelinPod</thingClass>
+        <uiIconPath>Things/Structures/Combat/GravshipTurrets/AstrofireLauncher_MenuIcon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Small</texPath>
+            <drawSize>(3,3)</drawSize>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <WorkToBuild>18000</WorkToBuild>
+            <Beauty>-25</Beauty>
+			<Mass>60</Mass>
+        </statBases>
+        <size>(3,3)</size>
+        <costList>
+            <Steel>200</Steel>
+            <GravlitePanel>60</GravlitePanel>
+            <VGE_Astrofuel>120</VGE_Astrofuel>
+            <ComponentIndustrial>8</ComponentIndustrial>
+        </costList>
+ 	    <researchPrerequisites Inherit="False"/>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <building>
+            <turretGunDef>VGE_Gun_AstrofireLauncher</turretGunDef>
+            <turretBurstCooldownTime>24</turretBurstCooldownTime>
+            <turretTopDrawSize>4</turretTopDrawSize>
+            <turretTopOffset>(0, 0.25)</turretTopOffset>
+            <turretBurstWarmupTime>6</turretBurstWarmupTime>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <relatedBuildCommands>
+                <li>VGE_TargetingTerminal</li>
+                <li>VGE_TargetingConsole</li>
+            </relatedBuildCommands>
+        </building>
+        <comps>
+            <li Class="CompProperties_Refuelable">
+                <fuelLabel>Astrofuel</fuelLabel>
+                <fuelGizmoLabel>Astrofuel</fuelGizmoLabel>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>VGE_Astrofuel</li>
+                    </thingDefs>
+                </fuelFilter>
+                <fuelCapacity>120</fuelCapacity>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <showFuelGizmo>true</showFuelGizmo>
+                <initialFuelPercent>1</initialFuelPercent>
+                <outOfFuelMessage>Missing rockets</outOfFuelMessage>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>16</worldMapAttackRange>
+                <firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>100</rotationSpeed>
+            </li>
+            <li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+                <barrels>
+                    <li>(0.5, 0, 1.5)</li>
+					<li>(-0.5, 0, 1.5)</li>
+                </barrels>
+            </li>
+        </modExtensions>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+   		<genericMarketSellable>false</genericMarketSellable>
+    	<thingCategories>
+     		<li>BuildingsMisc</li>
+   		</thingCategories>
+   		<minifiedDef>MinifiedThing</minifiedDef>
+		<tradeTags>
+			<li>GravshipUpgrade</li>
+		</tradeTags>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_AstrofireLauncher</defName>
+        <label>astrofire launcher</label>
+        <description>A compact multi-tube missile platform capable of launching astrofire missiles.</description>
+        <graphicData>
+            <texPath>Things/Structures/Combat/GravshipTurrets/AstrofireLauncher_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <building>
+            <turretTopLoadedGraphic>
+                <texPath>Things/Structures/Combat/GravshipTurrets/AstrofireLauncher_TurretTop_Loaded</texPath>
+                <graphicClass>Graphic_Single</graphicClass>
+            </turretTopLoadedGraphic>
+        </building>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
+                <defaultProjectile>VGE_Rocket_AstrofireMissile</defaultProjectile>
+                <range>99999</range>
+                <minRange>14</minRange>
+                <burstShotCount>4</burstShotCount>
+                <ticksBetweenBurstShots>25</ticksBetweenBurstShots>
+                <soundCast>VGE_JavelinLauncher_Cast</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>8</muzzleFlashScale>
+                <forcedMissRadius>11.9</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <consumeFuelPerShot>30</consumeFuelPerShot>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>VGE_Rocket_AstrofireMissile</defName>
+        <label>Astrofire rocket</label>
+        <graphicData>
+            <texPath>Things/Projectile/Rocket_AstrofireLauncher</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <thingClass>VanillaGravshipExpanded.Projectile_JavelinRocket</thingClass>
+        <projectile>
+            <damageDef>VGE_AstrofireDamage</damageDef>
+            <damageAmountBase>14</damageAmountBase>
+      		<preExplosionSpawnThingDef>VGE_Filth_Astrofuel</preExplosionSpawnThingDef>
+     		<preExplosionSpawnChance>0.15</preExplosionSpawnChance>
+            <armorPenetrationBase>0.1</armorPenetrationBase>
+            <speed>120</speed>
+            <explosionRadius>4.9</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <stoppingPower>0.5</stoppingPower>
+            <soundImpact>BulletImpact_Metal</soundImpact>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+        </projectile>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.ThrusterProjectileExtension">
+                <flameSize>3</flameSize>
+                <flameShaderType>MoteGlow</flameShaderType>
+                <flameShaderParameters>
+                    <_MainTex>/Things/Mote/Exhaust/SmallHighPowerThruster_Burn</_MainTex>
+                </flameShaderParameters>
+                <exhaustFleckDef>GravshipThrusterExhaust</exhaustFleckDef>
+                <emissionsPerSecond>40</emissionsPerSecond>
+                <spawnRadiusRange>0.0~0.5</spawnRadiusRange>
+                <velocity>(0.0,0.0,-20.0)</velocity>
+                <velocityRotationRange>-10.0~10</velocityRotationRange>
+                <velocityMultiplierRange>0.8~1.2</velocityMultiplierRange>
+                <rotationOverTimeRange>-180.0~180</rotationOverTimeRange>
+                <scaleRange>1.5~3</scaleRange>
+            </li>
+        </modExtensions>
+    </ThingDef>
+</Defs>
