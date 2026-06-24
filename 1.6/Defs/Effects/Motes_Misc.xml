@@ -23,4 +23,29 @@
             </shaderParameters>
         </graphicData>
     </ThingDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>VGE_SignalJammerRadius</defName>
+        <mote>
+            <fadeInTime>1</fadeInTime>
+            <solidTime>999999999</solidTime>
+            <fadeOutTime>1</fadeOutTime>
+            <needsMaintenance>True</needsMaintenance>
+        </mote>
+        <drawOffscreen>true</drawOffscreen>
+        <graphicData>
+            <texPath>Things/Mote/SignalJammerRadius</texPath>
+            <shaderType>MoteProximityScannerRadius</shaderType>
+            <color>(1, 0.1, 0.1, 0.35)</color>
+            <drawSize>55.9</drawSize>
+            <shaderParameters>
+                <_smokeScrollSpeed>0.05</_smokeScrollSpeed>
+                <_rotationSpeed>0.02</_rotationSpeed>
+                <_smokeAmount>0.5</_smokeAmount>
+                <_MainTex>/Things/Mote/SignalJammerRadius</_MainTex>
+                <_ScanTex>/Things/Mote/SignalJammerScanning</_ScanTex>
+                <_SmokeTex>/Things/Mote/SmokeTiled</_SmokeTex>
+            </shaderParameters>
+        </graphicData>
+    </ThingDef>
 </Defs>

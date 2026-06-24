@@ -60,7 +60,6 @@
             <li>Light</li>
             <li>Medium</li>
             <li>Heavy</li>
-            <li>Substructure</li>
         </affordances>
         <statBases>
             <CleaningTimeFactor>0.9</CleaningTimeFactor>
@@ -136,6 +135,123 @@
         </spaceEdgeGraphicData>
         <modExtensions>
             <li Class="VanillaGravshipExpanded.SubstructureEdgeGraphicsExtension" />
+        </modExtensions>
+    </TerrainDef>
+
+    <TerrainDef ParentName="PlatformBase">
+        <defName>VGE_EnemySubstructure</defName>
+        <label>enemy substructure</label>
+        <description>A lightweight truss structure with flooring on top that forms the deck of an enemy gravship. Cannot be claimed or used by anyone but the enemy crew. Can be deconstructed to yield some resources.</description>
+        <texturePath>Terrain/EnemySubstructure</texturePath>
+        <uiIconPath>Terrain/EnemySubstructure_MenuIcon</uiIconPath>
+        <fertility>0</fertility>
+        <edgeType>Hard</edgeType>
+        <renderPrecedence>399</renderPrecedence>
+        <isFoundation>true</isFoundation>
+        <layerable>true</layerable>
+        <affordances Inherit="false">
+            <li>Walkable</li>
+            <li>Light</li>
+            <li>Medium</li>
+            <li>Heavy</li>
+        </affordances>
+        <statBases>
+            <CleaningTimeFactor>0.9</CleaningTimeFactor>
+            <MarketValue>14</MarketValue>
+            <Mass>1</Mass>
+            <Beauty>0</Beauty>
+            <Flammability>0</Flammability>
+            <FilthMultiplier>1</FilthMultiplier>
+        </statBases>
+        <costList>
+            <Steel>2</Steel>
+        </costList>
+        <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+        <designationCategory>VGE_Designer</designationCategory>
+        <tags>
+            <li>DestroyableByArtillery</li>
+        </tags>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.SubstructureEdgeGraphicsExtension">
+                <renderAsSubstructure>True</renderAsSubstructure>
+            </li>
+        </modExtensions>
+    </TerrainDef>
+
+    <TerrainDef>
+        <defName>VGE_EnemyDamagedSubstructure</defName>
+        <label>damaged enemy substructure</label>
+        <description>A damaged lightweight truss structure with flooring on top that forms the deck of an enemy gravship. Cannot be claimed or used by anyone but the enemy crew. Can be deconstructed to yield some resources.</description>
+        <texturePath>Terrain/EnemyDamagedSubstructure</texturePath>
+        <uiIconPath>Terrain/EnemyDamagedSubstructure_MenuIcon</uiIconPath>
+        <fertility>0</fertility>
+        <edgeType>Hard</edgeType>
+        <renderPrecedence>399</renderPrecedence>
+        <isFoundation>true</isFoundation>
+        <layerable>true</layerable>
+        <affordances Inherit="false">
+            <li>Walkable</li>
+            <li>Light</li>
+            <li>Medium</li>
+            <li>Heavy</li>
+        </affordances>
+        <statBases>
+            <CleaningTimeFactor>0.9</CleaningTimeFactor>
+            <MarketValue>14</MarketValue>
+            <Mass>1</Mass>
+            <Beauty>0</Beauty>
+            <Flammability>0</Flammability>
+            <FilthMultiplier>1</FilthMultiplier>
+        </statBases>
+        <costList>
+            <Steel>1</Steel>
+        </costList>
+        <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+        <designationCategory>VGE_Designer</designationCategory>
+        <tags>
+            <li>DestroyableByArtillery</li>
+        </tags>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.SubstructureEdgeGraphicsExtension">
+                <renderAsSubstructure>True</renderAsSubstructure>
+            </li>
+        </modExtensions>
+    </TerrainDef>
+
+    <TerrainDef ParentName="FloorBase">
+        <defName>VGE_EnemySubarmor</defName>
+        <label>enemy gravship subarmor</label>
+        <description>A reinforced structural layer with flooring on top that forms the deck of an enemy gravship. Built from dense grav-hardened alloys, this subarmor is completely indestructible, shielding the vessel from artillery impact. Cannot be claimed or used by anyone but the enemy crew. Can be deconstructed to yield some resources.</description>
+        <texturePath>Terrain/EnemySubarmor</texturePath>
+        <uiIconPath>Terrain/EnemySubarmor_MenuIcon</uiIconPath>
+        <fertility>0</fertility>
+        <edgeType>Fade</edgeType>
+        <renderPrecedence>399</renderPrecedence>
+        <isFoundation>true</isFoundation>
+        <affordances Inherit="false">
+            <li>Walkable</li>
+            <li>Light</li>
+            <li>Medium</li>
+            <li>Heavy</li>
+        </affordances>
+        <preventCraters>true</preventCraters>
+        <statBases>
+            <Flammability>0</Flammability>
+            <CleaningTimeFactor>0.9</CleaningTimeFactor>
+            <Beauty>0</Beauty>
+            <MarketValue>30</MarketValue>
+            <Mass>5</Mass>
+            <FilthMultiplier>1</FilthMultiplier>
+        </statBases>
+        <designationCategory>VGE_Designer</designationCategory>
+        <costList>
+            <GravlitePanel>1</GravlitePanel>
+        </costList>
+        <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.SubstructureEdgeGraphicsExtension">
+                <renderAsSubstructure>True</renderAsSubstructure>
+            </li>
         </modExtensions>
     </TerrainDef>
 

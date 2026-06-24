@@ -101,7 +101,7 @@ namespace VanillaGravshipExpanded2
                 }
                 var maxLaunchDistance = MaxLaunchDistanceAtFuelLevel(FuelLevel, PlanetLayer.Selected);
                 GenDraw.DrawWorldRadiusRing(planetTile, maxLaunchDistance, CompPilotConsole.GetFuelRadiusMat(planetTile));
-            }, null);
+            });
         }
 
         private bool ChoseWorldTarget(GlobalTargetInfo target)
@@ -153,6 +153,11 @@ namespace VanillaGravshipExpanded2
         private void LaunchWarpodTo(Map destMap, PlanetTile destTile, IntVec3 destCell)
         {
             var finalCell = destCell;
+            if (Designator_MoveGravship_IsValidCell_Patch.IsCellJammed(finalCell, destMap))
+            {
+                Messages.Message("VGE_DestinationJammedWarpod".Translate(), MessageTypeDefOf.RejectInput, false);
+                return;
+            }
             foreach (var warpod in selectedWarpodsToLaunch)
             {
                 var traversalDistance = Find.WorldGrid.TraversalDistanceBetween(warpod.parent.Map.Tile, destTile, true, int.MaxValue, true);

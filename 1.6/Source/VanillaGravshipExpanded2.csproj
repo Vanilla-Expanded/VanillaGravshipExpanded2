@@ -28,6 +28,10 @@
       <HintPath>..\..\..\VanillaGravshipExpanded\1.6\Assemblies\VanillaGravshipExpanded.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="PipeSystem">
+      <HintPath>..\..\..\VanillaExpandedFramework\1.6\Assemblies\PipeSystem.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />

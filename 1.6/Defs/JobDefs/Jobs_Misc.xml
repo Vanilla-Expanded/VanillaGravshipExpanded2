@@ -6,4 +6,12 @@
 		<reportString>forming a knot.</reportString>
 		<casualInterruptible>false</casualInterruptible>
 	</JobDef>
+
+    <JobDef>
+        <defName>VGE_OperateEnemyTerminal</defName>
+        <driverClass>VanillaGravshipExpanded2.JobDriver_OperateEnemyTerminal</driverClass>
+        <reportString>operating targeting terminal.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
 </Defs>

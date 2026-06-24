@@ -29,4 +29,7 @@
 	<VGE_GravdataWillBeLostWarning>Gravdata obtained will be lost unless you select a gravtech research project.</VGE_GravdataWillBeLostWarning>
 	<VGE_WarcomputerHackedBlackBox>Hostile warcomputer hacked. {0} gravdata stored in the gravship black box.</VGE_WarcomputerHackedBlackBox>
 	<VGE_WarcomputerHackedResearch>Hostile warcomputer hacked. {0} gravdata added to {1} research.</VGE_WarcomputerHackedResearch>
+	<VGE_DestinationJammed>Cannot land here: destination is being jammed by an enemy signal jammer.</VGE_DestinationJammed>
+	<VGE_DestinationJammedDropPod>Unable to launch drop pods as the destination is protected by a signal jammer.</VGE_DestinationJammedDropPod>
+	<VGE_DestinationJammedWarpod>Unable to launch war pods as the destination is protected by a signal jammer.</VGE_DestinationJammedWarpod>
 </LanguageData>

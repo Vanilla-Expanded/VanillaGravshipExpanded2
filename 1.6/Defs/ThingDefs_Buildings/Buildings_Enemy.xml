@@ -1,0 +1,1461 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef Name="VGE_EnemyPropBase" ParentName="BuildingBase" Abstract="True">
+        <designationCategory>VGE_Designer</designationCategory>
+        <disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
+        <building>
+            <claimable>false</claimable>
+            <deconstructible>true</deconstructible>
+        </building>
+        <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+    </ThingDef>
+
+    <ThingDef Name="VGE_EnemyArtilleryBase" ParentName="VGE_EnemyPropBase" Abstract="True">
+        <thingClass>VanillaGravshipExpanded.Building_EnemyMechTurret</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <passability>Impassable</passability>
+        <tickerType>Normal</tickerType>
+        <hasTooltip>true</hasTooltip>
+        <drawHighlight>true</drawHighlight>
+        <drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
+        <building>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <playTargetAcquiredSound>false</playTargetAcquiredSound>
+            <combatPower>150</combatPower>
+        </building>
+        <comps>
+            <li Class="CompProperties_Stunnable">
+                <affectedDamageDefs>
+                    <li>Stun</li>
+                    <li>EMP</li>
+                </affectedDamageDefs>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_HostileWarcomputer</defName>
+        <label>hostile warcomputer</label>
+        <description>The tactical core of an orbital warplatform. This advanced supercomputer maintains active target locks and manages the platform's long-range artillery systems. It can be accessed and hacked to download a payload of gravdata, scaling based on progress on the currently selected gravtech research project. Destroying or hacking the warcomputer will disable the platform entirely.</description>
+        <statBases>
+            <MaxHitPoints>1000</MaxHitPoints>
+            <Mass>30</Mass>
+            <Flammability>0.6</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyWarcomputer/HostileSupercomputer</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(4,4)</drawSize>
+        </graphicData>
+        <size>(3,3)</size>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <rotatable>false</rotatable>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <costList>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>60</GravlitePanel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Steel>90</Steel>
+        </costList>
+        <comps>
+            <li Class="VanillaGravshipExpanded2.CompProperties_HostileWarcomputer_Hackable">
+                <defence>3000</defence>
+                <effectHacking>HackingTerminal</effectHacking>
+            </li>
+            <li Class="CompProperties_Glower">
+                <glowRadius>4</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+                <replacementBuilding>VGE_DestroyedWarComputer</replacementBuilding>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyGravjumperEngine</defName>
+        <label>enemy gravjumper engine</label>
+        <description>A compact gravtech engine designed for short-range jumps within a planet's atmosphere. The gravjumper engine creates a brief, localized distortion in gravitational flow, allowing rapid vertical lift, but does not produce forward thrust. It can't function far from a large gravity well like a planet, so it is useless for interplanetary travel.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources, including a gravcore.</description>
+        <thingClass>VanillaGravshipExpanded2.Building_EnemyGravEngine</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Enemy/EnemyGravJumperEngine/EnemyGravJumperEngine</texPath>
+            <drawSize>(2,2)</drawSize>
+            <addTopAltitudeBias>true</addTopAltitudeBias>
+        </graphicData>
+        <uiIconPath>Things/Enemy/EnemyGravJumperEngine/EnemyGravJumperEngine_MenuIcon</uiIconPath>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Mass>10</Mass>
+            <MarketValue>1800</MarketValue>
+            <Flammability>0.6</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(1,1)</size>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <costList>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>25</GravlitePanel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+            <Steel>30</Steel>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>5</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyGravEngine</defName>
+        <label>enemy gravship engine</label>
+        <description>The ultratech heart of a gravship. The grav engine generates lift by inverting and intensifying the effect of gravity in a field around itself. This engine can lift upwards, but does not produce forward thrust.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources, including a gravcore.</description>
+        <thingClass>VanillaGravshipExpanded2.Building_EnemyGravEngine</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Enemy/EnemyGravEngine/EnemyGravEngine</texPath>
+            <drawSize>(3,3)</drawSize>
+            <addTopAltitudeBias>true</addTopAltitudeBias>
+        </graphicData>
+        <uiIconPath>Things/Enemy/EnemyGravEngine/EnemyGravEngine_MenuIcon</uiIconPath>
+        <statBases>
+            <MaxHitPoints>800</MaxHitPoints>
+            <Mass>30</Mass>
+            <MarketValue>6700</MarketValue>
+            <Flammability>0.6</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <costList>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>60</GravlitePanel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Steel>90</Steel>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>8</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyGravhulkEngine</defName>
+        <label>enemy gravhulk engine</label>
+        <description>The gravhulk is a colossal class of gravship, engineered to transport entire megacolonies, orbital platforms, or mobile city-cores across the skies of a planet. The grav engine generates lift by inverting and intensifying the effect of gravity in a field around itself. This engine can lift upwards, but does not produce forward thrust. It can't function far from a large gravity well like a planet, so it is useless for interplanetary travel.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources, including a gravcore.</description>
+        <thingClass>VanillaGravshipExpanded2.Building_EnemyGravEngine</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Enemy/EnemyGravhulkEngine/EnemyGravHulkEngine</texPath>
+            <drawSize>(5,5)</drawSize>
+            <addTopAltitudeBias>true</addTopAltitudeBias>
+        </graphicData>
+        <uiIconPath>Things/Enemy/EnemyGravhulkEngine/EnemyGravHulkEngine_MenuIcon</uiIconPath>
+        <statBases>
+            <MaxHitPoints>3000</MaxHitPoints>
+            <Mass>100</Mass>
+            <MarketValue>12500</MarketValue>
+            <Flammability>0.6</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(5,5)</size>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <costList>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>100</GravlitePanel>
+            <ComponentSpacer>8</ComponentSpacer>
+            <Plasteel>100</Plasteel>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>12</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyGravlockTether</defName>
+        <label>enemy gravlock tether</label>
+        <description>The gravlock tether is the core stabilization unit of an orbital station, anchoring it in a fixed position. A specialized conversion of the gravhulk engine, this device generates a stabilized gravitational field to maintain the station's orbital trajectory.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources, including a gravcore.</description>
+        <thingClass>VanillaGravshipExpanded2.Building_EnemyGravEngine</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Enemy/EnemyGravlockTether/EnemyGravlockTether</texPath>
+            <drawSize>(5,5)</drawSize>
+            <addTopAltitudeBias>true</addTopAltitudeBias>
+        </graphicData>
+        <uiIconPath>Things/Enemy/EnemyGravlockTether/EnemyGravlockTether_MenuIcon</uiIconPath>
+        <statBases>
+            <MaxHitPoints>5000</MaxHitPoints>
+            <Mass>120</Mass>
+            <MarketValue>16000</MarketValue>
+            <Flammability>0.6</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(5,5)</size>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <costList>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>200</GravlitePanel>
+            <ComponentSpacer>12</ComponentSpacer>
+            <Plasteel>150</Plasteel>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>15</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef Name="VGE_EnemyTerminalBase" ParentName="VGE_EnemyPropBase" Abstract="True">
+        <rotatable>true</rotatable>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>14</pathCost>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <comps>
+            <li Class="CompProperties_Mannable">
+                <manWorkType>Violent, Intellectual</manWorkType>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyTerminalBase">
+        <defName>VGE_EnemyPilotCockpit</defName>
+        <label>enemy pilot cockpit</label>
+        <description>An interface that allows launching and piloting a gravjumper. It draws power directly from the grav engine.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyPilotCockpit/EnemyPilotCockpit</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(2,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Mass>20</Mass>
+            <MarketValue>140</MarketValue>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(1,2)</size>
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(0,0,2)</interactionCellOffset>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <costList>
+            <Steel>70</Steel>
+            <ComponentIndustrial>3</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_EnemyTerminal">
+                <cooldownFactor>0.9</cooldownFactor>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyTerminalBase">
+        <defName>VGE_EnemyPilotConsole</defName>
+        <label>enemy pilot console</label>
+        <description>An interface that allows launching and piloting a gravship. It draws power directly from the grav engine.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyPilotConsole/EnemyPilotConsole</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3.7,2.6)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>150</MaxHitPoints>
+            <Mass>50</Mass>
+            <MarketValue>316</MarketValue>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(3,2)</size>
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <costList>
+            <Steel>140</Steel>
+            <ComponentIndustrial>3</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_EnemyTerminal">
+                <cooldownFactor>0.9</cooldownFactor>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyTerminalBase">
+        <defName>VGE_EnemyPilotBridge</defName>
+        <label>enemy pilot bridge</label>
+        <description>An interface that allows launching and piloting a gravhulk. It draws power directly from the grav engine.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyPilotBridge/EnemyPilotBridge</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(6,4)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>300</MaxHitPoints>
+            <Mass>70</Mass>
+            <MarketValue>632</MarketValue>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(5,3)</size>
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(0,0,2)</interactionCellOffset>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <costList>
+            <Steel>260</Steel>
+            <ComponentIndustrial>4</ComponentIndustrial>
+            <ComponentSpacer>2</ComponentSpacer>
+        </costList>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_EnemyTerminal">
+                <cooldownFactor>0.9</cooldownFactor>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyTerminalBase">
+        <defName>VGE_EnemyTargetingTerminal</defName>
+        <label>enemy targeting terminal</label>
+        <description>An enemy control terminal responsible for calibrating the nearby gravship artillery turrets.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyTargetingTerminal/EnemyTargetingTerminal</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>0.5</Flammability>
+            <Beauty>-2</Beauty>
+        </statBases>
+        <size>(1,1)</size>
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <costList>
+            <Steel>30</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_EnemyTerminal">
+                <forcedMissRadiusOffset>1</forcedMissRadiusOffset>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyTerminalBase">
+        <defName>VGE_EnemyTargetingConsole</defName>
+        <label>enemy targeting console</label>
+        <description>A large, enemy targeting console responsible for calibrating the reload sequence of nearby gravship artillery pieces.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyTargetingConsole/EnemyTargetingConsole</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(4,2)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>260</MaxHitPoints>
+            <Flammability>0.5</Flammability>
+            <Beauty>-8</Beauty>
+        </statBases>
+        <size>(3,1)</size>
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <costList>
+            <GravlitePanel>45</GravlitePanel>
+            <ComponentIndustrial>4</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_EnemyTerminal">
+                <cooldownFlatOffset>600</cooldownFlatOffset>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyAlgaeOxygenator</defName>
+        <label>enemy algae oxygenator</label>
+        <description>A vital device that processes harvested oxyalgae into breathable oxygen. Converts biomass into gas and pumps it into the oxygen network to supply pressurized rooms and equipment.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyLifeSupport/EnemyLifeSupportTank</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <MaxHitPoints>200</MaxHitPoints>
+            <Flammability>0.5</Flammability>
+            <Beauty>-8</Beauty>
+        </statBases>
+        <size>(2,2)</size>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <passability>PassThroughOnly</passability>
+        <costList>
+            <Steel>80</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>160</basePowerConsumption>
+            </li>
+            <li Class="VanillaGravshipExpanded2.CompProperties_EnemyResourceGenerator">
+                <generateAmount>1</generateAmount>
+                <generateInterval>120</generateInterval>
+            </li>
+            <li Class="PipeSystem.CompProperties_ResourceTrader">
+                <pipeNet>VGE_OxygenNet</pipeNet>
+            </li>
+            <li Class="CompProperties_AmbientSound">
+                <sound>WaterMill_Ambience</sound>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyAstrofuelSynthesizer</defName>
+        <label>enemy astrofuel synthesizer</label>
+        <description>A specialized structure that refines chemfuel into high-grade astrofuel.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyAstrofuelSynthesizer/EnemyAstrofuelSynthesizer</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(5,3)</drawSize>
+        </graphicData>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <Flammability>0.5</Flammability>
+            <Beauty>-8</Beauty>
+        </statBases>
+        <size>(4,2)</size>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <rotatable>true</rotatable>
+        <passability>PassThroughOnly</passability>
+        <costList>
+            <Steel>100</Steel>
+            <ComponentSpacer>1</ComponentSpacer>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>200</basePowerConsumption>
+            </li>
+            <li Class="VanillaGravshipExpanded2.CompProperties_EnemyResourceGenerator">
+                <generateAmount>1</generateAmount>
+                <generateInterval>120</generateInterval>
+            </li>
+            <li Class="PipeSystem.CompProperties_ResourceTrader">
+                <pipeNet>VGE_AstrofuelNet</pipeNet>
+            </li>
+            <li Class="CompProperties_AmbientSound">
+                <sound>Recipe_Cremate</sound>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyArtilleryBase">
+        <defName>VGE_EnemyGaussBombard</defName>
+        <label>enemy gauss bombard</label>
+        <description>A heavy, slow-firing electromagnetic launcher that discharges bursts of two kinetic impactors. Designed to bombard locations designated by an orbital bombardment targeter.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <uiIconPath>Things/Enemy/EnemyGaussBombard/EnemyGaussBombard_MenuIcon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <size>(3,3)</size>
+        <statBases>
+            <MaxHitPoints>350</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <Beauty>-25</Beauty>
+            <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+        </statBases>
+        <passability>Impassable</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <building>
+            <turretGunDef>VGE_Gun_EnemyGaussBombard</turretGunDef>
+            <turretBurstCooldownTime>60</turretBurstCooldownTime>
+            <turretBurstWarmupTime>12</turretBurstWarmupTime>
+            <turretTopDrawSize>4</turretTopDrawSize>
+            <turretTopOffset>(0, 0.5)</turretTopOffset>
+        </building>
+        <costList>
+            <Steel>40</Steel>
+            <GravlitePanel>10</GravlitePanel>
+            <ComponentIndustrial>3</ComponentIndustrial>
+        </costList>
+        <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>16</worldMapAttackRange>
+                <firingMode>SpaceToGround, SpaceToSpace, GroundToSpace, GroundToGround</firingMode>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>35</rotationSpeed>
+            </li>
+            <li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+                <barrels>
+                    <li>(-0.4, 0, 1.5)</li>
+                    <li>(0.4, 0, 1.5)</li>
+                </barrels>
+            </li>
+        </modExtensions>
+        <tickerType>Normal</tickerType>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_EnemyGaussBombard</defName>
+        <label>enemy gauss bombard</label>
+        <description>A heavy, slow-firing electromagnetic launcher.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyGaussBombard/EnemyGaussBombard_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawOffset>(0,0,0.3)</drawOffset>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithSmoke</verbClass>
+                <defaultProjectile>VGE_Bullet_GaussBombard</defaultProjectile>
+                <range>99999</range>
+                <minRange>11.9</minRange>
+                <burstShotCount>2</burstShotCount>
+                <ticksBetweenBurstShots>18</ticksBetweenBurstShots>
+                <soundCast>VGE_GravshipHowitzer</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>14</muzzleFlashScale>
+                <forcedMissRadius>20.9</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <consumeFuelPerShot>0</consumeFuelPerShot>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <isMortar>true</isMortar>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>VGE_Bullet_GaussBombard</defName>
+        <label>gauss bombard shot</label>
+        <graphicData>
+            <texPath>Things/Projectiles/GaussShot_VerySmall</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>VanillaGravshipExpanded.Projectile_Gauss</thingClass>
+        <projectile>
+            <damageDef>Bomb</damageDef>
+            <damageAmountBase>40</damageAmountBase>
+            <armorPenetrationBase>0.15</armorPenetrationBase>
+            <speed>50</speed>
+            <explosionRadius>6.9</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <stoppingPower>1</stoppingPower>
+            <soundImpact>BulletImpact_Metal</soundImpact>
+            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyArtilleryBase">
+        <defName>VGE_EnemyGaussGun</defName>
+        <label>enemy gauss gun</label>
+        <description>A small, single-barrel electromagnetic cannon that launches dense uranium slugs at extreme velocities. Designed for both local bombardments and medium-range engagements, it can also target other gravships in orbit. It draws power directly from the grav engine and does not require a linked terminal to function.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <uiIconPath>Things/Enemy/EnemyGaussGun/EnemyGaussGun_MenuIcon</uiIconPath>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <Beauty>-25</Beauty>
+            <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+        </statBases>
+        <size>(3,3)</size>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <costList>
+            <Steel>50</Steel>
+            <GravlitePanel>10</GravlitePanel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+        <building>
+            <turretGunDef>VGE_Gun_EnemyGaussGun</turretGunDef>
+            <turretBurstCooldownTime>24</turretBurstCooldownTime>
+            <turretTopDrawSize>4</turretTopDrawSize>
+            <turretTopOffset>(0, 0.5)</turretTopOffset>
+            <turretBurstWarmupTime>4</turretBurstWarmupTime>
+        </building>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>16</worldMapAttackRange>
+                <firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>80</rotationSpeed>
+            </li>
+            <li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+                <barrels>
+                    <li>(0, 0, 1.5)</li>
+                </barrels>
+            </li>
+        </modExtensions>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_EnemyGaussGun</defName>
+        <label>enemy gauss gun</label>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyGaussGun/EnemyGaussGun_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithSmoke</verbClass>
+                <defaultProjectile>VGE_Bullet_GaussGun</defaultProjectile>
+                <range>99999</range>
+                <minRange>14.9</minRange>
+                <burstShotCount>1</burstShotCount>
+                <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+                <soundCast>VGE_GravshipHowitzer</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>10</muzzleFlashScale>
+                <forcedMissRadius>13.5</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <consumeFuelPerShot>0</consumeFuelPerShot>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <isMortar>true</isMortar>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyArtilleryBase">
+        <defName>VGE_EnemyJavelinPod</defName>
+        <label>enemy javelin pod</label>
+        <description>A compact multi-tube missile platform that launches a volley of six guided astrofuel javelins. Meant for fast, hard-hitting strikes against exposed gravships and unarmored surface forces. It draws power directly from the grav engine and does not require a linked terminal to function.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <thingClass>VanillaGravshipExpanded2.Building_EnemyJavelinPod</thingClass>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <uiIconPath>Things/Enemy/EnemyJavelinPod/EnemyJavelinPod_MenuIcon</uiIconPath>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <Beauty>-25</Beauty>
+            <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+        </statBases>
+        <size>(3,3)</size>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <costList>
+            <Steel>50</Steel>
+            <GravlitePanel>10</GravlitePanel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+        <building>
+            <turretGunDef>VGE_Gun_EnemyJavelinPod</turretGunDef>
+            <turretBurstCooldownTime>90</turretBurstCooldownTime>
+            <turretTopDrawSize>4</turretTopDrawSize>
+            <turretTopOffset>(0, 0.5)</turretTopOffset>
+            <turretBurstWarmupTime>5</turretBurstWarmupTime>
+        </building>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>16</worldMapAttackRange>
+                <firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>45</rotationSpeed>
+            </li>
+            <li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+                <barrels>
+                    <li>(0.5, 0, 1.5)</li>
+                    <li>(0, 0, 1.5)</li>
+                    <li>(-0.5, 0, 1.5)</li>
+                </barrels>
+            </li>
+        </modExtensions>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_EnemyJavelinPod</defName>
+        <label>enemy javelin pod</label>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyJavelinPod/EnemyJavelinPod_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <building>
+            <turretTopLoadedGraphic>
+                <texPath>Things/Enemy/EnemyJavelinPod/EnemyJavelinPod_TurretTop_Loaded</texPath>
+                <graphicClass>Graphic_Single</graphicClass>
+            </turretTopLoadedGraphic>
+        </building>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
+                <defaultProjectile>VGE_Rocket_JavelinRocket</defaultProjectile>
+                <range>99999</range>
+                <minRange>14</minRange>
+                <burstShotCount>6</burstShotCount>
+                <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                <soundCast>VGE_JavelinLauncher_Cast</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>8</muzzleFlashScale>
+                <forcedMissRadius>18</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <consumeFuelPerShot>0</consumeFuelPerShot>
+                <isMortar>true</isMortar>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyArtilleryBase">
+        <defName>VGE_EnemyAnticraftCaster</defName>
+        <label>enemy anticraft caster</label>
+        <thingClass>VanillaGravshipExpanded2.Building_EnemyAnticraftEmitter</thingClass>
+        <description>A medium gravship-mounted energy weapon that fires short, razor-sharp bursts of cutting beam with surgical precision. Built to punch holes through critical systems, the caster trades sustained suppression for rapid, accurate strikes. It draws power directly from the grav engine and does not require a linked terminal to function.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <uiIconPath>Things/Enemy/EnemyAnticraftCaster/EnemyAnticraftCaster_MenuIcon</uiIconPath>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <Beauty>-25</Beauty>
+            <ShootingAccuracyTurret>0.86</ShootingAccuracyTurret>
+        </statBases>
+        <size>(3,3)</size>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <costList>
+            <Steel>50</Steel>
+            <GravlitePanel>10</GravlitePanel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+        <building>
+            <turretGunDef>VGE_Gun_EnemyAnticraftCaster</turretGunDef>
+            <turretBurstCooldownTime>24</turretBurstCooldownTime>
+            <turretTopDrawSize>4</turretTopDrawSize>
+            <turretTopOffset>(0, 0.5)</turretTopOffset>
+            <turretBurstWarmupTime>6.66</turretBurstWarmupTime>
+        </building>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>150000</basePowerConsumption>
+                <idlePowerDraw>100</idlePowerDraw>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>36</worldMapAttackRange>
+                <firingMode>GroundToSpace, SpaceToSpace, SpaceToGround</firingMode>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>210</rotationSpeed>
+            </li>
+        </modExtensions>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_EnemyAnticraftCaster</defName>
+        <label>enemy anticraft caster</label>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyAnticraftCaster/EnemyAnticraftCaster_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <AccuracyTouch>0.86</AccuracyTouch>
+            <AccuracyShort>0.86</AccuracyShort>
+            <AccuracyMedium>0.86</AccuracyMedium>
+            <AccuracyLong>0.86</AccuracyLong>
+            <VGE_AccuracyGlobal>0.8</VGE_AccuracyGlobal>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
+                <defaultProjectile>VGE_Bullet_AnticraftCaster</defaultProjectile>
+                <range>99999</range>
+                <minRange>14</minRange>
+                <canGoWild>true</canGoWild>
+                <burstShotCount>20</burstShotCount>
+                <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                <soundCast>Shot_BeamRepeater</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>26</muzzleFlashScale>
+                <aimingChargeMote>Mote_BeamRepeater_Charge</aimingChargeMote>
+                <aimingChargeMoteOffset>1.5</aimingChargeMoteOffset>
+                <requireLineOfSight>false</requireLineOfSight>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyArtilleryBase">
+        <defName>VGE_EnemyAnticraftBeam</defName>
+        <label>enemy anticraft beam</label>
+        <thingClass>VanillaGravshipExpanded2.Building_EnemyAnticraftEmitter</thingClass>
+        <description>A massive anti-ship beam weapon intended to destroy flying craft, but also capable of firing onto the surface from space. Ships using ultratech signal jammers can delay the targeting of these weapons.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Giant</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(9,9)</drawSize>
+        </graphicData>
+        <uiIconPath>Things/Enemy/EnemyAnticraftBeam/EnemyAnticraftBeam_MenuIcon</uiIconPath>
+        <statBases>
+            <MaxHitPoints>3000</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <Beauty>-50</Beauty>
+            <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+        </statBases>
+        <size>(9,9)</size>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <costList>
+            <Gravcore>1</Gravcore>
+            <Steel>600</Steel>
+            <GravlitePanel>160</GravlitePanel>
+            <ComponentSpacer>14</ComponentSpacer>
+            <ComponentIndustrial>22</ComponentIndustrial>
+        </costList>
+        <building>
+            <turretGunDef>VGE_Gun_EnemyAnticraftBeam</turretGunDef>
+            <turretBurstCooldownTime>60</turretBurstCooldownTime>
+            <turretTopDrawSize>12</turretTopDrawSize>
+            <turretTopOffset>(0, 0.5)</turretTopOffset>
+            <turretBurstWarmupTime>60</turretBurstWarmupTime>
+        </building>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>150000</basePowerConsumption>
+                <idlePowerDraw>250</idlePowerDraw>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>36</worldMapAttackRange>
+                <firingMode>GroundToSpace, SpaceToSpace, SpaceToGround</firingMode>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>10</rotationSpeed>
+            </li>
+        </modExtensions>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_EnemyAnticraftBeam</defName>
+        <label>enemy anticraft beam</label>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyAnticraftBeam/EnemyAnticraftBeam_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded2.Verb_AnticraftBeam</verbClass>
+                <defaultProjectile>VGE_Bullet_AnticraftBeam</defaultProjectile>
+                <range>99999</range>
+                <minRange>20</minRange>
+                <burstShotCount>1</burstShotCount>
+                <requireLineOfSight>false</requireLineOfSight>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <aimingChargeMote>Mote_BeamRepeater_Charge</aimingChargeMote>
+                <aimingChargeMoteOffset>5</aimingChargeMoteOffset>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>VGE_Bullet_AnticraftBeam</defName>
+        <label>anticraft beam</label>
+        <thingClass>VanillaGravshipExpanded2.Projectile_AnticraftBeam</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>BeamBypassShields</damageDef>
+            <damageAmountBase>16</damageAmountBase>
+            <flyOverhead>true</flyOverhead>
+            <beamMoteDef>VGE_Mote_AnticraftBeam</beamMoteDef>
+            <beamStartOffset>3</beamStartOffset>
+            <armorPenetrationBase>0.85</armorPenetrationBase>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="OrbitalStrikeBase">
+        <defName>VGE_EnemyAnticraftBeamStrike</defName>
+        <label>anticraft beam strike</label>
+        <thingClass>VanillaGravshipExpanded2.AnticraftBeamStrike</thingClass>
+        <comps>
+            <li Class="CompProperties_OrbitalBeam">
+                <compClass>VanillaGravshipExpanded2.CompOrbitalBeamNoDraw</compClass>
+                <width>8</width>
+                <color>(255, 245, 214, 242)</color>
+                <sound>OrbitalBeam</sound>
+            </li>
+            <li Class="CompProperties_CameraShaker">
+                <mag>0.03</mag>
+            </li>
+            <li Class="CompProperties_AffectsSky">
+                <skyColors>
+                    <sky>(255, 230, 200)</sky>
+                    <shadow>(225, 220, 185)</shadow>
+                    <overlay>(255, 255, 255)</overlay>
+                    <saturation>1.3</saturation>
+                </skyColors>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>VGE_Mote_AnticraftBeam</defName>
+        <thingClass>MoteDualAttached</thingClass>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>0.1</fadeInTime>
+            <fadeOutTime>0.1</fadeOutTime>
+            <solidTime>9.8</solidTime>
+            <rotateTowardsTarget>True</rotateTowardsTarget>
+            <scaleToConnectTargets>True</scaleToConnectTargets>
+        </mote>
+        <drawOffscreen>true</drawOffscreen>
+        <graphicData>
+            <texPath>Things/Mote/GraserBeam</texPath>
+            <graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+            <shaderType>MoteBeam</shaderType>
+            <drawSize>(2,1)</drawSize>
+            <shaderParameters>
+                <_ExtraTexA>/Things/Mote/BeamSecondaryNoise_A</_ExtraTexA>
+                <_ExtraTexB>/Things/Mote/BeamSecondaryNoise_B</_ExtraTexB>
+                <_ScrollSpeedA>0</_ScrollSpeedA>
+                <_ScrollSpeedB>0</_ScrollSpeedB>
+                <_Intensity>2</_Intensity>
+            </shaderParameters>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyPointDefenseTurret</defName>
+        <label>point defense turret</label>
+        <description>A specialized defensive turret built exclusively for gravships. It intercepts explosive projectiles and incoming drop pods within its protective radius, but cannot engage ground targets. Interception chance scales with the target’s velocity.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <thingClass>Building_TurretGun</thingClass>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Normal</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <uiIconPath>Things/Enemy/EnemyGravshipPointDefense/EnemyGravshipPointDefense_MenuIcon</uiIconPath>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Flammability>0.7</Flammability>
+            <Beauty>-20</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <passability>Impassable</passability>
+        <fillPercent>1</fillPercent>
+        <pathCost>50</pathCost>
+        <costList>
+            <Steel>200</Steel>
+            <GravlitePanel>20</GravlitePanel>
+            <ComponentIndustrial>3</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_PointDefence">
+                <interceptionRadius>14.9</interceptionRadius>
+                <interceptionAttemptInterval>15</interceptionAttemptInterval>
+                <isEnemyPointDefense>true</isEnemyPointDefense>
+                <falloffScale>60</falloffScale>
+                <blacklistedProjectileDefs>
+                    <li>Bullet_HellsphereCannonGun</li>
+                    <li>Bullet_InfernoCannon</li>
+                    <li>Bullet_Heatspike</li>
+                </blacklistedProjectileDefs>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>200</basePowerConsumption>
+            </li>
+        </comps>
+        <building>
+            <turretGunDef>VGE_Gun_EnemyPointDefense</turretGunDef>
+            <turretTopDrawSize>4</turretTopDrawSize>
+            <turretTopOffset>(0, 0.5)</turretTopOffset>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <playTargetAcquiredSound>false</playTargetAcquiredSound>
+            <combatPower>100</combatPower>
+        </building>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+            <li>PlaceWorker_ShowTurretRadius</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_EnemyPointDefense</defName>
+        <label>point defense gun</label>
+        <description>A rapid-fire gun for point-defense applications.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyGravshipPointDefense/EnemyGravshipPointDefense_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <warmupTime>0</warmupTime>
+                <range>14.9</range>
+                <burstShotCount>1</burstShotCount>
+                <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                <soundCast>GunShotA</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+                <consumeFuelPerShot>0</consumeFuelPerShot>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyShieldGenerator</defName>
+        <label>enemy shield generator</label>
+        <description>A shielding device that can protect a gravship. It modulates the grav field to create a short-lived momentum repulsor surface that blocks projectiles. It works against normal shots and mortars. Those inside can still shoot out. It must be charged before use.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyGravshipShieldGenerator/EnemyGravshipShieldGenerator</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(4,4)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <Mass>80</Mass>
+            <Flammability>0.3</Flammability>
+        </statBases>
+        <size>(3,3)</size>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <costList>
+            <Steel>100</Steel>
+            <GravlitePanel>40</GravlitePanel>
+            <ComponentSpacer>4</ComponentSpacer>
+        </costList>
+        <tickerType>Normal</tickerType>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <placeWorkers>
+            <li>PlaceWorker_ShowProjectileInterceptorRadius</li>
+        </placeWorkers>
+        <comps>
+            <li Class="CompProperties_ProjectileInterceptor">
+                <compClass>VanillaGravshipExpanded2.CompEnemyShieldGenerator</compClass>
+                <activated>true</activated>
+                <radius>24.9</radius>
+                <interceptGroundProjectiles>true</interceptGroundProjectiles>
+                <interceptAirProjectiles>true</interceptAirProjectiles>
+                <color>(0.4, 0.4, 0.4)</color>
+                <hitPoints>500</hitPoints>
+                <chargeDurationTicks>10000</chargeDurationTicks>
+                <disarmedByEmpForTicks>1500</disarmedByEmpForTicks>
+                <activeDuration>6000</activeDuration>
+                <reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+                <activeSound>BulletShield_Ambience</activeSound>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>200</basePowerConsumption>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VEF.Buildings.ProjectileInterceptorExtension">
+                <healthColorPoints>
+                    <li>
+                        <healthPercent>0.1</healthPercent>
+                        <color>(1.0, 0.0, 0.0)</color>
+                    </li>
+                    <li>
+                        <healthPercent>0.5</healthPercent>
+                        <color>(1.0, 0.65, 0.0)</color>
+                    </li>
+                </healthColorPoints>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyLargeShieldGenerator</defName>
+        <label>large enemy shield generator</label>
+        <description>A large-scale shielding device that can protect a gravship. It modulates the grav field to create a short-lived momentum repulsor surface that blocks projectiles. It works against normal shots and mortars. Those inside can still shoot out. It must be charged before use.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyLargeGravshipShieldGenerator/EnemyLargeGravshipShieldGenerator</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(6,6)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>800</MaxHitPoints>
+            <Mass>160</Mass>
+            <Flammability>0.3</Flammability>
+        </statBases>
+        <size>(5,5)</size>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <costList>
+            <Steel>150</Steel>
+            <GravlitePanel>50</GravlitePanel>
+            <ComponentSpacer>5</ComponentSpacer>
+        </costList>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <tickerType>Normal</tickerType>
+        <placeWorkers>
+            <li>PlaceWorker_ShowProjectileInterceptorRadius</li>
+        </placeWorkers>
+        <comps>
+            <li Class="CompProperties_ProjectileInterceptor">
+                <compClass>VanillaGravshipExpanded2.CompEnemyShieldGenerator</compClass>
+                <activated>true</activated>
+                <radius>36.9</radius>
+                <interceptGroundProjectiles>true</interceptGroundProjectiles>
+                <interceptAirProjectiles>true</interceptAirProjectiles>
+                <color>(0.4, 0.4, 0.4)</color>
+                <hitPoints>1000</hitPoints>
+                <chargeDurationTicks>20000</chargeDurationTicks>
+                <disarmedByEmpForTicks>3000</disarmedByEmpForTicks>
+                <activeDuration>12000</activeDuration>
+                <reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+                <activeSound>BulletShield_Ambience</activeSound>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>500</basePowerConsumption>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VEF.Buildings.ProjectileInterceptorExtension">
+                <healthColorPoints>
+                    <li>
+                        <healthPercent>0.1</healthPercent>
+                        <color>(1.0, 0.0, 0.0)</color>
+                    </li>
+                    <li>
+                        <healthPercent>0.5</healthPercent>
+                        <color>(1.0, 0.65, 0.0)</color>
+                    </li>
+                </healthColorPoints>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemySignalJammer</defName>
+        <label>enemy signal jammer</label>
+        <description>An advanced signal jamming device. When active, it disrupts all incoming flight trajectories, preventing player drop pods, warpods, and gravships from landing within a wide radius.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemySignalJammer/EnemySignalJammer</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Mass>75</Mass>
+            <Flammability>0.3</Flammability>
+            <Beauty>-10</Beauty>
+        </statBases>
+        <size>(2,2)</size>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>true</rotatable>
+        <costList>
+            <Steel>100</Steel>
+            <GravlitePanel>40</GravlitePanel>
+            <ComponentSpacer>2</ComponentSpacer>
+        </costList>
+        <tickerType>Normal</tickerType>
+        <receivesSignals>true</receivesSignals>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>200</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_MoteEmitterProximityScan">
+                <compClass>VanillaGravshipExpanded2.CompMoteEmitterSignalJammer</compClass>
+                <mote>VGE_SignalJammerRadius</mote>
+                <emissionInterval>240</emissionInterval>
+                <maintain>True</maintain>
+                <warmupPulseFadeInTime>1</warmupPulseFadeInTime>
+                <warmupPulseSolidTime>1</warmupPulseSolidTime>
+                <warmupPulseFadeOutTime>1</warmupPulseFadeOutTime>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_AncientGravmine</defName>
+        <label>gravmine</label>
+        <description>An ancient and incredibly unstable high-explosive device designed for space-based combat. It features a large detection radius that triggers a powerful blast detonation upon the approach.</description>
+        <thingClass>VanillaGravshipExpanded2.Building_Gravmine</thingClass>
+        <graphicData>
+            <texPath>Things/Enemy/AncientGravmine/AncientGravmine</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <uiIconScale>0.6</uiIconScale>
+        <rotatable>false</rotatable>
+        <tickerType>Normal</tickerType>
+        <stealable>false</stealable>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>0.6</Flammability>
+            <Beauty>-10</Beauty>
+            <TrapSpringChance>1</TrapSpringChance>
+        </statBases>
+        <size>(1,1)</size>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.3</fillPercent>
+        <building>
+            <isTrap>true</isTrap>
+            <trapPeacefulWildAnimalsSpringChanceFactor>0.25</trapPeacefulWildAnimalsSpringChanceFactor>
+            <expandHomeArea>false</expandHomeArea>
+            <ai_chillDestination>false</ai_chillDestination>
+        </building>
+        <placeWorkers>
+            <li>VanillaGravshipExpanded2.PlaceWorker_OnlyInSpace</li>
+        </placeWorkers>
+        <terrainAffordanceNeeded IsNull="True" />
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>7.9</explosiveRadius>
+                <explosiveDamageType>Bomb</explosiveDamageType>
+                <damageAmountBase>50</damageAmountBase>
+                <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+                <wickTicks>60</wickTicks>
+            </li>
+            <li Class="CompProperties_MoteEmitter">
+                <mote>VGE_GravmineRadius</mote>
+                <emissionInterval>240</emissionInterval>
+            </li>
+        </comps>
+        <specialDisplayRadius>5.9</specialDisplayRadius>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemySmallThruster</defName>
+        <label>enemy small thruster</label>
+        <description>An astrofuel thruster that increases the range and maximum size of the gravship.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemySmallAstrofuelThruster/EnemySmallAstrofuelThruster</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(2,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <Mass>20</Mass>
+            <MarketValue>496</MarketValue>
+            <Flammability>0</Flammability>
+            <Beauty>-10</Beauty>
+        </statBases>
+        <size>(1,2)</size>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <passability>Impassable</passability>
+        <fillPercent>1</fillPercent>
+        <rotatable>true</rotatable>
+        <costList>
+            <Steel>90</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyLargeThruster</defName>
+        <label>enemy large thruster</label>
+        <description>An advanced astrofuel thruster with a heat-resistant vacstone liner. It greatly increases the range and maximum size of the gravship.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyLateralThruster/EnemyLateralThruster</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <Mass>30</Mass>
+            <MarketValue>938</MarketValue>
+            <Flammability>0</Flammability>
+            <Beauty>-10</Beauty>
+        </statBases>
+        <size>(2,2)</size>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <passability>Impassable</passability>
+        <fillPercent>1</fillPercent>
+        <rotatable>true</rotatable>
+        <costList>
+            <Steel>110</Steel>
+            <BlocksVacstone>25</BlocksVacstone>
+            <ComponentIndustrial>3</ComponentIndustrial>
+        </costList>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyGiantThruster</defName>
+        <label>enemy giant thruster</label>
+        <description>A massive, reinforced astrofuel thruster built with advanced alloys and ultra-dense vacstone plating. It massively increases the range and maximum size of the gravship\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyGiantAstrofuelThruster/EnemyGiantAstrofuelThruster</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(4,4)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>800</MaxHitPoints>
+            <Mass>45</Mass>
+            <MarketValue>1760</MarketValue>
+            <Flammability>0</Flammability>
+            <Beauty>-20</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <passability>Impassable</passability>
+        <fillPercent>1</fillPercent>
+        <rotatable>true</rotatable>
+        <costList>
+            <Steel>150</Steel>
+            <BlocksVacstone>50</BlocksVacstone>
+            <ComponentSpacer>3</ComponentSpacer>
+        </costList>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyGravFieldExtender</defName>
+        <label>enemy grav field extender</label>
+        <description>An ultratech device used to increase the size of a gravship. It extends the area in which substructure can be built, and increases the amount of substructure that a gravship can support.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyGravFieldExtender/EnemyGravFieldExtender</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>200</MaxHitPoints>
+            <Mass>15</Mass>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(1,1)</size>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>14</pathCost>
+        <rotatable>false</rotatable>
+        <costList>
+            <GravlitePanel>35</GravlitePanel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+            <Steel>80</Steel>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>2</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_EnemyGravFieldAmplifier</defName>
+        <label>enemy grav field amplifier</label>
+        <description>An advanced ultratech device that dramatically increases the size of a gravship.  It extends the area in which substructure can be built, and increases the amount of substructure that a gravship can support.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyGravFieldAmplifier/EnemyGravFieldAmplifier</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>300</MaxHitPoints>
+            <Mass>40</Mass>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>14</pathCost>
+        <rotatable>false</rotatable>
+        <costList>
+            <GravlitePanel>80</GravlitePanel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Steel>180</Steel>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>5</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+    </ThingDef>
+
+</Defs>
