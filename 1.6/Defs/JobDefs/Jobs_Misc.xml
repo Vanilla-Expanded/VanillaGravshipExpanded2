@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<JobDef>
-		<defName>VGE_FormKnot</defName>
-		<driverClass>VanillaGravshipExpanded2.JobDriver_FormKnot</driverClass>
-		<reportString>forming a knot.</reportString>
-		<casualInterruptible>false</casualInterruptible>
-	</JobDef>
+  <JobDef>
+    <defName>VGE_FormKnot</defName>
+    <driverClass>VanillaGravshipExpanded2.JobDriver_FormKnot</driverClass>
+    <reportString>forming a knot.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
 
-    <JobDef>
-        <defName>VGE_OperateEnemyTerminal</defName>
-        <driverClass>VanillaGravshipExpanded2.JobDriver_OperateEnemyTerminal</driverClass>
-        <reportString>operating targeting terminal.</reportString>
-        <casualInterruptible>false</casualInterruptible>
-        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-    </JobDef>
+  <JobDef>
+    <defName>VGE_OperateEnemyTerminal</defName>
+    <driverClass>VanillaGravshipExpanded2.JobDriver_OperateEnemyTerminal</driverClass>
+    <reportString>operating targeting terminal.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+    <defName>VGE_EscapePod_Enter</defName>
+    <driverClass>VanillaGravshipExpanded2.JobDriver_EscapePod_Enter</driverClass>
+    <reportString>entering escape pod.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+
+  <JobDef>
+    <defName>VGE_EscapePod_InsertPawn</defName>
+    <driverClass>VanillaGravshipExpanded2.JobDriver_EscapePod_InsertPawn</driverClass>
+    <reportString>carrying TargetB to escape pod.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+
+  <JobDef>
+    <defName>VGE_EscapePod_InsertPawnDrafted</defName>
+    <driverClass>VanillaGravshipExpanded2.JobDriver_EscapePod_InsertPawn</driverClass>
+    <reportString>carrying TargetB to escape pod.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <dropThingBeforeJob>false</dropThingBeforeJob>
+    <carryThingAfterJob>true</carryThingAfterJob>
+  </JobDef>
+
 </Defs>

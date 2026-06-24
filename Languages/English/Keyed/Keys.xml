@@ -25,6 +25,12 @@
 	<VGE_ShieldOverheatedGizmo>Overheated</VGE_ShieldOverheatedGizmo>
 	<VGE_ShieldInternalHeat>Heat units stored internally: {0}/{1}</VGE_ShieldInternalHeat>
 
+  <!-- Escape pod -->
+  <VGE_EscapePod_Enter>Enter escape pod</VGE_EscapePod_Enter>
+  <VGE_EscapePod_InsertPawn>Carry to escape pod</VGE_EscapePod_InsertPawn>
+  <VGE_EscapePod_InsertCarriedPawn>Place {PAWN} in escape pod</VGE_EscapePod_InsertCarriedPawn>
+  <VGE_EscapePod_Occupied>Escape pod is already occupied</VGE_EscapePod_Occupied>
+
 	<VGE_HackWarcomputer>Hack enemy warcomputer to retrieve gravdata</VGE_HackWarcomputer>
 	<VGE_GravdataWillBeLostWarning>Gravdata obtained will be lost unless you select a gravtech research project.</VGE_GravdataWillBeLostWarning>
 	<VGE_WarcomputerHackedBlackBox>Hostile warcomputer hacked. {0} gravdata stored in the gravship black box.</VGE_WarcomputerHackedBlackBox>

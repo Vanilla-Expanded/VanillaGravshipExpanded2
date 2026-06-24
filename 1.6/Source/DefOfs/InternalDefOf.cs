@@ -45,7 +45,6 @@ namespace VanillaGravshipExpanded2
 		public static SoundDef OrbitalTargeter_Fire;
 		public static StatDef VGE_GravshipTargeting;
 		public static ThingDef VGE_GravshipArmor;
-		public static JobDef VGE_FormKnot;
 		public static SoundDef Hive_Spawn;
 
 		public static ThingDef VGE_EnemyGravjumperEngine;
@@ -61,5 +60,10 @@ namespace VanillaGravshipExpanded2
 		public static ThingDef VGE_EnemyAnticraftBeamStrike;
 		public static JobDef VGE_OperateEnemyTerminal;
 		public static ThingDef VGE_Mote_AnticraftBeam;
+
+		public static JobDef VGE_FormKnot;
+		public static JobDef VGE_EscapePod_Enter;
+		public static JobDef VGE_EscapePod_InsertPawn;
+		public static JobDef VGE_EscapePod_InsertPawnDrafted;
 	}
 }

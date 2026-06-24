@@ -239,4 +239,65 @@
 			<li>VGE_GravshipDefenses</li>
 		</researchPrerequisites>
 	</ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGE_EscapePod</defName>
+    <label>escape pod</label>
+    <description>A floor-mounted, pre-fueled single use escape pod designed to quickly evacuate a single colonist with whatever gear they happened to carry at the time. The escape pod launches immediately upon the crewmember entering it, and will launch directly down to surface. Needs to be placed on gravship substructure. Only works in orbit.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Structures/Misc/EscapePod/EscapePod</texPath>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>750</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <WorkToBuild>2500</WorkToBuild>
+    </statBases>
+    <rotatable>false</rotatable>
+    <fillPercent>0</fillPercent>
+<!--    <uiIconScale>0.65</uiIconScale>-->
+    <tickerType>Normal</tickerType>
+    <passability>Standable</passability>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+    <designationCategory>Odyssey</designationCategory>
+    <comps>
+      <li Class="VanillaGravshipExpanded2.CompProperties_EscapePod">
+        <enterDuration>120</enterDuration>
+        <launchDuration>300</launchDuration>
+
+        <layerWhitelist>
+          <li>Orbit</li>
+        </layerWhitelist>
+
+        <insertPawnTargetingParameters>
+          <!-- Extra validation in C# to prevent pawns from non-player factions (besides prisoners/slaves). -->
+          <!-- onlyTargetColonistsOrPrisonersOrSlavesAllowMinorMentalBreaks doesn't exactly work here, as it prevents ghouls. -->
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <canTargetEntities>false</canTargetEntities>
+        </insertPawnTargetingParameters>
+
+<!--        <activeTransporterDef></activeTransporterDef>-->
+        <skyfallerLeaving>VGE_EscapePodLeaving</skyfallerLeaving>
+<!--        <worldObjectDef></worldObjectDef>-->
+<!--        <enterSound></enterSound>-->
+      </li>
+    </comps>
+    <building>
+      <isInert>true</isInert>
+    </building>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+    <researchPrerequisites>
+      <li>VGE_GravshipDefenses</li>
+    </researchPrerequisites>
+  </ThingDef>
+
 </Defs>
