@@ -74,7 +74,9 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
             yield return new Command_Toggle
             {
                 defaultLabel = "CommandAutoRebuild_Building".Translate(),
-                defaultDesc = "CommandAutoRebuild_Building".Translate(),
+                defaultDesc = "VGE_CommandAutoRebuild_EscapePod".Translate(parent.Named("BUILDING")),
+                hotKey = KeyBindingDefOf.Misc3,
+                icon = Props.AutoRebuildGizmo,
                 isActive = () => autoRebuild,
                 toggleAction = () => autoRebuild = !autoRebuild,
             };
@@ -246,6 +248,13 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
     {
         base.PostSwapMap();
         heldPawn.TryDropAll(parent.Position, parent.Map, ThingPlaceMode.Near);
+    }
+
+    public override void PostSpawnSetup(bool respawningAfterLoad)
+    {
+        base.PostSpawnSetup(respawningAfterLoad);
+        if (!respawningAfterLoad && !parent.BeingTransportedOnGravship)
+            autoRebuild = CanSetAutoRebuild && parent.Map.areaManager.Home[parent.Position];
     }
 
     public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)

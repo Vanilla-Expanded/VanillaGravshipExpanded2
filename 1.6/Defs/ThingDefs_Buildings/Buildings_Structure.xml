@@ -266,6 +266,7 @@
       <li Class="VanillaGravshipExpanded2.CompProperties_EscapePod">
         <enterDuration>120</enterDuration>
         <launchDuration>300</launchDuration>
+        <autoRebuildGizmoIconPath>UI/Commands/RearmFirefoamPopper</autoRebuildGizmoIconPath>
 
         <layerWhitelist>
           <li>Orbit</li>
