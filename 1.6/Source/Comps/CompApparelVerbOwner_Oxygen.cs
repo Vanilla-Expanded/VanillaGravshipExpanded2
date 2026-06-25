@@ -3,7 +3,6 @@ using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using VanillaGravshipExpanded;
-using VanillaGravshipExpanded2.UI;
 using Verse;
 
 namespace VanillaGravshipExpanded2;

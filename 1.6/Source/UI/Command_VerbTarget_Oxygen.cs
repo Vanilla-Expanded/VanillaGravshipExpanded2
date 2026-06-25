@@ -2,7 +2,7 @@
 using UnityEngine;
 using Verse;
 
-namespace VanillaGravshipExpanded2.UI;
+namespace VanillaGravshipExpanded2;
 
 public class Command_VerbTarget_Oxygen(CompApparelVerbOwner comp) : Command_VerbOwner(comp)
 {
