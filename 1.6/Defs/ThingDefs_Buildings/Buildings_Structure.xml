@@ -267,6 +267,7 @@
         <enterDuration>120</enterDuration>
         <launchDuration>300</launchDuration>
         <autoRebuildGizmoIconPath>UI/Gizmo/RebuildEscapePod</autoRebuildGizmoIconPath>
+        <evacuationGizmoIconPath>UI/Gizmo/EvacuateGravship_Gizmo</evacuationGizmoIconPath>
 
         <layerWhitelist>
           <li>Orbit</li>

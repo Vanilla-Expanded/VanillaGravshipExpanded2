@@ -21,6 +21,10 @@ public class CompProperties_EscapePod : CompProperties
 
     [NoTranslate] public string autoRebuildGizmoIconPath = null;
     [Unsaved] private Texture2D autoRebuildGizmo;
+
+    [NoTranslate] public string evacuationGizmoIconPath = null;
+    [Unsaved] private Texture2D evacuationGizmo;
+
     public Texture2D AutoRebuildGizmo
     {
         get
@@ -34,6 +38,22 @@ public class CompProperties_EscapePod : CompProperties
             }
 
             return autoRebuildGizmo;
+        }
+    }
+
+    public Texture2D EvacuationGizmo
+    {
+        get
+        {
+            if (evacuationGizmo == null)
+            {
+                if (!evacuationGizmoIconPath.NullOrEmpty())
+                    evacuationGizmo = ContentFinder<Texture2D>.Get(evacuationGizmoIconPath);
+                if (evacuationGizmo == null)
+                    evacuationGizmo = BaseContent.BadTex;
+            }
+
+            return evacuationGizmo;
         }
     }
 

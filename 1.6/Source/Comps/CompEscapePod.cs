@@ -11,15 +11,17 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
     protected int triggerOnTick = -999999;
     protected ThingOwner<Pawn> heldPawn;
     protected bool autoRebuild;
+    protected VGE2_MapComponent mapComp;
 
-    [Unsaved]
-    private Effecter progressBarEffecter;
+    [Unsaved] private Effecter progressBarEffecter;
 
     public ThingOwner SearchableContents => heldPawn;
 
     public Pawn Occupant => heldPawn.Any ? heldPawn[0] : null;
 
-    private bool CanSetAutoRebuild => parent.Faction == Faction.OfPlayer && parent.def.blueprintDef != null && parent.def.IsResearchFinished;
+    protected bool CanSetAutoRebuild => parent.Faction == Faction.OfPlayer && parent.def.blueprintDef != null && parent.def.IsResearchFinished;
+
+    protected virtual bool IsCurrentPlanetLayerSupported => parent.Map?.Tile.Layer?.Def != null && Props.layerWhitelist != null && Props.layerWhitelist.Contains(parent.Map.Tile.LayerDef);
 
     public CompProperties_EscapePod Props => (CompProperties_EscapePod)props;
 
@@ -69,6 +71,10 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
         foreach (var gizmo in base.CompGetGizmosExtra())
             yield return gizmo;
 
+        // Only show gizmos if pod has no faction or is player faction
+        if (parent.Faction is { IsPlayer: false })
+            yield break;
+
         if (CanSetAutoRebuild)
         {
             yield return new Command_Toggle
@@ -78,7 +84,44 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
                 hotKey = KeyBindingDefOf.Misc3,
                 icon = Props.AutoRebuildGizmo,
                 isActive = () => autoRebuild,
-                toggleAction = () => autoRebuild = !autoRebuild,
+                toggleAction = () =>
+                {
+                    autoRebuild = !autoRebuild;
+                    ClaimIfNeeded();
+                },
+            };
+        }
+
+        if (mapComp != null && IsCurrentPlanetLayerSupported)
+        {
+            yield return new Command_Toggle_NoInheritInteractions
+            {
+                defaultLabel = mapComp.EvacuationActive ? "VGE_EscapePod_CancelEvacuation".Translate() : "VGE_EscapePod_Evacuation".Translate(),
+                defaultDesc = "VGE_EscapePod_EvacuationDesc".Translate(),
+                icon = Props.EvacuationGizmo,
+                isActive = () => mapComp.EvacuationActive,
+                toggleAction = () =>
+                {
+                    // Cancel evacuation seamlessly
+                    if (mapComp.EvacuationActive)
+                    {
+                        mapComp.EvacuationActive = false;
+                    }
+                    else
+                    {
+                        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("VGE_EscapePod_EvacuationConfirmation".Translate(), () =>
+                        {
+                            mapComp.EvacuationActive = true;
+                            // Since only 1 gizmo is clicked, claim other selected escape pods
+                            foreach (var selected in Find.Selector.SelectedObjects)
+                            {
+                                if (selected is ThingWithComps thing && thing.GetComp<CompEscapePod>() is { } comp)
+                                    comp.ClaimIfNeeded();
+                            }
+                        }, true));
+                    }
+                },
+                alsoClickIfOtherInGroupClicked = false,
             };
         }
     }
@@ -88,53 +131,72 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
         foreach (var option in base.CompFloatMenuOptions(selPawn))
             yield return option;
 
+        // Only show gizmos if pod has no faction or is player faction
+        if (parent.Faction is { IsPlayer: false })
+            yield break;
+
         var map = parent.Map;
         if (map?.Tile.Layer == null)
             yield break;
 
         var targetTile = FindClosestValidTile();
-        var enter = new FloatMenuOption("VGE_EscapePod_Enter".Translate(), () => selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(InternalDefOf.VGE_EscapePod_Enter, parent)));
-        var insertPawn = new FloatMenuOption("VGE_EscapePod_InsertPawn".Translate(), () =>
+        var enter = new FloatMenuOption("VGE_EscapePod_Enter".Translate(), () =>
         {
-            Find.Targeter.BeginTargeting(Props.insertPawnTargetingParameters, target =>
+            selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(InternalDefOf.VGE_EscapePod_Enter, parent));
+            ClaimIfNeeded();
+        });
+
+        FloatMenuOption insertPawn = null;
+        FloatMenuOption insertCarriedPawn = null;
+
+        if (!selPawn.IsMutant)
+        {
+            insertPawn = new FloatMenuOption("VGE_EscapePod_InsertPawn".Translate(), () =>
             {
-                if (target.Thing == null)
-                    return;
-                // If targeting a thing, only allow player faction things or factionless things (no hostile things)
-                if (target.Thing.Faction != null && target.Thing.Faction != Faction.OfPlayer)
-	                return;
-                // Don't target pawns from other factions, unless prisoner or slave
-                if (target.Pawn != null && target.Pawn.Faction != Faction.OfPlayer && !target.Pawn.IsPrisonerOfColony && !target.Pawn.IsSlaveOfColony)
-	                return;
-                if (selPawn == target.Pawn)
-                    selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(InternalDefOf.VGE_EscapePod_Enter, parent));
-                else
+                Find.Targeter.BeginTargeting(Props.insertPawnTargetingParameters, target =>
                 {
-                    var job = JobMaker.MakeJob(InternalDefOf.VGE_EscapePod_InsertPawn, parent, target);
+                    if (target.Thing == null)
+                        return;
+                    // If targeting a thing, only allow player faction things or factionless things (no hostile things)
+                    if (target.Thing.Faction != null && target.Thing.Faction != Faction.OfPlayer)
+                        return;
+                    // Don't target pawns from other factions, unless prisoner or slave
+                    if (target.Pawn != null && target.Pawn.Faction != Faction.OfPlayer && !target.Pawn.IsPrisonerOfColony && !target.Pawn.IsSlaveOfColony)
+                        return;
+                    if (selPawn == target.Pawn)
+                        selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(InternalDefOf.VGE_EscapePod_Enter, parent));
+                    else
+                    {
+                        var job = JobMaker.MakeJob(InternalDefOf.VGE_EscapePod_InsertPawn, parent, target);
+                        job.count = 1;
+                        selPawn.jobs.TryTakeOrderedJob(job);
+                    }
+
+                    ClaimIfNeeded();
+                });
+            });
+            if (selPawn.carryTracker?.CarriedThing is Pawn carriedPawn)
+            {
+                insertCarriedPawn = new FloatMenuOption("VGE_EscapePod_InsertCarriedPawn".Translate(carriedPawn.Named("PAWN")), () =>
+                {
+                    var job = JobMaker.MakeJob(InternalDefOf.VGE_EscapePod_InsertPawnDrafted, parent, carriedPawn);
                     job.count = 1;
                     selPawn.jobs.TryTakeOrderedJob(job);
-                }
-            });
-        });
-        FloatMenuOption insertCarriedPawn;
-        if (selPawn.carryTracker?.CarriedThing is Pawn carriedPawn)
-        {
-            insertCarriedPawn = new FloatMenuOption("VGE_EscapePod_InsertCarriedPawn".Translate(carriedPawn.Named("PAWN")), () =>
-            {
-                var job = JobMaker.MakeJob(InternalDefOf.VGE_EscapePod_InsertPawnDrafted, parent, carriedPawn);
-                job.count = 1;
-                selPawn.jobs.TryTakeOrderedJob(job);
-            });
+                    ClaimIfNeeded();
+                });
+            }
         }
-        else insertCarriedPawn = null;
 
         if (IsFloatMenuEnabled(selPawn, targetTile) is { Accepted: false } reason)
         {
             enter.Disabled = true;
             enter.Label += $": {reason.Reason}";
 
-            insertPawn.Disabled = true;
-            insertPawn.Label += $": {reason.Reason}";
+            if (insertPawn != null)
+            {
+                insertPawn.Disabled = true;
+                insertPawn.Label += $": {reason.Reason}";
+            }
 
             if (insertCarriedPawn != null)
             {
@@ -145,13 +207,15 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
         else
         {
             enter = FloatMenuUtility.DecoratePrioritizedTask(enter, selPawn, parent);
-            insertPawn = FloatMenuUtility.DecoratePrioritizedTask(insertPawn, selPawn, parent);
+            if (insertPawn != null)
+                insertPawn = FloatMenuUtility.DecoratePrioritizedTask(insertPawn, selPawn, parent);
             if (insertCarriedPawn != null)
                 insertCarriedPawn = FloatMenuUtility.DecoratePrioritizedTask(insertCarriedPawn, selPawn, parent);
         }
 
         yield return enter;
-        yield return insertPawn;
+        if (insertPawn != null)
+            yield return insertPawn;
         if (insertCarriedPawn != null)
             yield return insertCarriedPawn;
     }
@@ -163,7 +227,7 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
 
         if (!tile.Valid)
             return "CannotPerformPlanetLayer".Translate(parent.Map.Tile.LayerDef.gerundLabel.Named("GERUND"), parent.Map.Tile.LayerDef.label.Named("LAYER"));
-        
+
         if (!pawn.CanReach(parent, PathEndMode.OnCell, Danger.Deadly))
             return "NoPath".Translate().CapitalizeFirst();
 
@@ -202,11 +266,16 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
 
             if (landingSpot.IsValid)
                 flyShipLeaving.arrivalAction = new TransportersArrivalAction_LandInSpecificCell(mapParent, landingSpot);
+        }
+
+        if (flyShipLeaving.arrivalAction == null)
+        {
+            var caravan = Find.WorldObjects.PlayerControlledCaravanAt(tile);
+            if (caravan != null)
+                flyShipLeaving.arrivalAction = new TransportersArrivalAction_GiveToCaravan(caravan);
             else
                 flyShipLeaving.arrivalAction = new TransportersArrivalAction_FormCaravan();
         }
-        else
-            flyShipLeaving.arrivalAction = new TransportersArrivalAction_FormCaravan();
 
         flyShipLeaving.worldObjectDef = Props.worldObjectDef ?? WorldObjectDefOf.TravellingTransporters;
         parent.Destroy();
@@ -230,15 +299,10 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
 
     protected virtual PlanetTile FindClosestValidTile()
     {
-        var map = parent.Map;
-        if (map?.Tile.Layer?.Def == null)
-            return PlanetTile.Invalid;
-        if (Props.layerWhitelist == null)
-            return PlanetTile.Invalid;
-        if (!Props.layerWhitelist.Contains(map.Tile.LayerDef))
+        if (!IsCurrentPlanetLayerSupported)
             return PlanetTile.Invalid;
 
-        TileFinder.TryFindPassableTileWithTraversalDistance(Find.WorldGrid.Surface.GetClosestTile_NewTemp(map.Tile), 0, int.MaxValue, out var closest, IsPlanetTileValid, true, TileFinderMode.Near, true, true);
+        TileFinder.TryFindPassableTileWithTraversalDistance(Find.WorldGrid.Surface.GetClosestTile_NewTemp(parent.Map.Tile), 0, int.MaxValue, out var closest, IsPlanetTileValid, true, TileFinderMode.Near, true, true);
         return closest;
     }
 
@@ -253,6 +317,13 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         base.PostSpawnSetup(respawningAfterLoad);
+
+        if (IsCurrentPlanetLayerSupported)
+        {
+            mapComp = parent.Map.GetComponent<VGE2_MapComponent>();
+            mapComp?.activeEscapePods.Add(this);
+        }
+
         if (!respawningAfterLoad && !parent.BeingTransportedOnGravship)
             autoRebuild = CanSetAutoRebuild && parent.Map.areaManager.Home[parent.Position];
     }
@@ -260,6 +331,12 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
     public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
     {
         base.PostDeSpawn(map, mode);
+
+        if (IsCurrentPlanetLayerSupported)
+        {
+            mapComp?.activeEscapePods.Remove(this);
+            mapComp = null;
+        }
 
         if (mode != DestroyMode.WillReplace)
             heldPawn.TryDropAll(parent.Position, map, ThingPlaceMode.Near);
@@ -283,5 +360,16 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
     {
         if (autoRebuild && CanSetAutoRebuild && map != null && GenConstruct.CanPlaceBlueprintAt(parent.def, parent.Position, parent.Rotation, map, stuffDef: parent.Stuff))
             GenConstruct.PlaceBlueprintForBuild(parent.def, parent.Position, map, parent.Rotation, Faction.OfPlayer, parent.Stuff);
+    }
+
+    public void ClaimIfNeeded()
+    {
+        // Claim if not owned by player
+        if (parent.def.CanHaveFaction && parent.Faction != Faction.OfPlayer)
+        {
+            parent.SetFaction(Faction.OfPlayer);
+            foreach (var intVec in parent.OccupiedRect())
+                FleckMaker.ThrowMetaPuffs(new TargetInfo(intVec, parent.Map));
+        }
     }
 }
