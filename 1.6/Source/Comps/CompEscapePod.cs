@@ -3,6 +3,7 @@ using RimWorld;
 using RimWorld.Planet;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 
 namespace VanillaGravshipExpanded2;
 
@@ -11,9 +12,9 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
     protected int triggerOnTick = -999999;
     protected ThingOwner<Pawn> heldPawn;
     protected bool autoRebuild;
-    protected VGE2_MapComponent mapComp;
-
-    [Unsaved] private Effecter progressBarEffecter;
+    [Unsaved] protected VGE2_MapComponent mapComp;
+    [Unsaved] protected Sustainer evacuationSustainer;
+    [Unsaved] protected Effecter progressBarEffecter;
 
     public ThingOwner SearchableContents => heldPawn;
 
@@ -28,6 +29,21 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
     public CompEscapePod()
     {
         heldPawn = new ThingOwner<Pawn>(this);
+    }
+
+    public override void CompTick()
+    {
+        base.CompTick();
+
+        if (mapComp is { EvacuationActive: true } && Props.evacuationSustainerSound != null)
+        {
+            ActivateAndMaintainSustainer();
+        }
+        else if (evacuationSustainer != null)
+        {
+            evacuationSustainer.Cleanup();
+            evacuationSustainer = null;
+        }
     }
 
     public override void CompTickInterval(int delta)
@@ -116,7 +132,10 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
                             foreach (var selected in Find.Selector.SelectedObjects)
                             {
                                 if (selected is ThingWithComps thing && thing.GetComp<CompEscapePod>() is { } comp)
+                                {
                                     comp.ClaimIfNeeded();
+                                    comp.ActivateAndMaintainSustainer();
+                                }
                             }
                         }, true));
                     }
@@ -371,5 +390,12 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
             foreach (var intVec in parent.OccupiedRect())
                 FleckMaker.ThrowMetaPuffs(new TargetInfo(intVec, parent.Map));
         }
+    }
+
+    protected void ActivateAndMaintainSustainer()
+    {
+        if (evacuationSustainer == null || evacuationSustainer.Ended)
+            evacuationSustainer = Props.evacuationSustainerSound.TrySpawnSustainer(SoundInfo.InMap(parent, MaintenanceType.PerTick));
+        evacuationSustainer.Maintain();
     }
 }

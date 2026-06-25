@@ -18,6 +18,7 @@ public class CompProperties_EscapePod : CompProperties
     public ThingDef skyfallerLeaving;
     public WorldObjectDef worldObjectDef;
     public SoundDef enterSound;
+    public SoundDef evacuationSustainerSound;
 
     [NoTranslate] public string autoRebuildGizmoIconPath = null;
     [Unsaved] private Texture2D autoRebuildGizmo;
