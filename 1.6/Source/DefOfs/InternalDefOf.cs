@@ -56,7 +56,7 @@ namespace VanillaGravshipExpanded2
 		public static ThingDef VGE_WarpodIncoming;
 		public static WorldObjectDef VGE_TravellingWarpod;
 		public static ThingDef VGE_GravshipBlackBox;
-		public static ThingDef VGE_EnemySignalJammer;
+		public static ThingDef VGE_EnemySignalJammer, VGE_MechanoidSignalJammer;
 		public static ThingDef VGE_EnemyAnticraftBeamStrike;
 		public static JobDef VGE_OperateEnemyTerminal;
 		public static ThingDef VGE_Mote_AnticraftBeam;
@@ -65,5 +65,5 @@ namespace VanillaGravshipExpanded2
 		public static JobDef VGE_EscapePod_Enter;
 		public static JobDef VGE_EscapePod_InsertPawn;
 		public static JobDef VGE_EscapePod_InsertPawnDrafted;
-	}
+    }
 }

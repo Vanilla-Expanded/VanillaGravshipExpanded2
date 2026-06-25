@@ -20,11 +20,21 @@ namespace VanillaGravshipExpanded2
         {
             if (cell.IsValid && map != null)
             {
-                foreach (var thing in map.listerThings.ThingsOfDef(InternalDefOf.VGE_EnemySignalJammer))
+                foreach (var thing in map.listerBuildings.allBuildingsNonColonist)
                 {
-                    if (thing.TryGetComp<CompPowerTrader>().PowerOn && thing.Position.DistanceTo(cell) <= 55.9f)
+                    if (thing.def == InternalDefOf.VGE_EnemySignalJammer)
                     {
-                        return true;
+                        if (thing.TryGetComp<CompPowerTrader>().PowerOn && thing.Position.DistanceTo(cell) <= 55.9f)
+                        {
+                            return true;
+                        }
+                    }
+                    else if (thing.def == InternalDefOf.VGE_MechanoidSignalJammer)
+                    {
+                        if (thing.Position.DistanceTo(cell) <= 55.9f && !thing.GetComp<CompStunnable>().StunHandler.Stunned)
+                        {
+                            return true;
+                        }
                     }
                 }
             }

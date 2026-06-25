@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Defs>
-
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
 
 	<SoundDef>
 		<defName>VEG_InsectoidTurretTargetAcquired</defName>
@@ -69,6 +69,40 @@
         <volumeRange>20</volumeRange>
         <pitchRange>1</pitchRange>
         <canVacuumDampen>false</canVacuumDampen>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>VGE_GravshipChargeBlaster</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Shots/GravshipChargeBlaster</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>60~70</volumeRange>
+        <pitchRange>0.9~1.1</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>VGE_HugeInfernoCannon_Fire</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Shots/HugeInfernoCannon_Fire_01a</clipPath>
+          </li>
+        </grains>
+        <volumeRange>60~70</volumeRange>
+        <pitchRange>0.9~1.1</pitchRange>
       </li>
     </subSounds>
   </SoundDef>

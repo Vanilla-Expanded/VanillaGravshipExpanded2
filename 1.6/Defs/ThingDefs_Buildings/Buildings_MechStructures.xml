@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="VGE_MechTurretBase">
+        <defName>VGE_MechanoidChargeBattery</defName>
+        <label>charge battery</label>
+        <description>A massive, pulse-charged artillery battery for indiscriminate, wide-area saturation. It’s capable of firing long, inaccurate bursts of fast-moving explosive projectiles. The weapon is fully autonomous, operated by a machine brain that requires no crew. Commonly seen on orbital bombardment platforms.</description>
+        <uiIconPath>Things/Mechanoid/MechanoidChargeBattery/MechanoidChargeBattery_MenuIcon</uiIconPath>
+        <thingClass>VanillaGravshipExpanded.Building_EnemyMechTurret</thingClass>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Structures/Artillery/MechanoidOrbitalArtillery_Base_Normal</texPath>
+            <drawSize>(5,5)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>1400</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-40</Beauty>
+        </statBases>
+        <size>(5,5)</size>
+        <fillPercent>1</fillPercent>
+        <passability>Impassable</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <building>
+            <turretGunDef>VGE_Gun_MechanoidChargeBattery</turretGunDef>
+            <turretBurstCooldownTime>60</turretBurstCooldownTime>
+            <turretTopDrawSize>7</turretTopDrawSize>
+            <turretTopOffset>(0, 0.5)</turretTopOffset>
+            <playTargetAcquiredSound>false</playTargetAcquiredSound>
+            <combatPower>150</combatPower>
+            <turretBurstWarmupTime>7.416</turretBurstWarmupTime>
+        </building>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>25</rotationSpeed>
+            </li>
+        </modExtensions>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>36</worldMapAttackRange>
+                <firingMode>GroundToSpace, SpaceToGround, SpaceToSpace, GroundToGround</firingMode>
+            </li>
+            <li Class="CompProperties_CanBeDormant">
+                <compClass>CompMechanoid</compClass>
+                <startsDormant>true</startsDormant>
+            </li>
+        </comps>
+        <killedLeavings>
+            <GravlitePanel>30</GravlitePanel>
+            <ChunkSlagSteel>5</ChunkSlagSteel>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_MechanoidChargeBattery</defName>
+        <label>charge battery</label>
+        <description>A massive, pulse-charged artillery battery.</description>
+        <graphicData>
+            <texPath>Things/Mechanoid/MechanoidChargeBattery/MechanoidChargeBattery_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithSmoke</verbClass>
+                <defaultProjectile>VGE_Bullet_ChargeBattery</defaultProjectile>
+                <range>500</range>
+                <minRange>19</minRange>
+                <burstShotCount>12</burstShotCount>
+                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>14</muzzleFlashScale>
+                <forcedMissRadius>12</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <isMortar>true</isMortar>
+                <soundCast>VGE_GravshipChargeBlaster</soundCast>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>VGE_Bullet_ChargeBattery</defName>
+        <label>charge battery shot</label>
+        <graphicData>
+            <texPath>Things/Projectile/ChargeBlasterShot_Large</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>VanillaGravshipExpanded.Projectile_Artillery</thingClass>
+        <projectile>
+            <damageDef>Bomb</damageDef>
+            <damageAmountBase>16</damageAmountBase>
+            <armorPenetrationBase>0.22</armorPenetrationBase>
+            <speed>90</speed>
+            <explosionRadius>1.9</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <stoppingPower>0.5</stoppingPower>
+            <soundImpact>BulletImpact_Metal</soundImpact>
+            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechTurretBase">
+        <defName>VGE_MechanoidInfernoArtillery</defName>
+        <label>inferno artillery</label>
+        <description>A massive, long-range bombardment cannon built by mechanoids. It launches superheated astrofuel rods that detonate upon impact, unleashing a conflagration of astrofire capable of burning in the vacuum of space. The weapon is fully autonomous, operated by a machine brain that requires no crew. Commonly seen on orbital bombardment platforms.</description>
+        <uiIconPath>Things/Mechanoid/MechanoidInfernoArtillery/MechanoidInfernoArtillery_MenuIcon</uiIconPath>
+        <thingClass>VanillaGravshipExpanded.Building_EnemyMechTurret</thingClass>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Structures/Artillery/MechanoidOrbitalArtillery_Base_Normal</texPath>
+            <drawSize>(5,5)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>1400</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-40</Beauty>
+        </statBases>
+        <size>(5,5)</size>
+        <fillPercent>1</fillPercent>
+        <passability>Impassable</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <building>
+            <turretGunDef>VGE_Gun_MechanoidInfernoArtillery</turretGunDef>
+            <turretBurstCooldownTime>70</turretBurstCooldownTime>
+            <turretTopDrawSize>7</turretTopDrawSize>
+            <turretTopOffset>(0, 0.5)</turretTopOffset>
+            <playTargetAcquiredSound>false</playTargetAcquiredSound>
+            <combatPower>150</combatPower>
+            <turretBurstWarmupTime>17.5</turretBurstWarmupTime>
+        </building>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>10</rotationSpeed>
+            </li>
+        </modExtensions>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>36</worldMapAttackRange>
+                <firingMode>GroundToSpace, SpaceToGround, SpaceToSpace, GroundToGround</firingMode>
+            </li>
+            <li Class="CompProperties_CanBeDormant">
+                <compClass>CompMechanoid</compClass>
+                <startsDormant>true</startsDormant>
+            </li>
+        </comps>
+        <killedLeavings>
+            <GravlitePanel>30</GravlitePanel>
+            <ChunkSlagSteel>5</ChunkSlagSteel>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_MechanoidInfernoArtillery</defName>
+        <label>inferno artillery</label>
+        <description>A massive, long-range bombardment cannon built by mechanoids.</description>
+        <graphicData>
+            <texPath>Things/Mechanoid/MechanoidInfernoArtillery/MechanoidInfernoArtillery_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithSmoke</verbClass>
+                <defaultProjectile>VGE_Bullet_InfernoArtillery</defaultProjectile>
+                <range>500</range>
+                <minRange>26</minRange>
+                <burstShotCount>1</burstShotCount>
+                <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>14</muzzleFlashScale>
+                <forcedMissRadius>9</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <isMortar>true</isMortar>
+                <soundCast>VGE_HugeInfernoCannon_Fire</soundCast>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>VGE_Bullet_InfernoArtillery</defName>
+        <label>inferno artillery shot</label>
+        <graphicData>
+            <texPath>Things/Projectile/InfernoShot_Huge</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>VanillaGravshipExpanded.Projectile_Artillery</thingClass>
+        <projectile>
+            <damageDef>VGE_AstrofireDamage</damageDef>
+            <damageAmountBase>15</damageAmountBase>
+            <armorPenetrationBase>0.11</armorPenetrationBase>
+            <speed>86</speed>
+            <explosionRadius>6.9</explosionRadius>
+            <preExplosionSpawnThingDef>VGE_Filth_Astrofuel</preExplosionSpawnThingDef>
+            <preExplosionSpawnChance>1</preExplosionSpawnChance>
+            <preExplosionSpawnThingCount>3</preExplosionSpawnThingCount>
+            <flyOverhead>true</flyOverhead>
+            <stoppingPower>1</stoppingPower>
+            <soundImpact>BulletImpact_Metal</soundImpact>
+            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+        </projectile>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.ThrusterProjectileExtension">
+                <flameSize>3</flameSize>
+                <flameShaderType>MoteGlow</flameShaderType>
+                <flameShaderParameters>
+                    <_MainTex>/Things/Mote/Exhaust/SmallHighPowerThruster_Burn</_MainTex>
+                </flameShaderParameters>
+                <exhaustFleckDef>VGE_AstrorigSmokeGlow</exhaustFleckDef>
+                <emissionsPerSecond>40</emissionsPerSecond>
+                <spawnRadiusRange>0.0~0.5</spawnRadiusRange>
+                <velocity>(0.0,0.0,-20.0)</velocity>
+                <velocityRotationRange>-10.0~10</velocityRotationRange>
+                <velocityMultiplierRange>0.8~1.2</velocityMultiplierRange>
+                <rotationOverTimeRange>-180.0~180</rotationOverTimeRange>
+                <scaleRange>1.5~3</scaleRange>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidGravTether</defName>
+        <label>mechanoid grav tether</label>
+        <description>A vast, artificial core of colossal mechanoid orbital platforms. Unlike human-built grav engines, these are constructed by the mechanoid core itself, optimized for ruthless efficiency and unending operation. They generate monumental lift and stabilization fields that allow entire, sprawling space stations to remain suspended in orbit, forming the backbone of mechanoid dominance in space. While largely incompatible with human systems, they can be destroyed to yield a gravcore, a rare and valuable prize for any who dare to challenge them.</description>
+        <uiIconPath>Things/Mechanoid/MechanoidLargeGravEngine/MechanoidLargeGravEngine_MenuIcon</uiIconPath>
+        <thingClass>VanillaGravshipExpanded2.Building_MechanoidGravTether</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidLargeGravEngine/MechanoidLargeGravEngine</texPath>
+            <drawSize>(5,5)</drawSize>
+            <addTopAltitudeBias>true</addTopAltitudeBias>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>3000</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(5,5)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>16</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+        <killedLeavings>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>80</GravlitePanel>
+            <ComponentSpacer>8</ComponentSpacer>
+            <Plasteel>80</Plasteel>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidHullblock</defName>
+        <label>mechanoid hullblock</label>
+        <description>A dense, structural building block used to form mechanoid orbital platforms. Due to the special gravlite alloys used to create them, they are impervious to damage. They are a constant fixture on mechanoid orbital platforms.</description>
+        <uiIconPath>Things/Mechanoid/MechanoidHullblock/MechanoidHullblock_MenuIcon</uiIconPath>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidHullblock/MechanoidHullblock_Atlas</texPath>
+            <drawSize>(1,1)</drawSize>
+            <linkType>CornerFiller</linkType>
+            <linkFlags>
+                <li>Wall</li>
+                <li>Rock</li>
+            </linkFlags>
+        </graphicData>
+        <useHitPoints>false</useHitPoints>
+        <statBases>
+            <Flammability>0</Flammability>
+            <Beauty>-3</Beauty>
+        </statBases>
+        <size>(1,1)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>42</pathCost>
+        <rotatable>false</rotatable>
+        <destroyable>false</destroyable>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidStabilizer</defName>
+        <label>mechanoid stabilizer</label>
+        <description>A compact astrofuel thruster built by the mechanoid core to propel their orbital platforms. Its construction mirrors human design but is reinforced with mechanical precision, lined with thick vacstone plating that shrugs off extreme heat and stress. These smaller thrusters assist platforms with fine-tuned maneuvering and position-holding in orbit. While unusable for human gravships, destroying one will yield a tiny supply of precious vacstone blocks.</description>
+        <graphicData>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidStabilizerThruster/MechanoidStabilizerThruster</texPath>
+            <drawSize>(2,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-8</Beauty>
+        </statBases>
+        <size>(1,2)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>true</rotatable>
+        <killedLeavings>
+            <Steel>20</Steel>
+            <BlocksVacstone>10</BlocksVacstone>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidHeatsink</defName>
+        <label>mechanoid heatsink</label>
+        <description>A long, skeletal thermal regulator strut, built into the structure of mechanoid platforms to ensure total thermal stability. It absorbs waste heat from active mechanoid systems and converts a fraction of it into operational power, thus preventing core overheating and maintaining maximum efficiency.</description>
+        <graphicData>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidHeatsink/MechanoidHeatsink</texPath>
+            <drawSize>(3,4)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>200</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-8</Beauty>
+        </statBases>
+        <size>(1,3)</size>
+        <passability>Impassable</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <fillPercent>1</fillPercent>
+        <rotatable>true</rotatable>
+        <killedLeavings>
+            <Steel>20</Steel>
+            <Gold>20</Gold>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidSolarPanel</defName>
+        <label>mechanoid solar panel</label>
+        <description>A dense array of hexagonal gravlite solar panels, arranged in a tight grid across mechanoid platforms. They efficiently convert solar radiation into power, maintaining the endless operational cycle of mechanoid systems.</description>
+        <graphicData>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidSolarPanel/MechanoidSolarPanel</texPath>
+            <drawSize>(2,5)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-10</Beauty>
+        </statBases>
+        <size>(2,5)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <fillPercent>0.24</fillPercent>
+        <pathCost>40</pathCost>
+        <rotatable>true</rotatable>
+        <killedLeavings>
+            <GravlitePanel>20</GravlitePanel>
+            <ComponentSpacer>1</ComponentSpacer>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidTargetingRelay</defName>
+        <label>mechanoid targeting relay</label>
+        <description>A specialized relay that transmits precise targeting parameters to all nearby mechanoid artillery pieces. The constant stream of data dramatically improves their accuracy, ensuring devastatingly precise bombardment.</description>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidTargetingRelay/MechanoidTargetingRelay</texPath>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-20</Beauty>
+        </statBases>
+        <size>(2,2)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>6</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+            <li Class="CompProperties_Stunnable">
+                <affectedDamageDefs>
+                    <li>EMP</li>
+                </affectedDamageDefs>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_EnemyTurretBuffer">
+                <radius>29.9</radius>
+                <maxForcedMissRadius>3</maxForcedMissRadius>
+                <validTurrets>
+                    <li>VGE_MassDriver</li>
+                    <li>VGE_MechanoidChargeBattery</li>
+                    <li>VGE_MechanoidInfernoArtillery</li>
+                </validTurrets>
+            </li>
+        </comps>
+        <killedLeavings>
+            <Steel>60</Steel>
+            <ComponentSpacer>4</ComponentSpacer>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidArtilleryLoader</defName>
+        <label>mechanoid artillery loader</label>
+        <description>A specialized, heavily-reinforced conveyor system designed to rapidly feed slugs into mechanoid mass drivers. It dramatically decreases the reload time of linked gravship artillery.</description>
+        <graphicData>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidArtilleryLoader/MechanoidArtilleryLoader</texPath>
+            <drawSize>(2,4)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>300</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-10</Beauty>
+        </statBases>
+        <size>(1,3)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>true</rotatable>
+        <killedLeavings>
+            <Steel>60</Steel>
+            <Uranium>20</Uranium>
+        </killedLeavings>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>5.9</explosiveRadius>
+                <explosiveDamageType>Bomb</explosiveDamageType>
+                <damageAmountBase>50</damageAmountBase>
+                <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+                <wickTicks>480</wickTicks>
+            </li>
+            <li Class="CompProperties_Stunnable">
+                <affectedDamageDefs>
+                    <li>EMP</li>
+                </affectedDamageDefs>
+            </li>
+            <li Class="VanillaGravshipExpanded.CompProperties_EnemyTurretBuffer">
+                <radius>4.9</radius>
+                <maxLinks>3</maxLinks>
+                <cooldownReductionTicks>300</cooldownReductionTicks>
+                <validTurrets>
+                    <li>VGE_MassDriver</li>
+                </validTurrets>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidGravcapacitor</defName>
+        <label>mechanoid gravcapacitor</label>
+        <description>A dense, complex energy reservoir used to store power for essential mechanoid systems. Its volatile charge is contained by powerful magnetic fields. If severely damaged, the released energy will detonate as a powerful EMP blast.</description>
+        <graphicData>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidGravcapacitor/MechanoidGravcapacitor</texPath>
+            <drawSize>(2,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-20</Beauty>
+        </statBases>
+        <size>(2,3)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>true</rotatable>
+        <killedLeavings>
+            <Steel>80</Steel>
+            <ComponentSpacer>2</ComponentSpacer>
+        </killedLeavings>
+        <comps>
+            <li Class="VanillaGravshipExpanded2.CompProperties_MechanoidGravcapacitor" />
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidOvershieldGenerator</defName>
+        <label>mechanoid overshield</label>
+        <description>A colossal defensive structure that projects a powerful, static energy shield with a huge radius. This barrier intercepts all incoming projectiles but permits fire from within. Once its substantial energy is depleted, the shield collapses, and the generator must endure a lengthy 15-day recharge cycle before the overshield can be redeployed.</description>
+        <thingClass>VanillaGravshipExpanded2.Building_MechanoidOvershield</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidOvershieldGenerator/MechanoidOvershieldGenerator</texPath>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>600</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-12</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>4</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+            <li Class="CompProperties_ProjectileInterceptor">
+                <radius>39</radius>
+                <interceptGroundProjectiles>true</interceptGroundProjectiles>
+                <interceptAirProjectiles>true</interceptAirProjectiles>
+                <color>(1.0, 0.2, 0.2)</color>
+                <hitPoints>4000</hitPoints>
+                <chargeDurationTicks>900000</chargeDurationTicks>
+                <reactivateEffect>BulletShieldGenerator_Reactivate</reactivateEffect>
+                <activeSound>BulletShield_Ambience</activeSound>
+                <hitPointsRestoreInstantlyAfterCharge>true</hitPointsRestoreInstantlyAfterCharge>
+                <startWithMaxHitPoints>true</startWithMaxHitPoints>
+                <alwaysShowHitpointsGizmo>true</alwaysShowHitpointsGizmo>
+                <drawWithNoSelection>true</drawWithNoSelection>
+            </li>
+        </comps>
+        <killedLeavings>
+            <GravlitePanel>30</GravlitePanel>
+            <ComponentSpacer>4</ComponentSpacer>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidSignalJammer</defName>
+        <label>mechanoid signal jammer</label>
+        <description>A sophisticated array of sensors and emitters that broadcast localized interference across the immediate vicinity. By saturating the area with conflicting gravimetric signals, it prevents the approach of any gravship or drop pod, creating an impenetrable exclusion zone around the installation.</description>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidSignalJammer/MechanoidSignalJammer</texPath>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>600</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-20</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>30</pathCost>
+        <rotatable>false</rotatable>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>4</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+            <li Class="CompProperties_MoteEmitterProximityScan">
+                <compClass>VanillaGravshipExpanded2.CompMoteEmitterSignalJammer</compClass>
+                <mote>VGE_SignalJammerRadius</mote>
+                <emissionInterval>240</emissionInterval>
+                <maintain>True</maintain>
+                <warmupPulseFadeInTime>1</warmupPulseFadeInTime>
+                <warmupPulseSolidTime>1</warmupPulseSolidTime>
+                <warmupPulseFadeOutTime>1</warmupPulseFadeOutTime>
+            </li>
+            <li Class="CompProperties_Stunnable">
+                <affectedDamageDefs>
+                    <li>EMP</li>
+                </affectedDamageDefs>
+            </li>
+        </comps>
+        <killedLeavings>
+            <GravlitePanel>40</GravlitePanel>
+            <ComponentSpacer>6</ComponentSpacer>
+        </killedLeavings>
+    </ThingDef>
+
+</Defs>

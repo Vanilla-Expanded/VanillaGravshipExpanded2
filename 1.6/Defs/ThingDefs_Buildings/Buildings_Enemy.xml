@@ -360,6 +360,7 @@
         <size>(1,1)</size>
         <hasInteractionCell>true</hasInteractionCell>
         <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <pathCost>50</pathCost>
         <costList>
             <Steel>30</Steel>
             <ComponentIndustrial>2</ComponentIndustrial>
@@ -388,6 +389,7 @@
         <size>(3,1)</size>
         <hasInteractionCell>true</hasInteractionCell>
         <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <pathCost>50</pathCost>
         <costList>
             <GravlitePanel>45</GravlitePanel>
             <ComponentIndustrial>4</ComponentIndustrial>
@@ -1097,7 +1099,7 @@
         </statBases>
         <size>(3,3)</size>
         <passability>PassThroughOnly</passability>
-        <fillPercent>0.6</fillPercent>
+        <fillPercent>0.75</fillPercent>
         <pathCost>20</pathCost>
         <rotatable>false</rotatable>
         <costList>
@@ -1162,7 +1164,7 @@
         </statBases>
         <size>(5,5)</size>
         <passability>PassThroughOnly</passability>
-        <fillPercent>0.6</fillPercent>
+        <fillPercent>0.75</fillPercent>
         <pathCost>20</pathCost>
         <rotatable>false</rotatable>
         <costList>
@@ -1214,7 +1216,7 @@
     <ThingDef ParentName="VGE_EnemyPropBase">
         <defName>VGE_EnemySignalJammer</defName>
         <label>enemy signal jammer</label>
-        <description>An advanced signal jamming device. When active, it disrupts all incoming flight trajectories, preventing player drop pods, warpods, and gravships from landing within a wide radius.</description>
+        <description>An advanced jamming array that disrupts local guidance signals, preventing the deployment of gravships and drop pods in its immediate vicinity. This particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
         <graphicData>
             <texPath>Things/Enemy/EnemySignalJammer/EnemySignalJammer</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
