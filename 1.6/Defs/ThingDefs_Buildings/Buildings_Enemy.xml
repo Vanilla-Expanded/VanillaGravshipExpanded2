@@ -1262,7 +1262,7 @@
 
     <ThingDef ParentName="VGE_EnemyPropBase">
         <defName>VGE_AncientGravmine</defName>
-        <label>gravmine</label>
+        <label>ancient gravmine</label>
         <description>An ancient and incredibly unstable high-explosive device designed for space-based combat. It features a large detection radius that triggers a powerful blast detonation upon the approach.</description>
         <thingClass>VanillaGravshipExpanded2.Building_Gravmine</thingClass>
         <graphicData>
