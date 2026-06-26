@@ -64,7 +64,7 @@
       <ComponentIndustrial>2</ComponentIndustrial>
       <GravlitePanel>5</GravlitePanel>
     </costList>
-    <costStuffCount>25</costStuffCount>
+    <costStuffCount>40</costStuffCount>
     <building>
       <blueprintClass>Blueprint_Build</blueprintClass>
       <blueprintGraphicData>
@@ -102,10 +102,10 @@
     </graphicData>
     <uiIconPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor2x1_MenuIcon_south</uiIconPath>
     <costList>
-      <ComponentIndustrial>2</ComponentIndustrial>
+      <ComponentIndustrial>3</ComponentIndustrial>
       <GravlitePanel>10</GravlitePanel>
     </costList>
-    <costStuffCount>50</costStuffCount>
+    <costStuffCount>60</costStuffCount>
     <building>
       <blueprintClass>Blueprint_Build</blueprintClass>
       <blueprintGraphicData>
@@ -143,10 +143,10 @@
     </graphicData>
     <uiIconPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor3x1_MenuIcon_south</uiIconPath>
     <costList>
-      <ComponentIndustrial>2</ComponentIndustrial>
+      <ComponentIndustrial>4</ComponentIndustrial>
       <GravlitePanel>15</GravlitePanel>
     </costList>
-    <costStuffCount>75</costStuffCount>
+    <costStuffCount>80</costStuffCount>
     <building>
       <blueprintClass>Blueprint_Build</blueprintClass>
       <blueprintGraphicData>
@@ -184,10 +184,10 @@
     </graphicData>
     <uiIconPath>Things/Structures/Vacuum/AirlockDoors/AirlockDoor5x1_MenuIcon_south</uiIconPath>
     <costList>
-      <ComponentIndustrial>2</ComponentIndustrial>
+      <ComponentIndustrial>6</ComponentIndustrial>
       <GravlitePanel>25</GravlitePanel>
     </costList>
-    <costStuffCount>125</costStuffCount>
+    <costStuffCount>120</costStuffCount>
     <building>
       <blueprintClass>Blueprint_Build</blueprintClass>
       <blueprintGraphicData>
