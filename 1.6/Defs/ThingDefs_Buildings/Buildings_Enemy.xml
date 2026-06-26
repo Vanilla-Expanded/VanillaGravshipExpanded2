@@ -115,6 +115,11 @@
                 <glowRadius>5</glowRadius>
                 <glowColor>(255, 40, 40, 0)</glowColor>
             </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerPlant</compClass>
+                <basePowerConsumption>-2000</basePowerConsumption>
+                <transmitsPower>true</transmitsPower>
+            </li>
         </comps>
     </ThingDef>
 
@@ -153,6 +158,11 @@
             <li Class="CompProperties_Glower">
                 <glowRadius>8</glowRadius>
                 <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerPlant</compClass>
+                <basePowerConsumption>-3000</basePowerConsumption>
+                <transmitsPower>true</transmitsPower>
             </li>
         </comps>
     </ThingDef>
@@ -194,6 +204,11 @@
                 <glowRadius>12</glowRadius>
                 <glowColor>(255, 40, 40, 0)</glowColor>
             </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerPlant</compClass>
+                <basePowerConsumption>-5000</basePowerConsumption>
+                <transmitsPower>true</transmitsPower>
+            </li>
         </comps>
     </ThingDef>
 
@@ -233,6 +248,11 @@
             <li Class="CompProperties_Glower">
                 <glowRadius>15</glowRadius>
                 <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerPlant</compClass>
+                <basePowerConsumption>-7500</basePowerConsumption>
+                <transmitsPower>true</transmitsPower>
             </li>
         </comps>
     </ThingDef>
@@ -1330,6 +1350,10 @@
         <passability>Impassable</passability>
         <fillPercent>1</fillPercent>
         <rotatable>true</rotatable>
+        <building>
+             <isAirtight>true</isAirtight>
+             <isInert>true</isInert>
+        </building>
         <costList>
             <Steel>90</Steel>
             <ComponentIndustrial>2</ComponentIndustrial>
@@ -1343,7 +1367,7 @@
         <graphicData>
             <texPath>Things/Enemy/EnemyLateralThruster/EnemyLateralThruster</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
-            <drawSize>(3,3)</drawSize>
+            <drawSize>(3,4)</drawSize>
         </graphicData>
         <statBases>
             <MaxHitPoints>500</MaxHitPoints>
@@ -1357,6 +1381,10 @@
         <passability>Impassable</passability>
         <fillPercent>1</fillPercent>
         <rotatable>true</rotatable>
+        <building>
+             <isAirtight>true</isAirtight>
+             <isInert>true</isInert>
+        </building>
         <costList>
             <Steel>110</Steel>
             <BlocksVacstone>25</BlocksVacstone>
@@ -1385,6 +1413,10 @@
         <passability>Impassable</passability>
         <fillPercent>1</fillPercent>
         <rotatable>true</rotatable>
+        <building>
+             <isAirtight>true</isAirtight>
+             <isInert>true</isInert>
+        </building>
         <costList>
             <Steel>150</Steel>
             <BlocksVacstone>50</BlocksVacstone>

@@ -154,6 +154,7 @@
             <li>Light</li>
             <li>Medium</li>
             <li>Heavy</li>
+            <li>Substructure</li>
         </affordances>
         <statBases>
             <CleaningTimeFactor>0.9</CleaningTimeFactor>
@@ -194,6 +195,7 @@
             <li>Light</li>
             <li>Medium</li>
             <li>Heavy</li>
+            <li>Substructure</li>
         </affordances>
         <statBases>
             <CleaningTimeFactor>0.9</CleaningTimeFactor>
@@ -233,6 +235,7 @@
             <li>Light</li>
             <li>Medium</li>
             <li>Heavy</li>
+            <li>Substructure</li>
         </affordances>
         <preventCraters>true</preventCraters>
         <statBases>
