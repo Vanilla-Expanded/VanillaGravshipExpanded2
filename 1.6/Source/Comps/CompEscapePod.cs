@@ -276,25 +276,7 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
         var flyShipLeaving = (FlyShipLeaving)SkyfallerMaker.MakeSkyfaller(Props.skyfallerLeaving ?? ThingDefOf.DropPodLeaving, activeTransporter);
         flyShipLeaving.groupID = Find.UniqueIDsManager.GetNextTransporterGroupID();
         flyShipLeaving.destinationTile = tile;
-
-        var mapParent = Find.WorldObjects.MapParentAt(tile);
-        if (TransportersArrivalAction_LandInSpecificCell.CanLandInSpecificCell([this], mapParent))
-        {
-            if (!DropCellFinder.FindSafeLandingSpot(out var landingSpot, occupant.Faction, mapParent.Map, 25, 5, 5))
-                landingSpot = DropCellFinder.RandomDropSpot(mapParent.Map);
-
-            if (landingSpot.IsValid)
-                flyShipLeaving.arrivalAction = new TransportersArrivalAction_LandInSpecificCell(mapParent, landingSpot);
-        }
-
-        if (flyShipLeaving.arrivalAction == null)
-        {
-            var caravan = Find.WorldObjects.PlayerControlledCaravanAt(tile);
-            if (caravan != null)
-                flyShipLeaving.arrivalAction = new TransportersArrivalAction_GiveToCaravan(caravan);
-            else
-                flyShipLeaving.arrivalAction = new TransportersArrivalAction_FormCaravan();
-        }
+        flyShipLeaving.arrivalAction = new TransportersArrivalAction_EscapePod(occupant.Faction);
 
         flyShipLeaving.worldObjectDef = Props.worldObjectDef ?? WorldObjectDefOf.TravellingTransporters;
         parent.Destroy();
