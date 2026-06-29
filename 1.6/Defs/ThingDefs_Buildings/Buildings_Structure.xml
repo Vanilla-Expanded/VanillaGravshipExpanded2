@@ -324,16 +324,16 @@
       <li>BuildingsMisc</li>
     </thingCategories>
     <statBases>
-      <MaxHitPoints>75</MaxHitPoints>
-      <WorkToBuild>800</WorkToBuild>
-      <Flammability>0.5</Flammability>
-      <Mass>5</Mass>
+      <MaxHitPoints>50</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+      <Flammability>1</Flammability>
+      <Mass>4</Mass>
+      <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
     </statBases>
     <tickerType>Rare</tickerType>
     <fillPercent>0.2</fillPercent>
     <costList>
-      <Steel>40</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
+      <Steel>15</Steel>
     </costList>
     <comps>
       <li Class="CompProperties_Glower">
@@ -356,7 +356,9 @@
         <visualOnly>false</visualOnly>
       </li>
     </comps>
+    <passability>PassThroughOnly</passability>
     <pathCost>14</pathCost>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
     <designationCategory>Odyssey</designationCategory>
     <rotatable>false</rotatable>
     <researchPrerequisites>
