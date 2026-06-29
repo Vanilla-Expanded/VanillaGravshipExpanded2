@@ -299,7 +299,7 @@
       <Chemfuel>20</Chemfuel>
     </costList>
     <researchPrerequisites>
-      <li>VGE_GravshipDefenses</li>
+      <li>StandardGravtech</li>
     </researchPrerequisites>
   </ThingDef>
 
