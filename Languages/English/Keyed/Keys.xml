@@ -36,6 +36,12 @@
   <VGE_EscapePod_EvacuationDesc>Initiates a gravship-wide evacuation protocol. All colonists will immediately seek out and board the closest available escape pod. The evacuation process plays a ship-wide siren until all pods have launched. If there is not enough escape pods, some colonists may fail to evacuate.</VGE_EscapePod_EvacuationDesc>
   <VGE_EscapePod_EvacuationConfirmation>Are you sure you want to issue an evacuation?\n\nEvery colonist who's able to do so will immediately stop doing what they are doing and attempt to find an escape pod to use. If they're unable to immediately find an escape pod, they'll keep trying to find one unless they're drafted or an evacuation is stopped.\n\nIf you decide to cancel the evacuation your colonists will attempt to return to anything they may have been working on at the time (if that's possible).</VGE_EscapePod_EvacuationConfirmation>
 
+  <!-- Vacuum emergency light -->
+  <VGE_VacuumEmergencyLight_UnsafeVacuumLevel>Select dangerous vacuum level</VGE_VacuumEmergencyLight_UnsafeVacuumLevel>
+  <VGE_VacuumEmergencyLight_UnsafeVacuumLevelDesc>Select a vacuum level that will be considered unsafe. Once the vacuum reaches this level the light will turn on and any undrafted colonists (without vacuum protective gear) will attempt to seek safety.</VGE_VacuumEmergencyLight_UnsafeVacuumLevelDesc>
+  <VGE_VacuumEmergencyLight_UnsafeVacuumSlider>Unsafe vacuum level: {0_percentage}</VGE_VacuumEmergencyLight_UnsafeVacuumSlider>
+  <VGE_VacuumEmergencyLight_EvacuatePawns>Evacuate area when unsafe vacuum level reached</VGE_VacuumEmergencyLight_EvacuatePawns>
+
 	<VGE_HackWarcomputer>Hack enemy warcomputer to retrieve gravdata</VGE_HackWarcomputer>
 	<VGE_GravdataWillBeLostWarning>Gravdata obtained will be lost unless you select a gravtech research project.</VGE_GravdataWillBeLostWarning>
 	<VGE_WarcomputerHackedBlackBox>Hostile warcomputer hacked. {0} gravdata stored in the gravship black box.</VGE_WarcomputerHackedBlackBox>

@@ -303,4 +303,65 @@
     </researchPrerequisites>
   </ThingDef>
 
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGE_VacuumWarningLight</defName>
+    <label>vacuum warning light</label>
+    <description>An electrical warning lamp that emits flashing orange light if the vacuum in the room reaches dangerous levels. Undrafted crewmembers will make their way out of the room when the warning light turns on. Draws power directly from the grav engine.</description>
+    <graphicData>
+      <texPath>Things/Structures/Vacuum/VacuumWarningLight/VacuumWarningLight</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shadowData>
+        <volume>(0.3, 0.2, 0.3)</volume>
+        <offset>(0,0,-0.1)</offset>
+      </shadowData>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <statBases>
+      <MaxHitPoints>75</MaxHitPoints>
+      <WorkToBuild>800</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Mass>5</Mass>
+    </statBases>
+    <tickerType>Rare</tickerType>
+    <fillPercent>0.2</fillPercent>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5.3</glowRadius>
+        <glowColor>(251, 84, 43)</glowColor>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="VanillaGravshipExpanded2.CompProperties_VacuumWarningLight">
+        <!-- If in a room, ignore radius and affect the whole room -->
+        <alwaysAffectsWholeRoom>true</alwaysAffectsWholeRoom>
+        <!-- Radius in which the pawns are affected -->
+        <radius>9.9</radius>
+        <!-- The min/max configurable vauum levels -->
+        <minMaxVacuumRanges>0.1~0.5</minMaxVacuumRanges>
+        <!-- Vacuum level at or above which the pawns should be worried about vacuum. -->
+        <baseVacuumLevel>0.25</baseVacuumLevel>
+        <!-- If the comp should scare away pawns by default or not. -->
+        <evacuatePawnsByDefault>true</evacuatePawnsByDefault>
+        <!-- If the warning is vual only in nature (lights turns on, but pawns aren't scared away ever, can't be configured to do so either). -->
+        <visualOnly>false</visualOnly>
+      </li>
+    </comps>
+    <pathCost>14</pathCost>
+    <designationCategory>Odyssey</designationCategory>
+    <rotatable>false</rotatable>
+    <researchPrerequisites>
+      <li>VGE_OxygenNetwork</li>
+    </researchPrerequisites>
+  </ThingDef>
+
 </Defs>
