@@ -3,7 +3,7 @@ using Verse;
 
 namespace VanillaGravshipExpanded2;
 
-public class Dialog_CompVacuumWarningLight : Window
+public class Dialog_VacuumWarningLight : Window
 {
     public float curValue;
     public float from;
@@ -19,11 +19,11 @@ public class Dialog_CompVacuumWarningLight : Window
 
     public override float Margin => 10f;
 
-    public Dialog_CompVacuumWarningLight(FloatRange range, bool evacuatePawns, bool evacuatePawnsConfigurable, float startingValue = float.NaN, float roundTo = 0.01f) : this(range.min, range.max, evacuatePawns, evacuatePawnsConfigurable, startingValue, roundTo)
+    public Dialog_VacuumWarningLight(FloatRange range, bool evacuatePawns, bool evacuatePawnsConfigurable, float startingValue = float.NaN, float roundTo = 0.01f) : this(range.min, range.max, evacuatePawns, evacuatePawnsConfigurable, startingValue, roundTo)
     {
     }
 
-    public Dialog_CompVacuumWarningLight(float from, float to, bool evacuatePawns, bool evacuatePawnsConfigurable, float startingValue = float.NaN, float roundTo = 0.01f)
+    public Dialog_VacuumWarningLight(float from, float to, bool evacuatePawns, bool evacuatePawnsConfigurable, float startingValue = float.NaN, float roundTo = 0.01f)
     {
         if (from > to)
             (from, to) = (to, from);

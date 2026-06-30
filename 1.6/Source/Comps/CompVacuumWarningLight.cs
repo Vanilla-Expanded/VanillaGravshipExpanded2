@@ -141,7 +141,7 @@ public class CompVacuumWarningLight : ThingComp, IThingGlower
                 defaultLabel = "VGE_VacuumEmergencyLight_UnsafeVacuumLevel".Translate(),
                 defaultDesc = "VGE_VacuumEmergencyLight_UnsafeVacuumLevelDesc".Translate(),
                 icon = VacuumResistanceGizmo,
-                action = () => Find.WindowStack.Add(new Dialog_CompVacuumWarningLight(Props.minMaxVacuumRanges, EvacuatePawns, !Props.visualOnly, ConcerningVacuumLevel)),
+                action = () => Find.WindowStack.Add(new Dialog_VacuumWarningLight(Props.minMaxVacuumRanges, EvacuatePawns, !Props.visualOnly, ConcerningVacuumLevel)),
             };
         }
     }
@@ -157,7 +157,7 @@ public class CompVacuumWarningLight : ThingComp, IThingGlower
         var pos = parent.Position;
 
         TempPawnsWorkingList.Clear();
-        if (room == null || !Props.alwaysAffectsWholeRoom)
+        if (room == null || !Props.alwaysAffectsWholeRoom || room.PsychologicallyOutdoors)
         {
             RegionTraverser.BreadthFirstTraverse(pos, parent.Map,
                 (_, to) => pos.InHorDistOf(to.extentsClose.ClosestCellTo(pos), Props.radius),

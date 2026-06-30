@@ -364,6 +364,11 @@
     <researchPrerequisites>
       <li>VGE_OxygenNetwork</li>
     </researchPrerequisites>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <drawPlaceWorkersWhileInstallBlueprintSelected>true</drawPlaceWorkersWhileInstallBlueprintSelected>
+    <placeWorkers>
+      <li>VanillaGravshipExpanded2.PlaceWorker_VacuumWarningLight</li>
+    </placeWorkers>
   </ThingDef>
 
 </Defs>
