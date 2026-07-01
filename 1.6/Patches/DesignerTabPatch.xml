@@ -8,10 +8,4 @@
         </value>
     </Operation>
 
-    <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[@Name="VGE_MechanoidSubstructure"]</xpath>
-        <value>
-            <designationCategory>VGE_Designer</designationCategory>
-        </value>
-    </Operation>
 </Patch>

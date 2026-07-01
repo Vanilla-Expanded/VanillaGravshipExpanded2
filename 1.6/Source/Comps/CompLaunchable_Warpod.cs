@@ -160,6 +160,7 @@ namespace VanillaGravshipExpanded2
             }
             foreach (var warpod in selectedWarpodsToLaunch)
             {
+                WorldComponent_GravshipVisibility.Instance.AddVisibility(1000f);
                 var traversalDistance = Find.WorldGrid.TraversalDistanceBetween(warpod.parent.Map.Tile, destTile, true, int.MaxValue, true);
                 var amount = Mathf.Max(warpod.FuelNeededToLaunchAtDist(traversalDistance, destMap.TileInfo.Layer), 5f);
                 warpod.Refuelable.ConsumeFuel(amount);

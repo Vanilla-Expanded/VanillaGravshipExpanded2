@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VGE_GaussGun"]</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded2.VisibilityGainExtension">
+        <visibilityGainPerShot>200</visibilityGainPerShot>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VGE_JavelinPod"]</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded2.VisibilityGainExtension">
+        <visibilityGainPerShot>35</visibilityGainPerShot>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VGE_AnticraftCaster"]</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded2.VisibilityGainExtension">
+        <visibilityGainPerShot>10</visibilityGainPerShot>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VGE_PointDefenseTurret"]</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded2.VisibilityGainExtension" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="GravshipShieldGenerator"]</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded2.VisibilityGainExtension" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="GravEngine"]/statBases</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]/statBases</xpath>
+      <value>
+        <VGE_GravshipVisibilityFactor>1</VGE_GravshipVisibilityFactor>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="GravEngine"]</xpath>
+      <value>
+        <statBases>
+          <VGE_GravshipVisibilityFactor>1</VGE_GravshipVisibilityFactor>
+        </statBases>
+      </value>
+    </nomatch>
+  </Operation>
+</Patch>

@@ -44,6 +44,7 @@ namespace VanillaGravshipExpanded2
 		public static MapGeneratorDef VGE_EmptySpace;
 		public static SoundDef OrbitalTargeter_Fire;
 		public static StatDef VGE_GravshipTargeting;
+		public static StatDef VGE_GravshipVisibilityFactor;
 		public static ThingDef VGE_GravshipArmor;
 		public static SoundDef Hive_Spawn;
 
@@ -65,5 +66,7 @@ namespace VanillaGravshipExpanded2
 		public static JobDef VGE_EscapePod_Enter;
 		public static JobDef VGE_EscapePod_InsertPawn;
 		public static JobDef VGE_EscapePod_InsertPawnDrafted;
-    }
+		public static FleckDef BlastEMP;
+
+	}
 }

@@ -49,4 +49,11 @@
 	<VGE_DestinationJammed>Cannot land here: destination is being jammed by an enemy signal jammer.</VGE_DestinationJammed>
 	<VGE_DestinationJammedDropPod>Unable to launch drop pods as the destination is protected by a signal jammer.</VGE_DestinationJammedDropPod>
 	<VGE_DestinationJammedWarpod>Unable to launch war pods as the destination is protected by a signal jammer.</VGE_DestinationJammedWarpod>
+	<VGE_Visibility400k>Others are becoming aware of your gravship. Consider laying low for a while, or construct a signal jammer.</VGE_Visibility400k>
+	<VGE_Visibility600k>Gravship visibility</VGE_Visibility600k>
+	<VGE_Visibility600kDesc>Your gravship, {0}, has caught attention of others. If you continue to generate visibility, you will encounter a gravship-level threat.\n\nVisibility is generated as your gravship travels, but also when you use gravship weaponry or perform orbital scans from your gravship. It lowers passively over time.\n\nGravship-level threats can include orbital bombardment platforms, pirate installations or even enemy gravships. They will actively engage you with powerful artillery over huge distances. If your gravship is unprepared, it will be obliterated.\n\nAt this moment, your gravship is armed with:\n\n{1}</VGE_Visibility600kDesc>
+	<VGE_NoArmamentsPresent>No gravship armaments present. Consider building point defense turrets and shield generators, as well as gravship artillery.</VGE_NoArmamentsPresent>
+	<VGE_Warpods>warpods</VGE_Warpods>
+	<VGE_SignalJammerCooldown>Signal jammer is on cooldown for: {0}</VGE_SignalJammerCooldown>
+	<VGE_SignalJammerStunnedArtillery>Signal jammer activated: Enemy gravship artillery stunned for 12 hours.</VGE_SignalJammerStunnedArtillery>
 </LanguageData>

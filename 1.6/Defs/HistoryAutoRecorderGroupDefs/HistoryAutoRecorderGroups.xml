@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <HistoryAutoRecorderGroupDef>
+    <defName>VGE_GravshipVisibility</defName>
+    <label>Gravship visibility</label>
+    <devModeOnly>true</devModeOnly>
+    <historyAutoRecorderDefs>
+      <li>VGE_GravshipVisibilityRecorder</li>
+    </historyAutoRecorderDefs>
+  </HistoryAutoRecorderGroupDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>VGE_GravshipVisibilityRecorder</defName>
+    <label>Visibility</label>
+    <workerClass>VanillaGravshipExpanded2.HistoryAutoRecorderWorker_GravshipVisibility</workerClass>
+    <recordTicksFrequency>60000</recordTicksFrequency>
+    <graphColor>(0.8, 0.2, 0.2)</graphColor>
+    <graphLabelY>Visibility</graphLabelY>
+    <valueFormat>{0}</valueFormat>
+  </HistoryAutoRecorderDef>
+</Defs>

@@ -169,12 +169,12 @@
         </costList>
         <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
         <designationCategory>VGE_Designer</designationCategory>
-        <tags>
-            <li>DestroyableByArtillery</li>
-        </tags>
         <modExtensions>
             <li Class="VanillaGravshipExpanded.SubstructureEdgeGraphicsExtension">
                 <renderAsSubstructure>True</renderAsSubstructure>
+            </li>
+            <li Class="VanillaGravshipExpanded.DamagedTerrainReplacementExtension">
+                <damagedTerrain>VGE_EnemyDamagedSubstructure</damagedTerrain>
             </li>
         </modExtensions>
     </TerrainDef>

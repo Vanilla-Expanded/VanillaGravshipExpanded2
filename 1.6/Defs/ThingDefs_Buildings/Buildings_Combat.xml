@@ -438,6 +438,9 @@
 					<li>(-0.5, 0, 3)</li>
 				</barrels>
 			</li>
+			<li Class="VanillaGravshipExpanded2.VisibilityGainExtension">
+				<visibilityGainPerShot>200</visibilityGainPerShot>
+			</li>
 		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="BaseWeaponTurret">
@@ -469,11 +472,6 @@
 				</targetParams>
 			</li>
 		</verbs>
-		<modExtensions>
-			<li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
-				<substructureDamageRadius>1.9</substructureDamageRadius>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="BaseBullet">
 		<defName>VGE_Bullet_GaussHowitzer</defName>
@@ -498,6 +496,11 @@
 			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
 			<soundAmbient>MortarRound_Ambient</soundAmbient>
 		</projectile>
+		<modExtensions>
+			<li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
+				<substructureDamageRadius>1.9</substructureDamageRadius>
+			</li>
+		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="VGE_GravshipHeavyArtilleryBase">
 		<defName>VGE_JavelinLauncher</defName>
@@ -553,6 +556,9 @@
 					<li>(-2.375, 0, 2.5)</li>
 				</barrels>
 			</li>
+			<li Class="VanillaGravshipExpanded2.VisibilityGainExtension">
+				<visibilityGainPerShot>50</visibilityGainPerShot>
+			</li>
 		</modExtensions>
 		<placeWorkers>
 			<li>PlaceWorker_TurretTop</li>
@@ -569,7 +575,7 @@
 		<verbs>
 			<li>
 				<verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
-				<defaultProjectile>VGE_Rocket_JavelinRocket</defaultProjectile>
+				<defaultProjectile>VGE_Rocket_JavelinLauncherRocket</defaultProjectile>
 				<range>99999</range>
 				<minRange>20</minRange>
 				<burstShotCount>12</burstShotCount>
@@ -592,12 +598,53 @@
 				<graphicClass>Graphic_Single</graphicClass>
 			</turretTopLoadedGraphic>
 		</building>
+
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>VGE_Rocket_JavelinLauncherRocket</defName>
+		<label>Javelin rocket</label>
+		<graphicData>
+			<texPath>Things/Projectiles/Rocket_Javelin</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<thingClass>VanillaGravshipExpanded.Projectile_JavelinRocket</thingClass>
+		<projectile>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>24</damageAmountBase>
+			<armorPenetrationBase>0.1</armorPenetrationBase>
+			<speed>70</speed>
+			<explosionRadius>2.9</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+			<stoppingPower>0.5</stoppingPower>
+			<soundImpact>BulletImpact_Metal</soundImpact>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+		</projectile>
 		<modExtensions>
+			<li Class="VanillaGravshipExpanded.ThrusterProjectileExtension">
+				<flameSize>3</flameSize>
+				<flameShaderType>MoteGlow</flameShaderType>
+				<flameShaderParameters>
+					<_MainTex>/Things/Mote/SmallThruster_Burn</_MainTex>
+				</flameShaderParameters>
+				<exhaustFleckDef>GravshipThrusterExhaust</exhaustFleckDef>
+				<emissionsPerSecond>40</emissionsPerSecond>
+				<spawnRadiusRange>0.0~0.5</spawnRadiusRange>
+				<velocity>(0.0,0.0,-20.0)</velocity>
+				<velocityRotationRange>-10.0~10</velocityRotationRange>
+				<velocityMultiplierRange>0.8~1.2</velocityMultiplierRange>
+				<rotationOverTimeRange>-180.0~180</rotationOverTimeRange>
+				<scaleRange>1.5~3</scaleRange>
+			</li>
 			<li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
 				<substructureDamageRadius>1</substructureDamageRadius>
 			</li>
 		</modExtensions>
 	</ThingDef>
+
 	<ThingDef ParentName="VGE_GravshipHeavyArtilleryBase">
 		<defName>VGE_AnticraftEmitter</defName>
 		<label>anticraft emitter</label>
@@ -633,6 +680,11 @@
 				<firingMode>GroundToSpace, SpaceToSpace, SpaceToGround</firingMode>
 			</li>
 		</comps>
+		<modExtensions>
+			<li Class="VanillaGravshipExpanded2.VisibilityGainExtension">
+				<visibilityGainPerShot>15</visibilityGainPerShot>
+			</li>
+		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="BaseWeaponTurret">
 		<defName>VGE_Gun_AnticraftEmitter</defName>
@@ -862,6 +914,7 @@
 					</li>
 				</healthColorPoints>
 			</li>
+			<li Class="VanillaGravshipExpanded2.VisibilityGainExtension" />
 		</modExtensions>
 	</ThingDef>
 

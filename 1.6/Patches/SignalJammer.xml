@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SignalJammer"]/description</xpath>
+    <value>
+      <description>A signal emitter that disguises the electromagnetic signature of your gravship, allowing access to heavily-defended landing sites. While active, it efficiently masks the energy signature of the gravship, making it less likely to be detected. Additionally, this system provides critical tactical utility by stunning enemy gravship artillery for 12 hours upon arrival at defended locations and delaying imminent detection events by 24 hours.</description>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="SignalJammer"]/thingClass</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="SignalJammer"]/thingClass</xpath>
+      <value>
+        <thingClass>VanillaGravshipExpanded2.Building_SignalJammer</thingClass>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="SignalJammer"]</xpath>
+      <value>
+        <thingClass>VanillaGravshipExpanded2.Building_SignalJammer</thingClass>
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SignalJammer"]/graphicData/texPath</xpath>
+    <value>
+      <texPath>Things/Structures/Misc/SignalJammer/SignalJammer</texPath>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SignalJammer"]/comps/li[@Class="CompProperties_GravshipFacility"]</xpath>
+    <value>
+      <li Class="VanillaGravshipExpanded2.CompProperties_SignalJammer">
+        <requiresLOS>false</requiresLOS>
+        <componentTypeDef>SignalJammer</componentTypeDef>
+        <maxSimultaneous>1</maxSimultaneous>
+        <maxDistance>500</maxDistance>
+        <statOffsets>
+          <VGE_GravshipVisibilityFactor>-0.25</VGE_GravshipVisibilityFactor>
+        </statOffsets>
+      </li>
+    </value>
+  </Operation>
+</Patch>
