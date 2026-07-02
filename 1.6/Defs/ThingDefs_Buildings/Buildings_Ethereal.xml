@@ -43,4 +43,15 @@
 			</li>
 		</comps>
 	</ThingDef>
+	
+	<ThingDef>
+		<defName>VGE_SpaceInfestationSpawner</defName>
+		<label>space infestation spawner</label>
+		<description>An invisible spawner for space infestation.</description>
+		<thingClass>VanillaGravshipExpanded2.Spawner_SpaceInfestation</thingClass>
+		<category>Ethereal</category>
+		<useHitPoints>false</useHitPoints>
+		<tickerType>Normal</tickerType>
+		<drawerType>None</drawerType>
+	</ThingDef>
 </Defs>

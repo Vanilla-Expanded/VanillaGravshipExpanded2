@@ -35,7 +35,7 @@
 				<startsDormant>true</startsDormant>
 				<canWakeUpFogged>false</canWakeUpFogged>
 			</li>
-			<li Class="CompProperties_WakeUpDormant"/>
+			<li Class="CompProperties_WakeUpDormant" />
 			<li Class="CompProperties_SpawnerPawn">
 				<spawnablePawnKinds>
 					<li>VGE_Exoworm</li>
@@ -52,7 +52,9 @@
 				<ticksPerHeal>6000</ticksPerHeal>
 				<!-- 60k ticks = 1 day, 10 hp per day -->
 			</li>
-			<li Class="CompProperties_SpawnerHives"/>
+			<li Class="CompProperties_SpawnerHives">
+				<HiveSpawnIntervalDays>0.5~0.66</HiveSpawnIntervalDays>
+			</li>
 			<li Class="CompProperties_Spawner">
 				<thingToSpawn>InsectJelly</thingToSpawn>
 				<spawnCount>20</spawnCount>
@@ -127,7 +129,7 @@
 		<soundImpactDefault>Hive_Spawn</soundImpactDefault>
 		<building>
 			<turretTopDrawSize>3</turretTopDrawSize>
-			 <turretTopOffset>(0, 0.75)</turretTopOffset>
+			<turretTopOffset>(0, 0.75)</turretTopOffset>
 			<turretGunDef>VGE_GiantWormspitter_Gun</turretGunDef>
 			<destroySound>Hive_Spawn</destroySound>
 			<playTargetAcquiredSound>false</playTargetAcquiredSound>
@@ -159,7 +161,7 @@
 		<graphicData>
 			<texPath>Things/Insectoids/Structures/GiantWormspitter_TurretTop</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			
+
 		</graphicData>
 		<statBases>
 			<RangedWeapon_Cooldown>12.5</RangedWeapon_Cooldown>

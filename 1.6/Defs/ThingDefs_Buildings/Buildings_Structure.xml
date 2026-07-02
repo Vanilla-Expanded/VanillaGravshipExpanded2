@@ -371,4 +371,51 @@
     </placeWorkers>
   </ThingDef>
 
+	<ThingDef ParentName="BuildingBase">
+		<defName>VGE_GravlaunchCloaker</defName>
+		<label>gravlaunch cloaker</label>
+		<description>A specialized device that masks the energy signature of a gravship launch, reducing the impact the gravship launch has on other inhabitants of the planet, making it less likely that the gravship will be detected.\n\nA gravship can support two gravlaunch cloakers.</description>
+		<graphicData>
+			<texPath>Things/Structures/Misc/GravlaunchCloaker/GravlaunchCloaker</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>6000</WorkToBuild>
+			<Mass>50</Mass>
+			<Flammability>0.6</Flammability>
+			<Beauty>-5</Beauty>
+		</statBases>
+		<size>(2,2)</size>
+		<rotatable>true</rotatable>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.6</fillPercent>
+		<pathCost>20</pathCost>
+		<terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+		<costList>
+			<Steel>50</Steel>
+			<GravlitePanel>60</GravlitePanel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+			<ComponentSpacer>4</ComponentSpacer>
+		</costList>
+		<comps>
+			<li Class="CompProperties_GravshipFacility">
+				<requiresLOS>false</requiresLOS>
+				<maxSimultaneous>2</maxSimultaneous>
+				<maxDistance>500</maxDistance>
+				<statOffsets>
+					<VGE_GravshipVisibilityFactor>-0.15</VGE_GravshipVisibilityFactor>
+				</statOffsets>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>VGE_GravshipDefenses</li>
+		</researchPrerequisites>
+		<designationCategory>Odyssey</designationCategory>
+		<tradeTags>
+			<li>GravshipUpgrade</li>
+		</tradeTags>
+		<uiOrder>2510</uiOrder>
+	</ThingDef>
 </Defs>

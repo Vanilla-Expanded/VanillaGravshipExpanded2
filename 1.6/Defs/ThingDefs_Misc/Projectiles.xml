@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef Name="VGE_InfestedChunkBase" ParentName="BaseBullet" Abstract="True">
+    <thingClass>VanillaGravshipExpanded2.Projectile_InfestedChunk</thingClass>
+    <graphicData>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <flyOverhead>true</flyOverhead>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_InfestedChunkBase">
+    <defName>VGE_Projectile_InfestedChunkMedium</defName>
+    <label>medium infested chunk</label>
+    <graphicData>
+      <texPath>Things/Projectile/InfestedRock_Medium</texPath>
+      <drawSize>3</drawSize>
+    </graphicData>
+    <projectile>
+      <speed>18</speed>
+      <damageAmountBase>20</damageAmountBase>
+      <explosionRadius>1.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="VGE_InfestedChunkBase">
+    <defName>VGE_Projectile_InfestedChunkLarge</defName>
+    <label>large infested chunk</label>
+    <graphicData>
+      <texPath>Things/Projectile/InfestedRock_Large</texPath>
+      <drawSize>4</drawSize>
+    </graphicData>
+    <projectile>
+      <speed>12</speed>
+      <damageAmountBase>30</damageAmountBase>
+      <explosionRadius>2.9</explosionRadius>
+    </projectile>
+  </ThingDef>
+</Defs>

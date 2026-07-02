@@ -30,6 +30,8 @@ namespace VanillaGravshipExpanded2
             {
                 buildingToMake.SetFaction(parent.Faction);
             }
+            var targeter = ThingMaker.MakeThing(InternalDefOf.OrbitalTargeterBombardment);
+            GenPlace.TryPlaceThing(targeter, storedPos, storedMap, ThingPlaceMode.Near);
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()

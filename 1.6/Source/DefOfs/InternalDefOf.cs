@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using Verse;
 using RimWorld;
+using Verse;
 namespace VanillaGravshipExpanded2
 {
 	[DefOf]
@@ -20,7 +15,6 @@ namespace VanillaGravshipExpanded2
 
 		public static HediffDef VGE_ExowormInfestation;
 
-		public static ThingDef VGE_Exoworm;
 		public static ThingDef VGE_GiantWormspitter;
         public static ThingDef VGE_ExoHive_Building;
         public static ThingDef VGE_TwistedSteel;
@@ -29,8 +23,14 @@ namespace VanillaGravshipExpanded2
         public static ThingDef VGE_TwistedGravlite;
         public static ThingDef VGE_EggSac;
         public static ThingDef VGE_ExowormCocoon;
+        public static ThingDef VGE_SpaceInfestationSpawner;
+        public static ThingDef VGE_Projectile_InfestedChunkMedium;
+        public static ThingDef VGE_Projectile_InfestedChunkLarge;
 
         public static PawnKindDef VGE_ExowormKnot;
+        public static PawnKindDef VGE_Exopede;
+        public static PawnKindDef VGE_Exoleech;
+        public static PawnKindDef VGE_Exoworm;
 
         public static SoundDef VEG_InsectoidTurretTargetAcquired;
 
@@ -67,6 +67,7 @@ namespace VanillaGravshipExpanded2
 		public static JobDef VGE_EscapePod_InsertPawn;
 		public static JobDef VGE_EscapePod_InsertPawnDrafted;
 		public static FleckDef BlastEMP;
+		public static ThingDef OrbitalTargeterBombardment;
 
 	}
 }

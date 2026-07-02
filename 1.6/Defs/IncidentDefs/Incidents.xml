@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IncidentDef>
+    <defName>VGE_SpaceInfestation</defName>
+    <label>space infestation</label>
+    <category>ThreatBig</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+      <li>Map_Misc</li>
+    </targetTags>
+    <workerClass>VanillaGravshipExpanded2.IncidentWorker_SpaceInfestation</workerClass>
+    <letterLabel>Space infestation</letterLabel>
+    <letterText>A swarm of parasitic exo-matter, carried within dense rock, is hurling towards you. They will impact the area in a few seconds and plant exohives.\n\nIf you don’t want the insects to infest the whole area, prioritize destroying the hives. But beware - the exoinsectoids are aggressive and will defend their hives.</letterText>
+    <letterDef>ThreatBig</letterDef>
+    <baseChance>1.3</baseChance>
+    <minRefireDays>15</minRefireDays>
+    <pointsScaleable>true</pointsScaleable>
+    <layerWhitelist>
+      <li>Orbit</li>
+    </layerWhitelist>
+  </IncidentDef>
+</Defs>
