@@ -55,7 +55,7 @@
                 <outOfFuelMessage>Missing rockets</outOfFuelMessage>
             </li>
             <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
-                <worldMapAttackRange>16</worldMapAttackRange>
+                <worldMapAttackRange>20</worldMapAttackRange>
                 <firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
             </li>
         </comps>

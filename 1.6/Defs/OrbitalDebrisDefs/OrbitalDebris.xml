@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <OrbitalDebrisDef>
+    <defName>VGE_GravshipDebris</defName>
+    <graphics>
+      <li>
+        <weighting>0.25</weighting>
+        <order>1</order>
+        <parallaxPer10Cells>0.2</parallaxPer10Cells>
+        <graphicData>
+          <texPath>Special/OrbitalMapDebris_Gravship/OrbitalGravshipDebris_Platform</texPath>
+          <graphicClass>Graphic_Random</graphicClass>
+          <shaderType>OrbitalDebris</shaderType>
+          <drawSize>6</drawSize>
+        </graphicData>
+      </li>
+      <li>
+        <weighting>0.5</weighting>
+        <order>2</order>
+        <parallaxPer10Cells>1</parallaxPer10Cells>
+        <graphicData>
+          <texPath>Special/OrbitalMapDebris_Gravship/OrbitalGravshipDebris_Scrap</texPath>
+          <graphicClass>Graphic_Random</graphicClass>
+          <shaderType>OrbitalDebris</shaderType>
+          <drawSize>4</drawSize>
+        </graphicData>
+      </li>
+      <li>
+        <weighting>1</weighting>
+        <order>3</order>
+        <parallaxPer10Cells>2</parallaxPer10Cells>
+        <graphicData>
+          <texPath>Special/OrbitalMapDebris_Gravship/OrbitalGravshipDebris_Slag</texPath>
+          <graphicClass>Graphic_Random</graphicClass>
+          <shaderType>OrbitalDebris</shaderType>
+          <drawSize>2</drawSize>
+        </graphicData>
+      </li>
+    </graphics>
+  </OrbitalDebrisDef>
+
+</Defs>

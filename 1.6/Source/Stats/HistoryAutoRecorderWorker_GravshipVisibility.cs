@@ -6,7 +6,7 @@ namespace VanillaGravshipExpanded2
     {
         public override float PullRecord()
         {
-            return WorldComponent_GravshipVisibility.Instance.visibility;
+            return WorldComponent_GravshipCombat.Instance.visibility;
         }
     }
 }

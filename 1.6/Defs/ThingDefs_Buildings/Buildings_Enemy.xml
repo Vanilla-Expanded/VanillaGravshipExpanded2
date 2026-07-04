@@ -19,6 +19,7 @@
         <hasTooltip>true</hasTooltip>
         <drawHighlight>true</drawHighlight>
         <drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
+        <rotatable>false</rotatable>
         <building>
             <ai_combatDangerous>true</ai_combatDangerous>
             <playTargetAcquiredSound>false</playTargetAcquiredSound>
@@ -536,7 +537,7 @@
         <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
         <comps>
             <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
-                <worldMapAttackRange>16</worldMapAttackRange>
+                <worldMapAttackRange>20</worldMapAttackRange>
                 <firingMode>SpaceToGround, SpaceToSpace, GroundToSpace, GroundToGround</firingMode>
             </li>
         </comps>
@@ -646,7 +647,7 @@
         </building>
         <comps>
             <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
-                <worldMapAttackRange>16</worldMapAttackRange>
+                <worldMapAttackRange>20</worldMapAttackRange>
                 <firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
             </li>
         </comps>
@@ -728,7 +729,7 @@
         </building>
         <comps>
             <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
-                <worldMapAttackRange>16</worldMapAttackRange>
+                <worldMapAttackRange>20</worldMapAttackRange>
                 <firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
             </li>
         </comps>
@@ -1351,8 +1352,8 @@
         <fillPercent>1</fillPercent>
         <rotatable>true</rotatable>
         <building>
-             <isAirtight>true</isAirtight>
-             <isInert>true</isInert>
+            <isAirtight>true</isAirtight>
+            <isInert>true</isInert>
         </building>
         <costList>
             <Steel>90</Steel>
@@ -1382,8 +1383,8 @@
         <fillPercent>1</fillPercent>
         <rotatable>true</rotatable>
         <building>
-             <isAirtight>true</isAirtight>
-             <isInert>true</isInert>
+            <isAirtight>true</isAirtight>
+            <isInert>true</isInert>
         </building>
         <costList>
             <Steel>110</Steel>
@@ -1414,8 +1415,8 @@
         <fillPercent>1</fillPercent>
         <rotatable>true</rotatable>
         <building>
-             <isAirtight>true</isAirtight>
-             <isInert>true</isInert>
+            <isAirtight>true</isAirtight>
+            <isInert>true</isInert>
         </building>
         <costList>
             <Steel>150</Steel>

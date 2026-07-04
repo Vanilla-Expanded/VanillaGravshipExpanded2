@@ -7,17 +7,36 @@ using Verse;
 namespace VanillaGravshipExpanded2
 {
     [HotSwappable]
-    public class WorldComponent_GravshipVisibility : WorldComponent
+    public class WorldComponent_GravshipCombat : WorldComponent
     {
         public float visibility;
         private bool warned400k;
         private bool warned600k;
         private bool detectionImminent;
-        private int ticksToDetection = -1;
+        private int detectionTick = -1;
+        public bool incomingWarplatform;
+        public int warplatformTick = -1;
+        public GravshipThreatDef activeThreatDef;
 
-        public static WorldComponent_GravshipVisibility Instance;
+        public static WorldComponent_GravshipCombat Instance;
 
-        public WorldComponent_GravshipVisibility(World world) : base(world)
+        public static Building_GravEngine GetActiveGravEngine
+        {
+            get
+            {
+                foreach (var map in Current.Game.Maps)
+                {
+                    var engine = GravshipUtility.GetPlayerGravEngine_NewTemp(map);
+                    if (engine != null)
+                    {
+                        return engine;
+                    }
+                }
+                return Current.Game.Gravship?.Engine;
+            }
+        }
+
+        public WorldComponent_GravshipCombat(World world) : base(world)
         {
             Instance = this;
         }
@@ -30,36 +49,32 @@ namespace VanillaGravshipExpanded2
             Scribe_Values.Look(ref warned400k, "warned400k", false);
             Scribe_Values.Look(ref warned600k, "warned600k", false);
             Scribe_Values.Look(ref detectionImminent, "detectionImminent", false);
-            Scribe_Values.Look(ref ticksToDetection, "ticksToDetection", -1);
+            Scribe_Values.Look(ref detectionTick, "detectionTick", -1);
+            Scribe_Values.Look(ref incomingWarplatform, "incomingWarplatform", false);
+            Scribe_Values.Look(ref warplatformTick, "warplatformTick", -1);
+            Scribe_Defs.Look(ref activeThreatDef, "activeThreatDef");
         }
 
         public override void WorldComponentTick()
         {
             base.WorldComponentTick();
-
             if (visibility > 0)
             {
-                visibility -= 112f / 2500f;
-                if (visibility < 0f) visibility = 0f;
-
-                if (visibility < 400000f) warned400k = false;
-                if (visibility < 600000f) warned600k = false;
+                RemoveVisibility(112f / 2500f);
             }
 
-            if (detectionImminent)
+            if (incomingWarplatform)
             {
-                ticksToDetection--;
-                if (ticksToDetection <= 0)
+                if (Find.TickManager.TicksGame >= warplatformTick)
                 {
-                    TriggerEncounter();
+                    SpawnActiveWarplatform();
                 }
             }
         }
 
         public void AddVisibility(float baseAmount)
         {
-            var engine = Current.Game.Gravship?.Engine;
-            engine ??= Find.Maps.SelectMany(m => m.listerBuildings.allBuildingsColonist).FirstOrDefault(x => x is Building_GravEngine) as Building_GravEngine;
+            var engine = GetActiveGravEngine;
             if (engine == null) return;
             var factor = engine.GetStatValue(InternalDefOf.VGE_GravshipVisibilityFactor);
             visibility += baseAmount * factor;
@@ -74,21 +89,20 @@ namespace VanillaGravshipExpanded2
                 warned600k = true;
                 Send600kLetter(engine);
             }
-
             if (visibility >= 800000f && !detectionImminent)
             {
-                var jammerDelayed = false;
-                var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading.OfType<Building_SignalJammer>().FirstOrDefault(x => !x.OnCooldown);
-
-                if (jammer != null)
-                {
-                    jammer.StartCooldown();
-                    jammerDelayed = true;
-                }
-
                 detectionImminent = true;
-                ticksToDetection = jammerDelayed ? 60000 : 0;
+                TriggerEncounter();
             }
+        }
+
+        public void RemoveVisibility(float amount)
+        {
+            visibility -= amount;
+            if (visibility < 0f) visibility = 0f;
+            if (visibility < 400000f) warned400k = false;
+            if (visibility < 600000f) warned600k = false;
+            if (visibility < 800000f) detectionImminent = false;
         }
 
         private void Send600kLetter(Building_GravEngine engine)
@@ -134,13 +148,22 @@ namespace VanillaGravshipExpanded2
             return counts.Select(kvp => $"{kvp.Value}x {kvp.Key}").ToLineList();
         }
 
-        private void TriggerEncounter()
+        public void TriggerEncounter()
         {
-            detectionImminent = false;
-            visibility = 0f;
-            warned400k = false;
-            warned600k = false;
-            // todo: we need to trigger some orbital encounters, leaving it as a stub
+            var engine = GetActiveGravEngine;
+            if (engine is null) return;
+            var validThreats = DefDatabase<GravshipThreatDef>.AllDefsListForReading.Where(x => x.Worker.CanFire(engine));
+            if (validThreats.TryRandomElementByWeight(x => x.weight, out var selected))
+            {
+                activeThreatDef = selected;
+                selected.Worker.Fire(engine);
+            }
+        }
+
+        public void SpawnActiveWarplatform()
+        {
+            incomingWarplatform = false;
+            activeThreatDef.Worker.SpawnThreat();
         }
     }
 }

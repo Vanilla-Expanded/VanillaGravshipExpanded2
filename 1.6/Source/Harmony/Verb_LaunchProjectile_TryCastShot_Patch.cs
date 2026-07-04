@@ -22,7 +22,7 @@ namespace VanillaGravshipExpanded2
             var ext = thing.def.GetModExtension<VisibilityGainExtension>();
             if (ext != null)
             {
-                WorldComponent_GravshipVisibility.Instance.AddVisibility(ext.visibilityGainPerShot);
+                WorldComponent_GravshipCombat.Instance.AddVisibility(ext.visibilityGainPerShot);
             }
         }
     }

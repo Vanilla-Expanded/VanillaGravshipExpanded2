@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <WorldObjectDef ParentName="GeneratedAsteroid">
-    <defName>VGE_InfestedAsteroid</defName>
-    <description>A vacstone asteroid that has been infested by insectoids. Inside, the creatures have collected debris and salvage from orbital wrecks. The infestation is strong, and any attempt to clear the asteroid will mean heavy resistance.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
-    <label>infested asteroid</label>
-
-    <expandingIconTexture>UI/MapIcons/VGE_InfestedAsteroid</expandingIconTexture>
-    <mapGenerator>VGE_InfestedAsteroid</mapGenerator>
-  </WorldObjectDef>
+    <WorldObjectDef ParentName="GeneratedAsteroid">
+        <defName>VGE_InfestedAsteroid</defName>
+        <description>A vacstone asteroid that has been infested by insectoids. Inside, the creatures have collected debris and salvage from orbital wrecks. The infestation is strong, and any attempt to clear the asteroid will mean heavy resistance.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <label>infested asteroid</label>
+        <expandingIconTexture>UI/MapIcons/VGE_InfestedAsteroid</expandingIconTexture>
+        <mapGenerator>VGE_InfestedAsteroid</mapGenerator>
+    </WorldObjectDef>
 
     <WorldObjectDef ParentName="SpaceSite">
         <defName>VGE_EmptySpace</defName>
@@ -24,6 +23,7 @@
             </li>
         </modExtensions>
     </WorldObjectDef>
+
     <MapGeneratorDef ParentName="SpaceMapGenerator">
         <defName>VGE_EmptySpace</defName>
         <label>empty space</label>
@@ -41,17 +41,136 @@
     </GenStepDef>
 
     <WorldObjectDef>
-      <defName>VGE_TravellingWarpod</defName>
-      <label>warpod</label>
-      <description>A warpod in flight.</description>
-      <worldObjectClass>VanillaGravshipExpanded2.TravellingWarpod</worldObjectClass>
-      <texture>Things/Structures/Combat/Warpods/Warpod_HighExplosive</texture>
-      <useDynamicDrawer>true</useDynamicDrawer>
-      <expandingIcon>true</expandingIcon>
-      <expandingIconTexture>Things/Structures/Combat/Warpods/Warpod_HighExplosive</expandingIconTexture>
-      <expandingIconPriority>65</expandingIconPriority>
-      <expandMore>true</expandMore>
-      <fullyExpandedInSpace>true</fullyExpandedInSpace>
-      <validLaunchTarget>false</validLaunchTarget>
+        <defName>VGE_TravellingWarpod</defName>
+        <label>warpod</label>
+        <description>A warpod in flight.</description>
+        <worldObjectClass>VanillaGravshipExpanded2.TravellingWarpod</worldObjectClass>
+        <texture>Things/Structures/Combat/Warpods/Warpod_HighExplosive</texture>
+        <useDynamicDrawer>true</useDynamicDrawer>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconTexture>Things/Structures/Combat/Warpods/Warpod_HighExplosive</expandingIconTexture>
+        <expandingIconPriority>65</expandingIconPriority>
+        <expandMore>true</expandMore>
+        <fullyExpandedInSpace>true</fullyExpandedInSpace>
+        <validLaunchTarget>false</validLaunchTarget>
     </WorldObjectDef>
-  </Defs>
+
+    <GenStepDef>
+        <defName>VGE_Warplatform</defName>
+        <order>200</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_Warplatform">
+            <structureSetDef>VGE_WarplatformSet</structureSetDef>
+        </genStep>
+    </GenStepDef>
+
+    <WorldObjectDef ParentName="SpaceBase">
+        <defName>VGE_ActiveWarplatform</defName>
+        <label>active warplatform</label>
+        <description>An ancient, autonomous orbital platform currently bombarding your gravship. The platform is controlled by a hostile warcomputer that must be neutralized to stop the bombardment.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <worldObjectClass>VanillaGravshipExpanded2.MapParent_WarPlatform</worldObjectClass>
+        <mapGenerator>VGE_ActiveWarplatformMap</mapGenerator>
+    </WorldObjectDef>
+
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>VGE_ActiveWarplatformMap</defName>
+        <label>active warplatform</label>
+        <genSteps>
+            <li>VGE_Warplatform</li>
+        </genSteps>
+    </MapGeneratorDef>
+
+    <GeneratedLocationDef>
+        <defName>VGE_GravshipHusk</defName>
+        <worldObjectDef>VGE_GravshipHusk</worldObjectDef>
+        <layerDefs>
+            <li>Orbit</li>
+        </layerDefs>
+    </GeneratedLocationDef>
+
+    <WorldObjectDef ParentName="SpaceBase">
+        <defName>VGE_GravshipHusk</defName>
+        <label>gravship husk</label>
+        <description>A derelict gravship husk, severely ravaged by countless years adrift in space. Its skeletal frame is all that remains, but its tough structure still holds fragments of twisted metals and components that can be salvaged.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <mapGenerator>VGE_GravshipHuskMap</mapGenerator>
+        <expandingIconTexture>World/WorldObjects/Expanding/GravshipHusk</expandingIconTexture>
+        <overrideMapSize>(250,1,250)</overrideMapSize>
+        <nameMaker>VGE_NamerWorldObject_GravshipHusk</nameMaker>
+    </WorldObjectDef>
+
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>VGE_GravshipHuskMap</defName>
+        <label>gravship husk</label>
+        <genSteps>
+            <li>VGE_GravshipHusk</li>
+        </genSteps>
+    </MapGeneratorDef>
+    <GenStepDef>
+        <defName>VGE_GravshipHusk</defName>
+        <order>200</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_GravshipHusk">
+            <structureSetDef>VGE_GravshipHuskSet</structureSetDef>
+        </genStep>
+    </GenStepDef>
+
+    <RulePackDef>
+        <defName>VGE_NamerWorldObject_GravshipHusk</defName>
+        <include>
+            <li>WorldFeatureNamerCommon</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>r_name->[prefix_adj] [prefix_noun]</li>
+                <li>prefix_adj->ancient</li>
+                <li>prefix_adj->derelict</li>
+                <li>prefix_adj->abandoned</li>
+                <li>prefix_adj->lost</li>
+                <li>prefix_adj->ruined</li>
+                <li>prefix_adj->broken</li>
+                <li>prefix_adj->shattered</li>
+                <li>prefix_noun->gravship</li>
+                <li>prefix_noun->husk</li>
+                <li>prefix_noun->wreckage</li>
+                <li>prefix_noun->remnant</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <SitePartDef>
+        <defName>VGE_VacstoneMeteor</defName>
+        <label>vacstone meteor</label>
+        <workerClass>SitePartWorker_PreciousLump</workerClass>
+        <description>An impact site of a vacstone meteor.</description>
+        <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+        <expandingIconTexture>UI/MapIcons/VacstoneMeteor</expandingIconTexture>
+        <forceExitAndRemoveMapCountdownDurationDays>11</forceExitAndRemoveMapCountdownDurationDays>
+        <mainPartAllThreatsLabel>Hostile activity detected.</mainPartAllThreatsLabel>
+        <gravShipsCanLandOn>true</gravShipsCanLandOn>
+        <tags>
+            <li>VGE_VacstoneMeteor</li>
+        </tags>
+    </SitePartDef>
+
+    <GenStepDef>
+        <defName>VGE_VacstoneMeteor</defName>
+        <linkWithSite>VGE_VacstoneMeteor</linkWithSite>
+        <order>450</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_VacstoneMeteor">
+            <nearMapCenter>true</nearMapCenter>
+        </genStep>
+    </GenStepDef>
+
+    <WorldObjectDef ParentName="SpaceBase">
+        <defName>VGE_DormantWarplatform</defName>
+        <label>dormant warplatform</label>
+        <description>A dormant, heavily armed satellite platform floating in orbit. Long-range scans detect an array of gauss bombards controlled by a central warcomputer. The defenses will activate and immediately engage any incoming ships upon arrival.\n\nBreaching the installation will require fighting through automated turrets and sentry drones, but destroying or hacking the warcomputer will disable the anti-ship bombards.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <mapGenerator>VGE_DormantWarplatformMap</mapGenerator>
+    </WorldObjectDef>
+
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>VGE_DormantWarplatformMap</defName>
+        <label>dormant warplatform</label>
+        <genSteps>
+            <li>VGE_Warplatform</li>
+        </genSteps>
+    </MapGeneratorDef>
+</Defs>

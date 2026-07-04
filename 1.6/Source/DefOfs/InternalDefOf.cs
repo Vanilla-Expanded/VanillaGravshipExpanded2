@@ -17,10 +17,6 @@ namespace VanillaGravshipExpanded2
 
 		public static ThingDef VGE_GiantWormspitter;
         public static ThingDef VGE_ExoHive_Building;
-        public static ThingDef VGE_TwistedSteel;
-        public static ThingDef VGE_TwistedMachinery;
-        public static ThingDef VGE_TwistedElectronics;
-        public static ThingDef VGE_TwistedGravlite;
         public static ThingDef VGE_EggSac;
         public static ThingDef VGE_ExowormCocoon;
         public static ThingDef VGE_SpaceInfestationSpawner;
@@ -38,7 +34,6 @@ namespace VanillaGravshipExpanded2
         public static TerrainDef VGE_Subcreep;
 
         public static DesignationCategoryDef VGE_Designer;
-		public static DesignationCategoryDef Odyssey;
 		[DefAlias("VGE_EmptySpace")]
 		public static WorldObjectDef VGE_EmptySpaceObj;
 		public static MapGeneratorDef VGE_EmptySpace;
@@ -61,13 +56,16 @@ namespace VanillaGravshipExpanded2
 		public static ThingDef VGE_EnemyAnticraftBeamStrike;
 		public static JobDef VGE_OperateEnemyTerminal;
 		public static ThingDef VGE_Mote_AnticraftBeam;
-
 		public static JobDef VGE_FormKnot;
 		public static JobDef VGE_EscapePod_Enter;
 		public static JobDef VGE_EscapePod_InsertPawn;
 		public static JobDef VGE_EscapePod_InsertPawnDrafted;
 		public static FleckDef BlastEMP;
 		public static ThingDef OrbitalTargeterBombardment;
-
+		public static PawnKindDef Drone_Sentry;
+		public static FactionDef Salvagers;
+		public static ThingDef VGE_Compressed_Vacstone;
+		public static ThingDef ChunkVacstone;
+		public static OrbitalDebrisDef VGE_GravshipDebris;
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using RimWorld;
+using UnityEngine;
 using VanillaGravshipExpanded;
 using Verse;
 
@@ -15,6 +16,7 @@ namespace VanillaGravshipExpanded2
         {
             try
             {
+                ApplyEarlyEscape();
                 ApplySignalJammerEffect(__instance);
             }
             catch (Exception arg)
@@ -52,6 +54,18 @@ namespace VanillaGravshipExpanded2
                     }
                 }
                 Messages.Message("VGE_SignalJammerStunnedArtillery".Translate(), MessageTypeDefOf.PositiveEvent, false);
+            }
+        }
+
+        private static void ApplyEarlyEscape()
+        {
+            var comp = WorldComponent_GravshipCombat.Instance;
+            if (comp.incomingWarplatform)
+            {
+                var threatDef = comp.activeThreatDef;
+                comp.incomingWarplatform = false;
+                comp.visibility = Mathf.Max(0, comp.visibility - threatDef.earlyEscapeVisibilityLoss);
+                Messages.Message(threatDef.earlyEscapeMessage, MessageTypeDefOf.PositiveEvent);
             }
         }
     }

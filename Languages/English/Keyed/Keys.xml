@@ -56,4 +56,8 @@
 	<VGE_Warpods>warpods</VGE_Warpods>
 	<VGE_SignalJammerCooldown>Signal jammer is on cooldown for: {0}</VGE_SignalJammerCooldown>
 	<VGE_SignalJammerStunnedArtillery>Signal jammer activated: Enemy gravship artillery stunned for 12 hours.</VGE_SignalJammerStunnedArtillery>
+	<VGE_LocationDestabilizing>Location destabilizing</VGE_LocationDestabilizing>
+	<VGE_LocationDestabilizingDesc>An orbital location you're currently on is destabilizing. Soon it will collapse completely, and anything on it, including your colonists, will be gone.\n\nTime remaining: {0}\n\nEnsure you evacuate before the location burns up in atmosphere.</VGE_LocationDestabilizingDesc>
+	<VGE_DestabilizesIn>Destabilizes in: {0}</VGE_DestabilizesIn>
+	<VGE_JammerScrambledSignal>Your signal jammer scrambled the signal lock, giving you an additional {0} hours before the warplatform finds you.</VGE_JammerScrambledSignal>
 </LanguageData>

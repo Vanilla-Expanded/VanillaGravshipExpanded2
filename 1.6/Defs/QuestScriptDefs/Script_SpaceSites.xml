@@ -21,7 +21,7 @@
 		</questDescriptionRules>
 		<questDescriptionAndNameRules>
 			<rulesStrings>
-      </rulesStrings>
+			</rulesStrings>
 		</questDescriptionAndNameRules>
 		<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
 		<root Class="QuestNode_Sequence">
@@ -40,7 +40,129 @@
 				<li Class="QuestNode_Root_Asteroid">
 					<layerDef>Orbit</layerDef>
 					<worldObjectDef>VGE_InfestedAsteroid</worldObjectDef>
-					
+
+				</li>
+			</nodes>
+		</root>
+	</QuestScriptDef>
+
+	<QuestScriptDef>
+		<defName>VGE_OpportunitySite_DormantWarplatform</defName>
+		<randomlySelectable>false</randomlySelectable>
+		<givenBy>
+			<li>OrbitalScanner</li>
+		</givenBy>
+		<rootSelectionWeight>1</rootSelectionWeight>
+		<isRootSpecial>true</isRootSpecial>
+		<autoAccept>true</autoAccept>
+		<questNameRules>
+			<rulesStrings>
+				<li>questName->Warplatform</li>
+			</rulesStrings>
+		</questNameRules>
+		<questDescriptionRules>
+			<rulesStrings>
+				<li>questDescription->[discoveryMethod] the location of a dormant, automated warplatform. This hostile satellite is filled with anti-air defenses and gauss bombards that will open fire the moment you land.\n\nThe platform is heavily defended by security turrets, roaming sentry drones, and hidden mechanical traps. At the center of the installation sits a warcomputer coordinating the network. If your colonists can survive the landing and push through to hack or destroy the warcomputer, the gauss bombards will be permanently disabled, leaving the platform's high-tech salvage for the taking.\n\nYou can reach the warplatform with transport pods, shuttles, or a gravship. Equip your colonists with sufficient orbital apparel before departing.</li>
+			</rulesStrings>
+		</questDescriptionRules>
+		<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+		<root Class="QuestNode_Sequence">
+			<nodes>
+				<li Class="QuestNode_IsSet">
+					<name>discoveryMethod</name>
+					<elseNode Class="QuestNode_RandomNode">
+						<nodes>
+							<li Class="QuestNode_Set">
+								<name>discoveryMethod</name>
+								<value>You have discovered</value>
+							</li>
+						</nodes>
+					</elseNode>
+				</li>
+				<li Class="QuestNode_Root_Asteroid">
+					<layerDef>Orbit</layerDef>
+					<worldObjectDef>VGE_DormantWarplatform</worldObjectDef>
+				</li>
+			</nodes>
+		</root>
+	</QuestScriptDef>
+
+	<QuestScriptDef>
+		<defName>VGE_OpportunitySite_VacstoneMeteor</defName>
+		<autoAccept>true</autoAccept>
+		<rootSelectionWeight>0.8</rootSelectionWeight>
+		<questNameRules>
+			<rulesStrings>
+				<li>questName->Vacstone Meteor</li>
+			</rulesStrings>
+		</questNameRules>
+		<questDescriptionRules>
+			<rulesStrings>
+				<li>questDescription->A large meteorite has struck ground nearby. It has left behind a lump of vacstone. Vacstone is required for construction of the more advanced gravship technology. You can send a mining party to retrieve it, but chances are if you wait long enough, someone else will lay claim to it.</li>
+			</rulesStrings>
+		</questDescriptionRules>
+		<root Class="QuestNode_Sequence">
+			<nodes>
+				<li Class="QuestNode_SubScript">
+					<def>Util_AdjustPointsForDistantFight</def>
+				</li>
+
+				<li Class="QuestNode_GetSiteTile">
+					<storeAs>siteTile</storeAs>
+					<preferCloserTiles>true</preferCloserTiles>
+				</li>
+
+				<li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
+					<storeAs>sitePartDefs</storeAs>
+					<storeFactionAs>siteFaction</storeFactionAs>
+					<sitePartsTags>
+						<li>
+							<tag>VGE_VacstoneMeteor</tag>
+						</li>
+					</sitePartsTags>
+				</li>
+
+				<li Class="QuestNode_GetDefaultSitePartsParams">
+					<tile>$siteTile</tile>
+					<faction>$siteFaction</faction>
+					<sitePartDefs>$sitePartDefs</sitePartDefs>
+					<storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+				</li>
+
+				<li Class="QuestNode_SubScript">
+					<def>Util_GenerateSite</def>
+				</li>
+
+				<li Class="QuestNode_SpawnWorldObjects">
+					<worldObjects>$site</worldObjects>
+				</li>
+
+				<li Class="QuestNode_Set">
+					<name>timeoutTicks</name>
+					<value>$(30*60000)</value>
+				</li>
+
+				<li Class="QuestNode_WorldObjectTimeout">
+					<worldObject>$site</worldObject>
+					<delayTicks>$timeoutTicks</delayTicks>
+					<isQuestTimeout>true</isQuestTimeout>
+					<inSignalDisable>site.MapGenerated</inSignalDisable>
+					<node Class="QuestNode_Sequence">
+						<nodes>
+							<li Class="QuestNode_Letter">
+								<label TKey="LetterLabelQuestExpired">Quest expired: [resolvedQuestName]</label>
+								<text TKey="LetterTextQuestExpired">Others have mined the Vacstone meteor. The quest [resolvedQuestName] has expired.</text>
+							</li>
+							<li Class="QuestNode_End">
+								<outcome>Fail</outcome>
+							</li>
+						</nodes>
+					</node>
+				</li>
+
+				<li Class="QuestNode_NoWorldObject">
+					<worldObject>$site</worldObject>
+					<node Class="QuestNode_End" />
 				</li>
 			</nodes>
 		</root>

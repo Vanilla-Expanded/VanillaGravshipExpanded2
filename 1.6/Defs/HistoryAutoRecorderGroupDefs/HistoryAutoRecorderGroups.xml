@@ -13,7 +13,7 @@
     <defName>VGE_GravshipVisibilityRecorder</defName>
     <label>Visibility</label>
     <workerClass>VanillaGravshipExpanded2.HistoryAutoRecorderWorker_GravshipVisibility</workerClass>
-    <recordTicksFrequency>60000</recordTicksFrequency>
+    <recordTicksFrequency>2500</recordTicksFrequency>
     <graphColor>(0.8, 0.2, 0.2)</graphColor>
     <graphLabelY>Visibility</graphLabelY>
     <valueFormat>{0}</valueFormat>

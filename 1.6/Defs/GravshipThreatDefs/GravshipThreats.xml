@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <VanillaGravshipExpanded2.GravshipThreatDef>
+        <defName>VGE_Warplatform</defName>
+        <label>Warplatform</label>
+        <weight>10</weight>
+        <description>An orbital bombardment platform has detected your gravship signature and will engage shortly.\n\nTime until arrival: {0}\n\nMove away before it locks in to avoid it, or prepare to fight it.</description>
+        <workerClass>VanillaGravshipExpanded2.GravshipThreatWorker_Warplatform</workerClass>
+        <letterLabel>Incoming warplatform</letterLabel>
+        <letterDesc>An orbital bombardment platform has been activated by your gravship's energy signature. It is currently running target scans and will engage shortly. The orbital platform houses a sensitive warcomputer; destroying this component will disable the platform entirely.\n\nThe platform will continue to fire on your gravship until you move out of range or it is destroyed. Be aware that it takes time to fully engage; if you move away quickly enough, you may be able to escape its detection.\n\nPoint defense turrets, gravarmor, and shield generators can be used to protect against the bombardment. Gravship artillery can be used to attack the enemy over long distances. You can also send a shuttle or drop pods to the enemy location to handle it personally.</letterDesc>
+        <baseCountdownHours>48</baseCountdownHours>
+        <jammerExtensionHours>24</jammerExtensionHours>
+        <escapeMidBattleVisibilityLoss>400000</escapeMidBattleVisibilityLoss>
+        <earlyEscapeVisibilityLoss>100000</earlyEscapeVisibilityLoss>
+        <escapeDistance>25</escapeDistance>
+        <daysToDespawnAfterDefeat>3</daysToDespawnAfterDefeat>
+        <hoursBombardmentOnEngineDestroyed>12</hoursBombardmentOnEngineDestroyed>
+        <worldObjectDef>VGE_ActiveWarplatform</worldObjectDef>
+        <tileSpawnDistanceRange>5~20</tileSpawnDistanceRange>
+        <mapSize>250</mapSize>
+        <defeatBuildings>
+            <li>VGE_HostileWarcomputer</li>
+        </defeatBuildings>
+        <escapedMessage>You are now out of reach of the enemy warplatform.</escapedMessage>
+        <earlyEscapeMessage>You have moved out of range of the warplatform before it could engage. It will not pursue you further.</earlyEscapeMessage>
+        <defeatLetter>Warplatform defeated</defeatLetter>
+        <defeatLetterDesc>Warplatform threat has been defeated, but the area still offers valuable loot. You can salvage the wreck of the warplatform to gain some valuable resources.\n\nWarplatform will destabilize and collapse within {0} days.</defeatLetterDesc>
+        <disengagesLetter>Warplatform disengages</disengagesLetter>
+        <disengagesLetterDesc>Warplatform has achieved all pre-programmed goals and has effectively destroyed your gravship. It has now disengaged.\n\nConsider this a valuable lesson.</disengagesLetterDesc>
+        <alertExplanation>An enemy warplatform has targeted {0}. It will continuously bombard the gravship until it is destroyed. Destroy or hack the internal warcomputer, or try and escape.</alertExplanation>
+    </VanillaGravshipExpanded2.GravshipThreatDef>
+    <!--
+    <VanillaGravshipExpanded2.GravshipThreatDef>
+        <defName>VGE_SalvagerStation</defName>
+        <weight>4</weight>
+    </VanillaGravshipExpanded2.GravshipThreatDef>
+
+    <VanillaGravshipExpanded2.GravshipThreatDef>
+        <defName>VGE_EnemyGravjumper</defName>
+        <weight>2</weight>
+    </VanillaGravshipExpanded2.GravshipThreatDef>
+
+    <VanillaGravshipExpanded2.GravshipThreatDef>
+        <defName>VGE_EnemyGravship</defName>
+        <weight>2</weight>
+        <allowedEngineDefs>
+            <li>GravEngine</li>
+            <li>VGE_GravhulkEngine</li>
+        </allowedEngineDefs>
+    </VanillaGravshipExpanded2.GravshipThreatDef>
+
+    <VanillaGravshipExpanded2.GravshipThreatDef>
+        <defName>VGE_EnemyGravhulk</defName>
+        <weight>2</weight>
+        <allowedEngineDefs>
+            <li>VGE_GravhulkEngine</li>
+        </allowedEngineDefs>
+    </VanillaGravshipExpanded2.GravshipThreatDef>
+
+    <VanillaGravshipExpanded2.GravshipThreatDef>
+        <defName>VGE_MechanoidDestroyer</defName>
+        <weight>3</weight>
+    </VanillaGravshipExpanded2.GravshipThreatDef>
+-->
+</Defs>

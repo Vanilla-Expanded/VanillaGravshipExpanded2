@@ -11,7 +11,7 @@ namespace VanillaGravshipExpanded2
         {
             if (__instance.parent.GetComp<CompPowerTrader>() is { } compPower && compPower.PowerOn && __instance.parent.IsHashIntervalTick(250))
             {
-                WorldComponent_GravshipVisibility.Instance.AddVisibility((320f / 2500f) * 250f);
+                WorldComponent_GravshipCombat.Instance.AddVisibility((320f / 2500f) * 250f);
             }
         }
     }

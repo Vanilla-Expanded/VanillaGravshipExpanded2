@@ -28,6 +28,12 @@
     </value>
   </Operation>
   <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SignalJammer"]/graphicData/drawSize</xpath>
+    <value>
+      <drawSize>(3, 3)</drawSize>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="SignalJammer"]/comps/li[@Class="CompProperties_GravshipFacility"]</xpath>
     <value>
       <li Class="VanillaGravshipExpanded2.CompProperties_SignalJammer">

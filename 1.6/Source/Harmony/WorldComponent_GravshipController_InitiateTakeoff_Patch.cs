@@ -13,7 +13,7 @@ namespace VanillaGravshipExpanded2
         {
             var distance = GravshipHelper.GetDistance(engine.Map.Tile, targetTile);
             var size = engine.ValidSubstructure.Count;
-            WorldComponent_GravshipVisibility.Instance.AddVisibility(size * distance);
+            WorldComponent_GravshipCombat.Instance.AddVisibility(size * distance);
         }
     }
 }
