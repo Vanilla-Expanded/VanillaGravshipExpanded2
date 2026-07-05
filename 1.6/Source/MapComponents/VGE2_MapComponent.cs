@@ -11,7 +11,8 @@ public class VGE2_MapComponent : MapComponent
     private static readonly HashSet<JobDef> JobDefsWithPriorityOverEvacuation;
 
     private bool evacuationActive = false;
-    public HashSet<CompEscapePod> activeEscapePods = [];
+    public readonly HashSet<CompEscapePod> activeEscapePods = [];
+    public readonly HashSet<CompPower_InputOnlyBattery> batteries = [];
 
     public bool EvacuationActive
     {

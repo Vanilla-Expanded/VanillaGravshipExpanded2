@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <ThingDef ParentName="ThrusterBase">
+    <defName>VGE_SmallElectricThruster</defName>
+    <label>small electric thruster</label>
+    <description>An electric thruster that increases the range of the gravship. Needs to be fully charged in order to be used. Unlike astrofuel thrusters, electric thrusters do not increase maximum substructure size, but the low energy footprint lowers the chances of the gravship being detected during travel. Thrusters require an unobstructed area free of large buildings and gravship substructure. A gravship can support up to ten small thrusters.</description>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <texPath>Things/Structures/Thrusters/SmallElectricThruster</texPath>
+      <drawSize>(2, 3)</drawSize>
+      <shadowData>
+        <volume>(1, 1, 2)</volume>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-10</Beauty>
+      <WorkToBuild>10000</WorkToBuild>
+      <Mass>15</Mass>
+      <VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+    </statBases>
+    <size>(1, 2)</size>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    <costList>
+      <Steel>120</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>StandardGravtech</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="VanillaGravshipExpanded2.CompProperties_ElectricThruster">
+        <rangeCapacityOverride>-1</rangeCapacityOverride> <!-- Use range from thruster offsets, don't override capacity. -->
+        <statOffsets>
+          <GravshipRange>6</GravshipRange>
+        </statOffsets>
+        <componentTypeDef>Thruster</componentTypeDef>
+        <exclusionAreaSize>(1, 0, 5)</exclusionAreaSize>
+        <exclusionAreaOffset>(0, 0, -5)</exclusionAreaOffset>
+        <directionInfluence>20</directionInfluence>
+        <flameSize>4.0</flameSize>
+        <flameOffsetsPerDirection>
+          <li>(0, 0, 0.5)</li>
+          <li>(0, 0, 0.5)</li>
+          <li>(0, 0, 0.5)</li>
+          <li>(0, 0, 0.5)</li>
+        </flameOffsetsPerDirection>
+        <flameShaderType>MoteGlow</flameShaderType>
+        <flameShaderParameters>
+          <_MainTex>/Things/Mote/Exhaust/SmallElectricThruster_Burn</_MainTex>
+        </flameShaderParameters>
+        <requiresLOS>false</requiresLOS>
+        <maxSimultaneous>10</maxSimultaneous>
+        <maxDistance>500</maxDistance>
+        <exhaustSettings>
+          <enabled>false</enabled>
+        </exhaustSettings>
+      </li>
+      <li Class="CompProperties_Breakdownable" />
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+        <fleckEmissionRate>1</fleckEmissionRate>
+      </li>
+      <li Class="VanillaGravshipExpanded2.CompProperties_InputOnlyBattery">
+        <storedEnergyMax>2600</storedEnergyMax>
+        <powerGauge>
+          <barFilledColor>(0.9, 0.85, 0.2)</barFilledColor>
+          <barUnfilledColor>(0.3, 0.3, 0.3)</barUnfilledColor>
+          <barFullColor>(0.2, 0.9, 0.2)</barFullColor>
+
+          <centerPositionOffsetNorth>(0, 0, 0.45)</centerPositionOffsetNorth>
+          <centerPositionOffsetSouth>(0, 0, 0.2)</centerPositionOffsetSouth>
+          <centerPositionOffsetEast>(0.4, 0, 0.4)</centerPositionOffsetEast>
+          <centerPositionOffsetWest>(-0.4, 0, 0.4)</centerPositionOffsetWest>
+
+          <sizeNorth>(0.9,0.3)</sizeNorth>
+          <sizeSouth>(0.9,0.3)</sizeSouth>
+          <sizeEast>(0.9,0.3)</sizeEast>
+          <sizeWest>(0.9,0.3)</sizeWest>
+        </powerGauge>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Stunnable">
+        <useLargeEMPEffecter>true</useLargeEMPEffecter>
+        <affectedDamageDefs>
+          <li>EMP</li>
+        </affectedDamageDefs>
+      </li>
+    </comps>
+    <uiOrder>2201</uiOrder>
+    <modExtensions>
+      <li Class="VEF.Buildings.FacilityExtension">
+        <equivalentToFacility>SmallThruster</equivalentToFacility>
+        <copyLinksFrom>
+          <li>SmallThruster</li>
+        </copyLinksFrom>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="ThrusterBase">
+    <defName>VGE_LargeElectricThruster</defName>
+    <label>large electric thruster</label>
+    <description>An advanced electric thruster with a heat-resistant vacstone liner. Needs to be fully charged in order to be used. Unlike astrofuel thrusters, electric thrusters do not increase maximum substructure size, but the low energy footprint lowers the chances of the gravship being detected during travel. Thrusters require an unobstructed area free of large buildings and gravship substructure.\n\nRequires vacstone blocks, which can be obtained from orbital asteroids.\n\nA gravship can support up to six large thrusters.</description>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <texPath>Things/Structures/Thrusters/LateralElectricThruster</texPath>
+      <drawSize>(3, 4)</drawSize>
+      <shadowData>
+        <volume>(1.8, 0.75, 1.8)</volume>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>450</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-10</Beauty>
+      <WorkToBuild>13200</WorkToBuild>
+      <Mass>25</Mass>
+      <VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+    </statBases>
+    <size>(2, 2)</size>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <costList>
+      <Steel>160</Steel>
+      <BlocksVacstone>50</BlocksVacstone>
+      <ComponentIndustrial>9</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>StandardGravtech</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="VanillaGravshipExpanded2.CompProperties_ElectricThruster">
+        <statOffsets>
+          <GravshipRange>10</GravshipRange>
+        </statOffsets>
+        <componentTypeDef>Thruster</componentTypeDef>
+        <exclusionAreaSize>(2, 0, 7)</exclusionAreaSize>
+        <exclusionAreaOffset>(0, 0, -7)</exclusionAreaOffset>
+        <directionInfluence>30</directionInfluence>
+        <flameSize>4.0</flameSize>
+        <flameOffsetsPerDirection>
+          <li>(0, 0, 1.0)</li>
+          <li>(0, 0, 0.5)</li>
+          <li>(0, 0, 0.5)</li>
+          <li>(0, 0, 0.5)</li>
+        </flameOffsetsPerDirection>
+        <flameShaderType>MoteGlow</flameShaderType>
+        <flameShaderParameters>
+          <_MainTex>/Things/Mote/Exhaust/LargeElectricThruster_Burn</_MainTex>
+        </flameShaderParameters>
+        <requiresLOS>false</requiresLOS>
+        <maxSimultaneous>6</maxSimultaneous>
+        <maxDistance>500</maxDistance>
+        <exhaustSettings>
+          <enabled>false</enabled>
+        </exhaustSettings>
+      </li>
+      <li Class="CompProperties_Breakdownable" />
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+        <fleckEmissionRate>1</fleckEmissionRate>
+      </li>
+      <li Class="VanillaGravshipExpanded2.CompProperties_InputOnlyBattery">
+        <storedEnergyMax>4300</storedEnergyMax>
+        <powerGauge>
+          <barFilledColor>(0.9, 0.85, 0.2)</barFilledColor>
+          <barUnfilledColor>(0.3, 0.3, 0.3)</barUnfilledColor>
+          <barFullColor>(0.2, 0.9, 0.2)</barFullColor>
+
+          <centerPositionOffsetNorth>(0, 0, 0.45)</centerPositionOffsetNorth>
+          <centerPositionOffsetSouth>(0, 0, 0.25)</centerPositionOffsetSouth>
+          <centerPositionOffsetEast>(0.45, 0, 0.4)</centerPositionOffsetEast>
+          <centerPositionOffsetWest>(-0.45, 0, 0.4)</centerPositionOffsetWest>
+
+          <sizeNorth>(0.9,0.3)</sizeNorth>
+          <sizeSouth>(0.9,0.3)</sizeSouth>
+          <sizeEast>(0.9,0.3)</sizeEast>
+          <sizeWest>(0.9,0.3)</sizeWest>
+        </powerGauge>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Stunnable">
+        <useLargeEMPEffecter>true</useLargeEMPEffecter>
+        <affectedDamageDefs>
+          <li>EMP</li>
+        </affectedDamageDefs>
+      </li>
+    </comps>
+    <uiOrder>2206</uiOrder>
+    <modExtensions>
+      <li Class="VEF.Buildings.FacilityExtension">
+        <equivalentToFacility>LargeThruster</equivalentToFacility>
+        <copyLinksFrom>
+          <li>LargeThruster</li>
+        </copyLinksFrom>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="ThrusterBase">
+    <defName>VGE_GiantElectricThruster</defName>
+    <label>giant electric thruster</label>
+    <description>A massive, reinforced electric thruster built with advanced alloys and ultra-dense vacstone plating. Needs to be fully charged in order to be used. Unlike astrofuel thrusters, electric thrusters do not increase maximum substructure size, but the low energy footprint lowers the chances of the gravship being detected during travel. Thrusters require an unobstructed area free of large buildings and gravship substructure.\n\nRequires vacstone blocks, which can be obtained from orbital asteroids.\n\nA gravship can support up to four giant thrusters.</description>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <texPath>Things/Structures/Thrusters/GiantElectricThruster</texPath>
+      <drawSize>(4.15, 4.15)</drawSize>
+      <shadowData>
+        <volume>2.8, 0.75, 2.8</volume>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>700</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-20</Beauty>
+      <WorkToBuild>18000</WorkToBuild>
+      <Mass>40</Mass>
+      <VGE_MaintenanceSensitivity>2</VGE_MaintenanceSensitivity>
+    </statBases>
+    <size>(3, 3)</size>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <costList>
+      <Steel>220</Steel>
+      <BlocksVacstone>100</BlocksVacstone>
+      <ComponentSpacer>10</ComponentSpacer>
+    </costList>
+    <researchPrerequisites>
+      <li>AdvancedGravtech</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="VanillaGravshipExpanded2.CompProperties_ElectricThruster">
+        <statOffsets>
+          <GravshipRange>20</GravshipRange>
+        </statOffsets>
+        <componentTypeDef>Thruster</componentTypeDef>
+        <exclusionAreaSize>(3, 0, 9)</exclusionAreaSize>
+        <exclusionAreaOffset>(-1, 0, -10)</exclusionAreaOffset>
+        <directionInfluence>40</directionInfluence>
+        <flameSize>4.0</flameSize>
+        <flameOffsetsPerDirection>
+          <li>(0, 0, 1.5)</li>
+          <li>(0, 0, 1.0)</li>
+          <li>(0, 0, 1.0)</li>
+          <li>(0, 0, 1.0)</li>
+        </flameOffsetsPerDirection>
+        <flameShaderType>MoteGlow</flameShaderType>
+        <flameShaderParameters>
+          <_MainTex>/Things/Mote/Exhaust/LargeElectricThruster_Burn</_MainTex>
+        </flameShaderParameters>
+        <requiresLOS>false</requiresLOS>
+        <maxSimultaneous>4</maxSimultaneous>
+        <maxDistance>500</maxDistance>
+        <exhaustSettings>
+          <enabled>false</enabled>
+        </exhaustSettings>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+        <fleckEmissionRate>1</fleckEmissionRate>
+      </li>
+      <li Class="VanillaGravshipExpanded2.CompProperties_InputOnlyBattery">
+        <storedEnergyMax>8600</storedEnergyMax>
+        <powerGauge>
+          <barFilledColor>(0.9, 0.85, 0.2)</barFilledColor>
+          <barUnfilledColor>(0.3, 0.3, 0.3)</barUnfilledColor>
+          <barFullColor>(0.2, 0.9, 0.2)</barFullColor>
+
+          <centerPositionOffsetNorth>(0, 0, 0.95)</centerPositionOffsetNorth>
+          <centerPositionOffsetSouth>(0, 0, -0.4)</centerPositionOffsetSouth>
+          <centerPositionOffsetEast>(0.95, 0, 0.4)</centerPositionOffsetEast>
+          <centerPositionOffsetWest>(-0.95, 0, 0.4)</centerPositionOffsetWest>
+
+          <sizeNorth>(0.9,0.3)</sizeNorth>
+          <sizeSouth>(0.9,0.3)</sizeSouth>
+          <sizeEast>(0.9,0.3)</sizeEast>
+          <sizeWest>(0.9,0.3)</sizeWest>
+        </powerGauge>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Stunnable">
+        <useLargeEMPEffecter>true</useLargeEMPEffecter>
+        <affectedDamageDefs>
+          <li>EMP</li>
+        </affectedDamageDefs>
+      </li>
+    </comps>
+    <uiOrder>2211</uiOrder>
+    <modExtensions>
+      <li Class="VEF.Buildings.FacilityExtension">
+        <equivalentToFacility>VGE_GiantThruster</equivalentToFacility>
+        <copyLinksFrom>
+          <li>VGE_GiantThruster</li>
+        </copyLinksFrom>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+</Defs>
