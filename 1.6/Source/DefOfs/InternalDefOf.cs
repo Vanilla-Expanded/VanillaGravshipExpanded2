@@ -42,17 +42,15 @@ namespace VanillaGravshipExpanded2
 		public static StatDef VGE_GravshipVisibilityFactor;
 		public static ThingDef VGE_GravshipArmor;
 		public static SoundDef Hive_Spawn;
-
 		public static ThingDef VGE_EnemyGravjumperEngine;
 		public static ThingDef VGE_EnemyGravEngine;
 		public static ThingDef VGE_EnemyGravhulkEngine;
 		public static ThingDef VGE_EnemyGravlockTether;
-
 		public static ThingDef VGE_WarpodLeaving;
 		public static ThingDef VGE_WarpodIncoming;
 		public static WorldObjectDef VGE_TravellingWarpod;
 		public static ThingDef VGE_GravshipBlackBox;
-		public static ThingDef VGE_EnemySignalJammer, VGE_MechanoidSignalJammer;
+		public static ThingDef VGE_EnemySignalJammer, VGE_MechanoidSignalJammer, VGE_AncientSignalJammer;
 		public static ThingDef VGE_EnemyAnticraftBeamStrike;
 		public static JobDef VGE_OperateEnemyTerminal;
 		public static ThingDef VGE_Mote_AnticraftBeam;
@@ -62,8 +60,6 @@ namespace VanillaGravshipExpanded2
 		public static JobDef VGE_EscapePod_InsertPawnDrafted;
 		public static FleckDef BlastEMP;
 		public static ThingDef OrbitalTargeterBombardment;
-		public static PawnKindDef Drone_Sentry;
-		public static FactionDef Salvagers;
 		public static ThingDef VGE_Compressed_Vacstone;
 		public static ThingDef ChunkVacstone;
 		public static OrbitalDebrisDef VGE_GravshipDebris;

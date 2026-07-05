@@ -49,7 +49,9 @@ namespace VanillaGravshipExpanded2
             }
             if (FuelLevel < Props.minFuelCost)
                 return "CommandLaunchGroupFailNoFuel".Translate();
-
+                
+            if (parent.Map.IsAncientSignalJammerOnMap())
+                return "VGE_AncientSignalJammerWarpodBlocked".Translate();
             return true;
         }
 

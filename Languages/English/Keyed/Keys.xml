@@ -60,4 +60,9 @@
 	<VGE_LocationDestabilizingDesc>An orbital location you're currently on is destabilizing. Soon it will collapse completely, and anything on it, including your colonists, will be gone.\n\nTime remaining: {0}\n\nEnsure you evacuate before the location burns up in atmosphere.</VGE_LocationDestabilizingDesc>
 	<VGE_DestabilizesIn>Destabilizes in: {0}</VGE_DestabilizesIn>
 	<VGE_JammerScrambledSignal>Your signal jammer scrambled the signal lock, giving you an additional {0} hours before the warplatform finds you.</VGE_JammerScrambledSignal>
+	<VGE_AncientSignalJammerLaunchBlocked>Can't launch: Ancient signal jammer is preventing launch. Find and destroy it in order to initiate launching sequence.</VGE_AncientSignalJammerLaunchBlocked>
+	<VGE_AncientSignalJammerShuttleBlocked>Can't launch: Ancient signal jammer is preventing launch. Find and destroy it in order to launch the shuttle.</VGE_AncientSignalJammerShuttleBlocked>
+	<VGE_AncientSignalJammerWarpodBlocked>Can't launch: Ancient signal jammer is preventing launch. Find and destroy it in order to launch the warpod.</VGE_AncientSignalJammerWarpodBlocked>
+	<VGE_AncientSignalJammerCommsBlocked>Active signal jammer prevents communication.</VGE_AncientSignalJammerCommsBlocked>
+	<VGE_AncientSignalJammerBlockedGeneric>Can't launch: Ancient signal jammer is preventing launch. Find and destroy it in order to launch the {0}.</VGE_AncientSignalJammerBlockedGeneric>
 </LanguageData>

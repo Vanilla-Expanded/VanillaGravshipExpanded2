@@ -1493,4 +1493,41 @@
         </comps>
     </ThingDef>
 
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_AncientSignalJammer</defName>
+        <label>ancient signal jammer</label>
+        <description>An archaic broadcasting array emitting a high-frequency interference field that cripples long-range communications and disrupts gravship navigational locks. As long as it’s active, gravship or shuttle launches from this area will not be possible, and comms consoles will not be able to be used. It contains a valuable gravcore.</description>
+        <graphicData>
+            <texPath>Things/Enemy/AncientSignalJammer/AncientSignalJammer</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(4,4)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>800</MaxHitPoints>
+            <Mass>75</Mass>
+            <Flammability>0.6</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <costList>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>80</GravlitePanel>
+            <ChunkSlagSteel>2</ChunkSlagSteel>
+        </costList>
+        <tickerType>Normal</tickerType>
+        <receivesSignals>true</receivesSignals>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>5</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+    </ThingDef>
 </Defs>
