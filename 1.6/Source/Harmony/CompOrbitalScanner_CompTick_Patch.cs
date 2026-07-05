@@ -9,7 +9,8 @@ namespace VanillaGravshipExpanded2
     {
         public static void Postfix(CompOrbitalScanner __instance)
         {
-            if (__instance.parent.GetComp<CompPowerTrader>() is { } compPower && compPower.PowerOn && __instance.parent.IsHashIntervalTick(250))
+            var compPower = __instance.PowerTrader;
+            if ((compPower == null || compPower.PowerOn) && __instance.parent.IsHashIntervalTick(250))
             {
                 WorldComponent_GravshipCombat.Instance.AddVisibility((320f / 2500f) * 250f);
             }
