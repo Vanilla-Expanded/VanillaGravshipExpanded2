@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGE_AstrofuelPodLauncher</defName>
+    <label>astrofuel pod launcher</label>
+    <description>A compact fueling port for launching one transport pod. Utilizing highly efficient astrofuel, this launcher is significantly smaller than traditional designs. Pod launchers can launch as a group - but the launchers must be placed adjacent to each other.</description>
+    <thingClass>Building_PodLauncher</thingClass>
+    <graphicData>
+      <texPath>Things/Structures/Misc/AstrofuelPodLauncher/AstrofuelPodLauncher</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <size>(1,1)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1.0</fillPercent>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2200</uiOrder>
+    <canOverlapZones>false</canOverlapZones>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <building>
+      <hasFuelingPort>true</hasFuelingPort>
+    </building>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <costList>
+      <GravlitePanel>30</GravlitePanel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelCapacity>150.0</fuelCapacity>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>150</initialConfigurableTargetFuelLevel>
+        <fuelFilter>
+          <thingDefs>
+            <li>VGE_Astrofuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelMultiplier>2</fuelMultiplier>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <drawFuelGaugeInMap>false</drawFuelGaugeInMap> <!-- We draw it through RefuelableExtension -->
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <canEjectFuel>true</canEjectFuel>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_FuelingPort</li>
+      <li>PlaceWorker_NotUnderRoof</li>
+    </placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <researchPrerequisites>
+      <li>VGE_AdvancedOrbitalTech</li>
+      <li>TransportPod</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <uiIconScale>0.9</uiIconScale>
+    <modExtensions>
+      <li Class="VEF.Buildings.RefuelableExtension">
+        <ejectingFuelRespectsFuelMultiplier>true</ejectingFuelRespectsFuelMultiplier>
+        <!-- Need to disable vanilla refuelable fuel gauge drawing -->
+        <customFuelGauge>
+          <!-- 80% the size of a normal one -->
+          <sizeNorth>(0.6, 0.12)</sizeNorth>
+          <sizeSouth>(0.6, 0.12)</sizeSouth>
+          <sizeEast>(0.6, 0.12)</sizeEast>
+          <sizeWest>(0.6, 0.12)</sizeWest>
+          <!-- Make the bar purple -->
+          <barFilledColor>(0.54, 0.30, 0.85)</barFilledColor>
+        </customFuelGauge>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGE_EscapePod</defName>
+    <label>escape pod</label>
+    <description>A floor-mounted, pre-fueled single use escape pod designed to quickly evacuate a single colonist with whatever gear they happened to carry at the time. The escape pod launches immediately upon the crewmember entering it, and will launch directly down to surface. Needs to be placed on gravship substructure. Only works in orbit.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Structures/Misc/EscapePod/EscapePod</texPath>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>750</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <WorkToBuild>2500</WorkToBuild>
+    </statBases>
+    <rotatable>false</rotatable>
+    <fillPercent>0</fillPercent>
+    <!--    <uiIconScale>0.65</uiIconScale>-->
+    <tickerType>Normal</tickerType>
+    <passability>Standable</passability>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+    <designationCategory>Odyssey</designationCategory>
+    <comps>
+      <li Class="VanillaGravshipExpanded2.CompProperties_EscapePod">
+        <enterDuration>120</enterDuration>
+        <launchDuration>300</launchDuration>
+        <autoRebuildGizmoIconPath>UI/Gizmo/RebuildEscapePod</autoRebuildGizmoIconPath>
+        <evacuationGizmoIconPath>UI/Gizmo/EvacuateGravship_Gizmo</evacuationGizmoIconPath>
+
+        <layerWhitelist>
+          <li>Orbit</li>
+        </layerWhitelist>
+
+        <insertPawnTargetingParameters>
+          <!-- Extra validation in C# to prevent pawns from non-player factions (besides prisoners/slaves). -->
+          <!-- onlyTargetColonistsOrPrisonersOrSlavesAllowMinorMentalBreaks doesn't exactly work here, as it prevents ghouls. -->
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <canTargetEntities>false</canTargetEntities>
+        </insertPawnTargetingParameters>
+
+        <!--        <activeTransporterDef></activeTransporterDef>-->
+        <skyfallerLeaving>VGE_EscapePodLeaving</skyfallerLeaving>
+        <!--        <worldObjectDef></worldObjectDef>-->
+        <!--        <enterSound></enterSound>-->
+        <evacuationSustainerSound>VGE_EvacuationSiren</evacuationSustainerSound>
+      </li>
+    </comps>
+    <building>
+      <isInert>true</isInert>
+    </building>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+    <researchPrerequisites>
+      <li>StandardGravtech</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGE_VacuumWarningLight</defName>
+    <label>vacuum warning light</label>
+    <description>An electrical warning lamp that emits flashing orange light if the vacuum in the room reaches dangerous levels. Undrafted crewmembers will make their way out of the room when the warning light turns on. Draws power directly from the grav engine.</description>
+    <graphicData>
+      <texPath>Things/Structures/Vacuum/VacuumWarningLight/VacuumWarningLight</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shadowData>
+        <volume>(0.3, 0.2, 0.3)</volume>
+        <offset>(0,0,-0.1)</offset>
+      </shadowData>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+      <Flammability>1</Flammability>
+      <Mass>4</Mass>
+      <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
+    </statBases>
+    <tickerType>Rare</tickerType>
+    <fillPercent>0.2</fillPercent>
+    <costList>
+      <Steel>15</Steel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5.3</glowRadius>
+        <glowColor>(251, 84, 43)</glowColor>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="VanillaGravshipExpanded2.CompProperties_VacuumWarningLight">
+        <!-- If in a room, ignore radius and affect the whole room -->
+        <alwaysAffectsWholeRoom>true</alwaysAffectsWholeRoom>
+        <!-- Radius in which the pawns are affected -->
+        <radius>9.9</radius>
+        <!-- The min/max configurable vauum levels -->
+        <minMaxVacuumRanges>0.1~0.5</minMaxVacuumRanges>
+        <!-- Vacuum level at or above which the pawns should be worried about vacuum. -->
+        <baseVacuumLevel>0.25</baseVacuumLevel>
+        <!-- If the comp should scare away pawns by default or not. -->
+        <evacuatePawnsByDefault>true</evacuatePawnsByDefault>
+        <!-- If the warning is vual only in nature (lights turns on, but pawns aren't scared away ever, can't be configured to do so either). -->
+        <visualOnly>false</visualOnly>
+      </li>
+    </comps>
+    <passability>PassThroughOnly</passability>
+    <pathCost>14</pathCost>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <designationCategory>Odyssey</designationCategory>
+    <rotatable>false</rotatable>
+    <researchPrerequisites>
+      <li>VGE_OxygenNetwork</li>
+    </researchPrerequisites>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <drawPlaceWorkersWhileInstallBlueprintSelected>true</drawPlaceWorkersWhileInstallBlueprintSelected>
+    <placeWorkers>
+      <li>VanillaGravshipExpanded2.PlaceWorker_VacuumWarningLight</li>
+    </placeWorkers>
+  </ThingDef>
+
+</Defs>
