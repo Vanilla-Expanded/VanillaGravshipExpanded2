@@ -76,7 +76,7 @@
           <sizeEast>(0.6, 0.12)</sizeEast>
           <sizeWest>(0.6, 0.12)</sizeWest>
           <!-- Make the bar purple -->
-          <fuelBarFilledColor>(0.54, 0.30, 0.85)</fuelBarFilledColor>
+          <barFilledColor>(0.54, 0.30, 0.85)</barFilledColor>
         </customFuelGauge>
       </li>
     </modExtensions>
