@@ -154,4 +154,8 @@
 		<defName>VGE_CompactMultiAnalyzer</defName>
 		<thing>VGE_CompactMultiAnalyzer</thing>
 	</KCSG.SymbolDef>
+	<KCSG.SymbolDef>
+		<defName>VGE_AncientSignalJammer</defName>
+		<thing>VGE_AncientSignalJammer</thing>
+	</KCSG.SymbolDef>
 </Defs>
