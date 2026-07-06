@@ -609,7 +609,7 @@
             <damageAmountBase>40</damageAmountBase>
             <armorPenetrationBase>0.15</armorPenetrationBase>
             <speed>50</speed>
-            <explosionRadius>6.9</explosionRadius>
+            <explosionRadius>3.9</explosionRadius>
             <flyOverhead>true</flyOverhead>
             <stoppingPower>1</stoppingPower>
             <soundImpact>BulletImpact_Metal</soundImpact>
