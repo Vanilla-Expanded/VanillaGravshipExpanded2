@@ -111,4 +111,47 @@
 		<defName>VGE_DestroyedLargeChemfuelTank</defName>
 		<thing>VGE_DestroyedLargeChemfuelTank</thing>
 	</KCSG.SymbolDef>
+	<KCSG.SymbolDef>
+		<defName>VGE_CrewBunkBed_Steel</defName>
+		<thing>VGE_CrewBunkBed</thing>
+		<stuff>Steel</stuff>
+		<rotation>East</rotation>
+	</KCSG.SymbolDef>
+	<KCSG.SymbolDef>
+		<defName>VGE_CrewLockers_Steel</defName>
+		<thing>VGE_CrewLockers</thing>
+		<stuff>Steel</stuff>
+		<rotation>West</rotation>
+	</KCSG.SymbolDef>
+	<KCSG.SymbolDef>
+		<defName>VGE_Airlock2x1Door_Steel</defName>
+		<thing>VGE_Airlock2x1Door</thing>
+		<stuff>Steel</stuff>
+	</KCSG.SymbolDef>
+	<KCSG.SymbolDef>
+		<defName>VGE_GravshipShelf_Steel</defName>
+		<thing>VGE_GravshipShelf</thing>
+		<stuff>Steel</stuff>
+		<rotation>West</rotation>
+	</KCSG.SymbolDef>
+	<KCSG.SymbolDef>
+		<defName>VGE_Airlock3x1Door_Steel</defName>
+		<thing>VGE_Airlock3x1Door</thing>
+		<stuff>Steel</stuff>
+	</KCSG.SymbolDef>
+	<KCSG.SymbolDef>
+		<defName>VGE_CompactResearchBench_Steel</defName>
+		<thing>VGE_CompactResearchBench</thing>
+		<stuff>Steel</stuff>
+		<rotation>West</rotation>
+	</KCSG.SymbolDef>
+	<KCSG.SymbolDef>
+		<defName>VGE_WallToolCabinet</defName>
+		<thing>VGE_WallToolCabinet</thing>
+		<rotation>East</rotation>
+	</KCSG.SymbolDef>
+	<KCSG.SymbolDef>
+		<defName>VGE_CompactMultiAnalyzer</defName>
+		<thing>VGE_CompactMultiAnalyzer</thing>
+	</KCSG.SymbolDef>
 </Defs>
