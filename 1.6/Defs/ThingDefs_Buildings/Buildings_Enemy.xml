@@ -256,6 +256,11 @@
                 <transmitsPower>true</transmitsPower>
             </li>
         </comps>
+		<modExtensions>
+            <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+                <replacementBuilding>VGE_DestroyedGravlockTether</replacementBuilding>
+            </li>
+        </modExtensions>
     </ThingDef>
 
     <ThingDef Name="VGE_EnemyTerminalBase" ParentName="VGE_EnemyPropBase" Abstract="True">
