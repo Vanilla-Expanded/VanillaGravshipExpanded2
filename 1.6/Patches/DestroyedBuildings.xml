@@ -43,7 +43,6 @@
 		<value>
 			<costList>
 				<Steel>80</Steel>
-				<Gravcore>1</Gravcore>
 				<GravlitePanel>30</GravlitePanel>
 				<ComponentIndustrial>2</ComponentIndustrial>
 			</costList>

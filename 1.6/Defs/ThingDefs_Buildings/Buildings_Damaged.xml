@@ -33,6 +33,7 @@
 			<Flammability>0.6</Flammability>
 			<Beauty>0</Beauty>
 		</statBases>
+		<rotatable>false</rotatable>
 		<graphicData>
 			<texPath>Things/Structures/Destroyed/DestroyedLifeSupportTank</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -102,6 +103,7 @@
 		<label>destroyed astrofuel generator</label>
 		<description>Destroyed astrofuel generator, which was once capable of converting astrofuel into power.</description>
 		<size>(2,2)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Steel>100</Steel>
 			<ComponentIndustrial>3</ComponentIndustrial>
@@ -122,6 +124,7 @@
 		<label>destroyed industrial astrofuel generator</label>
 		<description>An industrial-sized, destroyed astrofuel generator, which was once capable of converting astrofuel into power.</description>
 		<size>(3,3)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Steel>180</Steel>
 			<ComponentIndustrial>6</ComponentIndustrial>
@@ -226,6 +229,7 @@
 		<label>destroyed gravheat absorber</label>
 		<description>A warped, scorched, and inoperable specialized thermal sink, originally used to instantly cool a grav engine, is now useless for its primary function due to melted internal systems and cracked shielding. However, its dense, exotic metal casing and components can still be salvaged.</description>
 		<size>(3,3)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Steel>160</Steel>
 			<Gold>60</Gold>
@@ -369,6 +373,7 @@
 		<label>destroyed gunner subpersona core</label>
 		<description>A shattered and inert gravship gunnery core. The advanced processing unit that once housed a specialized combat subpersona is cracked, and the core's connection ports are twisted and useless. It can be salvaged for some complex components.</description>
 		<size>(1, 1)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Steel>50</Steel>
 			<ComponentSpacer>4</ComponentSpacer>
@@ -432,6 +437,7 @@
 		<label>destroyed grav field amplifier</label>
 		<description>The shattered remains of an advanced ultratech device that once dramatically increased a gravship's size and build area. The core systems are utterly destroyed, but a specialized gravcore may still be salvaged from the wreckage.</description>
 		<size>(3,3)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Gravcore>2</Gravcore>
 			<GravlitePanel>80</GravlitePanel>
@@ -454,6 +460,7 @@
 		<label>destroyed maintenance hub</label>
 		<description>A completely destroyed system that used to optimize and automate routines across the gravship. Can be salvaged for some resources.</description>
 		<size>(2,2)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Steel>80</Steel>
 			<ComponentIndustrial>5</ComponentIndustrial>
@@ -497,6 +504,7 @@
 		<label>destroyed gravlift</label>
 		<description>A mangled wreck of a complex stabilization device. The core thrusters are fused and the gravitic dampeners shattered, rendering it useless for flight or stability, however, its mass of exotic metals and components can be deconstructed for a valuable resource yield.</description>
 		<size>(2,2)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Gravcore>1</Gravcore>
 			<GravlitePanel>60</GravlitePanel>
@@ -537,6 +545,7 @@
 		<defName>VGE_DestroyedGravcorePowerCell</defName>
 		<label>destroyed gravcore power cell</label>
 		<description>A destroyed power generator, once capable of passively harvesting gravitational wave energy and amplifying adjacent power cells. Some resources may still be salvaged from it.</description>
+		<rotatable>false</rotatable>
 		<size>(1,1)</size>
 		<costList>
 			<GravlitePanel>50</GravlitePanel>
@@ -559,6 +568,7 @@
 		<label>destroyed gravcore power coil</label>
 		<description>A massive gravtech reactor, now utterly destroyed, with its reinforced coils twisted and inert, can be salvaged for its valuable components.</description>
 		<size>(3,3)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Gravcore>2</Gravcore>
 			<GravlitePanel>120</GravlitePanel>
@@ -581,6 +591,7 @@
 		<label>destroyed gravjumper engine</label>
 		<description>The mangled remains of a gravjumper engine, now useless for short-range jumps. It seems the gravity field collapse did not result in any detonation, so it can still be salvaged for a valuable gravcore.</description>
 		<size>(1,1)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Gravcore>1</Gravcore>
 			<GravlitePanel>50</GravlitePanel>
@@ -603,6 +614,7 @@
 		<label>destroyed gravship engine</label>
 		<description>The collapsed remains of a gravship engine, no longer capable of lifting the vessel. It seems the gravity field collapse did not result in any detonation, so it can still be salvaged for a valuable gravcore.</description>
 		<size>(3,3)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Gravcore>2</Gravcore>
 			<GravlitePanel>120</GravlitePanel>
@@ -625,6 +637,7 @@
 		<label>destroyed gravhulk engine</label>
 		<description>The huge, destroyed wreck of a gravhulk engine, no longer operational. It seems the gravity field collapse did not result in any detonation, so it can still be salvaged for a valuable gravcore.</description>
 		<size>(5,5)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Gravcore>2</Gravcore>
 			<GravlitePanel>200</GravlitePanel>
@@ -647,6 +660,7 @@
 		<label>destroyed small weapon platform</label>
 		<description>The remains of a small gravship artillery platform, twisted and wrecked after the destruction of the weapon it once held. Now only serves as salvage.</description>
 		<size>(3,3)</size>
+		<rotatable>false</rotatable>
 		<costList>
 		
 			<GravlitePanel>40</GravlitePanel>
@@ -669,6 +683,7 @@
 		<label>destroyed medium weapon platform</label>
 		<description>The remains of a medium gravship artillery platform, twisted and wrecked after the destruction of the weapon it once held. Now only serves as salvage.</description>
 		<size>(5,5)</size>
+		<rotatable>false</rotatable>
 		<costList>
 		
 			<GravlitePanel>60</GravlitePanel>
@@ -691,6 +706,7 @@
 		<label>destroyed large weapon platform</label>
 		<description>The remains of a large gravship artillery platform, twisted and wrecked after the destruction of the weapon it once held. Now only serves as salvage.</description>
 		<size>(7,7)</size>
+		<rotatable>false</rotatable>
 		<costList>
 		
 			<GravlitePanel>80</GravlitePanel>
@@ -713,6 +729,7 @@
 		<label>destroyed giant weapon platform</label>
 		<description>The remains of a giant orbital station artillery platform, twisted and wrecked after the destruction of the weapon it once held. Now only serves as salvage.</description>
 		<size>(9,9)</size>
+		<rotatable>false</rotatable>
 		<costList>
 		
 			<GravlitePanel>200</GravlitePanel>
@@ -755,6 +772,7 @@
 		<label>destroyed warcomputer</label>
 		<description>The shattered remains of a warcomputer. Its advanced tactical processing systems are offline and completely unresponsive. While the unit is beyond repair, the core housing contains a valuable, intact gravcore that can still be salvaged.</description>
 		<size>(3,3)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Gravcore>1</Gravcore>
 			<GravlitePanel>60</GravlitePanel>
@@ -777,6 +795,7 @@
 		<label>destroyed gravlock tether</label>
 		<description>The ruined remains of a gravlock tether that once anchored an orbital station in place. The core stabilization systems are completely shattered, but its bulky frame can still be deconstructed to yield valuable salvage, including a gravcore.</description>
 		<size>(5,5)</size>
+		<rotatable>false</rotatable>
 		<costList>
 			<Gravcore>1</Gravcore>		
 		</costList>
