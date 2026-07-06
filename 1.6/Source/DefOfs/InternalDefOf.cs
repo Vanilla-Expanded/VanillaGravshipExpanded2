@@ -63,5 +63,6 @@ namespace VanillaGravshipExpanded2
 		public static ThingDef VGE_Compressed_Vacstone;
 		public static ThingDef ChunkVacstone;
 		public static OrbitalDebrisDef VGE_GravshipDebris;
+		public static HistoryAutoRecorderDef VGE_GravshipVisibilityRecorder;
 	}
 }
