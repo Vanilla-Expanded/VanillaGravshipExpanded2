@@ -1284,6 +1284,7 @@
                 <warmupPulseFadeOutTime>1</warmupPulseFadeOutTime>
             </li>
         </comps>
+		
     </ThingDef>
 
     <ThingDef ParentName="VGE_EnemyPropBase">

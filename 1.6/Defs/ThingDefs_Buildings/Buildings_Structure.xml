@@ -286,5 +286,10 @@
 			<li>GravshipUpgrade</li>
 		</tradeTags>
 		<uiOrder>2510</uiOrder>
+		 <modExtensions>
+            <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+                <replacementBuilding>VGE_DestroyedGravlunchCloaker</replacementBuilding>
+            </li>
+        </modExtensions>
 	</ThingDef>
 </Defs>
