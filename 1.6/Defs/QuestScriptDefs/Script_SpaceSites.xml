@@ -167,4 +167,76 @@
 			</nodes>
 		</root>
 	</QuestScriptDef>
+
+	<QuestScriptDef>
+		<defName>VGE_OpportunitySite_DerelictGravship</defName>
+		<randomlySelectable>false</randomlySelectable>
+		<givenBy>
+			<li>OrbitalScanner</li>
+		</givenBy>
+		<rootSelectionWeight>1</rootSelectionWeight>
+		<isRootSpecial>true</isRootSpecial>
+		<autoAccept>true</autoAccept>
+		<questNameRules>
+			<rulesStrings>
+				<li>questName->Derelict gravship</li>
+			</rulesStrings>
+		</questNameRules>
+		<questDescriptionRules>
+			<rulesStrings>
+				<li>questDescription->[discoveryMethod] the location of a derelict gravship. This ancient hulk, ruined by countless years in orbit, is a trove of salvage, including rare gravlite and advanced components.\n\nThe wreck is currently [threatDescription], making any attempt at recovery a dangerous venture. You can reach the location with transport pods, shuttles, or a gravship. Equip your colonists with sufficient orbital apparel before departing.</li>
+			</rulesStrings>
+		</questDescriptionRules>
+		<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+		<root Class="QuestNode_Sequence">
+			<nodes>
+				<li Class="QuestNode_IsSet">
+					<name>discoveryMethod</name>
+					<elseNode Class="QuestNode_RandomNode">
+						<nodes>
+							<li Class="QuestNode_Set">
+								<name>discoveryMethod</name>
+								<value>You have discovered</value>
+							</li>
+						</nodes>
+					</elseNode>
+				</li>
+				<li Class="QuestNode_Root_Asteroid">
+					<layerDef>Orbit</layerDef>
+					<worldObjectDef>VGE_DerelictGravship</worldObjectDef>
+				</li>
+				<li Class="VanillaGravshipExpanded2.QuestNode_DerelictGravshipThreat" />
+			</nodes>
+		</root>
+	</QuestScriptDef>
+
+	<QuestScriptDef>
+		<defName>VGE_OpportunitySite_GravshipGraveyard</defName>
+		<randomlySelectable>true</randomlySelectable>
+		<givenBy>
+			<li>OrbitalScanner</li>
+		</givenBy>
+		<rootSelectionWeight>1</rootSelectionWeight>
+		<isRootSpecial>true</isRootSpecial>
+		<autoAccept>true</autoAccept>
+		<questNameRules>
+			<rulesStrings>
+				<li>questName->Gravship graveyard</li>
+			</rulesStrings>
+		</questNameRules>
+		<questDescriptionRules>
+			<rulesStrings>
+				<li>questDescription->You have detected the distinct energy signature of a gravcore emanating from a massive field of debris: a gravship graveyard. You know that when you arrive, your navigation systems will be locked. An ancient signal jammer is active within the debris field, preventing your gravship from initiating the launch. You must navigate through the field of unstable ancient gravmines, locate the source of the jamming, and neutralize it to escape.\n\nBe careful, orbital locations are extremely dangerous. Equip your colonists with vacsuits. Plan your return trip, as living in orbit for long periods is very difficult.</li>
+			</rulesStrings>
+		</questDescriptionRules>
+		<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+		<root Class="QuestNode_Sequence">
+			<nodes>
+				<li Class="QuestNode_Root_Asteroid">
+					<layerDef>Orbit</layerDef>
+					<worldObjectDef>VGE_GravshipGraveyard</worldObjectDef>
+				</li>
+			</nodes>
+		</root>
+	</QuestScriptDef>
 </Defs>

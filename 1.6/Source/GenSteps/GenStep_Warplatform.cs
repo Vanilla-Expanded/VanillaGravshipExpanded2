@@ -13,11 +13,24 @@ namespace VanillaGravshipExpanded2
         public override void Generate(Map map, GenStepParams parms)
         {
             StructureSetGenerator.Generate(map, structureSetDef, map.ParentFaction);
-            foreach (var crate in map.listerThings.ThingsOfDef(ThingDefOf.AncientHermeticCrate).OfType<Building_Crate>())
+            MakeAllCratesANew(map);
+        }
+
+        public static void MakeAllCratesANew(Map map)
+        {
+            foreach (var crate in map.listerThings.AllThings.OfType<Building_Crate>())
             {
                 crate.innerContainer.ClearAndDestroyContents();
                 var loot = ThingSetMakerDefOf.MapGen_HighValueCrate.root.Generate();
                 foreach (var l in loot) crate.TryAcceptThing(l);
+                crate.contentsKnown = false;
+                var comp = crate.GetComp<CompHackable>();
+                if (comp != null && comp.hacked)
+                {
+                    comp.hacked = false;
+                    comp.progress = 0;
+                    comp.sentLetter = false;
+                }
             }
         }
     }

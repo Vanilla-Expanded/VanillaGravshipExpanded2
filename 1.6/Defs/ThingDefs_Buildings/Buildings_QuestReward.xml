@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <ThingDef ParentName="VGE_GravshipArtillerySmallBase">
-        <defName>VGE_AtrofireLauncher</defName>
+        <defName>VGE_AstrofireLauncher</defName>
         <label>astrofire launcher</label>
         <description>A compact multi-tube missile platform that shoots a volley of four rapid missiles that explode and carry a payload of astrofuel, setting the area hit on astrofire. Meant for fast, hard-hitting strikes against exposed gravships and unarmored surface forces. Requires a linked targeting terminal with an operator to function. It draws power directly from the grav engine.</description>
         <thingClass>VanillaGravshipExpanded.Building_JavelinPod</thingClass>
@@ -159,5 +159,148 @@
                 <scaleRange>1.5~3</scaleRange>
             </li>
         </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>VGE_GravlaunchCloaker</defName>
+        <label>gravlaunch cloaker</label>
+        <description>A specialized device that masks the energy signature of a gravship launch, reducing the impact the gravship launch has on other inhabitants of the planet, making it less likely that the gravship will be detected.\n\nA gravship can support two gravlaunch cloakers.</description>
+        <graphicData>
+            <texPath>Things/Structures/Misc/GravlaunchCloaker/GravlaunchCloaker</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>250</MaxHitPoints>
+            <WorkToBuild>6000</WorkToBuild>
+            <Mass>50</Mass>
+            <Flammability>0.6</Flammability>
+            <Beauty>-5</Beauty>
+        </statBases>
+        <size>(2,2)</size>
+        <rotatable>true</rotatable>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+        <costList>
+            <Steel>50</Steel>
+            <GravlitePanel>60</GravlitePanel>
+            <ComponentIndustrial>6</ComponentIndustrial>
+            <ComponentSpacer>4</ComponentSpacer>
+        </costList>
+        <comps>
+            <li Class="CompProperties_GravshipFacility">
+                <requiresLOS>false</requiresLOS>
+                <maxSimultaneous>2</maxSimultaneous>
+                <maxDistance>500</maxDistance>
+                <statOffsets>
+                    <VGE_GravshipVisibilityFactor>-0.15</VGE_GravshipVisibilityFactor>
+                </statOffsets>
+            </li>
+        </comps>
+        <tradeTags>
+            <li>GravshipUpgrade</li>
+        </tradeTags>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+                <replacementBuilding>VGE_DestroyedGravlunchCloaker</replacementBuilding>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>VGE_Warcomputer</defName>
+        <label>warcomputer</label>
+        <description>The tactical supercomputer core of a gravship. It enhances the weapons and defenses of the gravship: it makes gauss artillery more accurate, javelin missiles fire faster, anticraft beam weaponry fire longer bursts, and point defense turrets intercept projectiles at greater distances. It draws power directly from the grav engine.</description>
+        <graphicData>
+            <texPath>Things/Structures/Misc/Warcomputer</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(4,4)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>800</MaxHitPoints>
+            <Mass>80</Mass>
+            <Flammability>0.6</Flammability>
+            <Beauty>-5</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <costList>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>60</GravlitePanel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Steel>90</Steel>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>4</glowRadius>
+                <glowColor>(0, 218, 255, 0)</glowColor>
+            </li>
+            <li Class="CompProperties_GravshipFacility">
+                <requiresLOS>false</requiresLOS>
+                <maxSimultaneous>1</maxSimultaneous>
+                <maxDistance>500</maxDistance>
+            </li>
+        </comps>
+        <tradeTags>
+            <li>GravshipUpgrade</li>
+        </tradeTags>
+    </ThingDef>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>VGE_GravFieldDilutor</defName>
+        <label>grav field dilutor</label>
+        <description>An advanced ultratech device that dramatically increases the size of a gravship but makes the gravity field slightly weaker, resulting in a decrease to the amount of substructure that can be built. Must be built near a grav engine.\n\nA gravship can support only one grav field dilutor.</description>
+        <graphicData>
+            <texPath>Things/Structures/Misc/GravfieldDilutor</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(5,5)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>800</MaxHitPoints>
+            <Mass>65</Mass>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(5,5)</size>
+        <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>14</pathCost>
+        <rotatable>false</rotatable>
+        <costList>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>100</GravlitePanel>
+            <ComponentSpacer>6</ComponentSpacer>
+            <Steel>200</Steel>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>9</glowRadius>
+                <glowColor>(0, 218, 255, 0)</glowColor>
+            </li>
+            <li Class="CompProperties_SubstructureFootprint">
+                <radius>36.9</radius>
+            </li>
+            <li Class="CompProperties_GravshipFacility">
+                <requiresLOS>false</requiresLOS>
+                <maxSimultaneous>1</maxSimultaneous>
+                <maxDistance>36.9</maxDistance>
+                <statOffsets>
+                    <SubstructureSupport>-250</SubstructureSupport>
+                </statOffsets>
+            </li>
+        </comps>
+        <placeWorkers>
+            <li>PlaceWorker_InRangeOfGravEngine</li>
+        </placeWorkers>
+        <tradeTags>
+            <li>GravshipUpgrade</li>
+        </tradeTags>
     </ThingDef>
 </Defs>

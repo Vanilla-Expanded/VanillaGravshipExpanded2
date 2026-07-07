@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="GravEngine" or defName="VGE_GravjumperEngine" or defName="VGE_GravhulkEngine"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+    <value>
+      <li>VGE_GravlaunchCloaker</li>
+      <li>VGE_Warcomputer</li>
+      <li>VGE_GravFieldDilutor</li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingSetMakerDef[defName="Reward_GravshipUpgrade"]/root/options</xpath>
+    <value>
+      <li>
+        <weight>1</weight>
+        <thingSetMaker Class="ThingSetMaker_StackCount">
+          <fixedParams>
+            <filter>
+              <thingDefs>
+                <li>VGE_GravlaunchCloaker</li>
+              </thingDefs>
+            </filter>
+            <countRange>1</countRange>
+          </fixedParams>
+        </thingSetMaker>
+      </li>
+      <li>
+        <weight>1</weight>
+        <thingSetMaker Class="ThingSetMaker_StackCount">
+          <fixedParams>
+            <filter>
+              <thingDefs>
+                <li>VGE_AstrofireLauncher</li>
+              </thingDefs>
+            </filter>
+            <countRange>1</countRange>
+          </fixedParams>
+        </thingSetMaker>
+      </li>
+      <li>
+        <weight>1</weight>
+        <thingSetMaker Class="ThingSetMaker_StackCount">
+          <fixedParams>
+            <filter>
+              <thingDefs>
+                <li>VGE_Warcomputer</li>
+              </thingDefs>
+            </filter>
+            <countRange>1</countRange>
+          </fixedParams>
+        </thingSetMaker>
+      </li>
+      <li>
+        <weight>1</weight>
+        <thingSetMaker Class="ThingSetMaker_StackCount">
+          <fixedParams>
+            <filter>
+              <thingDefs>
+                <li>VGE_GravFieldDilutor</li>
+              </thingDefs>
+            </filter>
+            <countRange>1</countRange>
+          </fixedParams>
+        </thingSetMaker>
+      </li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingSetMakerDef[defName="Reward_AncientSealedContainer"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_Count"]/fixedParams/filter/thingDefs</xpath>
+    <value>
+      <li>VGE_GravlaunchCloaker</li>
+      <li>VGE_AstrofireLauncher</li>
+      <li>VGE_Warcomputer</li>
+      <li>VGE_GravFieldDilutor</li>
+    </value>
+  </Operation>
+</Patch>

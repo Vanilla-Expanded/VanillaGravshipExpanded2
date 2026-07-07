@@ -68,11 +68,12 @@
         <label>active warplatform</label>
         <description>An ancient, autonomous orbital platform currently bombarding your gravship. The platform is controlled by a hostile warcomputer that must be neutralized to stop the bombardment.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
         <worldObjectClass>VanillaGravshipExpanded2.MapParent_WarPlatform</worldObjectClass>
-        <mapGenerator>VGE_ActiveWarplatformMap</mapGenerator>
+        <expandingIconTexture>UI/MapIcons/VGE_Warplatform</expandingIconTexture>
+        <mapGenerator>VGE_ActiveWarplatform</mapGenerator>
     </WorldObjectDef>
 
     <MapGeneratorDef ParentName="SpaceMapGenerator">
-        <defName>VGE_ActiveWarplatformMap</defName>
+        <defName>VGE_ActiveWarplatform</defName>
         <label>active warplatform</label>
         <genSteps>
             <li>VGE_Warplatform</li>
@@ -91,14 +92,14 @@
         <defName>VGE_GravshipHusk</defName>
         <label>gravship husk</label>
         <description>A derelict gravship husk, severely ravaged by countless years adrift in space. Its skeletal frame is all that remains, but its tough structure still holds fragments of twisted metals and components that can be salvaged.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
-        <mapGenerator>VGE_GravshipHuskMap</mapGenerator>
-        <expandingIconTexture>World/WorldObjects/Expanding/GravshipHusk</expandingIconTexture>
+        <mapGenerator>VGE_GravshipHusk</mapGenerator>
+        <expandingIconTexture>UI/MapIcons/VGE_GravshipHusk</expandingIconTexture>
         <overrideMapSize>(250,1,250)</overrideMapSize>
         <nameMaker>VGE_NamerWorldObject_GravshipHusk</nameMaker>
     </WorldObjectDef>
 
     <MapGeneratorDef ParentName="SpaceMapGenerator">
-        <defName>VGE_GravshipHuskMap</defName>
+        <defName>VGE_GravshipHusk</defName>
         <label>gravship husk</label>
         <genSteps>
             <li>VGE_GravshipHusk</li>
@@ -141,7 +142,7 @@
         <workerClass>SitePartWorker_PreciousLump</workerClass>
         <description>An impact site of a vacstone meteor.</description>
         <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
-        <expandingIconTexture>UI/MapIcons/VacstoneMeteor</expandingIconTexture>
+        <expandingIconTexture>UI/MapIcons/VGE_VacstoneMeteor</expandingIconTexture>
         <forceExitAndRemoveMapCountdownDurationDays>11</forceExitAndRemoveMapCountdownDurationDays>
         <mainPartAllThreatsLabel>Hostile activity detected.</mainPartAllThreatsLabel>
         <gravShipsCanLandOn>true</gravShipsCanLandOn>
@@ -163,14 +164,65 @@
         <defName>VGE_DormantWarplatform</defName>
         <label>dormant warplatform</label>
         <description>A dormant, heavily armed satellite platform floating in orbit. Long-range scans detect an array of gauss bombards controlled by a central warcomputer. The defenses will activate and immediately engage any incoming ships upon arrival.\n\nBreaching the installation will require fighting through automated turrets and sentry drones, but destroying or hacking the warcomputer will disable the anti-ship bombards.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
-        <mapGenerator>VGE_DormantWarplatformMap</mapGenerator>
+        <mapGenerator>VGE_DormantWarplatform</mapGenerator>
+        <expandingIconTexture>UI/MapIcons/VGE_DormantWarplatform</expandingIconTexture>
     </WorldObjectDef>
 
     <MapGeneratorDef ParentName="SpaceMapGenerator">
-        <defName>VGE_DormantWarplatformMap</defName>
+        <defName>VGE_DormantWarplatform</defName>
         <label>dormant warplatform</label>
         <genSteps>
             <li>VGE_Warplatform</li>
         </genSteps>
     </MapGeneratorDef>
+
+    <WorldObjectDef ParentName="SpaceBase">
+        <defName>VGE_DerelictGravship</defName>
+        <label>derelict gravship</label>
+        <description>An immense, derelict gravship drifting silently in the void. Its machinery is broken, and its hull is vented to vacuum, but the sheer size of the wreck means valuable salvage is everywhere.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <worldObjectClass>VanillaGravshipExpanded2.MapParent_DerelictGravship</worldObjectClass>
+        <expandingIconTexture>UI/MapIcons/VGE_DerelictGravship</expandingIconTexture>
+        <mapGenerator>VGE_DerelictGravship</mapGenerator>
+    </WorldObjectDef>
+
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>VGE_DerelictGravship</defName>
+        <label>derelict gravship</label>
+        <genSteps>
+            <li>VGE_DerelictGravship</li>
+        </genSteps>
+    </MapGeneratorDef>
+
+    <GenStepDef>
+        <defName>VGE_DerelictGravship</defName>
+        <order>200</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_DerelictGravship">
+            <structureSetDef>VGE_DerelictGravshipSet</structureSetDef>
+        </genStep>
+    </GenStepDef>
+
+    <WorldObjectDef ParentName="SpaceBase">
+        <defName>VGE_GravshipGraveyard</defName>
+        <label>gravship graveyard</label>
+        <description>A massive field of debris containing a gravcore.</description>
+        <mapGenerator>VGE_GravshipGraveyard</mapGenerator>
+        <expandingIconTexture>UI/MapIcons/VGE_DerelictGravship</expandingIconTexture>
+        <overrideMapSize>(250,1,250)</overrideMapSize>
+    </WorldObjectDef>
+
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>VGE_GravshipGraveyard</defName>
+        <label>gravship graveyard</label>
+        <genSteps>
+            <li>VGE_GravshipGraveyard</li>
+        </genSteps>
+    </MapGeneratorDef>
+
+    <GenStepDef>
+        <defName>VGE_GravshipGraveyard</defName>
+        <order>200</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_GravshipGraveyard">
+            <structureSetDef>VGE_GravshipGraveyardSet</structureSetDef>
+        </genStep>
+    </GenStepDef>
 </Defs>

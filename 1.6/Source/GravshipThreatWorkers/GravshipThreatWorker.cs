@@ -95,6 +95,9 @@ namespace VanillaGravshipExpanded2
             LongEventHandler.QueueLongEvent(delegate
             {
                 MapGenerator.GenerateMap(new IntVec3(def.mapSize, 1, def.mapSize), warplatform, warplatform.MapGeneratorDef);
+                Find.LetterStack.ReceiveLetter(def.arrivalLetterLabel, def.arrivalLetterDesc.Formatted(engine.RenamableLabel), LetterDefOf.ThreatBig, new LookTargets(warplatform));
+                CameraJumper.TryJump(new GlobalTargetInfo(warplatform.Map.Center, warplatform.Map));
+                Find.CameraDriver.SetRootPosAndSize(warplatform.Map.Center.ToVector3(), 60f);
             }, "GeneratingMap", doAsynchronously: true, GameAndMapInitExceptionHandlers.ErrorWhileGeneratingMap);
         }
 

@@ -12,6 +12,8 @@ namespace VanillaGravshipExpanded2
         public List<ThingDef> allowedEngineDefs;
         public string letterLabel;
         public string letterDesc;
+        public string arrivalLetterLabel;
+        public string arrivalLetterDesc;
         public int baseCountdownHours;
         public int jammerExtensionHours;
         public float escapeMidBattleVisibilityLoss;

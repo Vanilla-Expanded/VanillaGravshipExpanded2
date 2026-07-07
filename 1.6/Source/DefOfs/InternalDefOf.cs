@@ -27,7 +27,6 @@ namespace VanillaGravshipExpanded2
         public static PawnKindDef VGE_Exopede;
         public static PawnKindDef VGE_Exoleech;
         public static PawnKindDef VGE_Exoworm;
-
         public static SoundDef VEG_InsectoidTurretTargetAcquired;
 
 		public static TerrainDef VGE_GravshipSubarmor;
@@ -43,10 +42,18 @@ namespace VanillaGravshipExpanded2
 		public static ThingDef VGE_GravshipArmor;
 		public static SoundDef Hive_Spawn;
 		public static ThingDef VGE_EnemyGravjumperEngine;
-		public static ThingDef VGE_EnemyGravEngine;
-		public static ThingDef VGE_EnemyGravhulkEngine;
-		public static ThingDef VGE_EnemyGravlockTether;
-		public static ThingDef VGE_WarpodLeaving;
+        public static ThingDef VGE_EnemyGravEngine;
+        public static ThingDef VGE_EnemyGravhulkEngine;
+        public static ThingDef VGE_EnemyGravlockTether;
+        public static ThingDef VGE_Warcomputer;
+        public static ThingDef VGE_GaussGun;
+        public static ThingDef VGE_GaussHowitzer;
+        public static ThingDef VGE_JavelinPod;
+        public static ThingDef VGE_JavelinLauncher;
+        public static ThingDef VGE_AnticraftCaster;
+        public static ThingDef VGE_AnticraftEmitter;
+        public static ThingDef VGE_AncientGravmine;
+  		public static ThingDef VGE_WarpodLeaving;
 		public static ThingDef VGE_WarpodIncoming;
 		public static WorldObjectDef VGE_TravellingWarpod;
 		public static ThingDef VGE_GravshipBlackBox;

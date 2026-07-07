@@ -65,4 +65,8 @@
 	<VGE_AncientSignalJammerWarpodBlocked>Can't launch: Ancient signal jammer is preventing launch. Find and destroy it in order to launch the warpod.</VGE_AncientSignalJammerWarpodBlocked>
 	<VGE_AncientSignalJammerCommsBlocked>Active signal jammer prevents communication.</VGE_AncientSignalJammerCommsBlocked>
 	<VGE_AncientSignalJammerBlockedGeneric>Can't launch: Ancient signal jammer is preventing launch. Find and destroy it in order to launch the {0}.</VGE_AncientSignalJammerBlockedGeneric>
+	<VGE_ThreatDescription_Exoinsectoids>infested with a dangerous colony of exoinsectoids</VGE_ThreatDescription_Exoinsectoids>
+	<VGE_ThreatDescription_Mechanoids>occupied by a number of hostile mechanoids</VGE_ThreatDescription_Mechanoids>
+	<VGE_ThreatDescription_Drones>controlled by automated, ancient defensive drones, which are still active and aggressive</VGE_ThreatDescription_Drones>
+	<VGE_ThreatDescription_Pirates>being salvaged by a group of hostile pirates</VGE_ThreatDescription_Pirates>
 </LanguageData>

@@ -4,16 +4,16 @@
     <defName>VGE_WarplatformSet</defName>
     <structureLayouts>
       <li>
-        <pattern>VGE2_BombardmentPlatform_Warcomputer_[0-9]+</pattern>
-        <spawnPawns>
-          <Drone_Sentry>6~10</Drone_Sentry>
-        </spawnPawns>
-      </li>
-      <li>
         <pattern>VGE2_BombardmentPlatform_Wing_[0-9]+</pattern>
         <radialCount>4</radialCount>
         <radialDistance>15</radialDistance>
         <faceCenter>true</faceCenter>
+      </li>
+      <li>
+        <pattern>VGE2_BombardmentPlatform_Warcomputer_[0-9]+</pattern>
+        <spawnPawns>
+          <Drone_Sentry>6~10</Drone_Sentry>
+        </spawnPawns>
       </li>
     </structureLayouts>
   </VEF.Storyteller.StructureSetDef>
@@ -30,6 +30,46 @@
       <li>
         <pattern>VGE2_GravshipHusk(?:Large|Small)_[0-9]+</pattern>
         <count>4</count>
+        <scatter>true</scatter>
+        <randomRotated>true</randomRotated>
+      </li>
+    </structureLayouts>
+  </VEF.Storyteller.StructureSetDef>
+
+  <VEF.Storyteller.StructureSetDef>
+    <defName>VGE_DerelictGravshipSet</defName>
+    <structureLayouts>
+      <li>
+        <pattern>VGE2_DerelictGravship_Variant_[0-9]+</pattern>
+        <randomRotated>true</randomRotated>
+      </li>
+    </structureLayouts>
+  </VEF.Storyteller.StructureSetDef>
+
+  <VEF.Storyteller.StructureSetDef>
+    <defName>VGE_GravshipGraveyardSet</defName>
+    <structureLayouts>
+      <li>
+        <pattern>VGE2_DerelictGravship_Variant_[0-9]+</pattern>
+        <count>2</count>
+        <scatter>true</scatter>
+        <randomRotated>true</randomRotated>
+      </li>
+      <li>
+        <pattern>VGE2_GravshipHuskLarge_[0-9]+</pattern>
+        <count>10</count>
+        <scatter>true</scatter>
+        <randomRotated>true</randomRotated>
+      </li>
+      <li>
+        <pattern>VGE2_GravshipHuskSmall_[0-9]+</pattern>
+        <count>10~16</count>
+        <scatter>true</scatter>
+        <randomRotated>true</randomRotated>
+      </li>
+      <li>
+        <pattern>VGE2_DerelictGravship_Jammer_Variant_[0-9]+</pattern>
+        <count>1</count>
         <scatter>true</scatter>
         <randomRotated>true</randomRotated>
       </li>
