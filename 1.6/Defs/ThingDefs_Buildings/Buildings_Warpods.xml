@@ -64,7 +64,7 @@
       </li>
     </modExtensions>
     <researchPrerequisites>
-      <li>VGE_Warpods</li>
+      <li>VGE_AdvancedGravshipWeaponry</li>
     </researchPrerequisites>
   </ThingDef>
 
@@ -102,7 +102,7 @@
       </li>
     </comps>
     <researchPrerequisites>
-      <li>VGE_Warpods</li>
+      <li>VGE_AdvancedGravshipWeaponry</li>
     </researchPrerequisites>
   </ThingDef>
 
@@ -144,7 +144,7 @@
       </li>
     </comps>
     <researchPrerequisites>
-      <li>VGE_Warpods</li>
+      <li>VGE_AdvancedGravshipWeaponry</li>
     </researchPrerequisites>
   </ThingDef>
 
@@ -188,7 +188,7 @@
       </li>
     </modExtensions>
     <researchPrerequisites>
-      <li>VGE_Warpods</li>
+      <li>VGE_AdvancedGravshipWeaponry</li>
     </researchPrerequisites>
   </ThingDef>
 
@@ -228,7 +228,7 @@
       </li>
     </comps>
     <researchPrerequisites>
-      <li>VGE_Warpods</li>
+      <li>VGE_AdvancedGravshipWeaponry</li>
     </researchPrerequisites>
   </ThingDef>
 

@@ -132,7 +132,7 @@
 		</costList>
 		<researchPrerequisites>
 			<li>MultibarrelWeapons</li>
-			<li>VGE_AdvancedGravshipWeaponry</li>
+			<li>VGE_GravshipDefenses</li>
 		</researchPrerequisites>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -208,7 +208,7 @@
 		</costList>
 		<researchPrerequisites>
 			<li>HeavyTurrets</li>
-			<li>VGE_AdvancedGravshipWeaponry</li>
+			<li>VGE_GravshipDefenses</li>
 		</researchPrerequisites>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -304,7 +304,7 @@
 		</statBases>
 		<researchPrerequisites>
 			<li>SniperTurret</li>
-			<li>VGE_AdvancedGravshipWeaponry</li>
+			<li>VGE_GravshipDefenses</li>
 		</researchPrerequisites>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -776,7 +776,7 @@
 		</costList>
 		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
 		<researchPrerequisites>
-			<li>VGE_Warpods</li>
+			<li>VGE_GravshipDefenses</li>
 		</researchPrerequisites>
 		<building>
 			<isTrap>true</isTrap>
