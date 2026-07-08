@@ -201,25 +201,18 @@
         </genStep>
     </GenStepDef>
 
-    <WorldObjectDef ParentName="SpaceBase">
+    <SitePartDef ParentName="SpaceGravcoreLocationBase">
         <defName>VGE_GravshipGraveyard</defName>
         <label>gravship graveyard</label>
         <description>A massive field of debris containing a gravcore.</description>
-        <mapGenerator>VGE_GravshipGraveyard</mapGenerator>
-        <expandingIconTexture>UI/MapIcons/VGE_DerelictGravship</expandingIconTexture>
-        <overrideMapSize>(250,1,250)</overrideMapSize>
-    </WorldObjectDef>
-
-    <MapGeneratorDef ParentName="SpaceMapGenerator">
-        <defName>VGE_GravshipGraveyard</defName>
-        <label>gravship graveyard</label>
-        <genSteps>
+        <tags>
             <li>VGE_GravshipGraveyard</li>
-        </genSteps>
-    </MapGeneratorDef>
+        </tags>
+    </SitePartDef>
 
     <GenStepDef>
         <defName>VGE_GravshipGraveyard</defName>
+        <linkWithSite>VGE_GravshipGraveyard</linkWithSite>
         <order>200</order>
         <genStep Class="VanillaGravshipExpanded2.GenStep_GravshipGraveyard">
             <structureSetDef>VGE_GravshipGraveyardSet</structureSetDef>

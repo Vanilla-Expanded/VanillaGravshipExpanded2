@@ -256,7 +256,7 @@
                 <transmitsPower>true</transmitsPower>
             </li>
         </comps>
-		<modExtensions>
+        <modExtensions>
             <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
                 <replacementBuilding>VGE_DestroyedGravlockTether</replacementBuilding>
             </li>
@@ -1284,7 +1284,7 @@
                 <warmupPulseFadeOutTime>1</warmupPulseFadeOutTime>
             </li>
         </comps>
-		
+
     </ThingDef>
 
     <ThingDef ParentName="VGE_EnemyPropBase">
@@ -1533,6 +1533,11 @@
             <li Class="CompProperties_Glower">
                 <glowRadius>5</glowRadius>
                 <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+            <li Class="CompProperties_LetterOnRevealed">
+                <label>Ancient signal jammer</label>
+                <text>You detect an energy signature of a signal jammer nearby. Destroy it to obtain a valuable gravcore.</text>
+                <letterDef>NeutralEvent</letterDef>
             </li>
         </comps>
     </ThingDef>

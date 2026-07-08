@@ -211,17 +211,11 @@
 	</QuestScriptDef>
 
 	<QuestScriptDef>
-		<defName>VGE_OpportunitySite_GravshipGraveyard</defName>
-		<randomlySelectable>true</randomlySelectable>
-		<givenBy>
-			<li>OrbitalScanner</li>
-		</givenBy>
-		<rootSelectionWeight>1</rootSelectionWeight>
-		<isRootSpecial>true</isRootSpecial>
+		<defName>VGE_GravshipGraveyard</defName>
 		<autoAccept>true</autoAccept>
 		<questNameRules>
 			<rulesStrings>
-				<li>questName->Gravship graveyard</li>
+				<li>questName->gravship graveyard</li>
 			</rulesStrings>
 		</questNameRules>
 		<questDescriptionRules>
@@ -229,14 +223,14 @@
 				<li>questDescription->You have detected the distinct energy signature of a gravcore emanating from a massive field of debris: a gravship graveyard. You know that when you arrive, your navigation systems will be locked. An ancient signal jammer is active within the debris field, preventing your gravship from initiating the launch. You must navigate through the field of unstable ancient gravmines, locate the source of the jamming, and neutralize it to escape.\n\nBe careful, orbital locations are extremely dangerous. Equip your colonists with vacsuits. Plan your return trip, as living in orbit for long periods is very difficult.</li>
 			</rulesStrings>
 		</questDescriptionRules>
+		<questAvailableLetterLabel>Gravcore detected: Gravship graveyard</questAvailableLetterLabel>
+		<questAvailableLetterTextIsDescription>true</questAvailableLetterTextIsDescription>
 		<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
-		<root Class="QuestNode_Sequence">
-			<nodes>
-				<li Class="QuestNode_Root_Asteroid">
-					<layerDef>Orbit</layerDef>
-					<worldObjectDef>VGE_GravshipGraveyard</worldObjectDef>
-				</li>
-			</nodes>
+		<root Class="VanillaGravshipExpanded2.QuestNode_Root_Gravcore_GravshipGraveyard">
+			<distanceFromColonyRange>2~8</distanceFromColonyRange>			<!-- distance is in on the orbital layer tiles -->
+			<selectLandmarkChance>0</selectLandmarkChance>
+			<requiredSubquestsGiven>8</requiredSubquestsGiven>
+			<layer>Orbit</layer>
 		</root>
 	</QuestScriptDef>
 </Defs>

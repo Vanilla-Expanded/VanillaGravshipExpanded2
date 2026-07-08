@@ -1,5 +1,6 @@
 using HarmonyLib;
 using RimWorld;
+using Verse;
 
 namespace VanillaGravshipExpanded2
 {
@@ -8,10 +9,13 @@ namespace VanillaGravshipExpanded2
     {
         public static void Postfix(Building_TurretGun __instance)
         {
-            if (__instance.Faction == Faction.OfPlayer)
+            LongEventHandler.ExecuteWhenFinished(delegate
             {
-                __instance.ApplyForcedMissRadiusBuffs();
-            }
+                if (__instance.Faction == Faction.OfPlayer)
+                {
+                    __instance.ApplyForcedMissRadiusBuffs();
+                }
+            });
         }
     }
 }

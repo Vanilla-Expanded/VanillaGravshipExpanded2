@@ -202,6 +202,10 @@
         <tradeTags>
             <li>GravshipUpgrade</li>
         </tradeTags>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
+        <minifiedDef>MinifiedThing</minifiedDef>
         <modExtensions>
             <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
                 <replacementBuilding>VGE_DestroyedGravlunchCloaker</replacementBuilding>
@@ -250,6 +254,10 @@
         <tradeTags>
             <li>GravshipUpgrade</li>
         </tradeTags>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
+        <minifiedDef>MinifiedThing</minifiedDef>
     </ThingDef>
 
     <ThingDef ParentName="BuildingBase">
@@ -302,5 +310,9 @@
         <tradeTags>
             <li>GravshipUpgrade</li>
         </tradeTags>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
+        <minifiedDef>MinifiedThing</minifiedDef>
     </ThingDef>
 </Defs>

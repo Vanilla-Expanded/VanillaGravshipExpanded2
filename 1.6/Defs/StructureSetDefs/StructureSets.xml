@@ -50,6 +50,13 @@
     <defName>VGE_GravshipGraveyardSet</defName>
     <structureLayouts>
       <li>
+        <pattern>VGE2_DerelictGravship_Jammer_Variant_[0-9]+</pattern>
+        <count>1</count>
+        <scatter>true</scatter>
+        <randomRotated>true</randomRotated>
+        <putAnywhere>true</putAnywhere>
+      </li>
+      <li>
         <pattern>VGE2_DerelictGravship_Variant_[0-9]+</pattern>
         <count>2</count>
         <scatter>true</scatter>
@@ -64,12 +71,6 @@
       <li>
         <pattern>VGE2_GravshipHuskSmall_[0-9]+</pattern>
         <count>10~16</count>
-        <scatter>true</scatter>
-        <randomRotated>true</randomRotated>
-      </li>
-      <li>
-        <pattern>VGE2_DerelictGravship_Jammer_Variant_[0-9]+</pattern>
-        <count>1</count>
         <scatter>true</scatter>
         <randomRotated>true</randomRotated>
       </li>
