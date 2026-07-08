@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="VGE_Astropurifier"]</xpath>
+    <value>
+      <designationCategory>VGE_Fuel</designationCategory>
+      <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+      <researchPrerequisites>
+        <li>VGE_AstrofuelRefining</li>
+      </researchPrerequisites>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="VGE_Astropurifier"]/statBases</xpath>
+    <value>
+      <WorkToBuild>9600</WorkToBuild>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="FuelOptimizer"]</xpath>
+    <value>
+      <designationCategory>VGE_Fuel</designationCategory>
+      <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+      <researchPrerequisites>
+        <li>VGE_AstrofuelRefining</li>
+      </researchPrerequisites>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="FuelOptimizer"]/statBases</xpath>
+    <value>
+      <WorkToBuild>8000</WorkToBuild>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="VGE_OxygenReclaimer"]</xpath>
+    <value>
+      <designationCategory>VGE_Vacuum</designationCategory>
+      <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+      <researchPrerequisites>
+        <li>VGE_AdvancedOrbitalTech</li>
+      </researchPrerequisites>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VGE_OxygenReclaimer"]/statBases/WorkToBuild</xpath>
+    <value>
+      <WorkToBuild>9000</WorkToBuild>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="VGE_Gravlift"]</xpath>
+    <value>
+      <designationCategory>VGE_Platform</designationCategory>
+      <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+      <researchPrerequisites>
+        <li>VGE_AdvancedOrbitalTech</li>
+      </researchPrerequisites>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="VGE_Gravlift"]/statBases</xpath>
+    <value>
+      <WorkToBuild>7000</WorkToBuild>
+    </value>
+  </Operation>
+</Patch>
