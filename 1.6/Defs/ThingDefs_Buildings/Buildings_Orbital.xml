@@ -18,7 +18,7 @@
     <passability>Impassable</passability>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>1.0</fillPercent>
-    <designationCategory>Misc</designationCategory>
+    <designationCategory>VGE_Fuel</designationCategory>
     <uiOrder>2200</uiOrder>
     <canOverlapZones>false</canOverlapZones>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
