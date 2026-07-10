@@ -32,8 +32,9 @@
 		</researchPrerequisites>
 		<comps>
 			<li Class="VanillaGravshipExpanded2.CompProperties_ElectricThruster">
-				<rangeCapacityOverride>-1</rangeCapacityOverride>
-				<!-- Use range from thruster offsets, don't override capacity. -->
+				<rangeCapacityOverride>-1</rangeCapacityOverride> <!-- Use range from thruster offsets, don't override capacity (-1 is default) -->
+        <chargePercentRequiredToUse>1</chargePercentRequiredToUse> <!-- Require full charge to work (1 is default) -->
+        <providesFuel>true</providesFuel>
 				<statOffsets>
 					<GravshipRange>6</GravshipRange>
 				</statOffsets>
@@ -133,6 +134,7 @@
 		</researchPrerequisites>
 		<comps>
 			<li Class="VanillaGravshipExpanded2.CompProperties_ElectricThruster">
+        <providesFuel>true</providesFuel>
 				<statOffsets>
 					<GravshipRange>10</GravshipRange>
 				</statOffsets>
@@ -232,6 +234,7 @@
 		</researchPrerequisites>
 		<comps>
 			<li Class="VanillaGravshipExpanded2.CompProperties_ElectricThruster">
+        <providesFuel>true</providesFuel>
 				<statOffsets>
 					<GravshipRange>20</GravshipRange>
 				</statOffsets>

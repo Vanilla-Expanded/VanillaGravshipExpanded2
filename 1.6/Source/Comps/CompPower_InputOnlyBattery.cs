@@ -114,13 +114,18 @@ public class CompPower_InputOnlyBattery : CompPower
         {
             yield return new Command_Action
             {
-                defaultLabel = "DEV: Fill",
-                action = () => SetStoredEnergyPct(1f),
+                defaultLabel = "DEV: Empty",
+                action = () => SetStoredEnergyPct(0f),
             };
             yield return new Command_Action
             {
-                defaultLabel = "DEV: Empty",
-                action = () => SetStoredEnergyPct(0f),
+                defaultLabel = "DEV: -20% charge",
+                action = () => DrawPower(Mathf.Min(Props.storedEnergyMax * 0.2f, StoredEnergy)),
+            };
+            yield return new Command_Action
+            {
+                defaultLabel = "DEV: Fill",
+                action = () => SetStoredEnergyPct(1f),
             };
         }
     }
