@@ -42,6 +42,7 @@
       <xpath>Defs/ThingDef[defName="GravEngine"]/statBases</xpath>
       <value>
         <VGE_GravshipVisibilityFactor>1</VGE_GravshipVisibilityFactor>
+        <VGE_GravshipLaunchVisibilityOffset>0</VGE_GravshipLaunchVisibilityOffset>
       </value>
     </match>
     <nomatch Class="PatchOperationAdd">
@@ -49,6 +50,7 @@
       <value>
         <statBases>
           <VGE_GravshipVisibilityFactor>1</VGE_GravshipVisibilityFactor>
+          <VGE_GravshipLaunchVisibilityOffset>0</VGE_GravshipLaunchVisibilityOffset>
         </statBases>
       </value>
     </nomatch>

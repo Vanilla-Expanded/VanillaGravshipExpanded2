@@ -37,6 +37,7 @@
         <providesFuel>true</providesFuel>
 				<statOffsets>
 					<GravshipRange>6</GravshipRange>
+          <VGE_GravshipLaunchVisibilityOffset>-0.015</VGE_GravshipLaunchVisibilityOffset>
 				</statOffsets>
 				<componentTypeDef>Thruster</componentTypeDef>
 				<exclusionAreaSize>(1, 0, 5)</exclusionAreaSize>
@@ -137,6 +138,7 @@
         <providesFuel>true</providesFuel>
 				<statOffsets>
 					<GravshipRange>10</GravshipRange>
+          <VGE_GravshipLaunchVisibilityOffset>-0.025</VGE_GravshipLaunchVisibilityOffset>
 				</statOffsets>
 				<componentTypeDef>Thruster</componentTypeDef>
 				<exclusionAreaSize>(2, 0, 7)</exclusionAreaSize>
@@ -237,6 +239,7 @@
         <providesFuel>true</providesFuel>
 				<statOffsets>
 					<GravshipRange>20</GravshipRange>
+          <VGE_GravshipLaunchVisibilityOffset>-0.05</VGE_GravshipLaunchVisibilityOffset>
 				</statOffsets>
 				<componentTypeDef>Thruster</componentTypeDef>
 				<exclusionAreaSize>(3, 0, 9)</exclusionAreaSize>

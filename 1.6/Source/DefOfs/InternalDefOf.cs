@@ -39,6 +39,7 @@ namespace VanillaGravshipExpanded2
 		public static SoundDef OrbitalTargeter_Fire;
 		public static StatDef VGE_GravshipTargeting;
 		public static StatDef VGE_GravshipVisibilityFactor;
+		public static StatDef VGE_GravshipLaunchVisibilityOffset;
 		public static ThingDef VGE_GravshipArmor;
 		public static SoundDef Hive_Spawn;
 		public static ThingDef VGE_EnemyGravjumperEngine;

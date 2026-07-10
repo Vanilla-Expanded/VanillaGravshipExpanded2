@@ -72,11 +72,14 @@ namespace VanillaGravshipExpanded2
             }
         }
 
-        public void AddVisibility(float baseAmount)
+        public void AddVisibility(float baseAmount, bool isLaunch = false)
         {
             var engine = GetActiveGravEngine;
             if (engine == null) return;
             var factor = engine.GetStatValue(InternalDefOf.VGE_GravshipVisibilityFactor);
+            if (isLaunch)
+                factor += engine.GetStatValue(InternalDefOf.VGE_GravshipLaunchVisibilityOffset);
+
             visibility += baseAmount * factor;
             if (visibility >= 400000f && !warned400k)
             {
