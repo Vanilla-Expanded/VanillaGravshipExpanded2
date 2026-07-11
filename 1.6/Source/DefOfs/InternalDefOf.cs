@@ -73,5 +73,9 @@ namespace VanillaGravshipExpanded2
 		public static OrbitalDebrisDef VGE_GravshipDebris;
 		public static SitePartDef VGE_GravshipGraveyard;
 		public static HistoryAutoRecorderDef VGE_GravshipVisibilityRecorder;
+
+		public static ThingDef VGE_Apparel_DisposableOxygenPack;
+		public static ThingDef VGE_Apparel_Astrorig;
+		public static ThingDef VGE_OxygenCanister;
 	}
 }
