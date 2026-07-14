@@ -42,6 +42,10 @@
   <VGE_VacuumEmergencyLight_UnsafeVacuumSlider>Unsafe vacuum level: {0_percentage}</VGE_VacuumEmergencyLight_UnsafeVacuumSlider>
   <VGE_VacuumEmergencyLight_EvacuatePawns>Evacuate area when unsafe vacuum level reached</VGE_VacuumEmergencyLight_EvacuatePawns>
 
+  <!-- Fuel provider/electric thrusters -->
+  <VGE_FuelTab_ElectricThrusters>electric thrusters</VGE_FuelTab_ElectricThrusters>
+  <VGE_FuelTab_ChargedThrusters>charged thrusters</VGE_FuelTab_ChargedThrusters>
+
 	<VGE_HackWarcomputer>Hack enemy warcomputer to retrieve gravdata</VGE_HackWarcomputer>
 	<VGE_GravdataWillBeLostWarning>Gravdata obtained will be lost unless you select a gravtech research project.</VGE_GravdataWillBeLostWarning>
 	<VGE_WarcomputerHackedBlackBox>Hostile warcomputer hacked. {0} gravdata stored in the gravship black box.</VGE_WarcomputerHackedBlackBox>

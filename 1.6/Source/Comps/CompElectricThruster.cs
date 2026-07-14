@@ -118,4 +118,43 @@ public class CompElectricThruster : CompGravshipThruster, IGravshipFuelProvider
         battery.AddEnergy(canAccept);
         return canAccept;
     }
+
+    public FuelTabEntry GetFuelTabEntry(Building_GravEngine engine, List<CompGravshipThruster> activeThrusters, List<IGravshipFuelProvider> otherProviders)
+    {
+        var entry = new SimpleMultiLineTextEntry(engine)
+        {
+            title = "VGE_FuelTab_ElectricThrusters".Translate().CapitalizeFirst()
+        };
+
+        entry.fuelProviders.Add(ParentThing);
+        entry.thrusters.Add(ParentThing);
+        var maxRange = MaxRangeProvidedByFuel(engine, activeThrusters, null);
+        var currentRange = 0f;
+        var chargedThrusters = 0;
+        if (battery.StoredEnergyPct >= Props.chargePercentRequiredToUse)
+            chargedThrusters += 1;
+        if (IsActive(engine, activeThrusters, null))
+            currentRange += CurrentRangeProvidedByFuel(engine, activeThrusters, null);
+
+        otherProviders?.RemoveAll(x =>
+        {
+            if (x is not CompElectricThruster other)
+                return false;
+
+            entry.fuelProviders.Add(other.ParentThing);
+            entry.thrusters.Add(other.ParentThing);
+            maxRange += other.MaxRangeProvidedByFuel(engine, activeThrusters, null);
+            if (other.IsActive(engine, activeThrusters, null))
+                currentRange += other.CurrentRangeProvidedByFuel(engine, activeThrusters, null);
+            if (other.battery.StoredEnergyPct >= other.Props.chargePercentRequiredToUse)
+                chargedThrusters += 1;
+            return true;
+        });
+
+        // entry.text.Add($"{"VGE_FuelTab_Thrusters".Translate().CapitalizeFirst()}: {entry.thrusters.Count}");
+        entry.text.Add($"{"VGE_FuelTab_ChargedThrusters".Translate().CapitalizeFirst()}: {chargedThrusters}");
+        entry.text.Add($"{"VGE_FuelTab_Range".Translate().CapitalizeFirst()}: {currentRange} / {maxRange}");
+
+        return entry;
+    }
 }
