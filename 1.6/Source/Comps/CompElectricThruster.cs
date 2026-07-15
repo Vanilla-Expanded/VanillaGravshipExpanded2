@@ -99,11 +99,11 @@ public class CompElectricThruster : CompGravshipThruster, IGravshipFuelProvider
         return currentAmount;
     }
 
-    public float ConsumeFuelRatio(Building_GravEngine engine, float fuelConsumedRatio, List<CompGravshipThruster> activeThrusters, List<IGravshipFuelProvider> otherProviders)
+    public List<(IGravshipFuelProvider, float)> ConsumeFuelRatio(Building_GravEngine engine, float fuelConsumedRatio, List<CompGravshipThruster> activeThrusters, List<IGravshipFuelProvider> otherProviders)
     {
         var amountToConsume = battery.StoredEnergy * fuelConsumedRatio;
         battery.DrawPower(amountToConsume);
-        return amountToConsume;
+        return [(this, amountToConsume)];
     }
 
     public float AddFuelAmount(Building_GravEngine engine, float amount)
