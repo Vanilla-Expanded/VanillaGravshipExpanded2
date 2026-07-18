@@ -157,4 +157,27 @@ public class CompElectricThruster : CompGravshipThruster, IGravshipFuelProvider
 
         return entry;
     }
+
+    public (string report, float sortingOrder) GetFuelUsageReport(Building_GravEngine engine, float fuelConsumedRatio, List<CompGravshipThruster> activeThrusters, List<IGravshipFuelProvider> otherProviders)
+    {
+        if (!IsActive(engine, activeThrusters, otherProviders))
+            return (null, 0);
+
+        var currentCharge = battery.StoredEnergy;
+        var maxCharge = battery.Props.storedEnergyMax;
+
+        otherProviders?.RemoveAll(x =>
+        {
+            if (x is not CompElectricThruster other)
+                return false;
+
+            currentCharge += other.battery.StoredEnergy;
+            maxCharge += other.battery.Props.storedEnergyMax;
+            return true;
+        });
+
+        var usedCharge = currentCharge * fuelConsumedRatio;
+
+        return ($"{(usedCharge / maxCharge).ToStringPercent()} {"VGE_UsedCharge".Translate()}", usedCharge);
+    }
 }

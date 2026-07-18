@@ -45,6 +45,7 @@
   <!-- Fuel provider/electric thrusters -->
   <VGE_FuelTab_ElectricThrusters>electric thrusters</VGE_FuelTab_ElectricThrusters>
   <VGE_FuelTab_ChargedThrusters>charged thrusters</VGE_FuelTab_ChargedThrusters>
+  <VGE_UsedCharge>charge</VGE_UsedCharge>
 
 	<VGE_HackWarcomputer>Hack enemy warcomputer to retrieve gravdata</VGE_HackWarcomputer>
 	<VGE_GravdataWillBeLostWarning>Gravdata obtained will be lost unless you select a gravtech research project.</VGE_GravdataWillBeLostWarning>
