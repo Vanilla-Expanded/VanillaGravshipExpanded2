@@ -107,4 +107,21 @@
     </subSounds>
   </SoundDef>
 
+    <SoundDef>
+    <defName>VGE_GaussCannon_Fire</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Shots/GaussCannon_Shot_01a</clipPath>
+          </li>
+        </grains>
+        <volumeRange>60~70</volumeRange>
+        <pitchRange>0.8~1.05</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
 </Defs>

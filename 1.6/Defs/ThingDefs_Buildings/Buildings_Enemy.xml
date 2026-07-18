@@ -1541,4 +1541,117 @@
             </li>
         </comps>
     </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyArtilleryBase">
+        <defName>VGE_EnemyGaussCannon</defName>
+        <label>enemy gauss cannon</label>
+        <description>A massive, single-barrel anti-ship cannon that uses powerful electromagnets to launch large metallic darts at extreme velocities. While formidable, ships equipped with ultratech signal jammers can temporarily paralyze its targeting systems, rendering it unable to fire during the disruption.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <uiIconPath>Things/Enemy/EnemyGaussCannon/EnemyGaussCannon_MenuIcon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Giant</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(9,9)</drawSize>
+        </graphicData>
+        <size>(9,9)</size>
+        <statBases>
+            <MaxHitPoints>4000</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <Beauty>-100</Beauty>
+            <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+        </statBases>
+        <passability>Impassable</passability>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <building>
+            <turretGunDef>VGE_Gun_EnemyGaussCannon</turretGunDef>
+            <turretBurstCooldownTime>60</turretBurstCooldownTime>
+            <turretBurstWarmupTime>20</turretBurstWarmupTime>
+            <turretTopDrawSize>15</turretTopDrawSize>
+            <turretTopOffset>(0, 2)</turretTopOffset>
+        </building>
+        <costList>
+            <Steel>700</Steel>
+            <GravlitePanel>200</GravlitePanel>
+            <ComponentIndustrial>30</ComponentIndustrial>
+            <ComponentSpacer>10</ComponentSpacer>
+        </costList>
+        <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>24</worldMapAttackRange>
+                <firingMode>SpaceToGround, SpaceToSpace, GroundToSpace, GroundToGround</firingMode>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>5</rotationSpeed>
+            </li>
+            <li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+                <barrels>
+                    <li>(0, 0, 5)</li>
+                </barrels>
+            </li>
+        </modExtensions>
+        <tickerType>Normal</tickerType>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_EnemyGaussCannon</defName>
+        <label>enemy gauss cannon</label>
+        <description>An incredibly powerful anti-ship gauss artillery mounted on an orbital station.</description>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyGaussCannon/EnemyGaussCannon_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawOffset>(0,0,2)</drawOffset>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithSmoke</verbClass>
+                <defaultProjectile>VGE_Bullet_GaussCannon</defaultProjectile>
+                <range>99999</range>
+                <minRange>25.0</minRange>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>VGE_GaussCannon_Fire</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>40</muzzleFlashScale>
+                <forcedMissRadius>22.0</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <consumeFuelPerShot>0</consumeFuelPerShot>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <isMortar>true</isMortar>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>VGE_Bullet_GaussCannon</defName>
+        <label>gauss cannon shot</label>
+        <graphicData>
+            <texPath>Things/Projectiles/GaussShot_Large</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+            <drawSize>(1,2)</drawSize>
+        </graphicData>
+        <thingClass>VanillaGravshipExpanded.Projectile_Gauss</thingClass>
+        <projectile>
+            <damageDef>Bomb</damageDef>
+            <damageAmountBase>250</damageAmountBase>
+            <armorPenetrationBase>0.95</armorPenetrationBase>
+            <speed>150</speed>
+            <explosionRadius>13.9</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <stoppingPower>5</stoppingPower>
+            <soundImpact>BulletImpact_Metal</soundImpact>
+            <soundExplode>Explosion_GiantBomb</soundExplode>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+            <preExplosionSpawnSingleThingDef>CraterMedium</preExplosionSpawnSingleThingDef>
+        </projectile>
+    </ThingDef>
+
 </Defs>
