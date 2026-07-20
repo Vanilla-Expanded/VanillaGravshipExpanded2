@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 	<ThingDef Name="VGE_GravshipExpandedChapterTwoBuildingBase" Abstract="true" ParentName="BuildingBase">
-		
+		<designationCategory>VGE_Designer</designationCategory>
+	</ThingDef>
+	
+	<ThingDef ParentName="LowTechCrateBase" Name="VGE_OrbitalStationLowTechCrateBase" Abstract="True">
+		<designationCategory>VGE_Designer</designationCategory>
 	</ThingDef>
 	
 	<ThingDef Name="VGE_GravshipExpandedChapterTwoDestroyedBuilding" Abstract="true" ParentName="BuildingBase">
