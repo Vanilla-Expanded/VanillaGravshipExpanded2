@@ -1,206 +1,356 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-  <ThingDef ParentName="LowTechCrateBase" Name="VGE_OrbitalStationLowTechCrateBase" Abstract="True">
-        <designationCategory>VGE_Designer</designationCategory>
-  </ThingDef>
-  
-  <ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
-    <defName>VGE_SpacerPallet_Medicine</defName>
-    <label>spacer medicine pallet</label>
-    <description>A pallet containing medical supplies. Can be looted to yield medicine.</description>
-    <size>(2, 2)</size>
-    <fillPercent>0.3</fillPercent>
-    <graphicData>
-      <texPath>Things/OrbitalStation/Lootable/SpacerPallet_Medicine</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2,2)</drawSize>
-    </graphicData>
-    <statBases>
-      <MaxHitPoints>100</MaxHitPoints>
-    </statBases>
-	  <rotatable>false</rotatable>
-    <comps>
-      <li Class="CompProperties_EmptyStateGraphic">
-        <graphicData>
-          <texPath>Things/Building/Ancient/OpenableContainers/AirdropPallet_Open</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(2,2)</drawSize>
-        </graphicData>
-      </li>
-      <li Class="CompProperties_LootSpawn">
-        <contents>Reward_Pallet_Medicine</contents>
-      </li>
-    </comps>
-  </ThingDef>
-  
-  <ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
-    <defName>VGE_SpacerPallet_SurvivalMeals</defName>
-    <label>spacer rations pallet</label>
-    <description>A pallet containing stacked rations. Can be looted to yield survival meals.</description>
-    <graphicData>
-      <texPath>Things/OrbitalStation/Lootable/SpacerPallet_SurvivalMeals</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2,2)</drawSize>
-    </graphicData>
-    <size>(2, 2)</size>
-    <fillPercent>0.3</fillPercent>
-    <statBases>
-      <MaxHitPoints>100</MaxHitPoints>
-    </statBases>
-    <rotatable>false</rotatable>
-    <comps>
-      <li Class="CompProperties_EmptyStateGraphic">
-        <graphicData>
-          <texPath>Things/Building/Ancient/OpenableContainers/AirdropPallet_Open</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(2,2)</drawSize>
-        </graphicData>
-      </li>
-      <li Class="CompProperties_LootSpawn">
-        <contents>Reward_Pallet_SurvivalMeals</contents>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
-    <defName>VGE_SpacerBox_ComponentIndustrial</defName>
-    <label>spacer component box</label>
-    <description>A spacer logistical box filled with valuable components. They’re intact and very usable.</description>
-    <graphicData>
-      <texPath>Things/OrbitalStation/Lootable/SpacerComponentBox_Close</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1,1)</drawSize>
-    </graphicData>
-    <size>(1, 1)</size>
-    <fillPercent>0.2</fillPercent>
-    <statBases>
-      <MaxHitPoints>50</MaxHitPoints>
-    </statBases>
-    <rotatable>false</rotatable>
-    <comps>
-      <li Class="CompProperties_EmptyStateGraphic">
-        <graphicData>
-          <texPath>Things/OrbitalStation/Lootable/SpacerComponentBox_Open</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(1,1)</drawSize>
-        </graphicData>
-      </li>
-      <li Class="CompProperties_LootSpawn">
-        <contents>Reward_AncientBox_ComponentIndustrial</contents>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
-    <defName>VGE_SpacerBox_ComponentSpacer</defName>
-    <label>spacer electronics box</label>
-    <description>A spacer logistical box filled with electronics and advanced components. Everything seems to work fine.</description>
-    <graphicData>
-      <texPath>Things/OrbitalStation/Lootable/SpacerElectronicsBox_Close</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1,1)</drawSize>
-    </graphicData>
-    <size>(1, 1)</size>
-    <fillPercent>0.2</fillPercent>
-    <statBases>
-      <MaxHitPoints>50</MaxHitPoints>
-    </statBases>
-    <rotatable>false</rotatable>
-    <comps>
-      <li Class="CompProperties_EmptyStateGraphic">
-        <graphicData>
-          <texPath>Things/OrbitalStation/Lootable/SpacerElectronicsBox_Open</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(1,1)</drawSize>
-        </graphicData>
-      </li>
-      <li Class="CompProperties_LootSpawn">
-        <contents>Reward_AncientBox_ComponentSpacer</contents>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
-    <defName>VGE_SpacerBox_Steel</defName>
-    <label>spacer steel box</label>
-    <description>A spacer logistical box filled with steel scrap. It's heavy but might contain some recoverable metal.</description>
-    <graphicData>
-      <texPath>Things/OrbitalStation/Lootable/SpacerSteelBox_Close</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1,1)</drawSize>
-    </graphicData>
-    <size>(1, 1)</size>
-    <fillPercent>0.2</fillPercent>
-    <statBases>
-      <MaxHitPoints>50</MaxHitPoints>
-    </statBases>
-    <rotatable>false</rotatable>
-    <comps>
-      <li Class="CompProperties_EmptyStateGraphic">
-        <graphicData>
-          <texPath>Things/OrbitalStation/Lootable/SpacerSteelBox_Open</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(1,1)</drawSize>
-        </graphicData>
-      </li>
-      <li Class="CompProperties_LootSpawn">
-        <contents>Reward_AncientBox_SteelSlag</contents>
-      </li>
-    </comps>
-  </ThingDef>
-
-    <ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
-    <defName>VGE_SpacerBox_Gravlite</defName>
-    <label>spacer gravlite box</label>
-    <description>A spacer logistical box filled with gravlite panel chunks. While most of it seems like gravlite waste, some chunks appear intact.</description>
-    <graphicData>
-      <texPath>Things/OrbitalStation/Lootable/SpaceGravliteBox_Close</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1,1)</drawSize>
-    </graphicData>
-    <size>(1, 1)</size>
-    <fillPercent>0.2</fillPercent>
-    <statBases>
-      <MaxHitPoints>50</MaxHitPoints>
-    </statBases>
-    <rotatable>false</rotatable>
-    <comps>
-      <li Class="CompProperties_EmptyStateGraphic">
-        <graphicData>
-          <texPath>Things/OrbitalStation/Lootable/SpaceGravliteBox_Open</texPath>
-          <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(1,1)</drawSize>
-        </graphicData>
-      </li>
-      <li Class="CompProperties_LootSpawn">
-        <contents>Reward_SpacerBox_Gravlite</contents>
-      </li>
-    </comps>
-  </ThingDef>
-
-    <ThingSetMakerDef>
-    <defName>Reward_SpacerBox_Gravlite</defName>
-    <root Class="ThingSetMaker_RandomOption">
-      <options>
-
-        <!-- Gravlite -->
-        <li>
-          <weight>1</weight>
-          <thingSetMaker Class="ThingSetMaker_StackCount">
-            <fixedParams>
-              <filter>
-                <thingDefs>
-                  <li>GravlitePanel</li>
-                </thingDefs>
-              </filter>
-              <countRange>16~40</countRange>
-            </fixedParams>
-          </thingSetMaker>
-        </li>
-
-      </options>
-    </root>
-  </ThingSetMakerDef>
-
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_AstrofuelBarrel</defName>
+		<label>astrofuel barrel</label>
+		<description>A barrel of volatile astrofuel. It will explode if damaged.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.5</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<WorkToBuild>600</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/AstrofuelBarrel</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<costList>
+			<VGE_Astrofuel>10</VGE_Astrofuel>
+		</costList>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>5.9</explosiveRadius>
+				<explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
+				<startWickOnDamageTaken>
+					<li>Flame</li>
+					<li>VGE_AstrofireDamage</li>
+				</startWickOnDamageTaken>
+				<damageAmountBase>10</damageAmountBase>
+				<startWickHitPointsPercent>0.8</startWickHitPointsPercent>
+				<postExplosionSpawnThingDef>VGE_Filth_Astrofuel</postExplosionSpawnThingDef>
+				<postExplosionSpawnChance>0.15</postExplosionSpawnChance>
+				<wickTicks>480~480</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_AstrofuelPipeSegment</defName>
+		<label>astrofuel pipe segment</label>
+		<description>A long segment of an overground astrofuel pipe. It will explode if damaged, and will leak astrofuel when damaged.</description>
+		<passability>PassThroughOnly</passability>
+		<thingClass>VanillaGravshipExpanded2.Building_LeakyPipe</thingClass>
+		<fillPercent>0.65</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(3,1)</size>
+		<rotatable>true</rotatable>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<WorkToBuild>600</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/AstrofuelPipeSegment/AstrofuelPipeSegment</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,1)</drawSize>
+		</graphicData>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>7.9</explosiveRadius>
+				<explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
+				<startWickOnDamageTaken>
+					<li>Flame</li>
+					<li>VGE_AstrofireDamage</li>
+				</startWickOnDamageTaken>
+				<damageAmountBase>10</damageAmountBase>
+				<startWickHitPointsPercent>0.5</startWickHitPointsPercent>
+				<postExplosionSpawnThingDef>VGE_Filth_Astrofuel</postExplosionSpawnThingDef>
+				<postExplosionSpawnChance>0.15</postExplosionSpawnChance>
+				<wickTicks>480~480</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_ExplosivesCrate</defName>
+		<label>explosives crate</label>
+		<description>A container of mining charges. It will explode if damaged.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.5</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(2,2)</size>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>600</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/ExplosiveCrate</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>5.9</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<startWickOnDamageTaken>
+					<li>Flame</li>
+					<li>VGE_AstrofireDamage</li>
+				</startWickOnDamageTaken>
+				<damageAmountBase>50</damageAmountBase>
+				<startWickHitPointsPercent>0.5</startWickHitPointsPercent>
+				<wickTicks>480~480</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_FloorOxygenVent</defName>
+		<label>floor oxygen vent</label>
+		<thingClass>Building_LifeSupportUnit</thingClass>
+		<description>An oxygen vent leading to a deeper oxygen installation, continuously pushing oxygen into the room.</description>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<passability>Standable</passability>
+		<fillPercent>0</fillPercent>
+		<pathCost>0</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<tickerType>Rare</tickerType>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/FloorOxygenVent</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>false</deconstructible>
+		</building>
+		<comps>
+			<li Class="CompProperties_AmbientSound">
+				<sound>OxygenPump_Ambient</sound>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
+		<defName>VGE_SpacerPallet_Medicine</defName>
+		<label>spacer medicine pallet</label>
+		<description>A pallet containing medical supplies. Can be looted to yield medicine.</description>
+		<size>(2, 2)</size>
+		<fillPercent>0.3</fillPercent>
+		<graphicData>
+			<texPath>Things/OrbitalStation/Lootable/SpacerPallet_Medicine</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+		</statBases>
+		<rotatable>false</rotatable>
+		<comps>
+			<li Class="CompProperties_EmptyStateGraphic">
+				<graphicData>
+					<texPath>Things/Building/Ancient/OpenableContainers/AirdropPallet_Open</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>(2,2)</drawSize>
+				</graphicData>
+			</li>
+			<li Class="CompProperties_LootSpawn">
+				<contents>Reward_Pallet_Medicine</contents>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
+		<defName>VGE_SpacerPallet_SurvivalMeals</defName>
+		<label>spacer rations pallet</label>
+		<description>A pallet containing stacked rations. Can be looted to yield survival meals.</description>
+		<graphicData>
+			<texPath>Things/OrbitalStation/Lootable/SpacerPallet_SurvivalMeals</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<size>(2, 2)</size>
+		<fillPercent>0.3</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+		</statBases>
+		<rotatable>false</rotatable>
+		<comps>
+			<li Class="CompProperties_EmptyStateGraphic">
+				<graphicData>
+					<texPath>Things/Building/Ancient/OpenableContainers/AirdropPallet_Open</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>(2,2)</drawSize>
+				</graphicData>
+			</li>
+			<li Class="CompProperties_LootSpawn">
+				<contents>Reward_Pallet_SurvivalMeals</contents>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
+		<defName>VGE_SpacerBox_ComponentIndustrial</defName>
+		<label>spacer component box</label>
+		<description>A spacer logistical box filled with valuable components. They’re intact and very usable.</description>
+		<graphicData>
+			<texPath>Things/OrbitalStation/Lootable/SpacerComponentBox_Close</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<size>(1, 1)</size>
+		<fillPercent>0.2</fillPercent>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+		</statBases>
+		<rotatable>false</rotatable>
+		<comps>
+			<li Class="CompProperties_EmptyStateGraphic">
+				<graphicData>
+					<texPath>Things/OrbitalStation/Lootable/SpacerComponentBox_Open</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>(1,1)</drawSize>
+				</graphicData>
+			</li>
+			<li Class="CompProperties_LootSpawn">
+				<contents>Reward_AncientBox_ComponentIndustrial</contents>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
+		<defName>VGE_SpacerBox_ComponentSpacer</defName>
+		<label>spacer electronics box</label>
+		<description>A spacer logistical box filled with electronics and advanced components. Everything seems to work fine.</description>
+		<graphicData>
+			<texPath>Things/OrbitalStation/Lootable/SpacerElectronicsBox_Close</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<size>(1, 1)</size>
+		<fillPercent>0.2</fillPercent>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+		</statBases>
+		<rotatable>false</rotatable>
+		<comps>
+			<li Class="CompProperties_EmptyStateGraphic">
+				<graphicData>
+					<texPath>Things/OrbitalStation/Lootable/SpacerElectronicsBox_Open</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>(1,1)</drawSize>
+				</graphicData>
+			</li>
+			<li Class="CompProperties_LootSpawn">
+				<contents>Reward_AncientBox_ComponentSpacer</contents>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
+		<defName>VGE_SpacerBox_Steel</defName>
+		<label>spacer steel box</label>
+		<description>A spacer logistical box filled with steel scrap. It's heavy but might contain some recoverable metal.</description>
+		<graphicData>
+			<texPath>Things/OrbitalStation/Lootable/SpacerSteelBox_Close</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<size>(1, 1)</size>
+		<fillPercent>0.2</fillPercent>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+		</statBases>
+		<rotatable>false</rotatable>
+		<comps>
+			<li Class="CompProperties_EmptyStateGraphic">
+				<graphicData>
+					<texPath>Things/OrbitalStation/Lootable/SpacerSteelBox_Open</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>(1,1)</drawSize>
+				</graphicData>
+			</li>
+			<li Class="CompProperties_LootSpawn">
+				<contents>Reward_AncientBox_SteelSlag</contents>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
+		<defName>VGE_SpacerBox_Gravlite</defName>
+		<label>spacer gravlite box</label>
+		<description>A spacer logistical box filled with gravlite panel chunks. While most of it seems like gravlite waste, some chunks appear intact.</description>
+		<graphicData>
+			<texPath>Things/OrbitalStation/Lootable/SpaceGravliteBox_Close</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<size>(1, 1)</size>
+		<fillPercent>0.2</fillPercent>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+		</statBases>
+		<rotatable>false</rotatable>
+		<comps>
+			<li Class="CompProperties_EmptyStateGraphic">
+				<graphicData>
+					<texPath>Things/OrbitalStation/Lootable/SpaceGravliteBox_Open</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>(1,1)</drawSize>
+				</graphicData>
+			</li>
+			<li Class="CompProperties_LootSpawn">
+				<contents>Reward_SpacerBox_Gravlite</contents>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingSetMakerDef>
+		<defName>Reward_SpacerBox_Gravlite</defName>
+		<root Class="ThingSetMaker_RandomOption">
+			<options>
+				<!-- Gravlite -->
+				<li>
+					<weight>1</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>GravlitePanel</li>
+								</thingDefs>
+							</filter>
+							<countRange>16~40</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</options>
+		</root>
+	</ThingSetMakerDef>
 </Defs>
