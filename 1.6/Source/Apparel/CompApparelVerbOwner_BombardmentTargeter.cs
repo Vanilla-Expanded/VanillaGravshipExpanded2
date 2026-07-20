@@ -6,6 +6,15 @@ namespace VanillaGravshipExpanded2
 {
     public class CompApparelVerbOwner_BombardmentTargeter : CompApparelVerbOwner
     {
+        public override void Notify_Equipped(Pawn pawn)
+        {
+            base.Notify_Equipped(pawn);
+            foreach (var verb in VerbTracker.AllVerbs)
+            {
+                verb.caster = pawn;
+            }
+        }
+
         public override bool CanBeUsed(out string reason)
         {
             if (!base.CanBeUsed(out reason))

@@ -74,11 +74,21 @@ namespace VanillaGravshipExpanded2
                 var distance = DistanceUtil.GetDistanceInOrbitTiles(tile.tile, orbitTile);
                 if (distance < def.escapeDistance && def.tileSpawnDistanceRange.Includes(distance))
                 {
+                    var worldObjects = Find.WorldObjects.ObjectsAt(tile.tile);
+                    if (worldObjects.Any(x => x is Settlement || x is Site))
+                    {
+                        continue;
+                    }
                     validTiles.Add(tile.tile);
                 }
             }
             if (validTiles.TryRandomElement(out var result))
             {
+                var worldObjects = Find.WorldObjects.ObjectsAt(result).ToList();
+                foreach (var worldObject in worldObjects)
+                {
+                    Find.WorldObjects.Remove(worldObject);
+                }
                 SpawnWarplatform(engine, warplatform, result);
             }
             else
