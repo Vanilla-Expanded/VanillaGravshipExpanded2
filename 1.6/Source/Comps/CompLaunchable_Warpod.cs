@@ -117,7 +117,24 @@ namespace VanillaGravshipExpanded2
                 return false;
             }
 
-            if (!(target.WorldObject is MapParent mp) || !mp.HasMap)
+            if (!(target.WorldObject is MapParent mp))
+            {
+                Messages.Message("VGE_WarpodLocationNeedRevealed".Translate(), MessageTypeDefOf.RejectInput, false);
+                return false;
+            }
+
+            if (Transporter.Props.massCapacity > 0 && !mp.HasMap)
+            {
+                var options = new List<FloatMenuOption>
+                {
+                    new FloatMenuOption("DropAtEdge".Translate(), () => LaunchHellpodTo(mp, PawnsArrivalModeDefOf.EdgeDrop)),
+                    new FloatMenuOption("DropInCenter".Translate(), () => LaunchHellpodTo(mp, PawnsArrivalModeDefOf.CenterDrop))
+                };
+                Find.WindowStack.Add(new FloatMenu(options));
+                return true;
+            }
+
+            if (!mp.HasMap)
             {
                 Messages.Message("VGE_WarpodLocationNeedRevealed".Translate(), MessageTypeDefOf.RejectInput, false);
                 return false;
@@ -150,6 +167,35 @@ namespace VanillaGravshipExpanded2
             }, null, true, null, null);
 
             return true;
+        }
+
+        private void LaunchHellpodTo(MapParent mapParent, PawnsArrivalModeDef arrivalMode)
+        {
+            foreach (var warpod in selectedWarpodsToLaunch)
+            {
+                WorldComponent_GravshipCombat.Instance.AddVisibility(1000f);
+                var traversalDistance = Find.WorldGrid.TraversalDistanceBetween(warpod.parent.Map.Tile, mapParent.Tile, true, int.MaxValue, true);
+                var amount = Mathf.Max(warpod.FuelNeededToLaunchAtDist(traversalDistance, mapParent.Tile.Layer), 5f);
+                warpod.Refuelable.ConsumeFuel(amount);
+
+                var activeTransporter = (ActiveTransporter)ThingMaker.MakeThing(ThingDefOf.ActiveDropPod);
+                activeTransporter.Contents = new ActiveTransporterInfo();
+                activeTransporter.Contents.innerContainer.TryAddRangeOrTransfer(warpod.Transporter.GetDirectlyHeldThings(), true, true);
+                activeTransporter.Contents.sentTransporterDef = warpod.parent.def;
+                activeTransporter.Rotation = warpod.parent.Rotation;
+
+                var leaving = (WarpodLeaving)SkyfallerMaker.MakeSkyfaller(InternalDefOf.VGE_WarpodLeaving, activeTransporter);
+                leaving.destinationTile = mapParent.Tile;
+                leaving.worldObjectDef = InternalDefOf.VGE_TravellingWarpod;
+                leaving.arrivalAction = new TransportersArrivalAction_HellpodStrike(mapParent, warpod.parent.Faction, arrivalMode);
+
+                var sourceMap = warpod.parent.Map;
+                var sourcePos = warpod.parent.Position;
+                warpod.Transporter.CleanUpLoadingVars(sourceMap);
+                warpod.parent.Destroy();
+                GenSpawn.Spawn(leaving, sourcePos, sourceMap);
+            }
+            CameraJumper.TryHideWorld();
         }
 
         private void LaunchWarpodTo(Map destMap, PlanetTile destTile, IntVec3 destCell)
