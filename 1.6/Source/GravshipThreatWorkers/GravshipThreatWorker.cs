@@ -74,6 +74,10 @@ namespace VanillaGravshipExpanded2
                 var distance = DistanceUtil.GetDistanceInOrbitTiles(tile.tile, orbitTile);
                 if (distance < def.escapeDistance && def.tileSpawnDistanceRange.Includes(distance))
                 {
+                    if (!def.tileSpawnDistanceRange.Includes(GravshipHelper.GetDistance(tile.tile, engine.Tile)))
+                    {
+                        continue;
+                    }
                     var worldObjects = Find.WorldObjects.ObjectsAt(tile.tile);
                     if (worldObjects.Any(x => x is Settlement || x is Site))
                     {
