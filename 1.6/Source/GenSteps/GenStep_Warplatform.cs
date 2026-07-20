@@ -1,5 +1,6 @@
 using System.Linq;
 using RimWorld;
+using RimWorld.Planet;
 using VEF.Storyteller;
 using Verse;
 
@@ -12,6 +13,11 @@ namespace VanillaGravshipExpanded2
 
         public override void Generate(Map map, GenStepParams parms)
         {
+            var parent = map.Parent;
+            if (parent.Faction == null || parent.Faction == Faction.OfPlayer)
+            {
+                parent.SetFaction(Faction.OfAncientsHostile);
+            }
             StructureSetGenerator.Generate(map, structureSetDef, map.ParentFaction);
             MakeAllCratesANew(map);
         }

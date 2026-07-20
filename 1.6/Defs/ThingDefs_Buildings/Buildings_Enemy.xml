@@ -532,7 +532,7 @@
             <turretBurstCooldownTime>60</turretBurstCooldownTime>
             <turretBurstWarmupTime>12</turretBurstWarmupTime>
             <turretTopDrawSize>4</turretTopDrawSize>
-            <turretTopOffset>(0, 0.5)</turretTopOffset>
+            <turretTopOffset>(0, 0.25)</turretTopOffset>
         </building>
         <costList>
             <Steel>40</Steel>
@@ -647,7 +647,7 @@
             <turretGunDef>VGE_Gun_EnemyGaussGun</turretGunDef>
             <turretBurstCooldownTime>24</turretBurstCooldownTime>
             <turretTopDrawSize>4</turretTopDrawSize>
-            <turretTopOffset>(0, 0.5)</turretTopOffset>
+            <turretTopOffset>(0, 0.25)</turretTopOffset>
             <turretBurstWarmupTime>4</turretBurstWarmupTime>
         </building>
         <comps>
@@ -729,7 +729,7 @@
             <turretGunDef>VGE_Gun_EnemyJavelinPod</turretGunDef>
             <turretBurstCooldownTime>90</turretBurstCooldownTime>
             <turretTopDrawSize>4</turretTopDrawSize>
-            <turretTopOffset>(0, 0.5)</turretTopOffset>
+            <turretTopOffset>(0, 0.25)</turretTopOffset>
             <turretBurstWarmupTime>5</turretBurstWarmupTime>
         </building>
         <comps>
@@ -818,7 +818,7 @@
             <turretGunDef>VGE_Gun_EnemyAnticraftCaster</turretGunDef>
             <turretBurstCooldownTime>24</turretBurstCooldownTime>
             <turretTopDrawSize>4</turretTopDrawSize>
-            <turretTopOffset>(0, 0.5)</turretTopOffset>
+            <turretTopOffset>(0, 0.25)</turretTopOffset>
             <turretBurstWarmupTime>6.66</turretBurstWarmupTime>
         </building>
         <comps>
@@ -1075,7 +1075,6 @@
         <building>
             <turretGunDef>VGE_Gun_EnemyPointDefense</turretGunDef>
             <turretTopDrawSize>4</turretTopDrawSize>
-            <turretTopOffset>(0, 0.5)</turretTopOffset>
             <ai_combatDangerous>true</ai_combatDangerous>
             <playTargetAcquiredSound>false</playTargetAcquiredSound>
             <combatPower>100</combatPower>

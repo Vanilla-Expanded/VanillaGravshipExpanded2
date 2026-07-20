@@ -16,7 +16,15 @@ namespace VanillaGravshipExpanded2
         {
             try
             {
-                ApplyEarlyEscape();
+                var comp = WorldComponent_GravshipCombat.Instance;
+                if (comp.incomingWarplatform)
+                {
+                    ApplyEarlyEscape(comp);
+                }
+                else
+                {
+                    ApplyVisibilityGain(__instance);
+                }
                 ApplySignalJammerEffect(__instance);
             }
             catch (Exception arg)
@@ -57,9 +65,27 @@ namespace VanillaGravshipExpanded2
             }
         }
 
-        private static void ApplyEarlyEscape()
+        private static void ApplyVisibilityGain(WorldComponent_GravshipController __instance)
         {
-            var comp = WorldComponent_GravshipCombat.Instance;
+            var engine = __instance.gravship?.Engine;
+            Log.Message("engine: " + __instance.gravship);
+            if (engine == null) return;
+            var launchInfo = engine.launchInfo;
+            if (launchInfo == null) return;
+            if (LaunchInfo_ExposeData_Patch.launchSourceTiles.TryGetValue(launchInfo, out var sourceTile))
+            {
+                var distance = GravshipHelper.GetDistance(sourceTile, engine.Tile);
+                var size = engine.ValidSubstructure.Count;
+                WorldComponent_GravshipCombat.Instance.AddVisibility(size * distance, true);
+            }
+            else
+            {
+                Log.Message("Failed to add visibility " + launchInfo);
+            }
+        }
+
+        private static void ApplyEarlyEscape(WorldComponent_GravshipCombat comp)
+        {
             if (comp.incomingWarplatform)
             {
                 var threatDef = comp.activeThreatDef;
