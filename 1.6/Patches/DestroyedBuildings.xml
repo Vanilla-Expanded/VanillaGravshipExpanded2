@@ -48,6 +48,12 @@
 			</costList>
 		</value>
 	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VQEA_DestroyedGravExtender"]</xpath>
+		<value>
+			<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		</value>
+	</Operation>
 	<Operation Class="PatchOperationAddModExtension">
 		<xpath>Defs/ThingDef[defName="SmallThruster"]</xpath>
 		<value>
