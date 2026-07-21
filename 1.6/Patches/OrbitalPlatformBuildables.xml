@@ -1,0 +1,26 @@
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/TerrainDef[defName="OrbitalPlatform"]/affordances</xpath>
+    <value>
+      <li>VGE_SubstructureAndOrbitalPlatform</li>
+    </value>
+  </Operation>
+</Patch>
+
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/TerrainDef[defName="Substructure"]/affordances</xpath>
+    <value>
+      <li>VGE_SubstructureAndOrbitalPlatform</li>
+    </value>
+  </Operation>
+</Patch>
+
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/TerrainDef[defName="VGE_DamagedSubstructure"]/affordances</xpath>
+    <value>
+      <li>VGE_SubstructureAndOrbitalPlatform</li>
+    </value>
+  </Operation>
+</Patch>

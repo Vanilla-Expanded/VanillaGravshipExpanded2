@@ -17,6 +17,7 @@
         <preventCraters>true</preventCraters>
         <affordances>
             <li>Substructure</li>
+            <li>VGE_SubstructureAndOrbitalPlatform</li>
         </affordances>
         <statBases>
             <WorkToBuild>1800</WorkToBuild>
@@ -155,6 +156,7 @@
             <li>Medium</li>
             <li>Heavy</li>
             <li>Substructure</li>
+            <li>VGE_SubstructureAndOrbitalPlatform</li>
         </affordances>
         <statBases>
             <CleaningTimeFactor>0.9</CleaningTimeFactor>
@@ -196,6 +198,7 @@
             <li>Medium</li>
             <li>Heavy</li>
             <li>Substructure</li>
+            <li>VGE_SubstructureAndOrbitalPlatform</li>
         </affordances>
         <statBases>
             <CleaningTimeFactor>0.9</CleaningTimeFactor>
@@ -236,6 +239,7 @@
             <li>Medium</li>
             <li>Heavy</li>
             <li>Substructure</li>
+            <li>VGE_SubstructureAndOrbitalPlatform</li>
         </affordances>
         <preventCraters>true</preventCraters>
         <statBases>
