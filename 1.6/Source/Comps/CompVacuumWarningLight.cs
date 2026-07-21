@@ -194,8 +194,8 @@ public class CompVacuumWarningLight : ThingComp, IThingGlower
         {
             if (!pawn.Spawned)
                 continue;
-            // if (pawn.Downed) // Crawl?
-            //     continue;
+            if (!pawn.health.CanCrawlOrMove)
+                continue;
             if (!CaresAboutLowVacuum(pawn))
                 continue;
             if (pawn.CurJob?.def == JobDefOf.GotoOxygenatedArea)
