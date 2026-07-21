@@ -28,7 +28,7 @@ namespace VanillaGravshipExpanded2
                 }
             }
 
-            if (leaking && leaks > 0 && this.IsHashIntervalTick(60))
+            if (leaking && leaks > 0 && this.IsHashIntervalTick(60) && Map!=null)
             {
                 IntVec3 leakCell = CellFinder.RandomClosewalkCellNear(Position, Map, 4);
                 FilthMaker.TryMakeFilth(leakCell, Map, InternalDefOf.VGE_Filth_Astrofuel, 1);

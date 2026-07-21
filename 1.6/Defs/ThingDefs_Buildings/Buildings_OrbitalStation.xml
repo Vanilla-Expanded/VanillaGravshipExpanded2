@@ -164,6 +164,425 @@
 			</li>
 		</comps>
 	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_LockedShuttle</defName>
+		<label>locked shuttle</label>
+		<description>A chemfuel-powered shuttle designed for long-distance travel, typically utilized by the trading guild. Heavy magnetic clamps prevent it from being operated without authorization, but it can still be deconstructed to obtain the shuttle engine.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.5</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(3,5)</size>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>600</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<WorkToBuild>3000</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/LockedShuttle/LockedShuttle</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,5)</drawSize>
+		</graphicData>
+		<costList>
+			<Steel>85</Steel>
+			<Plasteel>35</Plasteel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+			<ShuttleEngine>1</ShuttleEngine>
+		</costList>
+		<killedLeavings>
+			<ChunkSlagSteel>2</ChunkSlagSteel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</killedLeavings>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_NavBeacon</defName>
+		<label>nav beacon</label>
+		<description>A ship navigation beacon. Used to help shuttles and larger vessels with docking procedures.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.3</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>100</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/NavBeacon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>3</glowRadius>
+				<glowColor>(111, 161, 111, 0)</glowColor>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_OrbitalLight</defName>
+		<label>orbital light</label>
+		<description>An internally powered standing lamp that lights an area. People need light to move and work at full speed. In case of loss of pressure, the light will turn red.</description>
+		<passability>PassThroughOnly</passability>
+		<thingClass>VanillaGravshipExpanded2.Building_OrbitalLight</thingClass>
+		<fillPercent>0.2</fillPercent>
+		<pathCost>14</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<tickerType>Rare</tickerType>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>100</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/OrbitalLight</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+		<costList>
+			<Steel>10</Steel>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>8.3</glowRadius>
+				<glowColor>(214, 148, 94, 0)</glowColor>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_Oxyfarm</defName>
+		<label>oxyfarm</label>
+		<description>A small, self-contained tank filled with engineered oxyalgae, capable of producing oxygen in small, steady quantities.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.45</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(2,1)</size>
+		<tickerType>Rare</tickerType>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>550</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/Oxyfarm/Oxyfarm</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,1)</drawSize>
+		</graphicData>
+		<costList>
+			<VGE_Oxyalgae>35</VGE_Oxyalgae>
+		</costList>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+		<comps>
+			<li Class="PipeSystem.CompProperties_ResourceTrader">
+				<resourceOffOverlay>false</resourceOffOverlay>
+				<producerLowPowerWhenStorageFull>true</producerLowPowerWhenStorageFull>
+				<pipeNet>VGE_OxygenNet</pipeNet>
+				<consumptionPerTick>-0.4</consumptionPerTick>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_PowerSocket</defName>
+		<label>power socket</label>
+		<description>A medium-sized power socket emerging from a deeper capacitor bank under the floor. Constantly generates a steady supply of power.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.25</fillPercent>
+		<pathCost>14</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>250</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/PowerSocket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerPlant</compClass>
+				<basePowerConsumption>-1000</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_SpacerCrate</defName>
+		<label>spacer crate</label>
+		<description>A spacer, futuristic crate with nothing of value in it.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.3</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>250</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/SpacerCrate</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_StationAntenna</defName>
+		<label>station antenna</label>
+		<description>A precise but fragile antenna used to transmit communications between the orbital stations.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.2</fillPercent>
+		<pathCost>18</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>250</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/StationAntenna</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_StationEquipmentBlock</defName>
+		<label>station equipment block</label>
+		<description>A modular array of station equipment blocks, kept in perfect working order. These units handle critical station logistics and system maintenance.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.5</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(4,2)</size>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/StationEquipmentBlock/StationEquipmentBlock</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(4,2)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+		</building>
+		<killedLeavings>
+			<ChunkSlagSteel>2</ChunkSlagSteel>
+		</killedLeavings>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_StationConsole</defName>
+		<label>station console</label>
+		<description>A special console used to monitor and control various subsystems of the orbital station.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.4</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(3,1)</size>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/StationConsole_Large/StationConsole_Large</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,2)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+		</building>
+		<killedLeavings>
+			<ChunkSlagSteel>1</ChunkSlagSteel>
+		</killedLeavings>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_SmallStationConsole</defName>
+		<label>small station console</label>
+		<description>A special console used to monitor and control various subsystems of the orbital station.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.4</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(2,1)</size>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/StationConsole_Small/StationConsole_Small</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+		</building>
+		<killedLeavings>
+			<ChunkSlagSteel>1</ChunkSlagSteel>
+		</killedLeavings>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_StationFilingCabinet</defName>
+		<label>station filing cabinet</label>
+		<description>A filing cabinet containing some documents, critical and not, related to the orbital station.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.24</fillPercent>
+		<pathCost>22</pathCost>
+		<size>(1,1)</size>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/StationFilingCabinet/StationFilingCabinet</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+		</building>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_StationLockerBank</defName>
+		<label>station locker bank</label>
+		<description>A bank of lockers. Used on orbital stations to hold personal belongings of crewmembers.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.5</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(3,1)</size>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/StationLockerBank/StationLockerBank</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,1.5)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+		</building>
+		<killedLeavings>
+			<ChunkSlagSteel>1</ChunkSlagSteel>
+		</killedLeavings>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_StationSystemRack</defName>
+		<label>station system rack</label>
+		<description>A rack unit packed with unidentifiable devices. Nothing on it seems particularly valuable.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.4</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(3,1)</size>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/StationSystemRack/StationSystemRack</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,1)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+		</building>
+		<killedLeavings>
+			<ChunkSlagSteel>1</ChunkSlagSteel>
+		</killedLeavings>
+	</ThingDef>
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_TradingContainer</defName>
+		<label>trading container</label>
+		<description>A large sealed container belonging to some sort of orbital trader’s stockpile. It may contain valuable supplies, but needs to be destroyed to release them.</description>
+		<passability>PassThroughOnly</passability>
+		<thingClass>VanillaGravshipExpanded2.Building_TradingContainer</thingClass>
+		<fillPercent>0.4</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(2,2)</size>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>1000</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/Containers</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+		</building>
+		<killedLeavings>
+			<ChunkSlagSteel>2</ChunkSlagSteel>
+		</killedLeavings>
+	</ThingDef>
 	<ThingDef ParentName="VGE_OrbitalStationLowTechCrateBase">
 		<defName>VGE_SpacerPallet_Medicine</defName>
 		<label>spacer medicine pallet</label>
