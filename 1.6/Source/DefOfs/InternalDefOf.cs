@@ -78,5 +78,6 @@ namespace VanillaGravshipExpanded2
 		public static ThingDef VGE_Apparel_DisposableOxygenPack;
 		public static ThingDef VGE_Apparel_Astrorig;
 		public static ThingDef VGE_OxygenCanister;
+		public static TerrainAffordanceDef VGE_SubstructureAndOrbitalPlatform;
 	}
 }
