@@ -397,6 +397,32 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(12,2,20,30)</li>
+							<li>(9,3,11,29)</li>
+							<li>(21,3,23,29)</li>
+							<li>(8,4,8,28)</li>
+							<li>(24,4,24,28)</li>
+							<li>(6,5,7,27)</li>
+							<li>(25,5,26,27)</li>
+							<li>(5,6,5,26)</li>
+							<li>(27,6,27,26)</li>
+							<li>(4,8,4,24)</li>
+							<li>(28,8,28,24)</li>
+							<li>(3,9,3,23)</li>
+							<li>(29,9,29,23)</li>
+							<li>(2,12,2,20)</li>
+							<li>(30,12,30,20)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -739,6 +765,47 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(12,1,20,9)</li>
+							<li>(9,2,11,11)</li>
+							<li>(21,2,23,11)</li>
+							<li>(7,3,8,29)</li>
+							<li>(24,3,25,29)</li>
+							<li>(6,4,6,28)</li>
+							<li>(26,4,26,28)</li>
+							<li>(5,5,5,27)</li>
+							<li>(27,5,27,27)</li>
+							<li>(4,6,4,26)</li>
+							<li>(28,6,28,26)</li>
+							<li>(3,7,3,25)</li>
+							<li>(29,7,29,25)</li>
+							<li>(2,9,2,23)</li>
+							<li>(30,9,30,23)</li>
+							<li>(12,10,12,10)</li>
+							<li>(20,10,20,10)</li>
+							<li>(1,12,1,20)</li>
+							<li>(9,12,10,12)</li>
+							<li>(22,12,23,12)</li>
+							<li>(31,12,31,20)</li>
+							<li>(9,13,9,30)</li>
+							<li>(23,13,23,30)</li>
+							<li>(10,20,10,30)</li>
+							<li>(22,20,22,30)</li>
+							<li>(11,21,11,30)</li>
+							<li>(21,21,21,30)</li>
+							<li>(12,22,12,31)</li>
+							<li>(20,22,20,31)</li>
+							<li>(13,23,19,31)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -1002,6 +1069,26 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(13,7,19,25)</li>
+							<li>(11,8,12,24)</li>
+							<li>(20,8,21,24)</li>
+							<li>(9,9,10,23)</li>
+							<li>(22,9,23,23)</li>
+							<li>(8,11,8,21)</li>
+							<li>(24,11,24,21)</li>
+							<li>(7,13,7,19)</li>
+							<li>(25,13,25,19)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -1327,6 +1414,26 @@
 				</rects>
 			</MetalTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(13,7,19,25)</li>
+							<li>(11,8,12,24)</li>
+							<li>(20,8,21,24)</li>
+							<li>(9,9,10,23)</li>
+							<li>(22,9,23,23)</li>
+							<li>(8,11,8,21)</li>
+							<li>(24,11,24,21)</li>
+							<li>(7,13,7,19)</li>
+							<li>(25,13,25,19)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -1725,6 +1832,28 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(12,1,20,31)</li>
+							<li>(10,7,11,25)</li>
+							<li>(21,7,22,25)</li>
+							<li>(9,8,9,24)</li>
+							<li>(23,8,23,24)</li>
+							<li>(8,9,8,23)</li>
+							<li>(24,9,24,23)</li>
+							<li>(7,10,7,22)</li>
+							<li>(25,10,25,22)</li>
+							<li>(1,12,6,20)</li>
+							<li>(26,12,31,20)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -1998,6 +2127,21 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(12,4,20,23)</li>
+							<li>(9,9,11,23)</li>
+							<li>(21,9,23,23)</li>
+							<li>(13,24,19,28)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -2208,6 +2352,18 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(9,9,23,23)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -2516,6 +2672,22 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(14,1,18,31)</li>
+							<li>(10,10,13,22)</li>
+							<li>(19,10,22,22)</li>
+							<li>(1,14,9,18)</li>
+							<li>(23,14,31,18)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -2727,6 +2899,20 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(1,14,18,26)</li>
+							<li>(3,27,18,29)</li>
+							<li>(6,30,18,31)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -2947,6 +3133,22 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(14,9,18,24)</li>
+							<li>(9,10,13,23)</li>
+							<li>(19,10,23,23)</li>
+							<li>(8,14,8,18)</li>
+							<li>(24,14,24,18)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -3228,6 +3430,20 @@
 				</rects>
 			</CarpetBlack>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(11,10,21,22)</li>
+							<li>(22,13,27,20)</li>
+							<li>(13,23,20,28)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -3458,6 +3674,23 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(11,3,21,7)</li>
+							<li>(15,8,17,29)</li>
+							<li>(10,10,14,22)</li>
+							<li>(18,10,22,22)</li>
+							<li>(11,25,14,29)</li>
+							<li>(18,25,21,29)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -3726,6 +3959,22 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(12,4,20,28)</li>
+							<li>(5,14,11,20)</li>
+							<li>(21,14,27,20)</li>
+							<li>(11,21,11,28)</li>
+							<li>(21,21,21,28)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -3907,6 +4156,22 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(23,5,28,18)</li>
+							<li>(22,6,22,18)</li>
+							<li>(29,6,29,18)</li>
+							<li>(21,7,21,18)</li>
+							<li>(30,7,30,18)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
 
 	<PrefabDef>
@@ -4155,7 +4420,22 @@
 				</rects>
 			</SterileTile>
 		</terrain>
+		<modExtensions>
+			<li Class="VEF.Storyteller.PrefabExtension">
+				<roofs>
+					<li>
+						<def>RoofConstructed</def>
+						<rects>
+							<li>(14,8,18,24)</li>
+							<li>(13,13,13,19)</li>
+							<li>(19,13,19,19)</li>
+							<li>(8,14,12,18)</li>
+							<li>(20,14,24,18)</li>
+						</rects>
+					</li>
+				</roofs>
+			</li>
+		</modExtensions>
 	</PrefabDef>
-
 
 </Defs>
