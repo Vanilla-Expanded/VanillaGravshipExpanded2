@@ -27,7 +27,7 @@
   </Operation>
 
   <Operation Class="PatchOperationReplace">
-    <xpath>/Defs/ThingDef[defName="VGE_CrewBunkBed"]/terrainAffordanceNeeded</xpath>
+    <xpath>/Defs/ThingDef[defName="VGE_CrewBunkBed" or defName="VGE_MedbayBed" or defName="VGE_CrewLockers" or defName="VGE_GravshipShelf"]/terrainAffordanceNeeded</xpath>
     <value>
       <terrainAffordanceNeeded>VGE_SubstructureAndOrbitalPlatform</terrainAffordanceNeeded>
     </value>

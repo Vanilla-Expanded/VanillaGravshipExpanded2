@@ -772,4 +772,103 @@
 			</options>
 		</root>
 	</ThingSetMakerDef>
+
+<ThingDef ParentName="AncientEmergencyLightBase">
+    <label>station light</label>
+    <defName>VGE_StationLight_Blue</defName>
+	<description>A special light panel wired to the station's main power source.</description>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>14</glowRadius>
+        <glowColor>(134, 190, 224, 0)</glowColor>
+      </li>
+    </comps>
+    <graphicData>
+      <texPath>Things/OrbitalStation/StationLight_Blue/StationLight_Blue</texPath>
+	</graphicData>
+	<designationCategory>VGE_Designer</designationCategory>
+  </ThingDef>
+
+<ThingDef ParentName="AncientEmergencyLightBase">
+    <label>station light</label>
+    <defName>VGE_StationLight</defName>
+	<description>A special light panel wired to the station's main power source.</description>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>14</glowRadius>
+        <glowColor>(214,148,94,0)</glowColor>
+      </li>
+    </comps>
+    <graphicData>
+      <texPath>Things/OrbitalStation/StationLight/StationLight</texPath>
+	</graphicData>
+	<designationCategory>VGE_Designer</designationCategory>
+  </ThingDef>
+
+  	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_PosBeacon_Green</defName>
+		<label>pos beacon</label>
+		<description>An orbital station positioning beacon. Used to ensure the orbital station does not drift off-orbit.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.3</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>100</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/PositionBeacon/PositionBeaconGreen</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius>
+				<glowColor>(0, 255, 0, 0)</glowColor>
+			</li>
+		</comps>
+	</ThingDef>
+
+  	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_PosBeacon_Red</defName>
+		<label>pos beacon</label>
+		<description>An orbital station positioning beacon. Used to ensure the orbital station does not drift off-orbit.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.3</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>100</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/PositionBeacon/PositionBeaconRed</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius>
+				<glowColor>(255, 0, 0, 0)</glowColor>
+			</li>
+		</comps>
+	</ThingDef>
+
 </Defs>
