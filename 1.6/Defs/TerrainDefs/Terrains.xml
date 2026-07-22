@@ -119,7 +119,6 @@
         <tags>
             <li>VFEI2_Creep</li>
             <li>DestroyableByArtillery</li>
-            <li>VGE_Subcreep</li>
         </tags>
         <spaceEdgeGraphicData>
             <OShapeTexPath>Terrain/SubcreepBorder/SubcreepBorder_OShape</OShapeTexPath>
