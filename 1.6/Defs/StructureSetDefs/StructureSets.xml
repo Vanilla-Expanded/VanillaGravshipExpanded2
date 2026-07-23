@@ -76,4 +76,55 @@
       </li>
     </structureLayouts>
   </VEF.Storyteller.StructureSetDef>
+
+  <VEF.Storyteller.StructureSetDef>
+    <defName>VGE_TradingGuildStationSet</defName>
+    <structureLayouts>
+      <li>
+        <pattern>TradingGuild_OrbitalStation_Core_[0-9]+</pattern>
+        <offset>(0,0,0)</offset>
+        <randomRotated>true</randomRotated>
+      </li>
+      <li>
+        <pattern>TradingGuild_OrbitalStation_Edge_[0-9]+</pattern>
+        <offset>(0,0,1)</offset>
+        <rotationOffset>0</rotationOffset>
+      </li>
+      <li>
+        <pattern>TradingGuild_OrbitalStation_Edge_[0-9]+</pattern>
+        <offset>(1,0,0)</offset>
+        <rotationOffset>1</rotationOffset>
+      </li>
+      <li>
+        <pattern>TradingGuild_OrbitalStation_Edge_[0-9]+</pattern>
+        <offset>(0,0,-1)</offset>
+        <rotationOffset>2</rotationOffset>
+      </li>
+      <li>
+        <pattern>TradingGuild_OrbitalStation_Edge_[0-9]+</pattern>
+        <offset>(-1,0,0)</offset>
+        <rotationOffset>3</rotationOffset>
+      </li>
+      <li>
+        <pattern>TradingGuild_OrbitalStation_Corner_[0-9]+</pattern>
+        <offset>(-1,0,1)</offset>
+        <rotationOffset>0</rotationOffset>
+      </li>
+      <li>
+        <pattern>TradingGuild_OrbitalStation_Corner_[0-9]+</pattern>
+        <offset>(1,0,1)</offset>
+        <rotationOffset>1</rotationOffset>
+      </li>
+      <li>
+        <pattern>TradingGuild_OrbitalStation_Corner_[0-9]+</pattern>
+        <offset>(1,0,-1)</offset>
+        <rotationOffset>2</rotationOffset>
+      </li>
+      <li>
+        <pattern>TradingGuild_OrbitalStation_Corner_[0-9]+</pattern>
+        <offset>(-1,0,-1)</offset>
+        <rotationOffset>3</rotationOffset>
+      </li>
+    </structureLayouts>
+  </VEF.Storyteller.StructureSetDef>
 </Defs>

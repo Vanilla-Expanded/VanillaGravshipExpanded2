@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/GenStepDef[defName="SettlementPlatform"]/genStep</xpath>
+    <value>
+      <genStep Class="VanillaGravshipExpanded2.GenStep_OrbitalPlatform_Custom">
+        <useSiteFaction>true</useSiteFaction>
+        <temperature>20</temperature>
+        <structureSet>VGE_TradingGuildStationSet</structureSet>
+      </genStep>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/WorldObjectDef[defName="SpaceSettlement"]/overrideMapSize</xpath>
+    <value>
+      <overrideMapSize>(250,1,250)</overrideMapSize>
+    </value>
+  </Operation>
+</Patch>
