@@ -883,4 +883,83 @@
 	<designationCategory>VGE_Designer</designationCategory>
   </ThingDef>
 
+    <ThingDef ParentName="VGE_EnemyPropBase">
+        <defName>VGE_InfestedGravlockTether</defName>
+        <label>infested gravlock tether</label>
+        <description>A corrupted gravlock tether that has been hollowed out and repurposed into a gigantic exoinsectoid hive. Integrated directly into the station's ventilation system, this pulsing structure continuously pumps larvae through the vents, spawning new insectoids that spread throughout the station.\n\nDestroy the infested gravlock tether to obtain a gravcore.</description>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Insectoids/Structures/InfestedGravlockTether/InfestedGravlockTether</texPath>
+            <drawSize>(6,6)</drawSize>
+            <addTopAltitudeBias>true</addTopAltitudeBias>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>4000</MaxHitPoints>
+            <Mass>120</Mass>
+            <Flammability>0.8</Flammability>
+            <Beauty>-40</Beauty>
+        </statBases>
+        <size>(5,5)</size>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>20</pathCost>
+        <rotatable>false</rotatable>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<building>
+     		<deconstructible>false</deconstructible>
+     		<repairable>false</repairable>
+     		<claimable>false</claimable>
+			<displayAttackToDestroyOnInspectPane>true</displayAttackToDestroyOnInspectPane>
+		</building>
+        <costList>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>100</GravlitePanel>
+            <ComponentSpacer>6</ComponentSpacer>
+            <InsectJelly>150</InsectJelly>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>7</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
+            <li Class="CompProperties_LetterOnRevealed">
+                <label>Infested gravlock tether</label>
+                <text>You detect the heavy signs of the exoinsectoid mega-hive nearby. The infested gravlock tether must be destroyed to yield valuable gravcore and stop the ongoing infestation.</text>
+                <letterDef>NeutralEvent</letterDef>
+            </li>
+        </comps>
+    </ThingDef>
+
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE_InfestedVent</defName>
+		<label>infested vent</label>
+		<description>A broken down vent leading deeper into the orbital station installation. Chittering and movement can be heard down below.</description>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<passability>Standable</passability>
+		<fillPercent>0</fillPercent>
+		<pathCost>0</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<tickerType>Rare</tickerType>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Insectoids/Structures/InfestedVent/InfestedVent</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>false</deconstructible>
+		</building>
+	</ThingDef>
+
 </Defs>

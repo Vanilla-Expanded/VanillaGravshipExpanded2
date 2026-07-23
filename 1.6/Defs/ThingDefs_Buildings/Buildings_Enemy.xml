@@ -1519,6 +1519,12 @@
         <fillPercent>0.6</fillPercent>
         <pathCost>20</pathCost>
         <rotatable>false</rotatable>
+		<building>
+     		 <deconstructible>false</deconstructible>
+     		 <repairable>false</repairable>
+     		 <claimable>false</claimable>
+			<displayAttackToDestroyOnInspectPane>true</displayAttackToDestroyOnInspectPane>
+		</building>
         <costList>
             <Gravcore>1</Gravcore>
             <GravlitePanel>80</GravlitePanel>
@@ -1538,6 +1544,9 @@
                 <text>You detect an energy signature of a signal jammer nearby. Destroy it to obtain a valuable gravcore.</text>
                 <letterDef>NeutralEvent</letterDef>
             </li>
+            <li Class="CompProperties_InspectString">
+               <inspectString>Contains: Gravcore</inspectString>
+              </li>
         </comps>
     </ThingDef>
 
