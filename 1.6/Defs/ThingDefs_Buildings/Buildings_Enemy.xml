@@ -1071,6 +1071,7 @@
         <uiIconPath>Things/Enemy/EnemyGravshipPointDefense/EnemyGravshipPointDefense_MenuIcon</uiIconPath>
         <drawerType>MapMeshAndRealTime</drawerType>
         <tickerType>Normal</tickerType>
+        <rotatable>False</rotatable>
         <statBases>
             <MaxHitPoints>400</MaxHitPoints>
             <Flammability>0.7</Flammability>

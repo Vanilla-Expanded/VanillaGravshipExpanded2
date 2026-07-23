@@ -918,7 +918,9 @@
             <ComponentSpacer>6</ComponentSpacer>
             <InsectJelly>150</InsectJelly>
         </costList>
+        <tickerType>Normal</tickerType>
         <comps>
+            <li Class="VanillaGravshipExpanded2.CompProperties_InfestedGravlockTether" />
             <li Class="CompProperties_Glower">
                 <glowRadius>7</glowRadius>
                 <glowColor>(255, 40, 40, 0)</glowColor>
@@ -939,7 +941,7 @@
 		<label>infested vent</label>
 		<description>A broken down vent leading deeper into the orbital station installation. Chittering and movement can be heard down below.</description>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
-		<passability>Standable</passability>
+		<passability>PassThroughOnly</passability>
 		<fillPercent>0</fillPercent>
 		<pathCost>0</pathCost>
 		<size>(1,1)</size>

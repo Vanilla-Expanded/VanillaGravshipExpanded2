@@ -23,6 +23,7 @@ namespace VanillaGravshipExpanded2
         public static ThingDef VGE_Projectile_InfestedChunkMedium;
         public static ThingDef VGE_Projectile_InfestedChunkLarge;
 		public static ThingDef VGE_Filth_Astrofuel;
+		public static ThingDef VGE_InfestedVent;
 
         public static PawnKindDef VGE_ExowormKnot;
         public static PawnKindDef VGE_Exopede;
