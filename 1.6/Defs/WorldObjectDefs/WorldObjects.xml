@@ -218,4 +218,22 @@
             <structureSetDef>VGE_GravshipGraveyardSet</structureSetDef>
         </genStep>
     </GenStepDef>
+
+    <SitePartDef ParentName="SpaceGravcoreLocationBase">
+        <defName>VGE_InfestedInstallation</defName>
+        <label>infested installation</label>
+        <description>An abandoned orbital station infested with exoinsectoids, containing a gravcore.</description>
+        <tags>
+            <li>VGE_InfestedInstallation</li>
+        </tags>
+    </SitePartDef>
+
+    <GenStepDef>
+        <defName>VGE_InfestedInstallation</defName>
+        <linkWithSite>VGE_InfestedInstallation</linkWithSite>
+        <order>200</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_InfestedInstallation">
+            <structureSetDef>VGE_InfestedInstallationSet</structureSetDef>
+        </genStep>
+    </GenStepDef>
 </Defs>

@@ -4,6 +4,7 @@
 		<xpath>Defs/QuestScriptDef[defName="GravEngine"]/root/subquestDefs</xpath>
 		<value>
 			<li>VGE_GravshipGraveyard</li>
+			<li>VGE_InfestedInstallation</li>
 		</value>
 	</Operation>
 </Patch>

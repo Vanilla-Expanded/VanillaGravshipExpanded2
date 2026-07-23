@@ -233,4 +233,28 @@
 			<layer>Orbit</layer>
 		</root>
 	</QuestScriptDef>
+
+	<QuestScriptDef>
+		<defName>VGE_InfestedInstallation</defName>
+		<autoAccept>true</autoAccept>
+		<questNameRules>
+			<rulesStrings>
+				<li>questName->Infested installation</li>
+			</rulesStrings>
+		</questNameRules>
+		<questDescriptionRules>
+			<rulesStrings>
+				<li>questDescription->You have detected the energy signature of a gravcore. The signal is coming from an abandoned orbital station infested with exoinsectoids. Scans reveal numerous hives on board. You must navigate the infested ruins, defeat the exoinsectoid defenders, and destroy the infested gravlock tether which will continue spawning new exoinsectoids throughout the platform. Once destroyed, you will be able to obtain the gravcore.\\n\\nBe careful, orbital locations are extremely dangerous. Equip your colonists with vacsuits. Plan your return trip, as living in orbit for long periods is very difficult.</li>
+			</rulesStrings>
+		</questDescriptionRules>
+		<questAvailableLetterLabel>Gravcore detected: Infested installation</questAvailableLetterLabel>
+		<questAvailableLetterTextIsDescription>true</questAvailableLetterTextIsDescription>
+		<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+		<root Class="VanillaGravshipExpanded2.QuestNode_Root_Gravcore_InfestedInstallation">
+			<distanceFromColonyRange>5~14</distanceFromColonyRange>
+			<selectLandmarkChance>0</selectLandmarkChance>
+			<requiredSubquestsGiven>7</requiredSubquestsGiven>
+			<layer>Orbit</layer>
+		</root>
+	</QuestScriptDef>
 </Defs>
