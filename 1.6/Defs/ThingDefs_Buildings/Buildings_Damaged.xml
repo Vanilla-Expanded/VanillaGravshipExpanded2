@@ -614,6 +614,11 @@
 			<Flammability>0.6</Flammability>
 			<Beauty>0</Beauty>
 		</statBases>
+        <comps>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
+        </comps>
 		<graphicData>
 			<texPath>Things/Structures/Destroyed/DestroyedGravJumperEngine</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -638,6 +643,11 @@
 			<Flammability>0.6</Flammability>
 			<Beauty>0</Beauty>
 		</statBases>
+        <comps>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
+        </comps>
 		<graphicData>
 			<texPath>Things/Structures/Destroyed/DestroyedGravEngine</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -662,6 +672,11 @@
 			<Flammability>0.6</Flammability>
 			<Beauty>0</Beauty>
 		</statBases>
+        <comps>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
+        </comps>
 		<graphicData>
 			<texPath>Things/Structures/Destroyed/DestroyedGravHulkEngine</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -803,6 +818,11 @@
 			<Flammability>0.6</Flammability>
 			<Beauty>0</Beauty>
 		</statBases>
+        <comps>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
+        </comps>
 		<graphicData>
 			<texPath>Things/Structures/Destroyed/DestroyedWarcomputer</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -824,6 +844,11 @@
 			<Flammability>0.6</Flammability>
 			<Beauty>0</Beauty>
 		</statBases>
+        <comps>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
+        </comps>
 		<graphicData>
 			<texPath>Things/Structures/Destroyed/DestroyedGravlockTether</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

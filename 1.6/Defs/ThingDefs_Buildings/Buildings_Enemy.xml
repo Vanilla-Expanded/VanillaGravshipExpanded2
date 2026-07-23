@@ -62,6 +62,9 @@
             <ComponentSpacer>4</ComponentSpacer>
             <Steel>90</Steel>
         </costList>
+		<building>
+			<displayAttackToDestroyOnInspectPane>true</displayAttackToDestroyOnInspectPane>
+		</building>
         <comps>
             <li Class="VanillaGravshipExpanded2.CompProperties_HostileWarcomputer_Hackable">
                 <defence>3000</defence>
@@ -71,6 +74,9 @@
                 <glowRadius>4</glowRadius>
                 <glowColor>(255, 40, 40, 0)</glowColor>
             </li>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
         </comps>
         <modExtensions>
             <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
@@ -99,6 +105,9 @@
             <Flammability>0.6</Flammability>
             <Beauty>0</Beauty>
         </statBases>
+		<building>
+			<displayAttackToDestroyOnInspectPane>true</displayAttackToDestroyOnInspectPane>
+		</building>
         <size>(1,1)</size>
         <passability>PassThroughOnly</passability>
         <fillPercent>0.6</fillPercent>
@@ -121,6 +130,9 @@
                 <basePowerConsumption>-2000</basePowerConsumption>
                 <transmitsPower>true</transmitsPower>
             </li>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
         </comps>
     </ThingDef>
 
@@ -144,6 +156,9 @@
             <Flammability>0.6</Flammability>
             <Beauty>0</Beauty>
         </statBases>
+		<building>
+			<displayAttackToDestroyOnInspectPane>true</displayAttackToDestroyOnInspectPane>
+		</building>
         <size>(3,3)</size>
         <passability>PassThroughOnly</passability>
         <fillPercent>0.6</fillPercent>
@@ -165,6 +180,9 @@
                 <basePowerConsumption>-3000</basePowerConsumption>
                 <transmitsPower>true</transmitsPower>
             </li>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
         </comps>
     </ThingDef>
 
@@ -188,6 +206,9 @@
             <Flammability>0.6</Flammability>
             <Beauty>0</Beauty>
         </statBases>
+		<building>
+			<displayAttackToDestroyOnInspectPane>true</displayAttackToDestroyOnInspectPane>
+		</building>
         <size>(5,5)</size>
         <passability>PassThroughOnly</passability>
         <fillPercent>0.6</fillPercent>
@@ -210,6 +231,9 @@
                 <basePowerConsumption>-5000</basePowerConsumption>
                 <transmitsPower>true</transmitsPower>
             </li>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
         </comps>
     </ThingDef>
 
@@ -233,6 +257,9 @@
             <Flammability>0.6</Flammability>
             <Beauty>0</Beauty>
         </statBases>
+		<building>
+			<displayAttackToDestroyOnInspectPane>true</displayAttackToDestroyOnInspectPane>
+		</building>
         <size>(5,5)</size>
         <passability>PassThroughOnly</passability>
         <fillPercent>0.6</fillPercent>
@@ -255,6 +282,9 @@
                 <basePowerConsumption>-7500</basePowerConsumption>
                 <transmitsPower>true</transmitsPower>
             </li>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
         </comps>
         <modExtensions>
             <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
