@@ -517,7 +517,7 @@
 		<graphicData>
 			<texPath>Things/OrbitalStation/StationLockerBank/StationLockerBank</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(4,1.5)</drawSize>
+			<drawSize>(3.5,1.5)</drawSize>
 		</graphicData>
 		<building>
 			<paintable>false</paintable>

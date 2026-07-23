@@ -873,7 +873,7 @@
 			<Beauty>-5</Beauty>
 		</statBases>
 		<graphicData>
-			<texPath>Things/Structures/Destroyed/DestroyedGravlockTether</texPath>
+			<texPath>Things/Structures/Destroyed/DestroyedGravlaunchCloaker</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(2,2)</drawSize>
 		</graphicData>
