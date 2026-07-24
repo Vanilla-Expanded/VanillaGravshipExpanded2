@@ -1,4 +1,5 @@
 using System.Linq;
+using RimWorld;
 using VEF.Storyteller;
 using Verse;
 
@@ -11,8 +12,13 @@ namespace VanillaGravshipExpanded2
 
         public override void Generate(Map map, GenStepParams parms)
         {
+            var parent = map.Parent;
+            if (parent.Faction == null || parent.Faction == Faction.OfPlayer)
+            {
+                parent.SetFaction(Faction.OfInsects);
+            }
             map.OrbitalDebris = InternalDefOf.VGE_GravshipDebris;
-            var rects = StructureSetGenerator.Generate(map, structureSetDef, map.ParentFaction);
+            var rects = StructureSetGenerator.Generate(map, structureSetDef, Faction.OfInsects);
             GenStep_Warplatform.MakeAllCratesANew(map);
             var minX = rects.Min(r => r.minX);
             var minZ = rects.Min(r => r.minZ);
