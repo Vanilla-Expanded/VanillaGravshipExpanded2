@@ -964,4 +964,57 @@
 		</building>
 	</ThingDef>
 
+  <!-- Colored for space maps -->
+  <ThingDef ParentName="AncientFortifiedWall">
+    <defName>VGE_OrbitalPirateFortifiedWall</defName>
+    <label>fortified wall</label>
+    <description>A reinforced wall made of an ultratech polymer and patched up with whatever salvagers found.</description>
+    <graphicData>
+      <color>(96,80,80)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>2000</MaxHitPoints>
+    </statBases>
+	<designationCategory>VGE_Designer</designationCategory>
+  </ThingDef>
+
+  	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE_SalvagerDropship</defName>
+		<label>salvager dropship</label>
+		<description>A chemfuel-powered heavily armored dropship equipped with rocketswarm launchers. Designed for carpet bombing and incursions into enemy territory. This particular dropship seems to belong to salvagers.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.5</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(3,5)</size>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>1000</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<WorkToBuild>3000</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/SalvagerDropship/SalvagerDropship</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(7,7)</drawSize>
+		</graphicData>
+		<costList>
+			<Steel>105</Steel>
+			<Plasteel>65</Plasteel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<ShuttleEngine>1</ShuttleEngine>
+		</costList>
+		<killedLeavings>
+			<ChunkSlagSteel>3</ChunkSlagSteel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</killedLeavings>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>true</deconstructible>
+		</building>
+	</ThingDef>
+  
+
 </Defs>
