@@ -2,6 +2,7 @@ using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using VanillaGravshipExpanded;
 
 namespace VanillaGravshipExpanded2
 {
@@ -10,21 +11,23 @@ namespace VanillaGravshipExpanded2
     {
         public static void Postfix(IntVec3 pos, Map map, TerrainGrid terrGrid, ref bool __result, ref SectionLayer_GravshipHull.CornerType cornerType, ref Color color)
         {
-            if (__result)
+            if (!__result && SectionLayer_SubstructureProps_Regenerate_Patch.IsRegenerating)
             {
-                return;
-            }
-            
-            if (!SectionLayer_SubstructureProps_Regenerate_Patch.IsRegenerating)
-            {
-                return;
+                if (SectionLayer_GravshipArmorHull.ShouldDrawCornerPiece(pos, map, terrGrid, out var myCornerType, out var myColor))
+                {
+                    __result = true;
+                    cornerType = (SectionLayer_GravshipHull.CornerType)(int)myCornerType;
+                    color = myColor;
+                }
             }
 
-            if (SectionLayer_GravshipArmorHull.ShouldDrawCornerPiece(pos, map, terrGrid, out var myCornerType, out var myColor))
+            if (__result)
             {
-                __result = true;
-                cornerType = (SectionLayer_GravshipHull.CornerType)(int)myCornerType;
-                color = myColor;
+                TerrainDef terrainDef = terrGrid.FoundationAt(pos) ?? terrGrid.TerrainAt(pos);
+                if (terrainDef != null && terrainDef.GetModExtension<SubstructureEdgeGraphicsExtension>()?.renderAsSubstructure == true)
+                {
+                    __result = false;
+                }
             }
         }
     }
