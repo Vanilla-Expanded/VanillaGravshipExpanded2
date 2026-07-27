@@ -15,6 +15,10 @@
         <li>r_name(p=0.01)->Tartarus Bound</li>
         <li>r_name(p=0.01)->Blood-Star Corsair</li>
         <li>r_name(p=0.01)->Oskar's Pleasure Ship</li>
+        <li>r_name(p=0.01)->The Leviathan</li>
+        <li>r_name(p=0.01)->The Voidcaller</li>
+        <li>r_name(p=0.01)->The Mach Wolf</li>
+        <li>r_name(p=0.01)->The Xenorphica</li>
 
         <!-- Base Gravship Rules -->
         <li>r_name(p=2)->The [narrative_name]</li>
