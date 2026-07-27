@@ -1,0 +1,1014 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<PrefabDef>
+  <defName>EnemyGravjumperStern_1</defName>
+  <size>(13,21)</size>
+  <things>
+    <VGE2_AstrofuelBarrel>
+      <rects>
+        <li>(8,13,8,13)</li>
+        <li>(9,14,9,14)</li>
+      </rects>
+    </VGE2_AstrofuelBarrel>
+    <VGE_AstrofuelPipe>
+      <rects>
+        <li>(6,4,6,7)</li>
+        <li>(7,7,7,9)</li>
+        <li>(8,9,8,11)</li>
+        <li>(7,11,7,13)</li>
+        <li>(6,13,6,16)</li>
+      </rects>
+    </VGE_AstrofuelPipe>
+    <SealedCrate>
+      <position>(9, 0, 11)</position>
+    </SealedCrate>
+    <VGE_EnemyGravFieldExtender>
+      <position>(10, 0, 10)</position>
+    </VGE_EnemyGravFieldExtender>
+    <Stool>
+      <position>(11, 0, 13)</position>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </Stool>
+    <VGE_EnemySmallThruster>
+      <positions>
+        <li>(5, 0, 4)</li>
+        <li>(5, 0, 5)</li>
+        <li>(5, 0, 6)</li>
+        <li>(5, 0, 14)</li>
+        <li>(5, 0, 15)</li>
+        <li>(5, 0, 16)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemySmallThruster>
+    <GravshipHull>
+      <rects>
+        <li>(5,3,7,3)</li>
+        <li>(7,4,9,4)</li>
+        <li>(9,5,12,5)</li>
+        <li>(5,7,7,7)</li>
+        <li>(7,8,10,8)</li>
+        <li>(7,9,8,9)</li>
+        <li>(8,10,8,12)</li>
+        <li>(7,11,7,13)</li>
+        <li>(9,12,10,12)</li>
+        <li>(5,13,6,13)</li>
+        <li>(9,15,12,15)</li>
+        <li>(7,16,9,16)</li>
+        <li>(5,17,7,17)</li>
+      </rects>
+      <stuff>Steel</stuff>
+    </GravshipHull>
+    <VGE_EnemyGravshipLight_red>
+      <rects>
+        <li>(11,8,11,8)</li>
+        <li>(11,12,11,12)</li>
+      </rects>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </VGE_EnemyGravshipLight_red>
+    <VGE2_SpacerCrate>
+      <rects>
+        <li>(8,7,9,7)</li>
+        <li>(9,9,9,9)</li>
+      </rects>
+    </VGE2_SpacerCrate>
+    <VGE_EnemyOxygenPump>
+      <position>(9, 0, 10)</position>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </VGE_EnemyOxygenPump>
+    <VGE_CommsTerminal>
+      <position>(11, 0, 14)</position>
+      <relativeRotation>Opposite</relativeRotation>
+    </VGE_CommsTerminal>
+    <ChemfuelTank>
+      <positions>
+        <li>(7, 0, 5)</li>
+        <li>(7, 0, 14)</li>
+      </positions>
+    </ChemfuelTank>
+  </things>
+  <terrain>
+    <Space>
+      <rects>
+        <li>(0,0,12,2)</li>
+        <li>(0,3,4,20)</li>
+        <li>(8,3,12,3)</li>
+        <li>(10,4,12,4)</li>
+        <li>(5,8,6,12)</li>
+        <li>(7,10,7,10)</li>
+        <li>(10,16,12,20)</li>
+        <li>(8,17,9,20)</li>
+        <li>(5,18,7,20)</li>
+      </rects>
+    </Space>
+    <VGE_EnemySubstructure>
+      <rects>
+        <li>(5,3,7,7)</li>
+        <li>(8,4,9,16)</li>
+        <li>(10,5,12,15)</li>
+        <li>(7,8,7,9)</li>
+        <li>(7,11,7,17)</li>
+        <li>(5,13,6,17)</li>
+      </rects>
+    </VGE_EnemySubstructure>
+  </terrain>
+  <modExtensions>
+    <li Class="VEF.Storyteller.PrefabExtension">
+      <roofs>
+        <li>
+          <def>RoofConstructed</def>
+          <rects>
+            <li>(5,3,7,7)</li>
+            <li>(8,4,9,16)</li>
+            <li>(10,5,12,15)</li>
+            <li>(7,8,7,9)</li>
+            <li>(7,11,7,17)</li>
+            <li>(5,13,6,17)</li>
+          </rects>
+        </li>
+      </roofs>
+    </li>
+  </modExtensions>
+</PrefabDef>
+
+<PrefabDef>
+  <defName>EnemyGravjumperStern_2</defName>
+  <size>(13,21)</size>
+  <things>
+    <VGE2_AstrofuelBarrel>
+      <position>(8, 0, 13)</position>
+    </VGE2_AstrofuelBarrel>
+    <VGE_AstrofuelPipe>
+      <rects>
+        <li>(6,9,6,11)</li>
+      </rects>
+    </VGE_AstrofuelPipe>
+    <SealedCrate>
+      <rects>
+        <li>(9,7,9,7)</li>
+        <li>(8,8,8,8)</li>
+      </rects>
+    </SealedCrate>
+    <VGE_EnemyGravFieldExtender>
+      <position>(8, 0, 10)</position>
+    </VGE_EnemyGravFieldExtender>
+    <VGE_EnemyTargetingTerminal>
+      <position>(10, 0, 8)</position>
+    </VGE_EnemyTargetingTerminal>
+    <VGE_EnemySmallThruster>
+      <positions>
+        <li>(4, 0, 6)</li>
+        <li>(4, 0, 14)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemySmallThruster>
+    <GravshipHull>
+      <rects>
+        <li>(4,5,6,5)</li>
+        <li>(9,5,12,5)</li>
+        <li>(6,6,9,6)</li>
+        <li>(4,9,6,9)</li>
+        <li>(6,10,6,11)</li>
+        <li>(4,11,5,11)</li>
+        <li>(6,14,9,14)</li>
+        <li>(4,15,6,15)</li>
+        <li>(9,15,12,15)</li>
+      </rects>
+      <stuff>Steel</stuff>
+    </GravshipHull>
+    <VGE_EnemyGravshipLight_red>
+      <position>(9, 0, 7)</position>
+      <relativeRotation>Opposite</relativeRotation>
+    </VGE_EnemyGravshipLight_red>
+    <VGE_EnemyGravshipLight_red>
+      <position>(9, 0, 13)</position>
+    </VGE_EnemyGravshipLight_red>
+    <VGE2_SpacerCrate>
+      <position>(8, 0, 7)</position>
+    </VGE2_SpacerCrate>
+    <VGE_EnemyLargeThruster>
+      <positions>
+        <li>(4, 0, 8)</li>
+        <li>(4, 0, 13)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemyLargeThruster>
+    <VGE2_StationLockerBank>
+      <position>(11, 0, 6)</position>
+    </VGE2_StationLockerBank>
+    <VGE2_StationLockerBank>
+      <position>(11, 0, 14)</position>
+      <relativeRotation>Opposite</relativeRotation>
+    </VGE2_StationLockerBank>
+    <VGE_EnemyOxygenPump>
+      <position>(7, 0, 10)</position>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </VGE_EnemyOxygenPump>
+    <VGE_EnemyGaussGun>
+      <position>(10, 0, 10)</position>
+    </VGE_EnemyGaussGun>
+    <ChemfuelTank>
+      <positions>
+        <li>(6, 0, 7)</li>
+        <li>(6, 0, 12)</li>
+      </positions>
+    </ChemfuelTank>
+  </things>
+  <terrain>
+    <Space>
+      <rects>
+        <li>(0,0,12,4)</li>
+        <li>(0,5,3,20)</li>
+        <li>(7,5,8,5)</li>
+        <li>(4,10,5,10)</li>
+        <li>(7,15,8,20)</li>
+        <li>(4,16,6,20)</li>
+        <li>(9,16,12,20)</li>
+      </rects>
+    </Space>
+    <VGE_EnemySubstructure>
+      <rects>
+        <li>(4,5,6,9)</li>
+        <li>(9,5,12,15)</li>
+        <li>(7,6,8,14)</li>
+        <li>(6,10,6,15)</li>
+        <li>(4,11,5,15)</li>
+      </rects>
+    </VGE_EnemySubstructure>
+  </terrain>
+  <modExtensions>
+    <li Class="VEF.Storyteller.PrefabExtension">
+      <roofs>
+        <li>
+          <def>RoofConstructed</def>
+          <rects>
+            <li>(4,5,6,9)</li>
+            <li>(9,5,12,15)</li>
+            <li>(7,6,8,14)</li>
+            <li>(6,10,6,15)</li>
+            <li>(4,11,5,15)</li>
+          </rects>
+        </li>
+      </roofs>
+    </li>
+  </modExtensions>
+</PrefabDef>
+
+<PrefabDef>
+  <defName>EnemyGravjumperStern_3</defName>
+  <size>(13,21)</size>
+  <things>
+    <VGE_AstrofuelPipe>
+      <rects>
+        <li>(10,6,10,6)</li>
+        <li>(8,7,8,13)</li>
+        <li>(10,14,10,14)</li>
+      </rects>
+    </VGE_AstrofuelPipe>
+    <SealedCrate>
+      <position>(10, 0, 11)</position>
+    </SealedCrate>
+    <VGE_EnemyGravFieldExtender>
+      <position>(9, 0, 10)</position>
+    </VGE_EnemyGravFieldExtender>
+    <VGE_EnemySmallThruster>
+      <positions>
+        <li>(10, 0, 5)</li>
+        <li>(7, 0, 8)</li>
+        <li>(7, 0, 12)</li>
+        <li>(10, 0, 15)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemySmallThruster>
+    <GravshipHull>
+      <rects>
+        <li>(12,5,12,6)</li>
+        <li>(8,6,11,6)</li>
+        <li>(7,7,8,7)</li>
+        <li>(7,9,8,9)</li>
+        <li>(8,10,8,11)</li>
+        <li>(7,11,7,11)</li>
+        <li>(7,13,8,13)</li>
+        <li>(8,14,12,14)</li>
+        <li>(12,15,12,15)</li>
+      </rects>
+      <stuff>Steel</stuff>
+    </GravshipHull>
+    <VGE_EnemyGravshipLight_red>
+      <position>(11, 0, 7)</position>
+      <relativeRotation>Opposite</relativeRotation>
+    </VGE_EnemyGravshipLight_red>
+    <VGE_EnemyGravshipLight_red>
+      <position>(12, 0, 13)</position>
+    </VGE_EnemyGravshipLight_red>
+    <VGE2_SpacerCrate>
+      <rects>
+        <li>(9,9,10,9)</li>
+        <li>(9,11,9,11)</li>
+      </rects>
+    </VGE2_SpacerCrate>
+    <VGE_EnemyOxygenPump>
+      <position>(11, 0, 13)</position>
+    </VGE_EnemyOxygenPump>
+    <ChemfuelTank>
+      <positions>
+        <li>(9, 0, 7)</li>
+        <li>(9, 0, 12)</li>
+      </positions>
+    </ChemfuelTank>
+  </things>
+  <terrain>
+    <Space>
+      <rects>
+        <li>(0,0,12,4)</li>
+        <li>(0,5,9,5)</li>
+        <li>(0,6,7,6)</li>
+        <li>(0,7,6,20)</li>
+        <li>(7,10,7,10)</li>
+        <li>(7,14,7,20)</li>
+        <li>(8,15,9,20)</li>
+        <li>(10,16,12,20)</li>
+      </rects>
+    </Space>
+    <VGE_EnemySubstructure>
+      <rects>
+        <li>(10,5,12,15)</li>
+        <li>(8,6,9,14)</li>
+        <li>(7,7,7,9)</li>
+        <li>(7,11,7,13)</li>
+      </rects>
+    </VGE_EnemySubstructure>
+  </terrain>
+  <modExtensions>
+    <li Class="VEF.Storyteller.PrefabExtension">
+      <roofs>
+        <li>
+          <def>RoofConstructed</def>
+          <rects>
+            <li>(10,5,12,15)</li>
+            <li>(8,6,9,14)</li>
+            <li>(7,7,7,9)</li>
+            <li>(7,11,7,13)</li>
+          </rects>
+        </li>
+      </roofs>
+    </li>
+  </modExtensions>
+</PrefabDef>
+
+<PrefabDef>
+  <defName>EnemyGravjumperStern_4</defName>
+  <size>(13,21)</size>
+  <things>
+    <VGE2_AstrofuelBarrel>
+      <rects>
+        <li>(11,6,11,7)</li>
+      </rects>
+    </VGE2_AstrofuelBarrel>
+    <VGE_AstrofuelPipe>
+      <rects>
+        <li>(10,2,10,7)</li>
+        <li>(9,8,9,13)</li>
+        <li>(10,13,10,18)</li>
+      </rects>
+    </VGE_AstrofuelPipe>
+    <SealedCrate>
+      <position>(11, 0, 13)</position>
+    </SealedCrate>
+    <VGE_EnemyGravFieldExtender>
+      <position>(10, 0, 10)</position>
+    </VGE_EnemyGravFieldExtender>
+    <VGE_EnemySmallThruster>
+      <positions>
+        <li>(8, 0, 2)</li>
+        <li>(9, 0, 7)</li>
+        <li>(9, 0, 13)</li>
+        <li>(8, 0, 18)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemySmallThruster>
+    <GravshipHull>
+      <rects>
+        <li>(8,1,10,1)</li>
+        <li>(10,2,10,6)</li>
+        <li>(8,3,9,3)</li>
+        <li>(11,3,11,5)</li>
+        <li>(9,4,9,4)</li>
+        <li>(12,5,12,5)</li>
+        <li>(9,6,9,6)</li>
+        <li>(9,8,9,12)</li>
+        <li>(9,14,10,14)</li>
+        <li>(10,15,12,15)</li>
+        <li>(9,16,11,17)</li>
+        <li>(8,17,8,17)</li>
+        <li>(10,18,10,19)</li>
+        <li>(8,19,9,19)</li>
+      </rects>
+      <stuff>Steel</stuff>
+    </GravshipHull>
+    <VGE_EnemyGravshipLight_red>
+      <position>(12, 0, 6)</position>
+      <relativeRotation>Opposite</relativeRotation>
+    </VGE_EnemyGravshipLight_red>
+    <VGE_EnemyGravshipLight_red>
+      <position>(12, 0, 14)</position>
+    </VGE_EnemyGravshipLight_red>
+    <VGE2_SpacerCrate>
+      <rects>
+        <li>(12,6,12,6)</li>
+        <li>(11,14,11,14)</li>
+      </rects>
+    </VGE2_SpacerCrate>
+    <VGE_EnemyOxygenPump>
+      <position>(10, 0, 10)</position>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </VGE_EnemyOxygenPump>
+    <ChemfuelTank>
+      <positions>
+        <li>(10, 0, 8)</li>
+        <li>(10, 0, 11)</li>
+      </positions>
+    </ChemfuelTank>
+  </things>
+  <terrain>
+    <Space>
+      <rects>
+        <li>(0,0,12,0)</li>
+        <li>(0,1,7,20)</li>
+        <li>(11,1,12,2)</li>
+        <li>(12,3,12,4)</li>
+        <li>(8,4,8,16)</li>
+        <li>(9,5,9,5)</li>
+        <li>(9,15,9,15)</li>
+        <li>(12,16,12,20)</li>
+        <li>(11,18,11,20)</li>
+        <li>(8,20,10,20)</li>
+      </rects>
+    </Space>
+    <VGE_EnemySubstructure>
+      <rects>
+        <li>(8,1,10,3)</li>
+        <li>(11,3,11,17)</li>
+        <li>(9,4,10,4)</li>
+        <li>(10,5,10,19)</li>
+        <li>(12,5,12,15)</li>
+        <li>(9,6,9,14)</li>
+        <li>(9,16,9,19)</li>
+        <li>(8,17,8,19)</li>
+      </rects>
+    </VGE_EnemySubstructure>
+  </terrain>
+  <modExtensions>
+    <li Class="VEF.Storyteller.PrefabExtension">
+      <roofs>
+        <li>
+          <def>RoofConstructed</def>
+          <rects>
+            <li>(8,1,10,3)</li>
+            <li>(11,3,11,17)</li>
+            <li>(9,4,10,4)</li>
+            <li>(10,5,10,19)</li>
+            <li>(12,5,12,15)</li>
+            <li>(9,6,9,14)</li>
+            <li>(9,16,9,19)</li>
+            <li>(8,17,8,19)</li>
+          </rects>
+        </li>
+      </roofs>
+    </li>
+  </modExtensions>
+</PrefabDef>
+
+<PrefabDef>
+  <defName>EnemyGravjumperStern_5</defName>
+  <size>(13,21)</size>
+  <things>
+    <VGE_EnemyJavelinPod>
+      <position>(8, 0, 10)</position>
+    </VGE_EnemyJavelinPod>
+    <VGE2_AstrofuelBarrel>
+      <position>(9, 0, 8)</position>
+    </VGE2_AstrofuelBarrel>
+    <SealedCrate>
+      <rects>
+        <li>(10,11,10,11)</li>
+        <li>(11,12,11,12)</li>
+      </rects>
+    </SealedCrate>
+    <VGE_CrewBunkBed>
+      <positions>
+        <li>(11, 0, 6)</li>
+        <li>(11, 0, 14)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewBunkBed>
+    <VGE_AuxiliaryAstrofuelTank>
+      <rects>
+        <li>(8,8,8,8)</li>
+        <li>(8,12,8,12)</li>
+      </rects>
+    </VGE_AuxiliaryAstrofuelTank>
+    <VGE_EnemyTargetingTerminal>
+      <position>(10, 0, 10)</position>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </VGE_EnemyTargetingTerminal>
+    <VGE_EnemySmallThruster>
+      <positions>
+        <li>(7, 0, 5)</li>
+        <li>(6, 0, 8)</li>
+        <li>(5, 0, 10)</li>
+        <li>(6, 0, 12)</li>
+        <li>(7, 0, 15)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemySmallThruster>
+    <GravshipHull>
+      <rects>
+        <li>(7,4,10,4)</li>
+        <li>(9,5,12,5)</li>
+        <li>(10,6,10,7)</li>
+        <li>(6,7,9,7)</li>
+        <li>(5,9,6,9)</li>
+        <li>(5,11,6,11)</li>
+        <li>(6,13,10,13)</li>
+        <li>(10,14,10,16)</li>
+        <li>(9,15,9,16)</li>
+        <li>(11,15,12,15)</li>
+        <li>(7,16,8,16)</li>
+      </rects>
+      <stuff>Steel</stuff>
+    </GravshipHull>
+    <VGE_EnemyGravshipLight_red>
+      <rects>
+        <li>(11,7,11,7)</li>
+        <li>(11,13,11,13)</li>
+      </rects>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </VGE_EnemyGravshipLight_red>
+    <VGE_CrewLockers>
+      <rects>
+        <li>(11,7,11,7)</li>
+        <li>(11,13,11,13)</li>
+      </rects>
+      <relativeRotation>Clockwise</relativeRotation>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewLockers>
+    <VGE2_SpacerCrate>
+      <rects>
+        <li>(9,12,10,12)</li>
+      </rects>
+    </VGE2_SpacerCrate>
+    <VGE_EnemyOxygenPump>
+      <position>(10, 0, 8)</position>
+      <relativeRotation>Opposite</relativeRotation>
+    </VGE_EnemyOxygenPump>
+    <VGE2_ExplosivesCrate>
+      <position>(10, 0, 8)</position>
+    </VGE2_ExplosivesCrate>
+  </things>
+  <terrain>
+    <Space>
+      <rects>
+        <li>(0,0,12,3)</li>
+        <li>(0,4,6,6)</li>
+        <li>(11,4,12,4)</li>
+        <li>(7,6,9,6)</li>
+        <li>(0,7,5,8)</li>
+        <li>(0,9,4,20)</li>
+        <li>(5,12,5,20)</li>
+        <li>(6,14,9,14)</li>
+        <li>(6,15,6,20)</li>
+        <li>(11,16,12,20)</li>
+        <li>(7,17,10,20)</li>
+      </rects>
+    </Space>
+    <VGE_EnemySubstructure>
+      <rects>
+        <li>(7,4,10,5)</li>
+        <li>(11,5,12,15)</li>
+        <li>(10,6,10,16)</li>
+        <li>(6,7,9,13)</li>
+        <li>(5,9,5,11)</li>
+        <li>(7,15,9,16)</li>
+      </rects>
+    </VGE_EnemySubstructure>
+  </terrain>
+  <modExtensions>
+    <li Class="VEF.Storyteller.PrefabExtension">
+      <roofs>
+        <li>
+          <def>RoofConstructed</def>
+          <rects>
+            <li>(7,4,10,5)</li>
+            <li>(11,5,12,15)</li>
+            <li>(10,6,10,16)</li>
+            <li>(6,7,9,13)</li>
+            <li>(5,9,5,11)</li>
+            <li>(7,15,9,16)</li>
+          </rects>
+        </li>
+      </roofs>
+    </li>
+  </modExtensions>
+</PrefabDef>
+
+<PrefabDef>
+  <defName>EnemyGravjumperStern_6</defName>
+  <size>(13,21)</size>
+  <things>
+    <VGE2_AstrofuelBarrel>
+      <rects>
+        <li>(11,6,12,6)</li>
+      </rects>
+    </VGE2_AstrofuelBarrel>
+    <VGE_EnemyGravshipMinigunTurret>
+      <rects>
+        <li>(10,3,10,3)</li>
+        <li>(10,17,10,17)</li>
+      </rects>
+    </VGE_EnemyGravshipMinigunTurret>
+    <VGE_AstrofuelPipe>
+      <rects>
+        <li>(10,4,10,6)</li>
+        <li>(7,7,8,7)</li>
+        <li>(7,8,7,13)</li>
+        <li>(8,13,8,13)</li>
+        <li>(10,14,10,16)</li>
+      </rects>
+    </VGE_AstrofuelPipe>
+    <SealedCrate>
+      <position>(9, 0, 9)</position>
+    </SealedCrate>
+    <VGE_EnemyGravFieldExtender>
+      <position>(8, 0, 10)</position>
+    </VGE_EnemyGravFieldExtender>
+    <Barricade>
+      <rects>
+        <li>(11,3,11,3)</li>
+        <li>(11,17,11,17)</li>
+      </rects>
+      <stuff>Steel</stuff>
+    </Barricade>
+    <VGE_EnemySmallThruster>
+      <positions>
+        <li>(8, 0, 4)</li>
+        <li>(7, 0, 7)</li>
+        <li>(6, 0, 9)</li>
+        <li>(6, 0, 11)</li>
+        <li>(7, 0, 13)</li>
+        <li>(8, 0, 16)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemySmallThruster>
+    <GravshipHull>
+      <rects>
+        <li>(10,4,11,5)</li>
+        <li>(12,5,12,5)</li>
+        <li>(7,6,10,6)</li>
+        <li>(6,8,7,8)</li>
+        <li>(6,10,7,10)</li>
+        <li>(6,12,7,12)</li>
+        <li>(7,14,10,14)</li>
+        <li>(10,15,12,15)</li>
+        <li>(10,16,11,16)</li>
+      </rects>
+      <stuff>Steel</stuff>
+    </GravshipHull>
+    <VGE_EnemyGravshipLight_red>
+      <position>(10, 0, 7)</position>
+      <relativeRotation>Opposite</relativeRotation>
+    </VGE_EnemyGravshipLight_red>
+    <VGE_EnemyGravshipLight_red>
+      <position>(10, 0, 13)</position>
+    </VGE_EnemyGravshipLight_red>
+    <VGE2_SpacerCrate>
+      <rects>
+        <li>(8,8,8,9)</li>
+        <li>(8,11,9,11)</li>
+        <li>(8,12,8,12)</li>
+      </rects>
+    </VGE2_SpacerCrate>
+    <VGE_EnemyOxygenPump>
+      <position>(11, 0, 14)</position>
+    </VGE_EnemyOxygenPump>
+    <ChemfuelTank>
+      <positions>
+        <li>(9, 0, 7)</li>
+        <li>(9, 0, 12)</li>
+      </positions>
+    </ChemfuelTank>
+  </things>
+  <terrain>
+    <Space>
+      <rects>
+        <li>(0,0,12,2)</li>
+        <li>(0,3,9,3)</li>
+        <li>(12,3,12,4)</li>
+        <li>(0,4,7,5)</li>
+        <li>(8,5,9,5)</li>
+        <li>(0,6,6,7)</li>
+        <li>(0,8,5,20)</li>
+        <li>(6,13,6,20)</li>
+        <li>(7,15,9,15)</li>
+        <li>(7,16,7,20)</li>
+        <li>(12,16,12,20)</li>
+        <li>(8,17,9,20)</li>
+        <li>(10,18,11,20)</li>
+      </rects>
+    </Space>
+    <VGE_EnemySubstructure>
+      <rects>
+        <li>(10,3,11,17)</li>
+        <li>(8,4,9,4)</li>
+        <li>(12,5,12,15)</li>
+        <li>(7,6,9,14)</li>
+        <li>(6,8,6,12)</li>
+        <li>(8,16,9,16)</li>
+      </rects>
+    </VGE_EnemySubstructure>
+  </terrain>
+  <modExtensions>
+    <li Class="VEF.Storyteller.PrefabExtension">
+      <roofs>
+        <li>
+          <def>RoofConstructed</def>
+          <rects>
+            <li>(8,4,11,4)</li>
+            <li>(10,5,12,15)</li>
+            <li>(7,6,9,14)</li>
+            <li>(6,8,6,12)</li>
+            <li>(8,16,11,16)</li>
+          </rects>
+        </li>
+      </roofs>
+    </li>
+  </modExtensions>
+</PrefabDef>
+
+<PrefabDef>
+  <defName>EnemyGravjumperStern_7</defName>
+  <size>(13,21)</size>
+  <things>
+    <VGE2_AstrofuelBarrel>
+      <position>(10, 0, 7)</position>
+    </VGE2_AstrofuelBarrel>
+    <VGE_AstrofuelPipe>
+      <rects>
+        <li>(9,6,12,6)</li>
+        <li>(7,7,7,9)</li>
+        <li>(8,9,9,9)</li>
+        <li>(9,10,9,11)</li>
+        <li>(7,11,8,11)</li>
+        <li>(7,12,7,12)</li>
+        <li>(9,14,12,14)</li>
+      </rects>
+    </VGE_AstrofuelPipe>
+    <SealedCrate>
+      <position>(10, 0, 11)</position>
+    </SealedCrate>
+    <VGE_EnemyGravFieldExtender>
+      <position>(10, 0, 10)</position>
+    </VGE_EnemyGravFieldExtender>
+    <VGE_EnemySmallThruster>
+      <positions>
+        <li>(11, 0, 5)</li>
+        <li>(11, 0, 15)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemySmallThruster>
+    <GravshipHull>
+      <rects>
+        <li>(6,6,12,6)</li>
+        <li>(11,7,11,7)</li>
+        <li>(6,9,9,9)</li>
+        <li>(9,10,9,11)</li>
+        <li>(6,11,8,11)</li>
+        <li>(11,13,11,14)</li>
+        <li>(6,14,10,14)</li>
+        <li>(12,14,12,14)</li>
+      </rects>
+      <stuff>Steel</stuff>
+    </GravshipHull>
+    <VGE_EnemyGravshipLight_red>
+      <position>(11, 0, 8)</position>
+      <relativeRotation>Opposite</relativeRotation>
+    </VGE_EnemyGravshipLight_red>
+    <VGE_EnemyGravshipLight_red>
+      <position>(11, 0, 12)</position>
+    </VGE_EnemyGravshipLight_red>
+    <VGE_CrewLockers>
+      <position>(12, 0, 7)</position>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewLockers>
+    <VGE_CrewLockers>
+      <position>(12, 0, 13)</position>
+      <relativeRotation>Opposite</relativeRotation>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewLockers>
+    <VGE2_SpacerCrate>
+      <rects>
+        <li>(10,12,11,12)</li>
+        <li>(10,13,10,13)</li>
+      </rects>
+    </VGE2_SpacerCrate>
+    <VGE_EnemyLargeThruster>
+      <positions>
+        <li>(6, 0, 8)</li>
+        <li>(6, 0, 13)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemyLargeThruster>
+    <VGE_EnemyOxygenPump>
+      <position>(10, 0, 11)</position>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </VGE_EnemyOxygenPump>
+    <ChemfuelTank>
+      <positions>
+        <li>(8, 0, 7)</li>
+        <li>(8, 0, 12)</li>
+      </positions>
+    </ChemfuelTank>
+  </things>
+  <terrain>
+    <Space>
+      <rects>
+        <li>(0,0,12,4)</li>
+        <li>(0,5,10,5)</li>
+        <li>(0,6,5,20)</li>
+        <li>(6,10,8,10)</li>
+        <li>(6,15,10,20)</li>
+        <li>(11,16,12,20)</li>
+      </rects>
+    </Space>
+    <VGE_EnemySubstructure>
+      <rects>
+        <li>(11,5,12,15)</li>
+        <li>(6,6,10,9)</li>
+        <li>(9,10,10,14)</li>
+        <li>(6,11,8,14)</li>
+      </rects>
+    </VGE_EnemySubstructure>
+  </terrain>
+  <modExtensions>
+    <li Class="VEF.Storyteller.PrefabExtension">
+      <roofs>
+        <li>
+          <def>RoofConstructed</def>
+          <rects>
+            <li>(11,5,12,15)</li>
+            <li>(6,6,10,9)</li>
+            <li>(9,10,10,14)</li>
+            <li>(6,11,8,14)</li>
+          </rects>
+        </li>
+      </roofs>
+    </li>
+  </modExtensions>
+</PrefabDef>
+
+<PrefabDef>
+  <defName>EnemyGravjumperStern_8</defName>
+  <size>(13,21)</size>
+  <things>
+    <VGE2_AstrofuelBarrel>
+      <rects>
+        <li>(9,12,9,13)</li>
+      </rects>
+    </VGE2_AstrofuelBarrel>
+    <VGE_AstrofuelPipe>
+      <rects>
+        <li>(6,6,6,14)</li>
+      </rects>
+    </VGE_AstrofuelPipe>
+    <SealedCrate>
+      <position>(7, 0, 9)</position>
+    </SealedCrate>
+    <VGE_CrewBunkBed>
+      <position>(11, 0, 6)</position>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewBunkBed>
+    <VGE_CrewBunkBed>
+      <position>(11, 0, 14)</position>
+      <relativeRotation>Opposite</relativeRotation>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewBunkBed>
+    <VGE_EnemyGravFieldExtender>
+      <position>(7, 0, 10)</position>
+    </VGE_EnemyGravFieldExtender>
+    <Door>
+      <position>(10, 0, 10)</position>
+      <relativeRotation>Clockwise</relativeRotation>
+      <stuff>Steel</stuff>
+    </Door>
+    <VGE_EnemySmallThruster>
+      <positions>
+        <li>(5, 0, 6)</li>
+        <li>(5, 0, 10)</li>
+        <li>(5, 0, 14)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemySmallThruster>
+    <GravshipHull>
+      <rects>
+        <li>(5,5,7,5)</li>
+        <li>(10,5,12,5)</li>
+        <li>(7,6,10,6)</li>
+        <li>(10,7,10,9)</li>
+        <li>(5,9,6,9)</li>
+        <li>(5,11,6,11)</li>
+        <li>(10,11,10,15)</li>
+        <li>(7,14,9,14)</li>
+        <li>(5,15,7,15)</li>
+        <li>(11,15,12,15)</li>
+      </rects>
+      <stuff>Steel</stuff>
+    </GravshipHull>
+    <VGE_EnemyGravshipLight_red>
+      <position>(11, 0, 8)</position>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </VGE_EnemyGravshipLight_red>
+    <VGE_EnemyGravshipLight_red>
+      <position>(9, 0, 11)</position>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemyGravshipLight_red>
+    <VGE_CrewLockers>
+      <position>(12, 0, 6)</position>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewLockers>
+    <VGE_CrewLockers>
+      <position>(12, 0, 14)</position>
+      <relativeRotation>Opposite</relativeRotation>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewLockers>
+    <VGE2_SpacerCrate>
+      <position>(7, 0, 11)</position>
+    </VGE2_SpacerCrate>
+    <VGE_EnemyLargeThruster>
+      <positions>
+        <li>(5, 0, 8)</li>
+        <li>(5, 0, 13)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_EnemyLargeThruster>
+    <VGE_EnemyOxygenPump>
+      <rects>
+        <li>(7,11,7,11)</li>
+        <li>(11,12,11,12)</li>
+      </rects>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </VGE_EnemyOxygenPump>
+    <ChemfuelTank>
+      <positions>
+        <li>(7, 0, 7)</li>
+        <li>(7, 0, 12)</li>
+      </positions>
+    </ChemfuelTank>
+  </things>
+  <terrain>
+    <Space>
+      <rects>
+        <li>(0,0,12,4)</li>
+        <li>(0,5,4,20)</li>
+        <li>(8,5,9,5)</li>
+        <li>(8,15,9,20)</li>
+        <li>(5,16,7,20)</li>
+        <li>(10,16,12,20)</li>
+      </rects>
+    </Space>
+    <VGE_EnemySubstructure>
+      <rects>
+        <li>(5,5,7,15)</li>
+        <li>(10,5,12,15)</li>
+        <li>(8,6,9,14)</li>
+      </rects>
+    </VGE_EnemySubstructure>
+  </terrain>
+  <modExtensions>
+    <li Class="VEF.Storyteller.PrefabExtension">
+      <roofs>
+        <li>
+          <def>RoofConstructed</def>
+          <rects>
+            <li>(5,5,7,15)</li>
+            <li>(10,5,12,15)</li>
+            <li>(8,6,9,14)</li>
+          </rects>
+        </li>
+      </roofs>
+    </li>
+  </modExtensions>
+</PrefabDef>
+
+
+
+ 
+</Defs>

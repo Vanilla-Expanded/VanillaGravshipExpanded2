@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<ThingDef ParentName="GravshipComponentBase">
+		<defName>VGE_AuxiliaryOxygenTank</defName>
+		<label>auxiliary oxygen tank</label>
+		<description>A compact, low-volume oxygen tank that supplies oxygen to pumps throughout the gravship.</description>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<minifiedDef IsNull="True"/>
+		<thingCategories Inherit="False"/>
+		<graphicData>
+			<texPath>Things/Structures/Vacuum/AuxiliaryOxygenTank</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>20</pathCost>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.6</fillPercent>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>800</WorkToBuild>
+			<Mass>8</Mass>
+			<Flammability>0.6</Flammability>
+			<VGE_MaintenanceSensitivity>1</VGE_MaintenanceSensitivity>
+		</statBases>
+		<size>(1,1)</size>
+		<costList>
+			<Steel>40</Steel>
+		</costList>
+		<comps>
+			<li Class="PipeSystem.CompProperties_ResourceStorage">
+				<pipeNet>VGE_OxygenNet</pipeNet>
+				<storageCapacity>100</storageCapacity>
+				<barSize>(0.6, 0.25)</barSize>
+				<margin>0.1</margin>
+				<centerOffset>(0, 0, -0.05)</centerOffset>
+				<barHorizontal>true</barHorizontal>
+				<rotateBarWithBuilding>false</rotateBarWithBuilding>
+				<extractOptions>
+					<texPath>UI/Gizmos/ExtractOxygen_Gizmo</texPath>
+					<labelKey>VGE_ExtractOxygen</labelKey>
+					<descKey>VGE_ExtractOxygenDesc</descKey>
+					<disabledReasonKey>VGE_ExtractOxygenDisabled</disabledReasonKey>
+<!--          <extractAmount>10</extractAmount>-->
+          <extractAmount>-1</extractAmount>
+					<thing>VGE_OxygenCanister</thing>
+					<extractTime>120</extractTime>
+					<extractExactAmount>false</extractExactAmount>
+				</extractOptions>
+				<destroyOptions>
+					<li>
+						<thing>VGE_OxygenCanister</thing>
+						<spawnWhenDestroyed>false</spawnWhenDestroyed>
+					</li>
+				</destroyOptions>
+			</li>
+			<li Class="PipeSystem.CompProperties_ExplosiveContent">
+				<explosiveMaxRadius>7</explosiveMaxRadius>
+				<radiusRequiredForExplosion>2</radiusRequiredForExplosion>
+				<!-- Vanilla options below -->
+				<explosiveDamageType>Thump</explosiveDamageType>
+				<damageAmountBase>9</damageAmountBase>
+				<destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
+				<startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+				<wickTicks>70~150</wickTicks>
+			</li>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+        <maintenanceFallsOutsideSubstructure>false</maintenanceFallsOutsideSubstructure>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<rotatable>false</rotatable>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<designationCategory>VGE_Vacuum</designationCategory>
+		<staticSunShadowHeight>0.3</staticSunShadowHeight>
+		<constructEffect>ConstructMetal</constructEffect>
+		<canOverlapZones>false</canOverlapZones>
+		<researchPrerequisites>
+			<li>VGE_OxygenNetwork</li>
+		</researchPrerequisites>
+		<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
+		<building>
+			<relatedBuildCommands>
+				<li>VGE_OxygenPipe</li>
+			</relatedBuildCommands>
+		</building>
+    <uiOrder>2410</uiOrder>
+	</ThingDef>
+</Defs>

@@ -1060,7 +1060,7 @@
 
     <ThingDef ParentName="VGE_EnemyPropBase">
         <defName>VGE_EnemyPointDefenseTurret</defName>
-        <label>point defense turret</label>
+        <label>enemy point defense turret</label>
         <description>A specialized defensive turret built exclusively for gravships. It intercepts explosive projectiles and incoming drop pods within its protective radius, but cannot engage ground targets. Interception chance scales with the target’s velocity.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
         <thingClass>Building_TurretGun</thingClass>
         <graphicData>
@@ -1802,5 +1802,281 @@
       </li>
     </verbs>
   </ThingDef>
+
+  	<ThingDef Name="VGE_EnemyGravshipCompactTurretBase" ParentName="BuildingBase" Abstract="True">
+		<thingClass>Building_TurretGun</thingClass>
+		<size>(1,1)</size>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>Things/Structures/Combat/GravshipTurrets/GravshipTurret_Base_VerySmall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>285</MaxHitPoints>
+			<Flammability>0.7</Flammability>
+			<WorkToBuild>15000</WorkToBuild>
+			<Beauty>-20</Beauty>
+			<ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+		</statBases>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<designationCategory>VGE_Designer</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<fillPercent>0.5</fillPercent>
+		<hasTooltip>true</hasTooltip>
+		<drawHighlight>true</drawHighlight>
+		<drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
+		<building>
+			<turretTopDrawSize>2.5</turretTopDrawSize>
+			<ai_combatDangerous>true</ai_combatDangerous>
+            <combatPower>100</combatPower>
+		</building>
+		<comps>
+			<li Class="CompProperties_Stunnable">
+				<affectedDamageDefs>
+					<li>Stun</li>
+					<li>EMP</li>
+				</affectedDamageDefs>
+			</li>
+		</comps>
+	</ThingDef>
+
+  	<ThingDef ParentName="VGE_EnemyGravshipCompactTurretBase">
+		<defName>VGE_EnemyGravshipMinigunTurret</defName>
+		<label>enemy gravship minigun turret</label>
+		<description>A compact gravship-mounted heavy automatic turret. Its multi-barrel mechanism unleashes sustained fire at high speed, shredding lightly armored targets at mid-range. It may explode when damaged.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+		<uiIconPath>Things/Enemy/EnemyTurrets/EnemyGravshipMinigunTurret_MenuIcon</uiIconPath>
+		<costList>
+			<Steel>175</Steel>
+			<GravlitePanel>40</GravlitePanel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>1.9</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<startWickOnDamageTaken>
+					<li>Flame</li>
+				</startWickOnDamageTaken>
+				<wickTicks>120</wickTicks>
+				<chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+			</li>
+		</comps>
+		<building>
+			<turretGunDef>VGE_Gun_EnemyGravshipMinigun</turretGunDef>
+			<turretBurstCooldownTime>6</turretBurstCooldownTime>
+		</building>
+		<tickerType>Normal</tickerType>
+	</ThingDef>
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>VGE_Gun_EnemyGravshipMinigun</defName>
+		<label>gravship minigun</label>
+		<graphicData>
+			<texPath>Things/Enemy/EnemyTurrets/EnemyGravshipMinigunTurret_Top</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<AccuracyTouch>0.5</AccuracyTouch>
+			<AccuracyShort>0.6</AccuracyShort>
+			<AccuracyMedium>0.5</AccuracyMedium>
+			<AccuracyLong>0.35</AccuracyLong>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<defaultProjectile>Bullet_Minigun</defaultProjectile>
+				<warmupTime>0</warmupTime>
+				<range>27.9</range>
+				<burstShotCount>8</burstShotCount>
+				<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+				<soundCast>Shot_Minigun</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+	</ThingDef>
+	<ThingDef ParentName="VGE_EnemyGravshipCompactTurretBase">
+		<defName>VGE_EnemyGravshipAutocannonTurret</defName>
+		<label>enemy gravship autocannon turret</label>
+		<description>A compact gravship-mounted automatic turret. Its large-caliber shells do heavy damage over significant ranges, but despite its efficiency, the barrel must be refurbished after heavy use. It cannot fire at close-up targets, and may explode when damaged.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+		<uiIconPath>Things/Enemy/EnemyTurrets/EnemyGravshipAutocannonTurret_MenuIcon</uiIconPath>
+		<costList>
+			<Steel>175</Steel>
+			<GravlitePanel>40</GravlitePanel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>1.9</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<startWickOnDamageTaken>
+					<li>Flame</li>
+				</startWickOnDamageTaken>
+				<wickTicks>120</wickTicks>
+				<chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+			</li>
+		</comps>
+		<building>
+			<turretGunDef>VGE_Gun_EnemyGravshipAutocannon</turretGunDef>
+			<turretBurstCooldownTime>3.5</turretBurstCooldownTime>
+		</building>
+		<tickerType>Normal</tickerType>
+	</ThingDef>
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>VGE_Gun_EnemyGravshipAutocannon</defName>
+		<label>gravship autocannon</label>
+		<graphicData>
+			<texPath>Things/Enemy/EnemyTurrets/EnemyGravshipAutocannon_TurretTop</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<AccuracyTouch>0.28</AccuracyTouch>
+			<AccuracyShort>0.72</AccuracyShort>
+			<AccuracyMedium>0.66</AccuracyMedium>
+			<AccuracyLong>0.5</AccuracyLong>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<defaultProjectile>VGE_Bullet_GravshipAutocannon</defaultProjectile>
+				<warmupTime>0</warmupTime>
+				<range>29.9</range>
+				<minRange>8.9</minRange>
+				<burstShotCount>2</burstShotCount>
+				<ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+				<soundCast>Shot_Autocannon</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>12</muzzleFlashScale>
+			</li>
+		</verbs>
+	</ThingDef>
+	<ThingDef ParentName="VGE_EnemyGravshipCompactTurretBase">
+		<defName>VGE_EnemyGravshipUraniumSlugTurret</defName>
+		<label>enemy gravship uranium slug turret</label>
+		<description>A compact gravship-mounted armor-piercing turret. Its ultra-dense uranium shells can punch through heavy armor, but it requires new uranium slugs to be loaded after use. More efficient than its ground version, it consumes fewer slugs per shot. It's more accurate at longer ranges, and can't fire at all close up. May explode when damaged.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+		<uiIconPath>Things/Enemy/EnemyTurrets/EnemyGravshipUraniumSlugTurret_MenuIcon</uiIconPath>
+		<costList>
+			<Steel>150</Steel>
+			<GravlitePanel>30</GravlitePanel>
+			<Uranium>60</Uranium>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>1.9</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<startWickOnDamageTaken>
+					<li>Flame</li>
+				</startWickOnDamageTaken>
+				<wickTicks>120</wickTicks>
+				<chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+			</li>
+		</comps>
+		<building>
+			<turretGunDef>VGE_Gun_EnemyGravshipUraniumSlug</turretGunDef>
+			<turretBurstCooldownTime>4.8</turretBurstCooldownTime>
+		</building>
+		<tickerType>Normal</tickerType>
+	</ThingDef>
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>VGE_Gun_EnemyGravshipUraniumSlug</defName>
+		<label>gravship uranium slug gun</label>
+		<graphicData>
+			<texPath>Things/Enemy/EnemyTurrets/EnemyGravshipUraniumSlug_TurretTop</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<AccuracyTouch>0.22</AccuracyTouch>
+			<AccuracyShort>0.33</AccuracyShort>
+			<AccuracyMedium>0.44</AccuracyMedium>
+			<AccuracyLong>0.95</AccuracyLong>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<defaultProjectile>VGE_Bullet_GravshipUraniumSlug</defaultProjectile>
+				<warmupTime>0</warmupTime>
+				<range>40.9</range>
+				<minRange>11.9</minRange>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>Shot_TurretSniper</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<consumeFuelPerShot>2</consumeFuelPerShot>
+			</li>
+		</verbs>
+	</ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VGE_EnemyOxygenPump</defName>
+    <label>enemy oxygen pump</label>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <description>A unit connected to the gravship’s life support network. It keeps rooms heated and pressurized.</description>
+    <thingClass>Building_LifeSupportUnit</thingClass>
+    <tickerType>Rare</tickerType>
+    <rotatable>true</rotatable>
+    <designationCategory>VGE_Designer</designationCategory>
+    <uiIconPath>Things/Enemy/EnemyOxygenPump/EnemyOxygenPump_MenuIcon</uiIconPath>
+    <graphicData>
+      <texPath>Things/Enemy/EnemyOxygenPump/EnemyOxygenPump</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
+      <drawOffsetSouth>(0,0,-0.9)</drawOffsetSouth>
+      <drawOffsetWest>(-0.9,0,0)</drawOffsetWest>
+      <drawOffsetEast>(0.9,0,0)</drawOffsetEast>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <statBases>
+      <MarketValue>200</MarketValue>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>3</Mass>
+    </statBases>
+    <passability>Standable</passability>
+    <terrainAffordanceNeeded IsNull="True" />
+    <pathCost>0</pathCost>
+    <overrideMinifiedRot>North</overrideMinifiedRot>
+    <minifiedDrawOffset>(0, 0, 0.2)</minifiedDrawOffset>
+    <building>
+      <isEdifice>false</isEdifice>
+      <claimable>false</claimable>
+      <isAttachment>true</isAttachment>
+      <deconstructible>false</deconstructible>
+      <expandHomeArea>false</expandHomeArea>
+    </building>
+    <placeWorkers>
+      <li>Placeworker_AttachedToWall</li>
+    </placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-500</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>OxygenPump_Ambient</sound>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="AncientEmergencyLightBase">
+    <label>enemy gravship light</label>
+    <defName>VGE_EnemyGravshipLight_red</defName>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>11</glowRadius>
+        <glowColor>(255, 125, 125, 0)</glowColor>
+      </li>
+    </comps>
+	<designationCategory>VGE_Designer</designationCategory>
+  </ThingDef>
+
 
 </Defs>

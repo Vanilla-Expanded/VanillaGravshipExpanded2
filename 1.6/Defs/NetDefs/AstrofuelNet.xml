@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<ThingDef ParentName="FuelTankBase">
+		<defName>VGE_AuxiliaryAstrofuelTank</defName>
+		<label>auxiliary astrofuel tank</label>
+		<description>A compact, low-volume astrofuel storage tank that supplies fuel for thrusters on a gravship.</description>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>Things/Structures/Fuel/AuxiliaryAstrofuelTank</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>20</pathCost>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.6</fillPercent>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>800</WorkToBuild>
+			<Mass>8</Mass>
+			<Flammability>0.6</Flammability>
+			<VGE_MaintenanceSensitivity>1</VGE_MaintenanceSensitivity>
+		</statBases>
+		<building>
+			<relatedBuildCommands>
+				<li>VGE_AstrofuelPipe</li>
+			</relatedBuildCommands>
+		</building>
+		<size>(1,1)</size>
+		<costList>
+			<Steel>40</Steel>
+		</costList>
+		<comps Inherit="False">
+			<li Class="VanillaGravshipExpanded.CompProperties_PipeNetFuelProvider">
+        <resourceToRangeRatio>5</resourceToRangeRatio> <!-- Resource amount divided by this gives total range provided by the tank. -->
+        <pipeNet>VGE_AstrofuelNet</pipeNet> <!-- Which pipe net to use, in case there's multiple. -->
+				<providesFuel>true</providesFuel>
+				<componentTypeDef>FuelStorage</componentTypeDef>
+				<requiresLOS>false</requiresLOS>
+				<showMaxSimultaneous>false</showMaxSimultaneous>
+				<maxSimultaneous>9999</maxSimultaneous>
+				<maxDistance>500</maxDistance>
+			</li>
+			<li Class="PipeSystem.CompProperties_ResourceStorage">
+				<pipeNet>VGE_AstrofuelNet</pipeNet>
+				<storageCapacity>50</storageCapacity>
+				<barSize>(0.6, 0.25)</barSize>
+				<margin>0.1</margin>
+				<centerOffset>(0, 0, 0)</centerOffset>
+				<barHorizontal>true</barHorizontal>
+				<extractOptions>
+					<texPath>UI/Gizmos/ExtractAstrofuel_Gizmo</texPath>
+					<labelKey>VGE_ExtractAstrofuel</labelKey>
+					<descKey>VGE_ExtractAstrofuelDesc</descKey>
+					<disabledReasonKey>VGE_ExtractAstrofuelDisabled</disabledReasonKey>
+					<extractAmount>-1</extractAmount>
+					<extractExactAmount>false</extractExactAmount>
+					<thing>VGE_Astrofuel</thing>
+					<extractTime>120</extractTime>
+				</extractOptions>
+				<refillOptions>
+					<thing>VGE_Astrofuel</thing>
+					<refillTime>240</refillTime>
+				</refillOptions>
+				<destroyOptions>
+					<li>
+						<thing>VGE_Astrofuel</thing>
+						<spawnWhenDestroyed>false</spawnWhenDestroyed>
+					</li>
+				</destroyOptions>
+			</li>
+			<li Class="PipeSystem.CompProperties_ExplosiveContent">
+				<explosiveMinRadius>1.1</explosiveMinRadius>
+				<explosiveMaxRadius>34.4</explosiveMaxRadius>
+				<!-- Vanilla options below -->
+				<explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>
+				<damageAmountBase>14</damageAmountBase>
+				<destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
+				<startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+				<preExplosionSpawnThingDef>VGE_Filth_Astrofuel</preExplosionSpawnThingDef>
+				<preExplosionSpawnChance>1</preExplosionSpawnChance>
+				<wickTicks>70~150</wickTicks>
+			</li>
+			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+        <maintenanceFallsOutsideSubstructure>false</maintenanceFallsOutsideSubstructure>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<designationCategory>VGE_Fuel</designationCategory>
+		<staticSunShadowHeight>0.1</staticSunShadowHeight>
+		<constructEffect>ConstructMetal</constructEffect>
+		<canOverlapZones>false</canOverlapZones>
+		<rotatable>true</rotatable>
+		<researchPrerequisites>
+			<li>VGE_AstrofuelRefining</li>
+		</researchPrerequisites>
+		<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
+		<uiOrder>2105</uiOrder>
+	</ThingDef>
+</Defs>
