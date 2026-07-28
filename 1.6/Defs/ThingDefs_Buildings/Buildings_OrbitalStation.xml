@@ -1015,6 +1015,114 @@
 			<deconstructible>true</deconstructible>
 		</building>
 	</ThingDef>
+
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE_GlowstickPile_Green</defName>
+		<label>glowstick pile</label>
+		<description>A jumbled heap of glowsticks still spilling a soft, ethereal luminescence across the floor.</description>
+		<passability>Standable</passability>
+		<fillPercent>0</fillPercent>
+		<pathCost>0</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+        <altitudeLayer>FloorCoverings</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>25</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>100</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/GlowstickPile/GlowstickPile_Green</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(1,1)</drawSize>
+    		<shaderType>Transparent</shaderType>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>false</deconstructible>
+    	    <isEdifice>false</isEdifice>
+		</building>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius>
+				<glowColor>(81, 255, 157, 0)</glowColor>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE_GlowstickPile_Orange</defName>
+		<label>glowstick pile</label>
+		<description>A jumbled heap of glowsticks still spilling a soft, ethereal luminescence across the floor.</description>
+		<passability>Standable</passability>
+		<fillPercent>0</fillPercent>
+		<pathCost>0</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+        <altitudeLayer>FloorCoverings</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>25</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>100</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/GlowstickPile/GlowstickPile_Orange</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(1,1)</drawSize>
+    		<shaderType>Transparent</shaderType>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>false</deconstructible>
+    	    <isEdifice>false</isEdifice>
+		</building>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius>
+				<glowColor>(255, 186, 81, 0)</glowColor>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE_GlowstickPile_Blue</defName>
+		<label>glowstick pile</label>
+		<description>A jumbled heap of glowsticks still spilling a soft, ethereal luminescence across the floor.</description>
+		<passability>Standable</passability>
+		<fillPercent>0</fillPercent>
+		<pathCost>0</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+        <altitudeLayer>FloorCoverings</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>25</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>100</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/OrbitalStation/GlowstickPile/GlowstickPile_Blue</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(1,1)</drawSize>
+    		<shaderType>Transparent</shaderType>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>false</deconstructible>
+    	    <isEdifice>false</isEdifice>
+		</building>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius>
+				<glowColor>(99, 69, 255, 0)</glowColor>
+			</li>
+		</comps>
+	</ThingDef>
   
 
 </Defs>
