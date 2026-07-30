@@ -8,4 +8,10 @@
         </value>
     </Operation>
 
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MechPylon" or defName="MechanoidDropPod" or defName="MechanoidProcessor" or defName="MechhiveAssembler"]</xpath>
+        <value>
+		    <designationCategory>VGE_Designer</designationCategory>
+		</value>
+    </Operation>
 </Patch>

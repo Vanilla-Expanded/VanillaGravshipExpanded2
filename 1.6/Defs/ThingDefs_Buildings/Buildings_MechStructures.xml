@@ -270,13 +270,13 @@
     </ThingDef>
 
     <ThingDef ParentName="VGE_MechStructureBase">
-        <defName>VGE_MechanoidHullblock</defName>
-        <label>mechanoid hullblock</label>
+        <defName>VGE_MechanoidHullPlatform</defName>
+        <label>mechanoid hull platform</label>
         <description>A dense, structural building block used to form mechanoid orbital platforms. Due to the special gravlite alloys used to create them, they are impervious to damage. They are a constant fixture on mechanoid orbital platforms.</description>
-        <uiIconPath>Things/Mechanoid/MechanoidHullblock/MechanoidHullblock_MenuIcon</uiIconPath>
+        <uiIconPath>Things/Mechanoid/MechanoidHullPlatform/MechanoidHullPlatform_MenuIcon</uiIconPath>
         <graphicData>
             <graphicClass>Graphic_Single</graphicClass>
-            <texPath>Things/Mechanoid/MechanoidHullblock/MechanoidHullblock_Atlas</texPath>
+            <texPath>Things/Mechanoid/MechanoidHullPlatform/MechanoidHullPlatform_Atlas</texPath>
             <drawSize>(1,1)</drawSize>
             <linkType>CornerFiller</linkType>
             <linkFlags>
@@ -290,9 +290,9 @@
             <Beauty>-3</Beauty>
         </statBases>
         <size>(1,1)</size>
-        <passability>PassThroughOnly</passability>
+        <passability>Standable</passability>
         <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-        <fillPercent>0.6</fillPercent>
+        <fillPercent>0.5</fillPercent>
         <pathCost>42</pathCost>
         <rotatable>false</rotatable>
         <destroyable>false</destroyable>
@@ -596,5 +596,244 @@
             <ComponentSpacer>6</ComponentSpacer>
         </killedLeavings>
     </ThingDef>
+
+  <ThingDef ParentName="VGE_MechStructureBase">
+    <defName>VGE_MechanoidAuxiliaryProcessor</defName>
+    <label>mechanoid processor</label>
+    <description>An auxiliary mechanoid computer.</description>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <graphicData>
+      <texPath>Things/Mechanoid/MechanoidAuxiliaryProcessor</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <size>(2,2)</size>
+    <rotatable>false</rotatable>
+    <passability>Impassable</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <building>
+      <isEdifice>true</isEdifice>
+      <deconstructible>false</deconstructible>
+      <claimable>false</claimable>
+      <repairable>false</repairable>
+      <isInert>true</isInert>
+    </building>
+    <killedLeavings>
+      <ChunkSlagSteel>2</ChunkSlagSteel>
+    </killedLeavings>
+  </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidGravfieldAmplifier</defName>
+        <label>mechanoid gravfield amplifier</label>
+        <description>A complex array of gravimetric resonators designed to stabilize and enhance the output of mechanoid grav engines. This amplifier allows orbital platforms to expand to colossal dimensions while maintaining structural integrity in space.</description>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidGravfieldAmplifier/MechanoidGravfieldAmplifier</texPath>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>500</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(3,3)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <fillPercent>0.6</fillPercent>
+        <pathCost>50</pathCost>
+        <rotatable>false</rotatable>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>9</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+        <killedLeavings>
+            <GravlitePanel>40</GravlitePanel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Plasteel>35</Plasteel>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidGravfieldExtender</defName>
+        <label>mechanoid gravfield extender</label>
+        <description>A support structure that stabilizes the localized gravity field of a mechanoid platform. By connecting to the primary grav engines, it extends the reach of the field, enabling more complex platform configurations and better structural integrity.</description>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidGravfieldExtender/MechanoidGravfieldExtender</texPath>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>200</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(1,1)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>40</pathCost>
+        <rotatable>false</rotatable>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>5</glowRadius>
+                <glowColor>(255, 40, 40, 0)</glowColor>
+            </li>
+        </comps>
+        <killedLeavings>
+            <GravlitePanel>10</GravlitePanel>
+            <ComponentSpacer>1</ComponentSpacer>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidInformationSpire</defName>
+        <label>mechanoid information spire</label>
+        <description>A support structure that stabilizes the localized gravity field of a mechanoid platform. By connecting to the primary grav engines, it extends the reach of the field, enabling more complex platform configurations and better structural integrity.</description>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidInformationSpire/MechanoidInformationSpire</texPath>
+            <drawSize>(1,3)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(1,1)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <fillPercent>0.45</fillPercent>
+        <pathCost>50</pathCost>
+        <rotatable>false</rotatable>
+        <killedLeavings>
+            <Steel>10</Steel>
+        </killedLeavings>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidResourceCrate</defName>
+        <label>mechanoid resource crate</label>
+        <description>A mechanoid resource container. It appears impossible to open, and nobody knows what could be stored inside.</description>
+        <graphicData>
+            <graphicClass>Graphic_Random</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidResourceCrate</texPath>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(1,1)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <fillPercent>0.45</fillPercent>
+        <pathCost>50</pathCost>
+        <rotatable>false</rotatable>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_MechStructureBase">
+        <defName>VGE_MechanoidSensorNode</defName>
+        <label>mechanoid sensor node</label>
+        <description>A sophisticated sensor array utilizing advanced optics and gravimetric scanners to monitor orbital activity, feeding real-time data and faction movements back to the mechanoid swarm.</description>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Mechanoid/MechanoidSensorNode/MechanoidSensorNode</texPath>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>300</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(2,2)</size>
+        <passability>PassThroughOnly</passability>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <fillPercent>0.45</fillPercent>
+        <pathCost>50</pathCost>
+        <rotatable>false</rotatable>
+        <killedLeavings>
+            <GravlitePanel>15</GravlitePanel>
+            <ComponentSpacer>1</ComponentSpacer>
+        </killedLeavings>
+    </ThingDef>
+
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_MechNavBeacon</defName>
+		<label>mech nav beacon</label>
+		<description>A specialized beacon used by mechanoid orbital platforms to broadcast precise docking vectors and formation coordinates.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.35</fillPercent>
+		<pathCost>50</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>100</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Mechanoid/MechNavBeacon/MechNavBeacon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>false</deconstructible>
+		</building>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>3</glowRadius>
+				<glowColor>(111, 161, 111, 0)</glowColor>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+		<defName>VGE2_MechVertex</defName>
+		<label>mech vertex</label>
+		<description>A mysterious, autonomous mechanoid node with unknown purpose. While these nodes are rich in extractable resources, they are exceptionally delicate, and any significant damage will trigger a catastrophic failure in their micro power cells.</description>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.3</fillPercent>
+		<pathCost>20</pathCost>
+		<size>(1,1)</size>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>25</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>100</WorkToBuild>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Mechanoid/MechVertex/MechVertex</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<building>
+			<paintable>false</paintable>
+			<claimable>false</claimable>
+			<neverBuildable>true</neverBuildable>
+			<deconstructible>false</deconstructible>
+		</building>
+		<comps>
+            <li Class="CompProperties_Glower">
+             <glowRadius>3</glowRadius>
+             <glowColor>(216,219,67,0)</glowColor>
+           </li>
+		</comps>
+        <killedLeavings>
+            <ComponentIndustrial>1</ComponentIndustrial>
+        </killedLeavings>
+	</ThingDef>
 
 </Defs>
