@@ -19,4 +19,18 @@
       <li>Orbit</li>
     </layerWhitelist>
   </IncidentDef>
+
+  <PawnsArrivalModeDef>
+    <defName>VGE_SalvagerDropshipRaid</defName>
+    <workerClass>VanillaGravshipExpanded2.PawnsArrivalModeWorker_SalvagerDropshipRaid</workerClass>
+    <textEnemy>A group of {0} from {1} have arrived in a salvager dropship!</textEnemy>
+    <textWillArrive>A group of {0} from {1} will arrive in a salvager dropship.</textWillArrive>
+    <textFriendly>A group of friendly {0} from {1} have arrived in a salvager dropship!</textFriendly>
+    <selectionWeightCurve>
+      <points>
+        <li>(0, 0)</li>
+        <li>(300, 1.0)</li>
+      </points>
+    </selectionWeightCurve>
+  </PawnsArrivalModeDef>
 </Defs>

@@ -26,17 +26,41 @@
         <escapedMessage>You are now out of reach of the enemy warplatform.</escapedMessage>
         <earlyEscapeMessage>You have moved out of range of the warplatform before it could engage. It will not pursue you further.</earlyEscapeMessage>
         <defeatLetter>Warplatform defeated</defeatLetter>
-        <defeatLetterDesc>Warplatform threat has been defeated, but the area still offers valuable loot. You can salvage the wreck of the warplatform to gain some valuable resources.\n\nWarplatform will destabilize and collapse within {0} days.</defeatLetterDesc>
+        <defeatLetterDesc>Warplatform threat has been defeated, but the area still offers valuable loot. You can salvage the wreck of the warplatform to gain some valuable resources.\n\nWarplatform will destabilize and collapse within {0}.</defeatLetterDesc>
         <disengagesLetter>Warplatform disengages</disengagesLetter>
         <disengagesLetterDesc>Warplatform has achieved all pre-programmed goals and has effectively destroyed your gravship. It has now disengaged.\n\nConsider this a valuable lesson.</disengagesLetterDesc>
         <alertExplanation>An enemy warplatform has targeted {0}. It will continuously bombard the gravship until it is destroyed. Destroy or hack the internal warcomputer, or try and escape.</alertExplanation>
     </VanillaGravshipExpanded2.GravshipThreatDef>
-    <!--
+
     <VanillaGravshipExpanded2.GravshipThreatDef>
         <defName>VGE_SalvagerStation</defName>
+        <label>Salvager station</label>
         <weight>4</weight>
+        <description>A salvager orbital station is demanding tribute of {0} silver or it will open fire.\n\nTime until tribute needs to be paid: {1}\n\nYou can ask them to postpone the payment, but the grav engine will be locked remotely until the tribute is paid or the station is defeated. You can also pay the fee immediately, if you have the funds. Running away will likely have the salvagers send a search party after you.</description>
+        <workerClass>VanillaGravshipExpanded2.GravshipThreatWorker_SalvagerStation</workerClass>
+        <letterLabel>Tribute demand</letterLabel>
+        <letterDesc>An incoming transmission has been intercepted from a nearby salvager station, {0}. Its leader, {1}, has issued a demand for tribute.\n\nThe station has locked its weapons on {2} and will open fire unless you pay a tribute of {3} silver. You are being given time to deliberate, but you must choose quickly: you can pay the full amount to secure your safety, or request to postpone the payment by {4} days. Be warned that choosing to delay will force a remote lock on your gravship's engine, preventing you from departing. If you refuse to pay, the station will initiate an immediate attack.\n\nIf it attacks, the salvager station will continue to fire on your gravship until you move out of range or it is destroyed.\n\nPoint defense turrets, gravarmor, and shield generators can be used to protect against the bombardment. Gravship artillery can be used to attack the enemy over long distances. You can also send a shuttle or drop pods to the enemy location to handle it personally.</letterDesc>
+        <arrivalLetterLabel>Salvager station</arrivalLetterLabel>
+        <arrivalLetterDesc>A salvager orbital station has locked in and is engaging your gravship. Your vessel will be under continuous fire from the numerous artillery pieces and missile launchers. To survive, you must destroy enemy gravship artillery pieces and the gravlock tether.\n\nYou can fight back using your gravship's artillery, shield generators, and point defenses to withstand the bombardment. Alternatively, send a shuttle or drop pods to the enemy location to board the orbital platform and destroy the gravlock tether and gravship artillery pieces. If you cannot stop the bombardment, you must attempt to escape its range immediately.</arrivalLetterDesc>
+        <baseCountdownHours>24</baseCountdownHours>
+        <jammerExtensionHours>6</jammerExtensionHours>
+        <escapeMidBattleVisibilityLoss>400000</escapeMidBattleVisibilityLoss>
+        <earlyEscapeVisibilityLoss>400000</earlyEscapeVisibilityLoss>
+        <escapeDistance>25</escapeDistance>
+        <daysToDespawnAfterDefeat>3</daysToDespawnAfterDefeat>
+        <hoursBombardmentOnEngineDestroyed>6</hoursBombardmentOnEngineDestroyed>
+        <worldObjectDef>VGE_ActiveSalvagerStation</worldObjectDef>
+        <tileSpawnDistanceRange>5~20</tileSpawnDistanceRange>
+        <mapSize>250</mapSize>
+        <escapedMessage>You are now out of reach of the salvager orbital station.</escapedMessage>
+        <earlyEscapeMessage>You are now out of reach of the salvager orbital station.</earlyEscapeMessage>
+        <defeatLetter>Salvager station defeated</defeatLetter>
+        <defeatLetterDesc>Salvager orbital platform threat has been defeated, but the area still offers valuable loot. You can salvage the wreck of the orbital warplatform to gain some valuable resources. Be careful, as platform defenses, as well as remaining salvagers will still pose a threat.\n\nOrbital platform will destabilize and collapse within {0}.</defeatLetterDesc>
+        <disengagesLetter>Salvager station disengages</disengagesLetter>
+        <disengagesLetterDesc>Salvager station has destroyed your grav engine. They are celebrating. You should have paid the tribute.\n\nConsider this a valuable lesson.</disengagesLetterDesc>
+        <alertExplanation>A salvager orbital station has targeted {0}. It will continuously bombard the gravship until it is destroyed. You can destroy the enemy gravship artillery pieces and the gravlock tether, or try and escape. If you escape, salvagers will likely send a search party.</alertExplanation>
     </VanillaGravshipExpanded2.GravshipThreatDef>
-
+	<!--
     <VanillaGravshipExpanded2.GravshipThreatDef>
         <defName>VGE_EnemyGravjumper</defName>
         <weight>2</weight>

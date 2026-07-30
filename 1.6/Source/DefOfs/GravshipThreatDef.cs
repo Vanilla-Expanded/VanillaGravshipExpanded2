@@ -19,7 +19,7 @@ namespace VanillaGravshipExpanded2
         public float escapeMidBattleVisibilityLoss;
         public float earlyEscapeVisibilityLoss;
         public int escapeDistance;
-        public int daysToDespawnAfterDefeat;
+        public float daysToDespawnAfterDefeat;
         public int hoursBombardmentOnEngineDestroyed;
         public WorldObjectDef worldObjectDef;
         public FloatRange tileSpawnDistanceRange;

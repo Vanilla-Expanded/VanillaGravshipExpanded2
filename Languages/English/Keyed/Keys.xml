@@ -78,4 +78,23 @@
 	<VGE_GravshipGraveyardLetterText>You have detected the distinct energy signature of a gravcore emanating from a massive field of debris: a gravship graveyard. You know that when you arrive, your navigation systems will be locked. An ancient signal jammer is active within the debris field, preventing your gravship from initiating the launch. You must navigate through the field of unstable ancient gravmines, locate the source of the jamming, and neutralize it to escape.\n\nBe careful, orbital locations are extremely dangerous. Equip your colonists with vacsuits. Plan your return trip, as living in orbit for long periods is very difficult.</VGE_GravshipGraveyardLetterText>
 	<VGE_InfestedInstallationLetterLabel>Gravcore detected: Infested installation</VGE_InfestedInstallationLetterLabel>
 	<VGE_InfestedInstallationLetterText>You have detected the energy signature of a gravcore. The signal is coming from an abandoned orbital station infested with exoinsectoids. Scans reveal numerous hives on board. You must navigate the infested ruins, defeat the exoinsectoid defenders, and destroy the infested gravlock tether which will continue spawning new exoinsectoids throughout the platform. Once destroyed, you will be able to obtain the gravcore.\n\nBe careful, orbital locations are extremely dangerous. Equip your colonists with vacsuits. Plan your return trip, as living in orbit for long periods is very difficult.</VGE_InfestedInstallationLetterText>
+	<VGE_PayTribute>Pay tribute to {0}: {1} silver</VGE_PayTribute>
+	<VGE_PaySilver>Pay {0} silver</VGE_PaySilver>
+	<VGE_PostponeTribute>Postpone payment by {0} days</VGE_PostponeTribute>
+	<VGE_RefuseTribute>Refuse to pay the fee</VGE_RefuseTribute>
+	<VGE_TributePaidReply>{0} thanks you for your generous contribution to their cause. You will not be attacked.</VGE_TributePaidReply>
+	<VGE_PostponeReply>{0} accepts your request for more time and will contact you again in {1} days.</VGE_PostponeReply>
+	<VGE_RefuseReply>{0} is more than happy about the current state of affairs. {1} has locked in on your gravship and begins the attack.</VGE_RefuseReply>
+	<VGE_CallSalvagerStation>Call {0} (tribute demand)</VGE_CallSalvagerStation>
+	<VGE_CallSalvagerStationDialog>{0}, the captain of {1} is ready to receive your tribute of {2} silver. They promise to let you live if you pay the fee.</VGE_CallSalvagerStationDialog>
+	<VGE_SalvagerDropshipRaid>Salvager dropship</VGE_SalvagerDropshipRaid>
+	<VGE_SalvagerDropshipRaidDesc>A salvager dropship has arrived! The salvagers have sent a boarding party to collect the tribute by force.</VGE_SalvagerDropshipRaidDesc>
+	<VGE_TributeDemandPopup>{0}, the captain of {1} is ready to receive your tribute of {2} silver. They promise to let you live if you pay the fee.\n\nThey may also accept your plea to postpone the payment by {3} days, but they will lock your grav engine remotely, making it unable to leave. Only paying the tribute or defeating the salvager's station will unlock the grav engine.</VGE_TributeDemandPopup>
+	<VGE_PostponedTributeDemandPopup>{0}, the captain of {1} is once again ready to receive your tribute of {2} silver. They promise to let you live if you pay the fee.\n\nRefusing to pay the tribute will initiate the attack.</VGE_PostponedTributeDemandPopup>
+	<VGE_TributeDemand>Tribute demand</VGE_TributeDemand>
+	<VGE_TributeDemandHover>A salvager station is demanding tribute of {0} silver or it will open fire.\n\nTime until tribute needs to be paid: {1}\n\nYou can ask them to postpone the payment, but the grav engine will be locked remotely until the tribute is paid or the station is defeated. You can also pay the fee immediately, if you have the funds. Running away will likely have the salvagers send a search party after you.</VGE_TributeDemandHover>
+	<VGE_JammerScrambledSalvager>Your signal jammer scrambled salvager’s station targeting systems, giving you additional 6 hours to decide whether to pay the tribute or fight.</VGE_JammerScrambledSalvager>
+	<VGE_EngineLockedRemotelyInspect>Doesn't work: locked remotely</VGE_EngineLockedRemotelyInspect>
+	<VGE_EngineLockedRemotely>Can't launch: locked remotely by a salvager station.</VGE_EngineLockedRemotely>
+
 </LanguageData>

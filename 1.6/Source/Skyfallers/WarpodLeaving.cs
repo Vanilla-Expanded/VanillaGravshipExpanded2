@@ -12,7 +12,7 @@ namespace VanillaGravshipExpanded2
         public PlanetTile destinationTile;
         public TransportersArrivalAction arrivalAction;
         public WorldObjectDef worldObjectDef;
-        private static readonly Graphic FlameGraphic = GraphicDatabase.Get<Graphic_Single>("Things/Mote/SmallThruster_Burn", ShaderDatabase.MoteGlow, Vector2.one, Color.white);
+        public static readonly Graphic FlameGraphic = GraphicDatabase.Get<Graphic_Single>("Things/Mote/SmallThruster_Burn", ShaderDatabase.MoteGlow, Vector2.one, Color.white);
 
         public ActiveTransporterInfo Contents => ((ActiveTransporter)innerContainer[0]).Contents;
 
@@ -83,15 +83,18 @@ namespace VanillaGravshipExpanded2
             Graphic.Draw(drawLoc, flip ? Rotation.Opposite : Rotation, this, angle);
 
             if (t > 0f)
-            {
-                var flameScale = new Vector3(1.2f, 1f, 2.2f * t);
-                var nozzleOffsetDist = 0.2f;
-                var flameOffset = Quaternion.Euler(0f, angle, 0f) * Vector3.back * (nozzleOffsetDist + (flameScale.z * 0.5f));
-                flameOffset.y -= 0.1f;
-                var matrix = Matrix4x4.TRS(drawLoc + flameOffset, Quaternion.Euler(0f, angle, 0f), flameScale);
-                Graphics.DrawMesh(MeshPool.plane10, matrix, FlameGraphic.MatSingle, 0);
-            }
+                DrawThrusterFlame(drawLoc, angle, 2.2f * t, 1.2f, 0f, 0.2f);
             DrawDropSpotShadow();
+        }
+
+        public static void DrawThrusterFlame(Vector3 drawLoc, float angleDeg, float flameLength, float flameWidth, float lateralOffset, float nozzleBackset)
+        {
+            var flameScale = new Vector3(flameWidth, 1f, flameLength);
+            var right = Quaternion.Euler(0f, angleDeg, 0f) * Vector3.right;
+            var offset = Quaternion.Euler(0f, angleDeg, 0f) * Vector3.back * (flameLength * 0.5f + nozzleBackset) + right * lateralOffset;
+            offset.y -= 0.2f;
+            var matrix = Matrix4x4.TRS(drawLoc + offset, Quaternion.Euler(0f, angleDeg, 0f), flameScale);
+            Graphics.DrawMesh(MeshPool.plane10, matrix, FlameGraphic.MatSingle, 0);
         }
 
         public override void Tick()

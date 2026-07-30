@@ -10,6 +10,11 @@ namespace VanillaGravshipExpanded2
         public int despawnTick = -1;
         public int playerDestroyedTick = -1;
         public GravshipThreatDef threatDef;
+        public string customLabel;
+        public string customDescription;
+        public override string Label => customLabel ?? base.Label;
+        public override string GetDescription() => customDescription ?? base.GetDescription();
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -17,6 +22,8 @@ namespace VanillaGravshipExpanded2
             Scribe_Values.Look(ref defeated, "defeated", false);
             Scribe_Values.Look(ref despawnTick, "despawnTick", -1);
             Scribe_Values.Look(ref playerDestroyedTick, "playerDestroyedTick", -1);
+            Scribe_Values.Look(ref customLabel, "customLabel");
+            Scribe_Values.Look(ref customDescription, "customDescription");
         }
 
         public override void Tick()
@@ -80,9 +87,11 @@ namespace VanillaGravshipExpanded2
         public void Defeat()
         {
             defeated = true;
-            Find.LetterStack.ReceiveLetter(threatDef.defeatLetter, threatDef.defeatLetterDesc.Formatted(threatDef.daysToDespawnAfterDefeat), LetterDefOf.PositiveEvent);
             WorldComponent_GravshipCombat.Instance.RemoveVisibility(WorldComponent_GravshipCombat.Instance.visibility);
-            despawnTick = Find.TickManager.TicksGame + threatDef.daysToDespawnAfterDefeat * GenDate.TicksPerDay;
+
+            var despawnTicks = (int)(threatDef.daysToDespawnAfterDefeat * GenDate.TicksPerDay);
+            Find.LetterStack.ReceiveLetter(threatDef.defeatLetter, threatDef.defeatLetterDesc.Formatted(despawnTicks.ToStringTicksToPeriod()), LetterDefOf.PositiveEvent);
+            despawnTick = Find.TickManager.TicksGame + despawnTicks;
             threatDef.Worker.OnDefeat(Map);
         }
 

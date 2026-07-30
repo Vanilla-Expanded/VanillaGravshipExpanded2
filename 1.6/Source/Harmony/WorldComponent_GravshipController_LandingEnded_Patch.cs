@@ -19,7 +19,7 @@ namespace VanillaGravshipExpanded2
                 var comp = WorldComponent_GravshipCombat.Instance;
                 if (comp.incomingWarplatform)
                 {
-                    ApplyEarlyEscape(comp);
+                    ApplyEarlyEscape(comp, __instance);
                 }
                 else
                 {
@@ -68,7 +68,6 @@ namespace VanillaGravshipExpanded2
         private static void ApplyVisibilityGain(WorldComponent_GravshipController __instance)
         {
             var engine = __instance.gravship?.Engine;
-            Log.Message("engine: " + __instance.gravship);
             if (engine == null) return;
             var launchInfo = engine.launchInfo;
             if (launchInfo == null) return;
@@ -78,13 +77,9 @@ namespace VanillaGravshipExpanded2
                 var size = engine.ValidSubstructure.Count;
                 WorldComponent_GravshipCombat.Instance.AddVisibility(size * distance, true);
             }
-            else
-            {
-                Log.Message("Failed to add visibility " + launchInfo);
-            }
         }
 
-        private static void ApplyEarlyEscape(WorldComponent_GravshipCombat comp)
+        private static void ApplyEarlyEscape(WorldComponent_GravshipCombat comp, WorldComponent_GravshipController __instance)
         {
             if (comp.incomingWarplatform)
             {
@@ -92,6 +87,17 @@ namespace VanillaGravshipExpanded2
                 comp.incomingWarplatform = false;
                 comp.visibility = Mathf.Max(0, comp.visibility - threatDef.earlyEscapeVisibilityLoss);
                 Messages.Message(threatDef.earlyEscapeMessage, MessageTypeDefOf.PositiveEvent);
+                if (threatDef == InternalDefOf.VGE_SalvagerStation)
+                {
+                    var parms = new IncidentParms
+                    {
+                        target = __instance.map,
+                        faction = Faction.OfSalvagers,
+                        points = StorytellerUtility.DefaultThreatPointsNow(__instance.map),
+                        raidArrivalMode = InternalDefOf.VGE_SalvagerDropshipRaid
+                    };
+                    Find.Storyteller.incidentQueue.Add(IncidentDefOf.RaidEnemy, Find.TickManager.TicksGame + Rand.RangeInclusive(3, 5) * GenDate.TicksPerDay, parms);
+                }
             }
         }
     }

@@ -205,4 +205,76 @@
       </li>
     </structureLayouts>
   </VEF.Storyteller.StructureSetDef>
+
+  <VEF.Storyteller.StructureSetDef>
+    <defName>VGE_SalvagerStationSet</defName>
+    <structureLayouts>
+      <li>
+        <pattern>Salvager_OrbitalStation_Gravtether_[0-9]+</pattern>
+        <offset>(0,0,0)</offset>
+        <randomRotated>true</randomRotated>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_Cross_[0-9]+</pattern>
+        <offset>(0,0,1)</offset>
+        <rotationOffset>0</rotationOffset>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_Cross_[0-9]+</pattern>
+        <offset>(1,0,0)</offset>
+        <rotationOffset>1</rotationOffset>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_Cross_[0-9]+</pattern>
+        <offset>(0,0,-1)</offset>
+        <rotationOffset>2</rotationOffset>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_Cross_[0-9]+</pattern>
+        <offset>(-1,0,0)</offset>
+        <rotationOffset>3</rotationOffset>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_End_[0-9]+</pattern>
+        <offset>(0,0,2)</offset>
+        <rotationOffset>0</rotationOffset>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_End_[0-9]+</pattern>
+        <offset>(2,0,0)</offset>
+        <rotationOffset>1</rotationOffset>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_End_[0-9]+</pattern>
+        <offset>(0,0,-2)</offset>
+        <rotationOffset>2</rotationOffset>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_End_[0-9]+</pattern>
+        <offset>(-2,0,0)</offset>
+        <rotationOffset>3</rotationOffset>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_Corner_[0-9]+</pattern>
+        <offset>(-1,0,1)</offset>
+        <rotationOffset>0</rotationOffset>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_Corner_[0-9]+</pattern>
+        <offset>(1,0,1)</offset>
+        <rotationOffset>1</rotationOffset>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_Corner_[0-9]+</pattern>
+        <offset>(1,0,-1)</offset>
+        <rotationOffset>2</rotationOffset>
+      </li>
+      <li>
+        <pattern>Salvager_OrbitalStation_Corner_[0-9]+</pattern>
+        <offset>(-1,0,-1)</offset>
+        <rotationOffset>3</rotationOffset>
+      </li>
+    </structureLayouts>
+  </VEF.Storyteller.StructureSetDef>
+
 </Defs>

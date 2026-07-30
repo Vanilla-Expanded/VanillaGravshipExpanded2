@@ -17,6 +17,13 @@ namespace VanillaGravshipExpanded2
         public bool incomingWarplatform;
         public int warplatformTick = -1;
         public GravshipThreatDef activeThreatDef;
+        public int salvagerTributeAmount;
+        public int salvagerDelayDays;
+        public int tributeDemandTick = -1;
+        public bool engineLockedRemotely;
+        public string salvagerStationName;
+        public Pawn salvagerLeader;
+        public int salvagerDropshipTick = -1;
 
         public static WorldComponent_GravshipCombat Instance;
 
@@ -53,6 +60,13 @@ namespace VanillaGravshipExpanded2
             Scribe_Values.Look(ref incomingWarplatform, "incomingWarplatform", false);
             Scribe_Values.Look(ref warplatformTick, "warplatformTick", -1);
             Scribe_Defs.Look(ref activeThreatDef, "activeThreatDef");
+            Scribe_Values.Look(ref salvagerTributeAmount, "salvagerTributeAmount", 0);
+            Scribe_Values.Look(ref salvagerDelayDays, "salvagerDelayDays", 0);
+            Scribe_Values.Look(ref tributeDemandTick, "tributeDemandTick", -1);
+            Scribe_Values.Look(ref engineLockedRemotely, "engineLockedRemotely", false);
+            Scribe_Values.Look(ref salvagerStationName, "salvagerStationName");
+            Scribe_Deep.Look(ref salvagerLeader, "salvagerLeader");
+            Scribe_Values.Look(ref salvagerDropshipTick, "salvagerDropshipTick", -1);
         }
 
         public override void WorldComponentTick()
@@ -67,9 +81,113 @@ namespace VanillaGravshipExpanded2
             {
                 if (Find.TickManager.TicksGame >= warplatformTick)
                 {
-                    SpawnActiveWarplatform();
+                    if (activeThreatDef != InternalDefOf.VGE_SalvagerStation) SpawnActiveWarplatform();
                 }
             }
+
+            if (tributeDemandTick > 0 && Find.TickManager.TicksGame >= tributeDemandTick)
+            {
+                ShowTributeDemandDialog(engineLockedRemotely);
+                tributeDemandTick = -1;
+            }
+
+            if (salvagerDropshipTick > 0 && Find.TickManager.TicksGame >= salvagerDropshipTick)
+            {
+                var engine = GetActiveGravEngine;
+                if (engine?.Map != null)
+                {
+                    salvagerDropshipTick = -1;
+                    var parms = new IncidentParms
+                    {
+                        target = engine.Map,
+                        faction = Faction.OfSalvagers,
+                        points = StorytellerUtility.DefaultThreatPointsNow(engine.Map),
+                        raidArrivalMode = InternalDefOf.VGE_SalvagerDropshipRaid
+                    };
+                    IncidentDefOf.RaidEnemy.Worker.TryExecute(parms);
+                }
+            }
+        }
+
+        public void PayTribute(Map map)
+        {
+            TradeUtility.LaunchSilver(map, salvagerTributeAmount);
+            RemoveVisibility(visibility);
+            incomingWarplatform = false;
+            engineLockedRemotely = false;
+            tributeDemandTick = -1;
+            salvagerLeader.Destroy();
+            salvagerLeader = null;
+        }
+
+        public DiaOption GetPayTributeOption(Map map)
+        {
+            var leaderName = salvagerLeader.Name.ToStringFull.Colorize(ColoredText.NameColor);
+            var coloredTribute = salvagerTributeAmount.ToString().Colorize(ColoredText.CurrencyColor);
+            var payOpt = new DiaOption("VGE_PaySilver".Translate(coloredTribute))
+            {
+                link = new DiaNode("VGE_TributePaidReply".Translate(leaderName))
+                {
+                    options =
+                    {
+                        DiaOption.DefaultOK
+                    }
+                },
+                action = () => PayTribute(map)
+            };
+            if (!TradeUtility.ColonyHasEnoughSilver(map, salvagerTributeAmount))
+            {
+                payOpt.Disable("NeedSilverLaunchable".Translate(salvagerTributeAmount));
+            }
+            return payOpt;
+        }
+
+        private void ShowTributeDemandDialog(bool postponed)
+        {
+            var engine = GetActiveGravEngine;
+            if (engine == null) return;
+            var map = engine.Map;
+
+            var leaderName = salvagerLeader.Name.ToStringFull.Colorize(ColoredText.NameColor);
+            var coloredStation = salvagerStationName.Colorize(ColoredText.FactionColor_Hostile);
+            var coloredTribute = salvagerTributeAmount.ToString().Colorize(ColoredText.CurrencyColor);
+            var node = new DiaNode(postponed ? "VGE_PostponedTributeDemandPopup".Translate(leaderName, coloredStation, coloredTribute) : "VGE_TributeDemandPopup".Translate(leaderName, coloredStation, coloredTribute, salvagerDelayDays));
+
+            node.options.Add(GetPayTributeOption(map));
+
+            if (!postponed)
+            {
+                node.options.Add(new DiaOption("VGE_PostponeTribute".Translate(salvagerDelayDays))
+                {
+                    link = new DiaNode("VGE_PostponeReply".Translate(leaderName, salvagerDelayDays))
+                    {
+                        options =
+                        {
+                            DiaOption.DefaultOK
+                        }
+                    },
+                    action = () =>
+                    {
+                        engineLockedRemotely = true;
+                        if (engine.cooldownCompleteTick < Find.TickManager.TicksGame) engine.cooldownCompleteTick = Find.TickManager.TicksGame + salvagerDelayDays * GenDate.TicksPerDay;
+                        tributeDemandTick = Find.TickManager.TicksGame + salvagerDelayDays * GenDate.TicksPerDay;
+                    }
+                });
+            }
+
+            node.options.Add(new DiaOption("VGE_RefuseTribute".Translate())
+            {
+                link = new DiaNode("VGE_RefuseReply".Translate(leaderName, coloredStation))
+                {
+                    options =
+                    {
+                        DiaOption.DefaultOK
+                    }
+                },
+                action = () => SpawnActiveWarplatform()
+            });
+
+            Find.WindowStack.Add(new Dialog_NodeTree(node, true));
         }
 
         public void AddVisibility(float baseAmount, bool isLaunch = false)
@@ -166,6 +284,7 @@ namespace VanillaGravshipExpanded2
         public void SpawnActiveWarplatform()
         {
             incomingWarplatform = false;
+            tributeDemandTick = -1;
             activeThreatDef.Worker.SpawnThreat();
         }
     }

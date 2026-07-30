@@ -236,4 +236,28 @@
             <structureSetDef>VGE_InfestedInstallationSet</structureSetDef>
         </genStep>
     </GenStepDef>
+
+    <GenStepDef>
+        <defName>VGE_SalvagerStation</defName>
+        <order>200</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_SalvagerStation">
+            <structureSetDef>VGE_SalvagerStationSet</structureSetDef>
+        </genStep>
+    </GenStepDef>
+    <WorldObjectDef ParentName="SpaceBase">
+        <defName>VGE_ActiveSalvagerStation</defName>
+        <label>active salvager station</label>
+        <description>A heavily armed, salvager-owned orbital station currently bombarding your gravship. The station is equipped with numerous pieces of gravship artillery that need to be destroyed to stop the bombardment.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <worldObjectClass>VanillaGravshipExpanded2.MapParent_WarPlatform</worldObjectClass>
+        <expandingIconTexture>UI/MapIcons/SalvagerStation</expandingIconTexture>
+        <mapGenerator>VGE_ActiveSalvagerStation</mapGenerator>
+    </WorldObjectDef>
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>VGE_ActiveSalvagerStation</defName>
+        <label>active salvager station</label>
+        <genSteps>
+            <li>VGE_SalvagerStation</li>
+        </genSteps>
+    </MapGeneratorDef>
+
 </Defs>

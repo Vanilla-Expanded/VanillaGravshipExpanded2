@@ -59,7 +59,7 @@ namespace VanillaGravshipExpanded2
             Find.WindowStack.Add(new Dialog_DebugOptionListLister(list));
         }
 
-        [DebugAction("VGE2", "Force encounter")]
+        [DebugAction("VGE2", "Force encounter (random)")]
         public static void ForceEncounter()
         {
             if (WorldComponent_GravshipCombat.GetActiveGravEngine == null)
@@ -68,6 +68,29 @@ namespace VanillaGravshipExpanded2
                 return;
             }
             WorldComponent_GravshipCombat.Instance.TriggerEncounter();
+        }
+
+        [DebugAction("VGE2", "Force encounter (specific)")]
+        public static void ForceEncounterSpecific()
+        {
+            if (WorldComponent_GravshipCombat.GetActiveGravEngine == null)
+            {
+                Log.Error("[VGE2] No gravengine found - cannot trigger encounter");
+                return;
+            }
+
+            var engine = WorldComponent_GravshipCombat.GetActiveGravEngine;
+            var validThreats = DefDatabase<GravshipThreatDef>.AllDefsListForReading.Where(x => x.Worker.CanFire(engine));
+            var list = new List<DebugMenuOption>();
+            foreach (var threat in validThreats)
+            {
+                list.Add(new DebugMenuOption(threat.label ?? threat.defName, DebugMenuOptionMode.Action, () =>
+                {
+                    WorldComponent_GravshipCombat.Instance.activeThreatDef = threat;
+                    threat.Worker.Fire(engine);
+                }));
+            }
+            Find.WindowStack.Add(new Dialog_DebugOptionListLister(list));
         }
 
         [DebugAction("VGE2", "Force defeat warplatform")]

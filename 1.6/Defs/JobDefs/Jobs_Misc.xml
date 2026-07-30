@@ -38,4 +38,11 @@
     <carryThingAfterJob>true</carryThingAfterJob>
   </JobDef>
 
+  <JobDef>
+    <defName>VGE_CallSalvagerStation</defName>
+    <driverClass>VanillaGravshipExpanded2.JobDriver_CallSalvagerStation</driverClass>
+    <reportString>calling salvager station.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+
 </Defs>

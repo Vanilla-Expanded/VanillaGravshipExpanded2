@@ -21,4 +21,70 @@
     </skyfaller>
   </ThingDef>
 
+  <ThingDef ParentName="ShuttleSkyfallerBase">
+    <defName>VGE_SalvagerDropshipIncoming</defName>
+    <label>salvager dropship (incoming)</label>
+    <thingClass>VanillaGravshipExpanded2.SalvagerDropshipIncoming</thingClass>
+    <graphicData>
+      <texPath>Things/OrbitalStation/SalvagerDropship/SalvagerDropship</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(7,7)</drawSize>
+    </graphicData>
+    <size>(3,5)</size>
+    <skyfaller>
+      <anticipationSound>Shuttle_Landing</anticipationSound>
+      <anticipationSoundTicks>250</anticipationSoundTicks>
+      <ticksToImpactRange>200~250</ticksToImpactRange>
+      <minimalRoofDestruction>true</minimalRoofDestruction>
+      <shadowSize>(3.5,5.5)</shadowSize>
+      <zPositionCurve>
+        <points>
+          <li>(0,30)</li>
+          <li>(0.85,5)</li>
+          <li>(1,0)</li>
+        </points>
+      </zPositionCurve>
+    </skyfaller>
+  </ThingDef>
+
+  <ThingDef ParentName="ShuttleSkyfallerBase">
+    <defName>VGE_SalvagerDropshipLeaving</defName>
+    <label>salvager dropship (leaving)</label>
+    <thingClass>VanillaGravshipExpanded2.SalvagerDropshipLeaving</thingClass>
+    <rotatable>true</rotatable>
+    <graphicData>
+      <texPath>Things/OrbitalStation/SalvagerDropship/SalvagerDropship</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(7,7)</drawSize>
+    </graphicData>
+    <size>(3,5)</size>
+    <skyfaller>
+      <reversed>true</reversed>
+      <anticipationSound>Shuttle_Leaving</anticipationSound>
+      <anticipationSoundTicks>-10</anticipationSoundTicks>
+      <ticksToImpactRange>-120~-120</ticksToImpactRange>
+      <moteSpawnTime>0.05</moteSpawnTime>
+      <shadow>Things/Skyfaller/SkyfallerShadowRectangle</shadow>
+      <shadowSize>(3.5,5.5)</shadowSize>
+      <motesPerCell>1</motesPerCell>
+      <zPositionCurve>
+        <points>
+          <li>(0,0)</li>
+          <li>(0.15,5)</li>
+          <li>(1,30)</li>
+        </points>
+      </zPositionCurve>
+    </skyfaller>
+  </ThingDef>
+
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>VGE_SalvagerDropshipBombardment</defName>
+    <thingClass>VanillaGravshipExpanded2.Spawner_SalvagerDropshipBombardment</thingClass>
+    <useHitPoints>false</useHitPoints>
+    <tickerType>Normal</tickerType>
+    <drawerType>None</drawerType>
+  </ThingDef>
+
 </Defs>

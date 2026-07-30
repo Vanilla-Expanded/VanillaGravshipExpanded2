@@ -13,7 +13,8 @@ namespace VanillaGravshipExpanded2
         }
         public override AlertReport GetReport()
         {
-            if (WorldComponent_GravshipCombat.Instance.incomingWarplatform) return AlertReport.Active;
+            var comp = WorldComponent_GravshipCombat.Instance;
+            if (comp.incomingWarplatform && comp.activeThreatDef != InternalDefOf.VGE_SalvagerStation) return AlertReport.Active;
             return AlertReport.Inactive;
         }
     }

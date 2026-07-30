@@ -978,15 +978,17 @@
 	<designationCategory>VGE_Designer</designationCategory>
   </ThingDef>
 
-  	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
 		<defName>VGE_SalvagerDropship</defName>
 		<label>salvager dropship</label>
 		<description>A chemfuel-powered heavily armored dropship equipped with rocketswarm launchers. Designed for carpet bombing and incursions into enemy territory. This particular dropship seems to belong to salvagers.</description>
+		<thingClass>Building</thingClass>
 		<passability>PassThroughOnly</passability>
 		<fillPercent>0.5</fillPercent>
 		<pathCost>50</pathCost>
 		<size>(3,5)</size>
 		<rotatable>true</rotatable>
+		<tickerType>Normal</tickerType>
 		<statBases>
 			<MaxHitPoints>1000</MaxHitPoints>
 			<Flammability>0.5</Flammability>
@@ -1014,6 +1016,17 @@
 			<neverBuildable>true</neverBuildable>
 			<deconstructible>true</deconstructible>
 		</building>
+		<comps>
+			<li Class="CompProperties_Shuttle">
+				<shipDef>VGE_Ship_SalvagerDropship</shipDef>
+			</li>
+			<li Class="CompProperties_Transporter">
+				<massCapacity>2000</massCapacity>
+				<max1PerGroup>true</max1PerGroup>
+				<canChangeAssignedThingsAfterStarting>true</canChangeAssignedThingsAfterStarting>
+				<showOverallStats>false</showOverallStats>
+			</li>
+		</comps>
 	</ThingDef>
 
 	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoBuildingBase">
@@ -1123,6 +1136,13 @@
 			</li>
 		</comps>
 	</ThingDef>
-  
+	 
+	 <TransportShipDef>
+	   <defName>VGE_Ship_SalvagerDropship</defName>
+	   <label>salvager dropship</label>
+	   <shipThing>VGE_SalvagerDropship</shipThing>
+	   <arrivingSkyfaller>VGE_SalvagerDropshipIncoming</arrivingSkyfaller>
+	   <leavingSkyfaller>VGE_SalvagerDropshipLeaving</leavingSkyfaller>
+	 </TransportShipDef>
 
 </Defs>
