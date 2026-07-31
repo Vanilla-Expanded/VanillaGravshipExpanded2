@@ -158,6 +158,9 @@
                 <rotationOverTimeRange>-180.0~180</rotationOverTimeRange>
                 <scaleRange>1.5~3</scaleRange>
             </li>
+            <li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
+                <substructureDamageRadius>1.9</substructureDamageRadius>
+            </li>
         </modExtensions>
     </ThingDef>
 

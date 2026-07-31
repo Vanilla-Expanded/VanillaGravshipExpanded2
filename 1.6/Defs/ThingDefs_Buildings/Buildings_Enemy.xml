@@ -648,6 +648,11 @@
             <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
             <soundAmbient>MortarRound_Ambient</soundAmbient>
         </projectile>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
+                <substructureDamageRadius>1.9</substructureDamageRadius>
+            </li>
+        </modExtensions>
     </ThingDef>
 
     <ThingDef ParentName="VGE_EnemyArtilleryBase">
@@ -1691,6 +1696,11 @@
             <soundAmbient>MortarRound_Ambient</soundAmbient>
             <preExplosionSpawnSingleThingDef>CraterMedium</preExplosionSpawnSingleThingDef>
         </projectile>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.SubstructureDamageExtension">
+                <substructureDamageRadius>5.9</substructureDamageRadius>
+            </li>
+        </modExtensions>
     </ThingDef>
 
  <ThingDef ParentName="VGE_EnemyPropBase">

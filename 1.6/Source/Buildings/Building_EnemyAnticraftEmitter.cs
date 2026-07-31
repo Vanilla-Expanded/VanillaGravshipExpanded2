@@ -39,10 +39,6 @@ namespace VanillaGravshipExpanded2
             {
                 currentTargetInt = LocalTargetInfo.Invalid;
                 burstWarmupTicksLeft = 0;
-                if (AttackVerb != null)
-                {
-                    AttackVerb.Reset();
-                }
                 if (currentStrike != null && !currentStrike.Destroyed)
                 {
                     currentStrike.Destroy();
@@ -98,6 +94,18 @@ namespace VanillaGravshipExpanded2
         }
 
         public bool IsFiringBurst => isFiringBurst;
+
+        public override void AbortFiringState()
+        {
+            base.AbortFiringState();
+            if (currentStrike != null && !currentStrike.Destroyed)
+            {
+                currentStrike.Destroy();
+            }
+            currentStrike = null;
+            isFiringBurst = false;
+            UpdatePowerOutput();
+        }
 
         public override void ExposeData()
         {
