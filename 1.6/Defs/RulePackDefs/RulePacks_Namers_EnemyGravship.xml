@@ -24,6 +24,7 @@
         <li>r_name(p=0.01)->The Buru Maw</li>
         <li>r_name(p=0.01)->Fourth Bridge</li>
         <li>r_name(p=0.01)->Shield of Justice</li>
+        <li>r_name(p=0.01)->The Wolven Storm</li>
 
         <!-- Base Gravship Rules -->
         <li>r_name(p=2)->The [narrative_name]</li>
