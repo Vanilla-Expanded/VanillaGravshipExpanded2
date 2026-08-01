@@ -1,5 +1,7 @@
 using RimWorld;
 using Verse;
+using Verse.AI;
+
 namespace VanillaGravshipExpanded2
 {
 	[DefOf]
@@ -70,6 +72,8 @@ namespace VanillaGravshipExpanded2
 		public static JobDef VGE_EscapePod_InsertPawn;
 		public static JobDef VGE_EscapePod_InsertPawnDrafted;
 		public static JobDef VGE_CallSalvagerStation;
+		public static JobDef VGE_SpacePrisonEscape_UseEscapePod;
+		public static DutyDef VGE_SpacePrisonerEscape;
 		public static FleckDef BlastEMP;
 		public static ThingDef OrbitalTargeterBombardment;
 		public static ThingDef VGE_Compressed_Vacstone;

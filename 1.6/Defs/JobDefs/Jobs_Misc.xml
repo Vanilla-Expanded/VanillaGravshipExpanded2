@@ -39,6 +39,13 @@
   </JobDef>
 
   <JobDef>
+    <defName>VGE_SpacePrisonEscape_UseEscapePod</defName>
+    <driverClass>VanillaGravshipExpanded2.JobDriver_SpacePrisonEscape_UseEscapePod</driverClass>
+    <reportString>entering escape pod.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+
+  <JobDef>
     <defName>VGE_CallSalvagerStation</defName>
     <driverClass>VanillaGravshipExpanded2.JobDriver_CallSalvagerStation</driverClass>
     <reportString>calling salvager station.</reportString>

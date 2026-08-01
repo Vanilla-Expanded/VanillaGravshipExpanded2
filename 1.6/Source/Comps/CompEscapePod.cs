@@ -3,6 +3,7 @@ using RimWorld;
 using RimWorld.Planet;
 using Verse;
 using Verse.AI;
+using Verse.AI.Group;
 using Verse.Sound;
 
 namespace VanillaGravshipExpanded2;
@@ -12,6 +13,7 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
     protected int triggerOnTick = -999999;
     protected ThingOwner<Pawn> heldPawn;
     protected bool autoRebuild;
+    public bool isCurrentlyStolen = false; // Used to enable automatic rebuild if it's stolen from player during a prison break or similar circumstance
     [Unsaved] protected VGE2_MapComponent mapComp;
     [Unsaved] protected Sustainer evacuationSustainer;
     [Unsaved] protected Effecter progressBarEffecter;
@@ -20,9 +22,9 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
 
     public Pawn Occupant => heldPawn.Any ? heldPawn[0] : null;
 
-    protected bool CanSetAutoRebuild => parent.Faction == Faction.OfPlayer && parent.def.blueprintDef != null && parent.def.IsResearchFinished;
+    protected bool CanSetAutoRebuild => (parent.Faction == Faction.OfPlayer || isCurrentlyStolen) && parent.def.blueprintDef != null && parent.def.IsResearchFinished;
 
-    protected virtual bool IsCurrentPlanetLayerSupported => parent.Map?.Tile.Layer?.Def != null && Props.layerWhitelist != null && Props.layerWhitelist.Contains(parent.Map.Tile.LayerDef);
+    public virtual bool IsCurrentPlanetLayerSupported => parent.Map?.Tile.Layer?.Def != null && Props.layerWhitelist != null && Props.layerWhitelist.Contains(parent.Map.Tile.LayerDef);
 
     public CompProperties_EscapePod Props => (CompProperties_EscapePod)props;
 
@@ -88,7 +90,7 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
             yield return gizmo;
 
         // Only show gizmos if pod has no faction or is player faction
-        if (parent.Faction is { IsPlayer: false })
+        if (parent.Faction is not { IsPlayer: true })
             yield break;
 
         if (CanSetAutoRebuild)
@@ -266,6 +268,7 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
         }
 
         var occupant = Occupant;
+        occupant.GetLord()?.Notify_PawnLost(occupant, PawnLostCondition.ExitedMap);
 
         var directlyHeldThings = GetDirectlyHeldThings();
         var activeTransporter = (ActiveTransporter)ThingMaker.MakeThing(Props.activeTransporterDef ?? ThingDefOf.ActiveDropPod);
@@ -276,7 +279,11 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
         var flyShipLeaving = (FlyShipLeaving)SkyfallerMaker.MakeSkyfaller(Props.skyfallerLeaving ?? ThingDefOf.DropPodLeaving, activeTransporter);
         flyShipLeaving.groupID = Find.UniqueIDsManager.GetNextTransporterGroupID();
         flyShipLeaving.destinationTile = tile;
-        flyShipLeaving.arrivalAction = new TransportersArrivalAction_EscapePod(occupant.Faction);
+
+        if (isCurrentlyStolen)
+            flyShipLeaving.arrivalAction = new TransportersArrivalAction_DestroyOrPassToWorld();
+        else
+            flyShipLeaving.arrivalAction = new TransportersArrivalAction_EscapePod(occupant.Faction);
 
         flyShipLeaving.worldObjectDef = Props.worldObjectDef ?? WorldObjectDefOf.TravellingTransporters;
         parent.Destroy();
@@ -298,7 +305,7 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
             Find.Selector.Select(pawn);
     }
 
-    protected virtual PlanetTile FindClosestValidTile()
+    public virtual PlanetTile FindClosestValidTile()
     {
         if (!IsCurrentPlanetLayerSupported)
             return PlanetTile.Invalid;
@@ -307,7 +314,7 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
         return closest;
     }
 
-    protected virtual bool IsPlanetTileValid(PlanetTile tile) => true;
+    public virtual bool IsPlanetTileValid(PlanetTile tile) => true;
 
     public override void PostSwapMap()
     {
@@ -355,6 +362,11 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
 
         Scribe_Deep.Look(ref heldPawn, nameof(heldPawn), this);
         Scribe_Values.Look(ref triggerOnTick, nameof(triggerOnTick));
+        Scribe_Values.Look(ref autoRebuild, nameof(autoRebuild));
+        Scribe_Values.Look(ref isCurrentlyStolen, nameof(isCurrentlyStolen));
+
+        if (Scribe.mode == LoadSaveMode.PostLoadInit && (Occupant == null || Occupant.Faction is { IsPlayer: true }))
+            isCurrentlyStolen = false;
     }
 
     protected virtual void CheckAutoRebuild(Map map)
@@ -379,5 +391,10 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
         if (evacuationSustainer == null || evacuationSustainer.Ended)
             evacuationSustainer = Props.evacuationSustainerSound.TrySpawnSustainer(SoundInfo.InMap(parent, MaintenanceType.PerTick));
         evacuationSustainer.Maintain();
+    }
+
+    public override bool CompPreventClaimingBy(Faction faction)
+    {
+        return Occupant.Faction != faction || base.CompPreventClaimingBy(faction);
     }
 }

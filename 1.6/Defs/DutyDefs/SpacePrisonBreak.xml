@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DutyDef>
+    <defName>VGE_SpacePrisonerEscape</defName>
+    <alwaysShowWeapon>true</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Tagger">
+      <tagToGive>Escaping</tagToGive>
+      <subNodes>
+        <li Class="ThinkNode_ConditionalHasDutyPawnTarget">
+          <subNodes>
+            <li Class="ThinkNode_ConditionalCapableOfWorkTag">
+              <workTags>
+                <li>Violent</li>
+              </workTags>
+              <subNodes>
+                <li Class="JobGiver_AIDefendEscortee">
+                  <targetAcquireRadius>15</targetAcquireRadius>
+                  <targetKeepRadius>18</targetKeepRadius>
+                  <needLOSToAcquireNonPawnTargets>true</needLOSToAcquireNonPawnTargets>
+                </li>
+              </subNodes>
+            </li>
+            <li Class="JobGiver_WanderNearDutyLocation">
+              <wanderRadius>3</wanderRadius>
+            </li>
+          </subNodes>
+        </li>
+        <li Class="ThinkNode_ConditionalCapableOfWorkTag">
+          <workTags>
+            <li>Violent</li>
+          </workTags>
+          <subNodes>
+            <li Class="JobGiver_AIFightEnemies">
+              <targetAcquireRadius>14</targetAcquireRadius>
+              <targetKeepRadius>17</targetKeepRadius>
+              <needLOSToAcquireNonPawnTargets>true</needLOSToAcquireNonPawnTargets>
+            </li>
+          </subNodes>
+        </li>
+        <li Class="VanillaGravshipExpanded2.JobGiver_SpacePrisonEscape_UseEscapePod"/>
+        <li Class="JobGiver_WanderNearDutyLocation">
+          <wanderRadius>3</wanderRadius>
+        </li>
+      </subNodes>
+    </thinkNode>
+    <constantThinkNode Class="ThinkNode_Tagger">
+      <tagToGive>Escaping</tagToGive>
+      <subNodes>
+        <li Class="JobGiver_PickUpOpportunisticWeapon">
+          <pickUpUtilityItems>true</pickUpUtilityItems>
+        </li>
+      </subNodes>
+    </constantThinkNode>
+  </DutyDef>
+	
+</Defs>
