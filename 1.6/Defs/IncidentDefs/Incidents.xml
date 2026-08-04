@@ -23,9 +23,9 @@
   <PawnsArrivalModeDef>
     <defName>VGE_SalvagerDropshipRaid</defName>
     <workerClass>VanillaGravshipExpanded2.PawnsArrivalModeWorker_SalvagerDropshipRaid</workerClass>
-    <textEnemy>A group of {0} from {1} have arrived in a salvager dropship!</textEnemy>
-    <textWillArrive>A group of {0} from {1} will arrive in a salvager dropship.</textWillArrive>
-    <textFriendly>A group of friendly {0} from {1} have arrived in a salvager dropship!</textFriendly>
+    <textEnemy>A group of {0} from {1} have arrived in a tactical attack! A salvager dropship bombarded the landing zone with rocketswarm missile pods, deployed the strike team, and immediately departed.</textEnemy>
+    <textWillArrive>A group of {0} from {1} will arrive shortly for a tactical attack. A salvager dropship will bombard the landing zone with rocketswarm missile pods, drop off the team, and then depart.</textWillArrive>
+    <textFriendly>A group of friendly {0} from {1} have arrived for a tactical assault! Their salvager dropship bombarded the landing zone with rocketswarm missile pods to clear the area, dropped off the team, and departed.</textFriendly>
     <selectionWeightCurve>
       <points>
         <li>(0, 0)</li>
