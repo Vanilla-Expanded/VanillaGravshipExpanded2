@@ -67,15 +67,11 @@ namespace VanillaGravshipExpanded2
         private static void ApplyVisibilityGain(WorldComponent_GravshipController __instance)
         {
             var engine = __instance.gravship?.Engine;
-            if (engine == null) return;
-            var launchInfo = engine.launchInfo;
-            if (launchInfo == null) return;
-            if (LaunchInfo_ExposeData_Patch.launchSourceTiles.TryGetValue(launchInfo, out var sourceTile))
-            {
-                var distance = GravshipHelper.GetDistance(sourceTile, engine.Tile);
-                var size = engine.ValidSubstructure.Count;
-                WorldComponent_GravshipCombat.Instance.AddVisibility(size * distance, true);
-            }
+            var extendedInfo = engine?.launchInfo.ExtendedInfo(false);
+            if (extendedInfo == null || !extendedInfo.launchSourceTile.Valid) return;
+            var distance = GravshipHelper.GetDistance(extendedInfo.launchSourceTile, engine.Tile);
+            var size = engine.ValidSubstructure.Count;
+            WorldComponent_GravshipCombat.Instance.AddVisibility(size * distance, true);
         }
 
         private static void ApplyEarlyEscape(WorldComponent_GravshipCombat comp, WorldComponent_GravshipController __instance)
