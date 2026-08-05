@@ -3,6 +3,7 @@
     <VanillaGravshipExpanded2.GravshipThreatDef>
         <defName>VGE_Warplatform</defName>
         <label>Warplatform</label>
+        <incomingLabel>Incoming warplatform</incomingLabel>
         <weight>10</weight>
         <description>An orbital bombardment platform has detected your gravship signature and will engage shortly.\n\nTime until arrival: {0}\n\nMove away before it locks in to avoid it, or prepare to fight it.</description>
         <workerClass>VanillaGravshipExpanded2.GravshipThreatWorker_Warplatform</workerClass>
@@ -15,7 +16,7 @@
         <escapeMidBattleVisibilityLoss>400000</escapeMidBattleVisibilityLoss>
         <earlyEscapeVisibilityLoss>100000</earlyEscapeVisibilityLoss>
         <escapeDistance>25</escapeDistance>
-        <daysToDespawnAfterDefeat>3</daysToDespawnAfterDefeat>
+        <despawnHours>72</despawnHours>
         <hoursBombardmentOnEngineDestroyed>12</hoursBombardmentOnEngineDestroyed>
         <worldObjectDef>VGE_ActiveWarplatform</worldObjectDef>
         <tileSpawnDistanceRange>5~20</tileSpawnDistanceRange>
@@ -35,6 +36,7 @@
     <VanillaGravshipExpanded2.GravshipThreatDef>
         <defName>VGE_SalvagerStation</defName>
         <label>Salvager station</label>
+        <incomingLabel>Tribute demand</incomingLabel>
         <weight>4</weight>
         <description>A salvager orbital station is demanding tribute of {0} silver or it will open fire.\n\nTime until tribute needs to be paid: {1}\n\nYou can ask them to postpone the payment, but the grav engine will be locked remotely until the tribute is paid or the station is defeated. You can also pay the fee immediately, if you have the funds. Running away will likely have the salvagers send a search party after you.</description>
         <workerClass>VanillaGravshipExpanded2.GravshipThreatWorker_SalvagerStation</workerClass>
@@ -47,7 +49,7 @@
         <escapeMidBattleVisibilityLoss>400000</escapeMidBattleVisibilityLoss>
         <earlyEscapeVisibilityLoss>400000</earlyEscapeVisibilityLoss>
         <escapeDistance>25</escapeDistance>
-        <daysToDespawnAfterDefeat>3</daysToDespawnAfterDefeat>
+        <despawnHours>72</despawnHours>
         <hoursBombardmentOnEngineDestroyed>6</hoursBombardmentOnEngineDestroyed>
         <worldObjectDef>VGE_ActiveSalvagerStation</worldObjectDef>
         <tileSpawnDistanceRange>5~20</tileSpawnDistanceRange>
@@ -60,32 +62,38 @@
         <disengagesLetterDesc>Salvager station has destroyed your grav engine. They are celebrating. You should have paid the tribute.\n\nConsider this a valuable lesson.</disengagesLetterDesc>
         <alertExplanation>A salvager orbital station has targeted {0}. It will continuously bombard the gravship until it is destroyed. You can destroy the enemy gravship artillery pieces and the gravlock tether, or try and escape. If you escape, salvagers will likely send a search party.</alertExplanation>
     </VanillaGravshipExpanded2.GravshipThreatDef>
-	<!--
+
     <VanillaGravshipExpanded2.GravshipThreatDef>
         <defName>VGE_EnemyGravjumper</defName>
+        <label>Enemy gravjumper</label>
+        <incomingLabel>Incoming gravjumper</incomingLabel>
         <weight>2</weight>
+        <description>An enemy gravjumper is locking in and will engage shortly.\n\nTime until arrival: {0}\n\nMove away before it arrives to avoid it, or prepare to fight it.</description>
+        <workerClass>VanillaGravshipExpanded2.GravshipThreatWorker_EnemyGravjumper</workerClass>
+        <letterLabel>Enemy gravjumper</letterLabel>
+        <letterDesc>An enemy gravjumper called {0} has intercepted your landing coordinates and prepares to intercept. It is currently running final scans to determine the best assault approach. Gravjumper is a compact, short-range gravship that relies on the gravjumper engine and a pilot cockpit to operate. Offers minimal substructure support and footprint, making it ideal for scouting and exploration. Destroying the gravjumper engine will disable it permanently.\n\nThe gravjumper will continuously fire at your location until you move out of range or destroy it. It may decide to move in, in which case it will land on your local area and engage you up close. You can avoid that by destroying the thrusters, the fuel tanks or the pilot’s cockpit. If you move away now, you may be able to shake it off.\n\nPoint defense turrets, gravarmor, and shield generators can be used to protect against the bombardment. Gravship artillery can be used to attack the enemy over long distances. You can also send a shuttle or drop pods to the enemy location to handle it personally.</letterDesc>
+        <arrivalLetterLabel>Gravjumper attacks</arrivalLetterLabel>
+        <arrivalLetterDesc>An enemy gravjumper has arrived in orbit and begins the attack on your gravship. Your vessel will be under continuous fire from the gravjumper’s weapons. To survive, you must destroy the enemy gravjumper engine, as well as eliminate all of the gravjumper’s artillery turrets.\n\nYou can fight back using your gravship's artillery, shield generators, and point defenses to withstand the bombardment. Alternatively, send a shuttle or drop pods to the enemy location to board the gravjumper and destroy it from the inside. If you cannot defend yourself, you must attempt to escape its range immediately.</arrivalLetterDesc>
+        <baseCountdownHours>48</baseCountdownHours>
+        <jammerExtensionHours>24</jammerExtensionHours>
+        <escapeMidBattleVisibilityLoss>400000</escapeMidBattleVisibilityLoss>
+        <earlyEscapeVisibilityLoss>100000</earlyEscapeVisibilityLoss>
+        <escapeDistance>25</escapeDistance>
+        <despawnHours>16</despawnHours>
+        <hoursBombardmentOnEngineDestroyed>12</hoursBombardmentOnEngineDestroyed>
+        <worldObjectDef>VGE_ActiveEnemyGravjumper</worldObjectDef>
+        <tileSpawnDistanceRange>5~20</tileSpawnDistanceRange>
+        <mapSize>250</mapSize>
+        <defeatBuildings>
+            <li>VGE_EnemyGravjumperEngine</li>
+        </defeatBuildings>
+        <escapedMessage>You have escaped the enemy gravjumper.</escapedMessage>
+        <earlyEscapeMessage>You have escaped the enemy gravjumper.</earlyEscapeMessage>
+        <defeatLetter>Gravjumper defeated</defeatLetter>
+        <defeatLetterDesc>Enemy gravjumper threat has been defeated, but the area still offers valuable loot. You can salvage the wreck of the gravjumper to gain some valuable resources.\n\nGravjumper will destabilize and collapse within {0}.</defeatLetterDesc>
+        <disengagesLetter>Gravjumper disengages</disengagesLetter>
+        <disengagesLetterDesc>{0} has effectively destroyed your gravship. It has now disengaged.\n\nConsider this a valuable lesson.</disengagesLetterDesc>
+        <alertExplanation>An enemy gravjumper has targeted {0}. It will continuously bombard the gravship until it is destroyed. Destroy the enemy gravjumper engine to permanently disable their ship.</alertExplanation>
     </VanillaGravshipExpanded2.GravshipThreatDef>
 
-    <VanillaGravshipExpanded2.GravshipThreatDef>
-        <defName>VGE_EnemyGravship</defName>
-        <weight>2</weight>
-        <allowedEngineDefs>
-            <li>GravEngine</li>
-            <li>VGE_GravhulkEngine</li>
-        </allowedEngineDefs>
-    </VanillaGravshipExpanded2.GravshipThreatDef>
-
-    <VanillaGravshipExpanded2.GravshipThreatDef>
-        <defName>VGE_EnemyGravhulk</defName>
-        <weight>2</weight>
-        <allowedEngineDefs>
-            <li>VGE_GravhulkEngine</li>
-        </allowedEngineDefs>
-    </VanillaGravshipExpanded2.GravshipThreatDef>
-
-    <VanillaGravshipExpanded2.GravshipThreatDef>
-        <defName>VGE_MechanoidDestroyer</defName>
-        <weight>3</weight>
-    </VanillaGravshipExpanded2.GravshipThreatDef>
--->
 </Defs>

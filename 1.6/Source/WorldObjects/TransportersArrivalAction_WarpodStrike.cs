@@ -36,13 +36,7 @@ namespace VanillaGravshipExpanded2
             {
                 var map = mapParent.Map;
                 var edgeCell = CellFinder.RandomEdgeCell(map);
-                var projectile = (Projectile_Warpod)ThingMaker.MakeThing(InternalDefOf.VGE_WarpodIncoming);
-                projectile.warpodDef = trans.sentTransporterDef;
-                projectile.launchingFaction = launchingFaction;
-                projectile.innerContainer.TryAddRangeOrTransfer(trans.innerContainer, true, true);
-                var dummyLauncher = projectile.CreateDummyLauncher();
-                GenSpawn.Spawn(projectile, edgeCell, map);
-                projectile.Launch(dummyLauncher, edgeCell.ToVector3Shifted(), new LocalTargetInfo(cell), new LocalTargetInfo(cell), ProjectileHitFlags.All);
+                ProjectileUtil.LaunchWarpod(trans, InternalDefOf.VGE_WarpodIncoming, launchingFaction, map, edgeCell, cell);
             }
         }
     }

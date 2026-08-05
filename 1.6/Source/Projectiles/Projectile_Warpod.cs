@@ -25,15 +25,8 @@ namespace VanillaGravshipExpanded2
             Scribe_References.Look(ref launchingFaction, "launchingFaction");
             if (Scribe.mode == LoadSaveMode.PostLoadInit && launcher == null)
             {
-                launcher = CreateDummyLauncher();
+                launcher = ProjectileUtil.CreateDummyLauncher(warpodDef, launchingFaction);
             }
-        }
-
-        public Thing CreateDummyLauncher()
-        {
-            var dummy = ThingMaker.MakeThing(warpodDef);
-            dummy.SetFaction(launchingFaction);
-            return dummy;
         }
 
         public ThingOwner GetDirectlyHeldThings() => innerContainer;

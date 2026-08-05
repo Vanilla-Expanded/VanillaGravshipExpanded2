@@ -7,9 +7,19 @@ namespace VanillaGravshipExpanded2
 {
     public class PawnsArrivalModeWorker_SalvagerDropshipRaid : PawnsArrivalModeWorker
     {
+        public static readonly List<RaidStrategyDef> AllowedStrategies =
+        [
+            RaidStrategyDefOf.ImmediateAttack,
+            InternalDefOf.Siege,
+            InternalDefOf.ImmediateAttackSappers,
+            InternalDefOf.ImmediateAttackSmart
+        ];
+
         public override bool CanUseWith(IncidentParms parms)
         {
-            return base.CanUseWith(parms) && parms.faction != null && parms.faction == Faction.OfSalvagers;
+            return base.CanUseWith(parms)
+                && parms.faction == Faction.OfSalvagers
+                && AllowedStrategies.Contains(parms.raidStrategy);
         }
 
         public override void Arrive(List<Pawn> pawns, IncidentParms parms)
@@ -26,6 +36,18 @@ namespace VanillaGravshipExpanded2
 
             spawner.innerContainer.TryAddRangeOrTransfer(pawns, canMergeWithExistingStacks: false, destroyLeftover: false);
             GenSpawn.Spawn(spawner, edgeCell, map);
+        }
+
+        public static IncidentParms CreateRaidParms(IIncidentTarget target)
+        {
+            return new IncidentParms
+            {
+                target = target,
+                faction = Faction.OfSalvagers,
+                points = StorytellerUtility.DefaultThreatPointsNow(target),
+                raidArrivalMode = InternalDefOf.VGE_SalvagerDropshipRaid,
+                raidStrategy = AllowedStrategies.RandomElement()
+            };
         }
 
         public override bool TryResolveRaidSpawnCenter(IncidentParms parms)

@@ -277,4 +277,24 @@
     </structureLayouts>
   </VEF.Storyteller.StructureSetDef>
 
+  <VEF.Storyteller.StructureSetDef>
+    <defName>VGE_EnemyGravjumperSet</defName>
+    <structureLayouts>
+      <li>
+        <pattern>EnemyGravjumperStern_[0-9]+</pattern>
+        <offset>(0,0,0)</offset>
+        <randomRotated>false</randomRotated>
+      </li>
+      <li>
+        <pattern>EnemyGravjumperHull_[0-9]+</pattern>
+        <offset>(1,0,0)</offset>
+        <randomRotated>false</randomRotated>
+      </li>
+      <li>
+        <pattern>EnemyGravjumperBow_[0-9]+</pattern>
+        <offset>(2,0,0)</offset>
+        <randomRotated>false</randomRotated>
+      </li>
+    </structureLayouts>
+  </VEF.Storyteller.StructureSetDef>
 </Defs>

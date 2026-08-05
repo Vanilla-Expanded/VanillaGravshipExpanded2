@@ -7,6 +7,7 @@ namespace VanillaGravshipExpanded2
 {
     public class GravshipThreatDef : Def
     {
+        public string incomingLabel;
         public float weight;
         public Type workerClass = typeof(GravshipThreatWorker);
         public List<ThingDef> allowedEngineDefs;
@@ -19,7 +20,7 @@ namespace VanillaGravshipExpanded2
         public float escapeMidBattleVisibilityLoss;
         public float earlyEscapeVisibilityLoss;
         public int escapeDistance;
-        public float daysToDespawnAfterDefeat;
+        public int despawnHours;
         public int hoursBombardmentOnEngineDestroyed;
         public WorldObjectDef worldObjectDef;
         public FloatRange tileSpawnDistanceRange;

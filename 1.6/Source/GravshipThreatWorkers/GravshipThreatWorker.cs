@@ -54,7 +54,7 @@ namespace VanillaGravshipExpanded2
             Find.LetterStack.ReceiveLetter(def.letterLabel, desc, LetterDefOf.ThreatBig);
         }
 
-        public virtual void SpawnThreat()
+        public virtual void SpawnThreat(bool suppressArrivalLetter = false)
         {
             var engine = WorldComponent_GravshipCombat.GetActiveGravEngine;
             if (engine == null) return;
@@ -93,7 +93,7 @@ namespace VanillaGravshipExpanded2
                 {
                     Find.WorldObjects.Remove(worldObject);
                 }
-                SpawnWarplatform(engine, warplatform, result);
+                SpawnWarplatform(engine, warplatform, result, suppressArrivalLetter);
             }
             else
             {
@@ -101,7 +101,7 @@ namespace VanillaGravshipExpanded2
             }
         }
 
-        private void SpawnWarplatform(Building_GravEngine engine, MapParent_WarPlatform warplatform, PlanetTile tile)
+        private void SpawnWarplatform(Building_GravEngine engine, MapParent_WarPlatform warplatform, PlanetTile tile, bool suppressArrivalLetter)
         {
             warplatform.Tile = tile;
             warplatform.SetFaction(EnemyFaction);
@@ -109,7 +109,10 @@ namespace VanillaGravshipExpanded2
             LongEventHandler.QueueLongEvent(delegate
             {
                 MapGenerator.GenerateMap(new IntVec3(def.mapSize, 1, def.mapSize), warplatform, warplatform.MapGeneratorDef);
-                Find.LetterStack.ReceiveLetter(def.arrivalLetterLabel, def.arrivalLetterDesc.Formatted(engine.RenamableLabel), LetterDefOf.ThreatBig, new LookTargets(warplatform));
+                if (!suppressArrivalLetter)
+                {
+                    Find.LetterStack.ReceiveLetter(def.arrivalLetterLabel, def.arrivalLetterDesc.Formatted(engine.RenamableLabel), LetterDefOf.ThreatBig, new LookTargets(warplatform));
+                }
                 CameraJumper.TryJump(new GlobalTargetInfo(warplatform.Map.Center, warplatform.Map));
                 Find.CameraDriver.SetRootPosAndSize(warplatform.Map.Center.ToVector3(), 60f);
             }, "GeneratingMap", doAsynchronously: true, GameAndMapInitExceptionHandlers.ErrorWhileGeneratingMap);
@@ -124,6 +127,13 @@ namespace VanillaGravshipExpanded2
         {
             Messages.Message(def.escapedMessage, MessageTypeDefOf.PositiveEvent);
             WorldComponent_GravshipCombat.Instance.visibility = Mathf.Max(0, WorldComponent_GravshipCombat.Instance.visibility - def.escapeMidBattleVisibilityLoss);
+        }
+
+        public virtual void OnEarlyEscape(Map map)
+        {
+            var comp = WorldComponent_GravshipCombat.Instance;
+            comp.visibility = Mathf.Max(0, comp.visibility - def.earlyEscapeVisibilityLoss);
+            Messages.Message(def.earlyEscapeMessage, MessageTypeDefOf.PositiveEvent);
         }
 
         public virtual void OnEngineDestroyed(MapParent_WarPlatform warplatform)

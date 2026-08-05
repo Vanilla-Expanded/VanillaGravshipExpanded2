@@ -50,8 +50,7 @@ namespace VanillaGravshipExpanded2
                 {
                     var c = targetCell + GenRadial.RadialPattern[Rand.Range(0, GenRadial.NumCellsInRadius(12.9f))];
                     if (!c.InBounds(Map)) c = targetCell;
-                    var proj = (Projectile)GenSpawn.Spawn(InternalDefOf.Proj_Rocket, Position, Map);
-                    proj.Launch(this, Position.ToVector3Shifted(), c, c, ProjectileHitFlags.IntendedTarget);
+                    var proj = ProjectileUtil.LaunchProjectile(ProjectileUtil.CreateDummyLauncher(InternalDefOf.VGE_SalvagerDropship, Faction.OfSalvagers), InternalDefOf.Proj_Rocket, Map, Position, c);
                     rocketsFired++;
                     lastRocket = proj;
                 }

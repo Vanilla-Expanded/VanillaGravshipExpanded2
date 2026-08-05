@@ -96,5 +96,16 @@ namespace VanillaGravshipExpanded2
 		public static ThingDef VGE_Apparel_Astrorig;
 		public static ThingDef VGE_OxygenCanister;
 		public static TerrainAffordanceDef VGE_SubstructureAndOrbitalPlatform;
+		public static ThingDef VGE_LandingStructure_EnemyGravjumper;
+		public static ThingDef VGE_LandingStructure_StructureSet;
+		public static GravshipThreatDef VGE_EnemyGravjumper;
+		public static RulePackDef VGE_NamerEnemyGravship;
+		public static VEF.Storyteller.StructureSetDef VGE_EnemyGravjumperSet;
+		public static ThingDef VGE_EnemySmallThruster;
+		public static ThingDef VGE_EnemyLargeThruster;
+		public static ThingDef VGE_EnemyGiantThruster;
+		public static RaidStrategyDef Siege;
+		public static RaidStrategyDef ImmediateAttackSappers;
+		public static RaidStrategyDef ImmediateAttackSmart;
 	}
 }

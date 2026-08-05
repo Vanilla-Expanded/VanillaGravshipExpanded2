@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using RimWorld;
-using UnityEngine;
 using VanillaGravshipExpanded;
 using Verse;
 
@@ -85,19 +84,7 @@ namespace VanillaGravshipExpanded2
             {
                 var threatDef = comp.activeThreatDef;
                 comp.incomingWarplatform = false;
-                comp.visibility = Mathf.Max(0, comp.visibility - threatDef.earlyEscapeVisibilityLoss);
-                Messages.Message(threatDef.earlyEscapeMessage, MessageTypeDefOf.PositiveEvent);
-                if (threatDef == InternalDefOf.VGE_SalvagerStation)
-                {
-                    var parms = new IncidentParms
-                    {
-                        target = __instance.map,
-                        faction = Faction.OfSalvagers,
-                        points = StorytellerUtility.DefaultThreatPointsNow(__instance.map),
-                        raidArrivalMode = InternalDefOf.VGE_SalvagerDropshipRaid
-                    };
-                    Find.Storyteller.incidentQueue.Add(IncidentDefOf.RaidEnemy, Find.TickManager.TicksGame + Rand.RangeInclusive(3, 5) * GenDate.TicksPerDay, parms);
-                }
+                threatDef.Worker.OnEarlyEscape(__instance.map);
             }
         }
     }

@@ -5,7 +5,7 @@ namespace VanillaGravshipExpanded2
 {
     public class Alert_IncomingWarplatform : Alert_Critical
     {
-        public override string GetLabel() => WorldComponent_GravshipCombat.Instance.activeThreatDef.label;
+        public override string GetLabel() => WorldComponent_GravshipCombat.Instance.activeThreatDef.incomingLabel;
         public override TaggedString GetExplanation()
         {
             var comp = WorldComponent_GravshipCombat.Instance;

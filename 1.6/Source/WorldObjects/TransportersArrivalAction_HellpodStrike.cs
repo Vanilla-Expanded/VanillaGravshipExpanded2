@@ -72,13 +72,7 @@ namespace VanillaGravshipExpanded2
             foreach (var trans in transporters)
             {
                 var edgeCell = CellFinder.RandomEdgeCell(map);
-                var projectile = (Projectile_Warpod)ThingMaker.MakeThing(InternalDefOf.VGE_WarpodIncoming);
-                projectile.warpodDef = trans.sentTransporterDef;
-                projectile.launchingFaction = launchingFaction;
-                projectile.innerContainer.TryAddRangeOrTransfer(trans.innerContainer, true, true);
-                var dummyLauncher = projectile.CreateDummyLauncher();
-                GenSpawn.Spawn(projectile, edgeCell, map);
-                projectile.Launch(dummyLauncher, edgeCell.ToVector3Shifted(), new LocalTargetInfo(destCell), new LocalTargetInfo(destCell), ProjectileHitFlags.All);
+                ProjectileUtil.LaunchWarpod(trans, InternalDefOf.VGE_WarpodIncoming, launchingFaction, map, edgeCell, destCell);
             }
         }
     }

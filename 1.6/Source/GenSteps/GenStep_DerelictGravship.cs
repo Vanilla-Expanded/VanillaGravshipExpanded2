@@ -74,7 +74,7 @@ namespace VanillaGravshipExpanded2
             {
                 var kind = weights.RandomElementByWeight(w => w.Item2).Item1;
                 var pawn = PawnGenerator.GeneratePawn(kind, faction);
-                if (cells.Where(c => c.Standable(map) && c.GetTerrain(map) != TerrainDefOf.Space).TryRandomElement(out var cell))
+                if (cells.Where(c => c.Standable(map) && c.GetTerrain(map) != TerrainDefOf.Space && c.Roofed(map)).TryRandomElement(out var cell) || cells.Where(c => c.Standable(map) && c.GetTerrain(map) != TerrainDefOf.Space).TryRandomElement(out cell))
                 {
                     GenSpawn.Spawn(pawn, cell, map);
                     curPts += kind.combatPower;
@@ -87,10 +87,15 @@ namespace VanillaGravshipExpanded2
         private void SpawnPawnGroup(Map map, Faction faction, float points, List<IntVec3> cells)
         {
             points = Mathf.Max(points, faction.def.MinPointsToGeneratePawnGroup(PawnGroupKindDefOf.Combat));
-            var groupParms = new PawnGroupMakerParms { faction = faction, groupKind = PawnGroupKindDefOf.Combat, points = points };
+            var groupParms = new PawnGroupMakerParms
+            {
+                faction = faction,
+                groupKind = PawnGroupKindDefOf.Combat,
+                points = points
+            };
             foreach (var pawn in PawnGroupMakerUtility.GeneratePawns(groupParms))
             {
-                if (cells.Where(c => c.Standable(map) && c.GetTerrain(map) != TerrainDefOf.Space).TryRandomElement(out var cell))
+                if (cells.Where(c => c.Standable(map) && c.GetTerrain(map) != TerrainDefOf.Space && c.Roofed(map)).TryRandomElement(out var cell) || cells.Where(c => c.Standable(map) && c.GetTerrain(map) != TerrainDefOf.Space).TryRandomElement(out cell))
                 {
                     GenSpawn.Spawn(pawn, cell, map);
                 }
@@ -101,7 +106,7 @@ namespace VanillaGravshipExpanded2
         {
             for (var i = 0; i < count; i++)
             {
-                if (cells.Where(c => c.Standable(map) && c.GetTerrain(map) != TerrainDefOf.Space).TryRandomElement(out var cell))
+                if (cells.Where(c => c.Standable(map) && c.GetTerrain(map) != TerrainDefOf.Space && c.Roofed(map)).TryRandomElement(out var cell) || cells.Where(c => c.Standable(map) && c.GetTerrain(map) != TerrainDefOf.Space).TryRandomElement(out cell))
                 {
                     GenSpawn.Spawn(def, cell, map);
                 }

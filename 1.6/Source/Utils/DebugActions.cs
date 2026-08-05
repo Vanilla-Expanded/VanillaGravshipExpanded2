@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using LudeonTK;
+using RimWorld;
 using Verse;
 
 namespace VanillaGravshipExpanded2
@@ -103,6 +104,31 @@ namespace VanillaGravshipExpanded2
                 return;
             }
             warplatform.Defeat();
+        }
+
+        [DebugAction("VGE2", "Spawn StructureSet as skyfaller", actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        private static List<DebugActionNode> SpawnStructureSetSkyfaller()
+        {
+            var list = new List<DebugActionNode>();
+            foreach (var setDef in DefDatabase<VEF.Storyteller.StructureSetDef>.AllDefsListForReading)
+            {
+                list.Add(new DebugActionNode(setDef.defName, DebugActionType.ToolMap, () =>
+                {
+                    var map = Find.CurrentMap;
+                    if (UI.MouseCell().InBounds(map))
+                    {
+                        var landingStructure = (LandingStructure_StructureSet)ThingMaker.MakeThing(InternalDefOf.VGE_LandingStructure_StructureSet);
+                        landingStructure.structureSetDef = setDef;
+                        var standardLayouts = VEF.Storyteller.StructureSetGenerator.SelectStandardLayouts(setDef, 0f);
+                        landingStructure.selectedDefs = standardLayouts.Select(x => x.def).ToList();
+                        landingStructure.shipFaction = Faction.OfPirates;
+                        landingStructure.shipRotation = Rot4.Random;
+                        landingStructure.pawnCountRange = new IntRange(3, 6);
+                        GenSpawn.Spawn(landingStructure, UI.MouseCell(), map);
+                    }
+                }));
+            }
+            return list;
         }
     }
 }

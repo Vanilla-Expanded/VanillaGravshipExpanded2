@@ -13,11 +13,19 @@ namespace VanillaGravshipExpanded2
 
         public override void Generate(Map map, GenStepParams parms)
         {
-            map.Parent.SetFaction(Faction.OfSalvagers);
+            var parent = map.Parent;
+            if (parent.Faction == null || parent.Faction == Faction.OfPlayer)
+            {
+                parent.SetFaction(Faction.OfSalvagers);
+            }
             var rects = StructureSetGenerator.Generate(map, structureSetDef, map.ParentFaction);
             GenStep_Warplatform.MakeAllCratesANew(map);
 
-            var cells = rects.SelectMany(r => r.Cells).Distinct().Where(c => c.Standable(map)).ToList();
+            var cells = rects.SelectMany(r => r.Cells).Distinct().Where(c => c.Standable(map) && c.Roofed(map)).ToList();
+            if (!cells.Any())
+            {
+                cells = rects.SelectMany(r => r.Cells).Distinct().Where(c => c.Standable(map)).ToList();
+            }
             var comp = WorldComponent_GravshipCombat.Instance;
 
             var pawnCount = Rand.RangeInclusive(16, 24);

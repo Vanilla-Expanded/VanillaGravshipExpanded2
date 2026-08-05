@@ -1400,6 +1400,32 @@
             <Steel>90</Steel>
             <ComponentIndustrial>2</ComponentIndustrial>
         </costList>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.EnemyThrusterExtension">
+                <directionInfluence>20</directionInfluence>
+                <flameSize>4.0</flameSize>
+                <flameOffsetsPerDirection>
+                    <li>(0, 0, 0.5)</li>
+                    <li>(0, 0, 0.5)</li>
+                    <li>(0, 0, 0.5)</li>
+                    <li>(0, 0, 0.5)</li>
+                </flameOffsetsPerDirection>
+                <flameShaderType>MoteGlow</flameShaderType>
+                <flameShaderParameters>
+                    <_MainTex>/Things/Mote/SmallThruster_Burn</_MainTex>
+                </flameShaderParameters>
+                <exhaustSettings>
+                    <exhaustFleckDef>GravshipThrusterExhaust</exhaustFleckDef>
+                    <emissionsPerSecond>40.0</emissionsPerSecond>
+                    <spawnRadiusRange>0.0~0.5</spawnRadiusRange>
+                    <velocity>(0.0,0.0,-20.0)</velocity>
+                    <velocityRotationRange>-10.0~10.0</velocityRotationRange>
+                    <velocityMultiplierRange>0.8~1.2</velocityMultiplierRange>
+                    <rotationOverTimeRange>-180.0~180.0</rotationOverTimeRange>
+                    <scaleRange>1.5~3.0</scaleRange>
+                </exhaustSettings>
+            </li>
+        </modExtensions>
     </ThingDef>
 
     <ThingDef ParentName="VGE_EnemyPropBase">
@@ -1432,6 +1458,32 @@
             <BlocksVacstone>25</BlocksVacstone>
             <ComponentIndustrial>3</ComponentIndustrial>
         </costList>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.EnemyThrusterExtension">
+                <directionInfluence>30</directionInfluence>
+                <flameSize>4.0</flameSize>
+                <flameOffsetsPerDirection>
+                    <li>(0, 0, 1.0)</li>
+                    <li>(0, 0, 0.5)</li>
+                    <li>(0, 0, 0.5)</li>
+                    <li>(0, 0, 0.5)</li>
+                </flameOffsetsPerDirection>
+                <flameShaderType>MoteGlow</flameShaderType>
+                <flameShaderParameters>
+                    <_MainTex>/Things/Mote/LargeThruster_Burn</_MainTex>
+                </flameShaderParameters>
+                <exhaustSettings>
+                    <exhaustFleckDef>GravshipThrusterExhaust</exhaustFleckDef>
+                    <emissionsPerSecond>40.0</emissionsPerSecond>
+                    <spawnRadiusRange>0.0~0.5</spawnRadiusRange>
+                    <velocity>(0.0,0.0,-20.0)</velocity>
+                    <velocityRotationRange>-10.0~10.0</velocityRotationRange>
+                    <velocityMultiplierRange>0.8~1.2</velocityMultiplierRange>
+                    <rotationOverTimeRange>-180.0~180.0</rotationOverTimeRange>
+                    <scaleRange>3.0~5.0</scaleRange>
+                </exhaustSettings>
+            </li>
+        </modExtensions>
     </ThingDef>
 
     <ThingDef ParentName="VGE_EnemyPropBase">
@@ -1464,6 +1516,32 @@
             <BlocksVacstone>50</BlocksVacstone>
             <ComponentSpacer>3</ComponentSpacer>
         </costList>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.EnemyThrusterExtension">
+                <directionInfluence>40</directionInfluence>
+                <flameSize>4.0</flameSize>
+                <flameOffsetsPerDirection>
+                    <li>(0, 0, 1.5)</li>
+                    <li>(0, 0, 1.0)</li>
+                    <li>(0, 0, 1.0)</li>
+                    <li>(0, 0, 1.0)</li>
+                </flameOffsetsPerDirection>
+                <flameShaderType>MoteGlow</flameShaderType>
+                <flameShaderParameters>
+                    <_MainTex>/Things/Mote/LargeThruster_Burn</_MainTex>
+                </flameShaderParameters>
+                <exhaustSettings>
+                    <exhaustFleckDef>GravshipThrusterExhaust</exhaustFleckDef>
+                    <emissionsPerSecond>40.0</emissionsPerSecond>
+                    <spawnRadiusRange>0.0~0.5</spawnRadiusRange>
+                    <velocity>(0.0,0.0,-20.0)</velocity>
+                    <velocityRotationRange>-10.0~10.0</velocityRotationRange>
+                    <velocityMultiplierRange>0.8~1.2</velocityMultiplierRange>
+                    <rotationOverTimeRange>-180.0~180.0</rotationOverTimeRange>
+                    <scaleRange>5.0~7.5</scaleRange>
+                </exhaustSettings>
+            </li>
+        </modExtensions>
     </ThingDef>
 
     <ThingDef ParentName="VGE_EnemyPropBase">

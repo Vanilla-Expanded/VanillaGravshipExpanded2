@@ -96,5 +96,11 @@
 	<VGE_JammerScrambledSalvager>Your signal jammer scrambled salvager’s station targeting systems, giving you additional 6 hours to decide whether to pay the tribute or fight.</VGE_JammerScrambledSalvager>
 	<VGE_EngineLockedRemotelyInspect>Doesn't work: locked remotely</VGE_EngineLockedRemotelyInspect>
 	<VGE_EngineLockedRemotely>Can't launch: locked remotely by a salvager station.</VGE_EngineLockedRemotely>
+	<VGE_JammerScrambledGravjumper>Your signal jammer scrambled their scanning process, giving you an additional 24 hours before {0} engages.</VGE_JammerScrambledGravjumper>
+	<VGE_GravjumperAttacks>Gravjumper attacks</VGE_GravjumperAttacks>
+	<VGE_GravjumperAttacksDesc>Despite your attempts to shake off the pursuit, the enemy gravjumper {0} has successfully tracked your new landing coordinates. It has arrived in orbit and is immediately engaging your gravship. Prepare for immediate combat.\n\nYour vessel will be under continuous fire from the gravjumper’s weapons. To survive, you must destroy the enemy gravjumper engine, as well as eliminate all of the gravjumper’s artillery turrets.\n\nYou can fight back using your gravship's artillery, shield generators, and point defenses to withstand the bombardment. Alternatively, send a shuttle or drop pods to the enemy location to board the gravjumper and destroy it from the inside. If you cannot defend yourself, you must attempt to escape its range immediately.</VGE_GravjumperAttacksDesc>
+	<VGE_GravjumperLaunched>{0} has launched and will land in your local area imminently.</VGE_GravjumperLaunched>
+	<VGE_GravjumperDefeated>Gravjumper defeated</VGE_GravjumperDefeated>
+	<VGE_GravjumperDefeatedDesc>Enemy gravjumper threat has been defeated, but the area still offers valuable loot. You can salvage the wreck of the gravjumper to gain some valuable resources.</VGE_GravjumperDefeatedDesc>
 
 </LanguageData>

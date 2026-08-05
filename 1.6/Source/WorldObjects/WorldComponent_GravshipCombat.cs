@@ -24,6 +24,10 @@ namespace VanillaGravshipExpanded2
         public string salvagerStationName;
         public Pawn salvagerLeader;
         public int salvagerDropshipTick = -1;
+        public string enemyGravshipName;
+        public int gravjumperLandingTick = -1;
+        public string gravjumperLandingName;
+        public bool gravjumperLandedLocal;
 
         public static WorldComponent_GravshipCombat Instance;
 
@@ -67,6 +71,10 @@ namespace VanillaGravshipExpanded2
             Scribe_Values.Look(ref salvagerStationName, "salvagerStationName");
             Scribe_Deep.Look(ref salvagerLeader, "salvagerLeader");
             Scribe_Values.Look(ref salvagerDropshipTick, "salvagerDropshipTick", -1);
+            Scribe_Values.Look(ref enemyGravshipName, "enemyGravshipName");
+            Scribe_Values.Look(ref gravjumperLandingTick, "gravjumperLandingTick", -1);
+            Scribe_Values.Look(ref gravjumperLandingName, "gravjumperLandingName");
+            Scribe_Values.Look(ref gravjumperLandedLocal, "gravjumperLandedLocal", false);
         }
 
         public override void WorldComponentTick()
@@ -97,15 +105,15 @@ namespace VanillaGravshipExpanded2
                 if (engine?.Map != null)
                 {
                     salvagerDropshipTick = -1;
-                    var parms = new IncidentParms
-                    {
-                        target = engine.Map,
-                        faction = Faction.OfSalvagers,
-                        points = StorytellerUtility.DefaultThreatPointsNow(engine.Map),
-                        raidArrivalMode = InternalDefOf.VGE_SalvagerDropshipRaid
-                    };
+                    var parms = PawnsArrivalModeWorker_SalvagerDropshipRaid.CreateRaidParms(engine.Map);
                     IncidentDefOf.RaidEnemy.Worker.TryExecute(parms);
                 }
+            }
+
+            if (gravjumperLandingTick > 0 && Find.TickManager.TicksGame >= gravjumperLandingTick)
+            {
+                gravjumperLandingTick = -1;
+                LandGravjumperOnPlayerMap();
             }
         }
 
@@ -286,6 +294,121 @@ namespace VanillaGravshipExpanded2
             incomingWarplatform = false;
             tributeDemandTick = -1;
             activeThreatDef.Worker.SpawnThreat();
+        }
+
+        private void LandGravjumperOnPlayerMap()
+        {
+            var map = GetActiveGravEngine.Map;
+            var setDef = InternalDefOf.VGE_EnemyGravjumperSet;
+            var standardLayouts = VEF.Storyteller.StructureSetGenerator.SelectStandardLayouts(setDef);
+            var engine = GetActiveGravEngine;
+            var rotation = GetFacingRotation(map.Center, engine != null ? engine.Position : map.Center);
+            var footprint = VEF.Storyteller.StructureSetGenerator.GetFootprint(standardLayouts, rotation);
+            var landingCell = FindBestGravjumperLandingSpot(map, footprint);
+
+            var landingStructure = (LandingStructure_StructureSet)ThingMaker.MakeThing(InternalDefOf.VGE_LandingStructure_EnemyGravjumper);
+            landingStructure.structureSetDef = setDef;
+            landingStructure.selectedDefs = standardLayouts.Select(x => x.def).ToList();
+            landingStructure.shipRotation = rotation;
+            landingStructure.shipFaction = Faction.OfSalvagers;
+            landingStructure.pawnCountRange = new IntRange(5, 8);
+            GenSpawn.Spawn(landingStructure, landingCell, map);
+            gravjumperLandedLocal = true;
+        }
+
+        private static Rot4 GetFacingRotation(IntVec3 from, IntVec3 to)
+        {
+            return Rot4.FromAngleFlat((to - from).AngleFlat);
+        }
+
+        private static IntVec3 FindBestGravjumperLandingSpot(Map map, IntVec2 footprint)
+        {
+            var minX = 5 + footprint.x / 2;
+            var maxX = map.Size.x - 5 - footprint.x / 2;
+            var minZ = 5 + footprint.z / 2;
+            var maxZ = map.Size.z - 5 - footprint.z / 2;
+
+            var bestCell = map.Center;
+            var bestScore = float.MinValue;
+            var perfectSpots = new List<IntVec3>();
+
+            for (var x = minX; x <= maxX; x += 3)
+            {
+                for (var z = minZ; z <= maxZ; z += 3)
+                {
+                    var center = new IntVec3(x, 0, z);
+                    if (center.Fogged(map)) continue;
+
+                    var rect = CellRect.CenteredOn(center, footprint.x, footprint.z);
+                    if (!rect.FullyContainedWithin(new CellRect(5, 5, map.Size.x - 10, map.Size.z - 10)))
+                        continue;
+
+                    var score = EvaluateLandingSpotScore(rect, map);
+
+                    if (score == 0f)
+                    {
+                        perfectSpots.Add(center);
+                    }
+                    else if (perfectSpots.Count == 0 && score > bestScore)
+                    {
+                        bestScore = score;
+                        bestCell = center;
+                    }
+                }
+            }
+
+            if (perfectSpots.Count > 0)
+            {
+                return perfectSpots.RandomElement();
+            }
+
+            return bestCell;
+        }
+
+        private static float EvaluateLandingSpotScore(CellRect rect, Map map)
+        {
+            var score = 0f;
+            foreach (var cell in rect)
+            {
+                if (cell.Fogged(map)) score -= 1000f;
+                if (cell.Roofed(map)) score -= 500f;
+                if (map.areaManager.Home[cell]) score -= 200f;
+
+                if (!cell.Standable(map)) score -= 100f;
+
+                var edifice = cell.GetEdifice(map);
+                if (edifice != null)
+                {
+                    if (edifice.def.building?.isNaturalRock == true) score -= 80f;
+                    else score -= 150f;
+                }
+
+                var thingList = cell.GetThingList(map);
+                for (var i = 0; i < thingList.Count; i++)
+                {
+                    var t = thingList[i];
+                    if (t is Building && t != edifice) score -= 50f;
+                    if (t is Pawn) score -= 30f;
+                }
+            }
+            return score;
+        }
+
+        public void CheckLocalGravjumperDefeated(Map map)
+        {
+            if (!gravjumperLandedLocal) return;
+
+            if (map.listerThings.ThingsOfDef(InternalDefOf.VGE_LandingStructure_EnemyGravjumper).Any()) return;
+
+            var engineExists = map.listerThings.ThingsOfDef(InternalDefOf.VGE_EnemyGravjumperEngine).Any(x => !x.Destroyed);
+            var turretsExist = map.listerThings.ThingsInGroup(ThingRequestGroup.BuildingArtificial)
+                .Any(x => x.Faction == Faction.OfSalvagers && x is VanillaGravshipExpanded.Building_GravshipTurret && !x.Destroyed);
+
+            if (!engineExists && !turretsExist)
+            {
+                gravjumperLandedLocal = false;
+                Find.LetterStack.ReceiveLetter("VGE_GravjumperDefeated".Translate(), "VGE_GravjumperDefeatedDesc".Translate(), LetterDefOf.PositiveEvent);
+            }
         }
     }
 }

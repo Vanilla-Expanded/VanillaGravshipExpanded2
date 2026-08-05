@@ -260,4 +260,28 @@
         </genSteps>
     </MapGeneratorDef>
 
+    <GenStepDef>
+        <defName>VGE_EnemyGravjumper</defName>
+        <order>200</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_EnemyGravjumper">
+            <structureSetDef>VGE_EnemyGravjumperSet</structureSetDef>
+        </genStep>
+    </GenStepDef>
+
+    <WorldObjectDef ParentName="SpaceBase">
+        <defName>VGE_ActiveEnemyGravjumper</defName>
+        <label>Enemy gravjumper</label>
+        <description>An enemy gravjumper, which is a compact, short-range gravship that relies on the gravjumper engine and a pilot cockpit to operate. Offers minimal substructure support and footprint, making it ideal for scouting and exploration.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <worldObjectClass>VanillaGravshipExpanded2.MapParent_WarPlatform</worldObjectClass>
+        <expandingIconTexture>UI/MapIcons/EnemyGravjumper</expandingIconTexture>
+        <mapGenerator>VGE_ActiveEnemyGravjumper</mapGenerator>
+    </WorldObjectDef>
+
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>VGE_ActiveEnemyGravjumper</defName>
+        <label>active enemy gravjumper</label>
+        <genSteps>
+            <li>VGE_EnemyGravjumper</li>
+        </genSteps>
+    </MapGeneratorDef>
 </Defs>

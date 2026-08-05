@@ -40,7 +40,12 @@ namespace VanillaGravshipExpanded2
 
             var jammerDesc = "";
             var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading.OfType<Building_SignalJammer>().FirstOrDefault(x => !x.OnCooldown);
-            if (jammer != null) { jammer.StartCooldown(); comp.tributeDemandTick += def.jammerExtensionHours * GenDate.TicksPerHour; jammerDesc = "\n\n" + "VGE_JammerScrambledSalvager".Translate(); }
+            if (jammer != null)
+            {
+                jammer.StartCooldown();
+                comp.tributeDemandTick += def.jammerExtensionHours * GenDate.TicksPerHour;
+                jammerDesc = "\n\n" + "VGE_JammerScrambledSalvager".Translate();
+            }
 
             var letterText = def.letterDesc.Formatted(
                 stationName.Colorize(ColoredText.FactionColor_Hostile),
@@ -61,6 +66,13 @@ namespace VanillaGravshipExpanded2
         {
             base.OnEscape(warplatform);
             WorldComponent_GravshipCombat.Instance.salvagerDropshipTick = Find.TickManager.TicksGame + Rand.RangeInclusive(1, 3) * GenDate.TicksPerDay;
+        }
+
+        public override void OnEarlyEscape(Map map)
+        {
+            base.OnEarlyEscape(map);
+            var parms = PawnsArrivalModeWorker_SalvagerDropshipRaid.CreateRaidParms(map);
+            Find.Storyteller.incidentQueue.Add(IncidentDefOf.RaidEnemy, Find.TickManager.TicksGame + Rand.RangeInclusive(3, 5) * GenDate.TicksPerDay, parms);
         }
     }
 }
