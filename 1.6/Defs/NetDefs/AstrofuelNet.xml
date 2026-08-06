@@ -105,5 +105,10 @@
 		</researchPrerequisites>
 		<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
 		<uiOrder>2105</uiOrder>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+                <replacementBuilding>VGE_DestroyedAuxiliaryAstrofuelTank</replacementBuilding>
+            </li>
+        </modExtensions>
 	</ThingDef>
 </Defs>

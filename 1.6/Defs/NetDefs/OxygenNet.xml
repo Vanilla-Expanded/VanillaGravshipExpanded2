@@ -93,5 +93,10 @@
 			</relatedBuildCommands>
 		</building>
     <uiOrder>2410</uiOrder>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+                <replacementBuilding>VGE_DestroyedAuxiliaryOxygenTank</replacementBuilding>
+            </li>
+        </modExtensions>
 	</ThingDef>
 </Defs>
