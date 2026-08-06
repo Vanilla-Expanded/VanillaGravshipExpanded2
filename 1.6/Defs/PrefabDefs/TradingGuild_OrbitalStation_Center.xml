@@ -5,531 +5,440 @@
   <defName>TradingGuild_OrbitalStation_Core_1</defName>
   <size>(35,35)</size>
   <things>
-    <HydroponicsBasin>
-      <positions>
-        <li>(3, 0, 6)</li>
-        <li>(3, 0, 7)</li>
-        <li>(3, 0, 8)</li>
-        <li>(3, 0, 9)</li>
-        <li>(3, 0, 10)</li>
-        <li>(3, 0, 11)</li>
-      </positions>
-      <relativeRotation>Clockwise</relativeRotation>
-    </HydroponicsBasin>
+    <VGE_EnemyJavelinPod>
+      <position>(29, 0, 2)</position>
+    </VGE_EnemyJavelinPod>
+    <VGE2_PosBeacon_Red>
+      <position>(31, 0, 31)</position>
+    </VGE2_PosBeacon_Red>
+    <AncientTransportPod>
+      <position>(17, 0, 28)</position>
+    </AncientTransportPod>
     <VGE2_AstrofuelBarrel>
       <rects>
-        <li>(29,21,29,22)</li>
+        <li>(2,5,2,5)</li>
+        <li>(27,21,28,21)</li>
+        <li>(30,24,30,25)</li>
       </rects>
     </VGE2_AstrofuelBarrel>
+    <VGE2_OrbitalLight>
+      <rects>
+        <li>(21,1,21,1)</li>
+        <li>(21,3,21,3)</li>
+        <li>(4,20,4,20)</li>
+        <li>(13,20,13,20)</li>
+        <li>(4,26,4,26)</li>
+        <li>(13,26,13,26)</li>
+      </rects>
+    </VGE2_OrbitalLight>
     <AncientFortifiedWall>
       <rects>
-        <li>(15,0,15,4)</li>
-        <li>(19,0,19,4)</li>
-        <li>(1,1,14,1)</li>
-        <li>(20,1,33,1)</li>
-        <li>(1,2,1,15)</li>
-        <li>(33,2,33,15)</li>
-        <li>(15,6,15,7)</li>
-        <li>(19,6,19,7)</li>
-        <li>(13,7,14,7)</li>
-        <li>(16,7,16,7)</li>
-        <li>(18,7,18,7)</li>
-        <li>(20,7,21,7)</li>
-        <li>(11,8,13,8)</li>
-        <li>(21,8,23,8)</li>
-        <li>(10,9,11,9)</li>
-        <li>(23,9,24,9)</li>
-        <li>(9,10,10,10)</li>
-        <li>(24,10,25,10)</li>
-        <li>(8,11,9,11)</li>
-        <li>(25,11,26,11)</li>
-        <li>(8,12,8,13)</li>
-        <li>(26,12,26,13)</li>
-        <li>(7,13,7,16)</li>
-        <li>(27,13,27,16)</li>
-        <li>(0,15,0,15)</li>
-        <li>(2,15,4,15)</li>
-        <li>(6,15,6,15)</li>
-        <li>(13,15,13,19)</li>
-        <li>(21,15,21,19)</li>
-        <li>(28,15,28,15)</li>
-        <li>(30,15,32,15)</li>
-        <li>(34,15,34,15)</li>
-        <li>(7,18,7,21)</li>
-        <li>(27,18,27,21)</li>
-        <li>(0,19,4,19)</li>
-        <li>(6,19,6,19)</li>
-        <li>(28,19,28,19)</li>
+        <li>(0,0,15,0)</li>
+        <li>(19,0,22,0)</li>
+        <li>(0,1,0,15)</li>
+        <li>(9,1,9,1)</li>
+        <li>(19,1,19,1)</li>
+        <li>(22,1,22,1)</li>
+        <li>(9,3,9,15)</li>
+        <li>(19,3,19,4)</li>
+        <li>(22,3,22,15)</li>
+        <li>(13,4,18,4)</li>
+        <li>(20,4,21,4)</li>
+        <li>(13,5,13,12)</li>
+        <li>(13,14,13,15)</li>
+        <li>(1,15,8,15)</li>
+        <li>(14,15,21,15)</li>
+        <li>(23,15,28,15)</li>
+        <li>(30,15,34,15)</li>
+        <li>(0,19,7,19)</li>
+        <li>(9,19,15,19)</li>
+        <li>(17,19,28,19)</li>
         <li>(30,19,34,19)</li>
-        <li>(1,20,1,33)</li>
-        <li>(33,20,33,33)</li>
-        <li>(8,21,8,23)</li>
-        <li>(26,21,26,23)</li>
-        <li>(9,23,9,24)</li>
-        <li>(25,23,25,24)</li>
-        <li>(10,24,10,25)</li>
-        <li>(24,24,24,25)</li>
-        <li>(11,25,11,26)</li>
-        <li>(23,25,23,26)</li>
-        <li>(12,26,13,26)</li>
-        <li>(21,26,22,26)</li>
-        <li>(13,27,16,27)</li>
-        <li>(18,27,21,27)</li>
-        <li>(15,28,15,28)</li>
-        <li>(19,28,19,28)</li>
-        <li>(15,30,15,34)</li>
-        <li>(19,30,19,34)</li>
-        <li>(2,33,14,33)</li>
-        <li>(20,33,32,33)</li>
+        <li>(3,20,3,27)</li>
+        <li>(14,20,14,27)</li>
+        <li>(31,20,31,26)</li>
+        <li>(15,26,30,26)</li>
+        <li>(4,27,13,27)</li>
       </rects>
     </AncientFortifiedWall>
+    <VGE_CrewBunkBed>
+      <positions>
+        <li>(4, 0, 22)</li>
+        <li>(4, 0, 24)</li>
+      </positions>
+      <relativeRotation>Clockwise</relativeRotation>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewBunkBed>
+    <VGE_CrewBunkBed>
+      <positions>
+        <li>(13, 0, 22)</li>
+        <li>(13, 0, 24)</li>
+      </positions>
+      <relativeRotation>Counterclockwise</relativeRotation>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewBunkBed>
     <Door>
       <rects>
-        <li>(15,5,15,5)</li>
-        <li>(19,5,19,5)</li>
-        <li>(7,17,7,17)</li>
-        <li>(27,17,27,17)</li>
-        <li>(15,29,15,29)</li>
-        <li>(19,29,19,29)</li>
+        <li>(9,2,9,2)</li>
+        <li>(13,13,13,13)</li>
       </rects>
       <relativeRotation>Clockwise</relativeRotation>
       <stuff>Steel</stuff>
     </Door>
     <Door>
       <rects>
-        <li>(17,7,17,7)</li>
-        <li>(5,15,5,15)</li>
-        <li>(29,15,29,15)</li>
-        <li>(5,19,5,19)</li>
+        <li>(8,19,8,19)</li>
+        <li>(16,19,16,19)</li>
         <li>(29,19,29,19)</li>
-        <li>(17,27,17,27)</li>
       </rects>
       <stuff>Steel</stuff>
     </Door>
     <VGE_SpacerBox_ComponentIndustrial>
       <rects>
-        <li>(30,24,30,25)</li>
-        <li>(29,31,29,31)</li>
+        <li>(2,7,2,7)</li>
+        <li>(23,24,23,24)</li>
+        <li>(25,24,25,24)</li>
       </rects>
     </VGE_SpacerBox_ComponentIndustrial>
-    <Stool>
-      <rects>
-        <li>(14,10,14,10)</li>
-        <li>(17,13,17,13)</li>
-        <li>(14,21,14,21)</li>
-        <li>(20,24,20,24)</li>
-      </rects>
-      <relativeRotation>Opposite</relativeRotation>
-      <stuff>Steel</stuff>
-      <quality>Normal</quality>
-    </Stool>
-    <Stool>
-      <position>(12, 0, 19)</position>
-      <relativeRotation>Clockwise</relativeRotation>
-      <stuff>Steel</stuff>
-      <quality>Normal</quality>
-    </Stool>
     <VGE2_StationConsole>
-      <positions>
-        <li>(4, 0, 2)</li>
-        <li>(14, 0, 12)</li>
-        <li>(17, 0, 12)</li>
-        <li>(20, 0, 12)</li>
-        <li>(14, 0, 23)</li>
-        <li>(17, 0, 23)</li>
-        <li>(20, 0, 23)</li>
-      </positions>
-    </VGE2_StationConsole>
-    <VGE2_StationConsole>
-      <positions>
-        <li>(14, 0, 11)</li>
-        <li>(17, 0, 11)</li>
-        <li>(20, 0, 11)</li>
-        <li>(14, 0, 22)</li>
-        <li>(17, 0, 22)</li>
-        <li>(20, 0, 22)</li>
-      </positions>
-      <relativeRotation>Opposite</relativeRotation>
-    </VGE2_StationConsole>
-    <VGE2_StationConsole>
-      <position>(2, 0, 13)</position>
+      <position>(14, 0, 9)</position>
       <relativeRotation>Clockwise</relativeRotation>
     </VGE2_StationConsole>
     <Fence>
       <rects>
-        <li>(28,26,32,26)</li>
+        <li>(4,1,4,1)</li>
+        <li>(4,3,4,6)</li>
+        <li>(5,6,6,6)</li>
+        <li>(8,6,8,6)</li>
       </rects>
       <stuff>Steel</stuff>
     </Fence>
     <Barricade>
       <rects>
-        <li>(16,0,16,0)</li>
-        <li>(18,0,18,0)</li>
-        <li>(16,2,16,2)</li>
-        <li>(18,2,18,2)</li>
-        <li>(19,8,19,9)</li>
-        <li>(20,9,20,9)</li>
-        <li>(14,25,15,25)</li>
-        <li>(15,26,15,26)</li>
+        <li>(10,5,10,5)</li>
+        <li>(12,5,12,5)</li>
+        <li>(10,7,10,7)</li>
+        <li>(12,7,12,7)</li>
+        <li>(4,16,4,16)</li>
+        <li>(6,16,6,16)</li>
+        <li>(20,16,20,16)</li>
+        <li>(22,16,22,16)</li>
+        <li>(4,18,4,18)</li>
+        <li>(6,18,6,18)</li>
+        <li>(20,18,20,18)</li>
+        <li>(22,18,22,18)</li>
+        <li>(22,28,22,29)</li>
+        <li>(24,28,24,29)</li>
+        <li>(23,29,23,29)</li>
       </rects>
       <stuff>Steel</stuff>
     </Barricade>
     <VGE_Turret_DefenderTurret>
       <rects>
-        <li>(16,1,16,1)</li>
-        <li>(18,1,18,1)</li>
-        <li>(20,8,20,8)</li>
-        <li>(14,26,14,26)</li>
+        <li>(10,6,10,6)</li>
+        <li>(5,16,5,16)</li>
+        <li>(21,16,21,16)</li>
+        <li>(21,18,21,18)</li>
+        <li>(23,28,23,28)</li>
       </rects>
     </VGE_Turret_DefenderTurret>
     <LifeSupportUnit>
       <rects>
-        <li>(15,8,15,8)</li>
-        <li>(31,20,31,20)</li>
-        <li>(9,25,9,25)</li>
+        <li>(5,14,5,14)</li>
+        <li>(18,14,18,14)</li>
       </rects>
-      <relativeRotation>Opposite</relativeRotation>
     </LifeSupportUnit>
     <LifeSupportUnit>
       <rects>
-        <li>(9,9,9,9)</li>
-        <li>(31,14,31,14)</li>
-        <li>(19,26,19,26)</li>
+        <li>(6,20,6,20)</li>
+        <li>(18,20,18,20)</li>
       </rects>
+      <relativeRotation>Opposite</relativeRotation>
     </LifeSupportUnit>
     <VGE2_FloorOxygenVent>
       <rects>
-        <li>(17,4,17,4)</li>
-        <li>(3,17,3,17)</li>
-        <li>(32,17,32,17)</li>
-        <li>(17,32,17,32)</li>
+        <li>(17,2,17,2)</li>
+        <li>(11,17,11,17)</li>
+        <li>(11,20,11,20)</li>
       </rects>
     </VGE2_FloorOxygenVent>
+    <DiningChair>
+      <rects>
+        <li>(7,23,7,24)</li>
+      </rects>
+      <relativeRotation>Clockwise</relativeRotation>
+      <stuff>WoodLog</stuff>
+      <quality>Normal</quality>
+    </DiningChair>
+    <DiningChair>
+      <rects>
+        <li>(10,23,10,24)</li>
+      </rects>
+      <relativeRotation>Counterclockwise</relativeRotation>
+      <stuff>WoodLog</stuff>
+      <quality>Normal</quality>
+    </DiningChair>
+    <VGE_CrewLockers>
+      <rects>
+        <li>(4,21,4,21)</li>
+        <li>(4,25,4,25)</li>
+      </rects>
+      <relativeRotation>Clockwise</relativeRotation>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewLockers>
+    <VGE_CrewLockers>
+      <rects>
+        <li>(13,21,13,21)</li>
+        <li>(13,25,13,25)</li>
+      </rects>
+      <relativeRotation>Counterclockwise</relativeRotation>
+      <stuff>Steel</stuff>
+      <quality>Normal</quality>
+    </VGE_CrewLockers>
     <VGE2_SpacerCrate>
       <rects>
-        <li>(2,5,2,5)</li>
-        <li>(10,5,11,5)</li>
-        <li>(10,6,10,6)</li>
-        <li>(30,7,30,9)</li>
-        <li>(29,8,29,8)</li>
-        <li>(31,9,31,10)</li>
-        <li>(31,23,32,23)</li>
-        <li>(29,25,29,25)</li>
-        <li>(32,25,32,25)</li>
-        <li>(6,27,6,27)</li>
-        <li>(7,28,8,28)</li>
-        <li>(6,29,7,29)</li>
-        <li>(23,29,23,29)</li>
-        <li>(30,31,31,31)</li>
+        <li>(1,1,2,2)</li>
+        <li>(31,2,31,3)</li>
+        <li>(1,3,1,3)</li>
+        <li>(32,3,32,3)</li>
+        <li>(21,5,21,5)</li>
+        <li>(12,6,12,6)</li>
+        <li>(6,8,7,8)</li>
+        <li>(32,8,33,8)</li>
+        <li>(6,9,6,9)</li>
+        <li>(21,9,21,10)</li>
+        <li>(26,9,26,10)</li>
+        <li>(32,9,32,9)</li>
+        <li>(27,10,27,10)</li>
+        <li>(5,18,5,18)</li>
+        <li>(19,21,19,21)</li>
+        <li>(23,21,24,22)</li>
+        <li>(16,23,17,23)</li>
+        <li>(16,24,16,24)</li>
+        <li>(8,26,9,26)</li>
       </rects>
     </VGE2_SpacerCrate>
     <VGE_SpacerBox_Steel>
       <rects>
-        <li>(31,21,31,21)</li>
-        <li>(29,24,29,24)</li>
-        <li>(31,24,31,24)</li>
+        <li>(7,9,7,10)</li>
+        <li>(6,12,6,12)</li>
+        <li>(27,23,28,23)</li>
+        <li>(24,24,24,24)</li>
       </rects>
     </VGE_SpacerBox_Steel>
     <VGE2_StationLockerBank>
-      <position>(32, 0, 11)</position>
-      <relativeRotation>Counterclockwise</relativeRotation>
+      <positions>
+        <li>(16, 0, 5)</li>
+        <li>(19, 0, 5)</li>
+      </positions>
     </VGE2_StationLockerBank>
-    <VGE2_StationLockerBank>
-      <position>(2, 0, 24)</position>
-      <relativeRotation>Clockwise</relativeRotation>
-    </VGE2_StationLockerBank>
-    <VGE2_AstrofuelPipeSegment>
-      <position>(1, 0, 18)</position>
-    </VGE2_AstrofuelPipeSegment>
     <VGE2_StationSystemRack>
       <positions>
-        <li>(29, 0, 4)</li>
-        <li>(31, 0, 4)</li>
+        <li>(16, 0, 9)</li>
+        <li>(19, 0, 9)</li>
       </positions>
-      <relativeRotation>Counterclockwise</relativeRotation>
-    </VGE2_StationSystemRack>
-    <VGE2_StationSystemRack>
-      <positions>
-        <li>(4, 0, 27)</li>
-        <li>(4, 0, 29)</li>
-        <li>(4, 0, 31)</li>
-      </positions>
-    </VGE2_StationSystemRack>
-    <VGE2_StationFilingCabinet>
-      <rects>
-        <li>(12,16,12,18)</li>
-        <li>(7,22,7,23)</li>
-      </rects>
-      <relativeRotation>Counterclockwise</relativeRotation>
-    </VGE2_StationFilingCabinet>
-    <VGE2_StationFilingCabinet>
-      <rects>
-        <li>(22,16,22,18)</li>
-      </rects>
       <relativeRotation>Clockwise</relativeRotation>
-    </VGE2_StationFilingCabinet>
-    <VGE_SpacerPallet_Medicine>
-      <position>(8, 0, 5)</position>
-    </VGE_SpacerPallet_Medicine>
+    </VGE2_StationSystemRack>
+    <Table2x2c>
+      <position>(8, 0, 23)</position>
+      <stuff>WoodLog</stuff>
+      <quality>Normal</quality>
+    </Table2x2c>
     <VGE_SpacerBox_ComponentSpacer>
       <rects>
-        <li>(31,25,31,25)</li>
-        <li>(25,31,25,31)</li>
+        <li>(6,13,6,13)</li>
+        <li>(26,21,26,21)</li>
       </rects>
     </VGE_SpacerBox_ComponentSpacer>
-    <VGE2_PowerSocket>
+    <AncientBlastDoor>
       <rects>
-        <li>(6,6,6,6)</li>
-        <li>(6,11,6,11)</li>
-      </rects>
-    </VGE2_PowerSocket>
-    <VGE_StationLight_Blue>
-      <rects>
-        <li>(16,3,16,3)</li>
-        <li>(16,31,16,31)</li>
-      </rects>
-      <relativeRotation>Counterclockwise</relativeRotation>
-    </VGE_StationLight_Blue>
-    <VGE_StationLight_Blue>
-      <rects>
-        <li>(18,3,18,3)</li>
-        <li>(18,31,18,31)</li>
+        <li>(19,2,19,2)</li>
+        <li>(22,2,22,2)</li>
       </rects>
       <relativeRotation>Clockwise</relativeRotation>
-    </VGE_StationLight_Blue>
+    </AncientBlastDoor>
+    <AncientBlastDoor>
+      <position>(29, 0, 15)</position>
+    </AncientBlastDoor>
     <VGE_StationLight_Blue>
       <rects>
+        <li>(15,1,15,1)</li>
         <li>(2,16,2,16)</li>
-        <li>(31,16,31,16)</li>
+        <li>(14,16,14,16)</li>
+        <li>(24,16,24,16)</li>
+        <li>(33,16,33,16)</li>
       </rects>
       <relativeRotation>Opposite</relativeRotation>
     </VGE_StationLight_Blue>
     <VGE_StationLight_Blue>
       <rects>
+        <li>(15,3,15,3)</li>
         <li>(2,18,2,18)</li>
-        <li>(31,18,31,18)</li>
+        <li>(14,18,14,18)</li>
+        <li>(24,18,24,18)</li>
+        <li>(33,18,33,18)</li>
       </rects>
+    </VGE_StationLight_Blue>
+    <VGE_StationLight_Blue>
+      <position>(10, 0, 9)</position>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </VGE_StationLight_Blue>
+    <VGE_StationLight_Blue>
+      <position>(12, 0, 9)</position>
+      <relativeRotation>Clockwise</relativeRotation>
     </VGE_StationLight_Blue>
     <VGE_StationLight>
       <rects>
-        <li>(4,2,4,2)</li>
-        <li>(26,24,26,24)</li>
+        <li>(1,3,1,3)</li>
+        <li>(14,7,14,7)</li>
+        <li>(1,8,1,8)</li>
+        <li>(1,12,1,12)</li>
+        <li>(14,12,14,12)</li>
+      </rects>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </VGE_StationLight>
+    <VGE_StationLight>
+      <rects>
+        <li>(8,3,8,3)</li>
+        <li>(21,7,21,7)</li>
+        <li>(8,8,8,8)</li>
+        <li>(8,12,8,12)</li>
+        <li>(21,12,21,12)</li>
+      </rects>
+      <relativeRotation>Clockwise</relativeRotation>
+    </VGE_StationLight>
+    <VGE_StationLight>
+      <rects>
+        <li>(17,20,17,20)</li>
+        <li>(28,20,28,20)</li>
       </rects>
       <relativeRotation>Opposite</relativeRotation>
     </VGE_StationLight>
     <VGE_StationLight>
       <rects>
-        <li>(20,3,20,3)</li>
-        <li>(22,15,22,15)</li>
-        <li>(22,19,22,19)</li>
-        <li>(2,21,2,21)</li>
-        <li>(24,26,24,26)</li>
-        <li>(2,31,2,31)</li>
-      </rects>
-      <relativeRotation>Counterclockwise</relativeRotation>
-    </VGE_StationLight>
-    <VGE_StationLight>
-      <rects>
-        <li>(32,3,32,3)</li>
-        <li>(32,8,32,8)</li>
-        <li>(6,13,6,13)</li>
-        <li>(32,13,32,13)</li>
-        <li>(12,15,12,15)</li>
-        <li>(12,19,12,19)</li>
-        <li>(32,22,32,22)</li>
-        <li>(32,30,32,30)</li>
-        <li>(14,31,14,31)</li>
-      </rects>
-      <relativeRotation>Clockwise</relativeRotation>
-    </VGE_StationLight>
-    <VGE_StationLight>
-      <rects>
-        <li>(13,6,13,6)</li>
-        <li>(22,32,22,32)</li>
-        <li>(30,32,30,32)</li>
+        <li>(17,25,17,25)</li>
+        <li>(28,25,28,25)</li>
       </rects>
     </VGE_StationLight>
-    <VGE2_SmallStationConsole>
-      <positions>
-        <li>(10, 0, 14)</li>
-        <li>(23, 0, 14)</li>
-        <li>(10, 0, 19)</li>
-        <li>(23, 0, 19)</li>
-      </positions>
-      <relativeRotation>Counterclockwise</relativeRotation>
-    </VGE2_SmallStationConsole>
-    <VGE2_SmallStationConsole>
-      <positions>
-        <li>(11, 0, 15)</li>
-        <li>(24, 0, 15)</li>
-        <li>(11, 0, 20)</li>
-        <li>(24, 0, 20)</li>
-      </positions>
-      <relativeRotation>Clockwise</relativeRotation>
-    </VGE2_SmallStationConsole>
     <VGE_SpacerBox_Gravlite>
-      <rects>
-        <li>(31,2,31,2)</li>
-        <li>(4,24,5,24)</li>
-      </rects>
+      <position>(21, 0, 14)</position>
     </VGE_SpacerBox_Gravlite>
     <VGE2_StationEquipmentBlock>
-      <positions>
-        <li>(23, 0, 5)</li>
-        <li>(26, 0, 5)</li>
-      </positions>
-      <relativeRotation>Clockwise</relativeRotation>
+      <position>(17, 0, 12)</position>
     </VGE2_StationEquipmentBlock>
-    <VGE2_StationEquipmentBlock>
-      <position>(11, 0, 32)</position>
-      <relativeRotation>Opposite</relativeRotation>
-    </VGE2_StationEquipmentBlock>
-    <VGE_EnemyGravlockTether>
-      <position>(17, 0, 17)</position>
-    </VGE_EnemyGravlockTether>
     <AncientSealedContainer>
-      <position>(22, 0, 30)</position>
+      <position>(5, 0, 4)</position>
     </AncientSealedContainer>
-    <VGE2_Oxyfarm>
-      <positions>
-        <li>(7, 0, 3)</li>
-        <li>(9, 0, 3)</li>
-        <li>(11, 0, 3)</li>
-        <li>(13, 0, 3)</li>
-      </positions>
-      <relativeRotation>Clockwise</relativeRotation>
-    </VGE2_Oxyfarm>
+    <VGE2_PosBeacon_Green>
+      <position>(8, 0, 32)</position>
+    </VGE2_PosBeacon_Green>
+    <VGE2_StationAntenna>
+      <rects>
+        <li>(1,29,1,29)</li>
+        <li>(3,32,3,32)</li>
+        <li>(16,32,16,32)</li>
+      </rects>
+    </VGE2_StationAntenna>
     <VGE2_TradingContainer>
       <positions>
-        <li>(26, 0, 28)</li>
-        <li>(29, 0, 28)</li>
-        <li>(26, 0, 30)</li>
+        <li>(2, 0, 9)</li>
+        <li>(2, 0, 12)</li>
+        <li>(19, 0, 23)</li>
       </positions>
     </VGE2_TradingContainer>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,14,0)</li>
-        <li>(20,0,34,0)</li>
-        <li>(0,1,0,14)</li>
-        <li>(34,1,34,14)</li>
-        <li>(0,20,0,34)</li>
-        <li>(34,20,34,34)</li>
-        <li>(1,34,14,34)</li>
-        <li>(20,34,33,34)</li>
-      </rects>
-    </Space>
     <OrbitalPlatform>
       <rects>
-        <li>(15,0,16,34)</li>
-        <li>(18,0,19,34)</li>
-        <li>(1,1,14,1)</li>
-        <li>(20,1,33,1)</li>
-        <li>(1,2,1,16)</li>
-        <li>(33,2,33,16)</li>
-        <li>(13,7,14,27)</li>
-        <li>(17,7,17,27)</li>
-        <li>(20,7,21,27)</li>
-        <li>(11,8,12,26)</li>
-        <li>(22,8,23,26)</li>
-        <li>(10,9,10,25)</li>
-        <li>(24,9,24,25)</li>
-        <li>(9,10,9,24)</li>
-        <li>(25,10,25,24)</li>
-        <li>(8,11,8,23)</li>
-        <li>(26,11,26,23)</li>
-        <li>(7,13,7,21)</li>
-        <li>(27,13,27,21)</li>
-        <li>(0,15,0,16)</li>
-        <li>(2,15,6,16)</li>
-        <li>(28,15,32,16)</li>
-        <li>(34,15,34,16)</li>
-        <li>(0,18,6,19)</li>
-        <li>(28,18,34,19)</li>
-        <li>(1,20,1,33)</li>
-        <li>(33,20,33,33)</li>
-        <li>(29,21,31,31)</li>
-        <li>(28,23,28,31)</li>
-        <li>(27,25,27,31)</li>
-        <li>(26,26,26,31)</li>
-        <li>(25,27,25,31)</li>
-        <li>(23,28,24,31)</li>
-        <li>(21,29,22,31)</li>
-        <li>(2,33,14,33)</li>
-        <li>(20,33,32,33)</li>
+        <li>(0,0,16,0)</li>
+        <li>(18,0,34,4)</li>
+        <li>(0,1,0,16)</li>
+        <li>(9,1,16,1)</li>
+        <li>(2,2,7,13)</li>
+        <li>(9,2,10,16)</li>
+        <li>(12,3,17,4)</li>
+        <li>(12,5,13,16)</li>
+        <li>(22,5,24,16)</li>
+        <li>(28,5,30,16)</li>
+        <li>(34,5,34,16)</li>
+        <li>(25,8,27,10)</li>
+        <li>(31,8,33,10)</li>
+        <li>(25,14,27,16)</li>
+        <li>(31,14,33,16)</li>
+        <li>(1,15,8,16)</li>
+        <li>(14,15,21,16)</li>
+        <li>(0,18,34,19)</li>
+        <li>(0,20,3,23)</li>
+        <li>(14,20,14,29)</li>
+        <li>(31,20,34,28)</li>
+        <li>(16,21,29,24)</li>
+        <li>(1,24,3,29)</li>
+        <li>(15,26,30,28)</li>
+        <li>(4,27,13,29)</li>
+        <li>(15,29,26,29)</li>
+        <li>(30,29,31,31)</li>
+        <li>(3,30,3,32)</li>
+        <li>(8,30,8,32)</li>
+        <li>(16,30,16,32)</li>
       </rects>
     </OrbitalPlatform>
     <MetalTile>
       <rects>
-        <li>(17,0,17,6)</li>
-        <li>(20,2,32,2)</li>
-        <li>(20,3,20,6)</li>
-        <li>(32,3,32,14)</li>
-        <li>(21,6,22,6)</li>
-        <li>(22,7,24,7)</li>
-        <li>(24,8,25,8)</li>
-        <li>(25,9,26,9)</li>
-        <li>(26,10,27,10)</li>
-        <li>(27,11,27,12)</li>
-        <li>(28,12,28,14)</li>
-        <li>(29,14,31,14)</li>
-        <li>(0,17,6,17)</li>
-        <li>(28,17,34,17)</li>
-        <li>(2,20,6,20)</li>
-        <li>(28,20,32,20)</li>
-        <li>(2,21,2,32)</li>
-        <li>(6,21,6,22)</li>
-        <li>(28,21,28,22)</li>
-        <li>(32,21,32,32)</li>
-        <li>(7,22,7,24)</li>
-        <li>(27,22,27,24)</li>
-        <li>(8,24,8,25)</li>
-        <li>(26,24,26,25)</li>
-        <li>(9,25,9,26)</li>
-        <li>(25,25,25,26)</li>
-        <li>(10,26,10,27)</li>
-        <li>(24,26,24,27)</li>
-        <li>(11,27,12,27)</li>
-        <li>(22,27,23,27)</li>
-        <li>(12,28,14,28)</li>
-        <li>(17,28,17,34)</li>
-        <li>(20,28,22,28)</li>
-        <li>(14,29,14,32)</li>
-        <li>(20,29,20,32)</li>
-        <li>(3,32,13,32)</li>
-        <li>(21,32,31,32)</li>
+        <li>(17,0,17,2)</li>
+        <li>(1,1,8,1)</li>
+        <li>(1,2,1,14)</li>
+        <li>(8,2,8,14)</li>
+        <li>(11,2,16,2)</li>
+        <li>(11,3,11,17)</li>
+        <li>(14,5,21,5)</li>
+        <li>(14,6,14,14)</li>
+        <li>(21,6,21,14)</li>
+        <li>(2,14,7,14)</li>
+        <li>(15,14,20,14)</li>
+        <li>(0,17,10,17)</li>
+        <li>(12,17,34,17)</li>
+        <li>(4,20,13,20)</li>
+        <li>(15,20,30,20)</li>
+        <li>(4,21,4,26)</li>
+        <li>(13,21,13,26)</li>
+        <li>(15,21,15,25)</li>
+        <li>(30,21,30,25)</li>
+        <li>(16,25,29,25)</li>
+        <li>(5,26,12,26)</li>
       </rects>
     </MetalTile>
-    <SterileTile>
+    <Space>
       <rects>
-        <li>(2,2,14,6)</li>
-        <li>(2,7,12,7)</li>
-        <li>(2,8,10,8)</li>
-        <li>(2,9,9,9)</li>
-        <li>(2,10,8,10)</li>
-        <li>(2,11,7,12)</li>
-        <li>(2,13,6,14)</li>
+        <li>(25,5,27,7)</li>
+        <li>(31,5,33,7)</li>
+        <li>(25,11,27,13)</li>
+        <li>(31,11,33,13)</li>
+        <li>(0,24,0,34)</li>
+        <li>(27,29,29,34)</li>
+        <li>(32,29,34,34)</li>
+        <li>(1,30,2,34)</li>
+        <li>(4,30,7,34)</li>
+        <li>(9,30,15,34)</li>
+        <li>(17,30,26,34)</li>
+        <li>(30,32,31,34)</li>
+        <li>(3,33,3,34)</li>
+        <li>(8,33,8,34)</li>
+        <li>(16,33,16,34)</li>
       </rects>
-    </SterileTile>
+    </Space>
     <CarpetSlate>
       <rects>
-        <li>(21,3,31,5)</li>
-        <li>(23,6,31,6)</li>
-        <li>(25,7,31,7)</li>
-        <li>(26,8,31,8)</li>
-        <li>(27,9,31,9)</li>
-        <li>(28,10,31,11)</li>
-        <li>(29,12,31,13)</li>
-        <li>(3,21,5,31)</li>
-        <li>(6,23,6,31)</li>
-        <li>(7,25,7,31)</li>
-        <li>(8,26,8,31)</li>
-        <li>(9,27,9,31)</li>
-        <li>(10,28,11,31)</li>
-        <li>(12,29,13,31)</li>
+        <li>(15,6,20,13)</li>
       </rects>
     </CarpetSlate>
+    <WoodPlankFloor>
+      <rects>
+        <li>(5,21,12,25)</li>
+      </rects>
+    </WoodPlankFloor>
   </terrain>
   <modExtensions>
     <li Class="VEF.Storyteller.PrefabExtension">
@@ -537,17 +446,17 @@
         <li>
           <def>RoofConstructed</def>
           <rects>
-            <li>(15,0,19,34)</li>
-            <li>(1,1,14,33)</li>
-            <li>(20,1,33,33)</li>
-            <li>(0,15,0,19)</li>
-            <li>(34,15,34,19)</li>
+            <li>(0,0,22,19)</li>
+            <li>(23,15,34,19)</li>
+            <li>(3,20,31,26)</li>
+            <li>(3,27,14,27)</li>
           </rects>
         </li>
       </roofs>
     </li>
   </modExtensions>
 </PrefabDef>
+
 
 <PrefabDef>
   <defName>TradingGuild_OrbitalStation_Core_2</defName>
