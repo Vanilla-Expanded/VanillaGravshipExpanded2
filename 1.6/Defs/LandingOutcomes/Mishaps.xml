@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<LandingOutcomeDef>
+		<defName>VGE_BlazingReentry</defName>
+		<letterLabel>blazing re-entry</letterLabel>
+    <letterText></letterText>
+		<letterText>A calibration error in the thruster dampeners caused to vent excess energy during {GRAVSHIP}’s descent. It has streaked across the sky like a brilliant, roaring meteor, making its approach and exact landing coordinates impossible for anyone on the ground to miss.</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<workerClass>VanillaGravshipExpanded2.LandingOutcomeWorker_Visibility</workerClass>
+		<weight>1</weight>
+    <modExtensions>
+      <li Class="VanillaGravshipExpanded2.VisibilityLandingOutcomeExtension">
+        <!-- <visibilityFactor> - a factor on the base visibility. -->
+        <!-- <visibilityOffset> - an offsett added to the visibility gained by launch, unaffected by launchVisibilityFactor but affected by grav engine factors. -->
+        <!-- <visibilityOffsetNoFactor> - an offset that is unaffected by anything else. -->
+        <visibilityOffsetNoFactor>100000</visibilityOffsetNoFactor>
+      </li>
+    </modExtensions>
+	</LandingOutcomeDef>
+
+</Defs>

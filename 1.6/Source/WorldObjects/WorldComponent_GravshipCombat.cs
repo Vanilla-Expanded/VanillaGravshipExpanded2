@@ -198,13 +198,18 @@ namespace VanillaGravshipExpanded2
             Find.WindowStack.Add(new Dialog_NodeTree(node, true));
         }
 
-        public void AddVisibility(float baseAmount, bool isLaunch = false)
+        public void AddVisibility(float baseAmount, bool isLaunch = false, bool applyFactors = true)
         {
             var engine = GetActiveGravEngine;
             if (engine == null) return;
-            var factor = engine.GetStatValue(InternalDefOf.VGE_GravshipVisibilityFactor);
-            if (isLaunch)
-                factor += engine.GetStatValue(InternalDefOf.VGE_GravshipLaunchVisibilityOffset);
+
+            var factor = 1f;
+            if (applyFactors)
+            {
+                factor = engine.GetStatValue(InternalDefOf.VGE_GravshipVisibilityFactor);
+                if (isLaunch)
+                    factor += engine.GetStatValue(InternalDefOf.VGE_GravshipLaunchVisibilityOffset);
+            }
 
             visibility += baseAmount * factor;
             if (visibility >= 400000f && !warned400k)
