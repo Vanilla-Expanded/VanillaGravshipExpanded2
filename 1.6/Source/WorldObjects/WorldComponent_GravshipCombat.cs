@@ -299,7 +299,7 @@ namespace VanillaGravshipExpanded2
         private void LandGravjumperOnPlayerMap()
         {
             var map = GetActiveGravEngine.Map;
-            var setDef = InternalDefOf.VGE_EnemyGravjumperSet;
+            var setDef = Rand.Chance(0.2f) ? InternalDefOf.VGE_EnemyGravjumperSet_Complete : InternalDefOf.VGE_EnemyGravjumperSet;
             var standardLayouts = VEF.Storyteller.StructureSetGenerator.SelectStandardLayouts(setDef);
             var engine = GetActiveGravEngine;
             var rotation = GetFacingRotation(map.Center, engine != null ? engine.Position : map.Center);

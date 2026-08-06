@@ -22,8 +22,13 @@ namespace VanillaGravshipExpanded2
             cellRect.ClipInsideMap(map);
             foreach (var item in cellRect)
             {
+                var foundation = map.terrainGrid.FoundationAt(item);
                 var underTerrain = map.terrainGrid.UnderTerrainAt(item);
-                if (underTerrain == null || !underTerrain.affordances.Contains(terrainAffordanceNeed))
+                var topTerrain = map.terrainGrid.TopTerrainAt(item);
+                var hasAffordance = (foundation != null && foundation.affordances.Contains(terrainAffordanceNeed))
+                                 || (underTerrain != null && underTerrain.affordances.Contains(terrainAffordanceNeed))
+                                 || (topTerrain != null && topTerrain.affordances.Contains(terrainAffordanceNeed));
+                if (!hasAffordance)
                 {
                     return;
                 }

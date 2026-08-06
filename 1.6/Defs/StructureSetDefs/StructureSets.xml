@@ -297,4 +297,15 @@
       </li>
     </structureLayouts>
   </VEF.Storyteller.StructureSetDef>
+
+  <VEF.Storyteller.StructureSetDef>
+    <defName>VGE_EnemyGravjumperSet_Complete</defName>
+    <structureLayouts>
+      <li>
+        <pattern>EnemyGravjumperComplete_[0-9]+</pattern>
+        <offset>(0,0,0)</offset>
+        <randomRotated>false</randomRotated>
+      </li>
+    </structureLayouts>
+  </VEF.Storyteller.StructureSetDef>
 </Defs>

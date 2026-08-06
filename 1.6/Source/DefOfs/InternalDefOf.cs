@@ -101,6 +101,7 @@ namespace VanillaGravshipExpanded2
 		public static GravshipThreatDef VGE_EnemyGravjumper;
 		public static RulePackDef VGE_NamerEnemyGravship;
 		public static VEF.Storyteller.StructureSetDef VGE_EnemyGravjumperSet;
+		public static VEF.Storyteller.StructureSetDef VGE_EnemyGravjumperSet_Complete;
 		public static ThingDef VGE_EnemySmallThruster;
 		public static ThingDef VGE_EnemyLargeThruster;
 		public static ThingDef VGE_EnemyGiantThruster;
