@@ -50,13 +50,7 @@ public class LordToil_GoToEscapePods : LordToil
         if (lord.ownedBuildings.Count > 0 && lord.Map.IsHashIntervalTick(300))
         {
             for (var i = lord.ownedBuildings.Count - 1; i >= 0; i--)
-            {
-                var building = lord.ownedBuildings[i];
-                if ((float)building.HitPoints / building.MaxHitPoints < 0.75f)
-                    LaunchDropPod(building);
-                else
-                    LaunchDropPodIfNeeded(building);
-            }
+                LaunchDropPodIfNeeded(lord.ownedBuildings[i]);
         }
     }
 
@@ -68,12 +62,12 @@ public class LordToil_GoToEscapePods : LordToil
         {
             lord.Notify_BuildingLost(building);
         }
-        else if (!SpaceRebellionsUtility.IsTransportPodUsable(launchable, Data.dropPodTile.Layer, Data.cachedDropPodDistance))
+        else if (!SpaceRebellionsUtility.IsTransportPodUsable(launchable, Data.dropPodTile.Layer, Data.cachedDropPodDistance) || !heldThings.Any(x => lord.ownedPawns.Contains(x)))
         {
             lord.Notify_BuildingLost(building);
             launchable.Transporter.CleanUpLoadingVars(Map);
         }
-        else if (!Data.targetsForPawns.Any(x => x.Value == building && x.Key.DestroyedOrNull() || x.Key.DeadOrDowned || heldThings.Contains(x.Key)))
+        else if ((float)building.HitPoints / building.MaxHitPoints < 0.75f || !Data.targetsForPawns.Any(x => x.Value == building && x.Key.DestroyedOrNull() || x.Key.DeadOrDowned || !heldThings.Contains(x.Key)))
         {
             lord.Notify_BuildingLost(building);
             LaunchDropPod(launchable);
@@ -107,13 +101,13 @@ public class LordToil_GoToEscapePods : LordToil
         var data = Data;
         data.targetsForPawns.RemoveAll(kvp => kvp.Key.DestroyedOrNull() || !TempPawnList.Contains(kvp.Key) || kvp.Value.DestroyedOrNull());
 
-        SpaceRebellionsUtility.GetValidEscapePods(Map, TempDropPodList, TempDropPodList);
+        SpaceRebellionsUtility.GetAllValidPods(Map, TempDropPodList, TempDropPodList);
 
         foreach (var (pawn, target) in data.targetsForPawns)
         {
             TempPawnList.Remove(pawn);
             TempDropPodList.Remove(target);
-            AssignDuty(pawn, target);
+            AssignDuty(pawn, target, false);
         }
 
         if (TempPawnList.Count <= 0)
@@ -130,19 +124,21 @@ public class LordToil_GoToEscapePods : LordToil
         for (var i = 0; i < TempPawnList.Count; i++)
         {
             var pawn = TempPawnList[i];
-            AssignDuty(pawn, GrabNextPod(pawn));
+            AssignDuty(pawn, GrabNextPod(pawn), true);
         }
 
         TempDropPodList.Clear();
         TempPawnList.Clear();
 
-        void AssignDuty(Pawn pawn, Thing target)
+        void AssignDuty(Pawn pawn, Thing target, bool updateTargets)
         {
             var pawnDuty = new PawnDuty(InternalDefOf.VGE_SpacePrisonerEscape, target)
             {
                 locomotion = data.locomotion,
                 canDig = data.canDig
             };
+            if (updateTargets)
+                data.targetsForPawns[pawn] = target;
 
             pawn.mindState.duty = pawnDuty;
             if (Data.interruptCurrentJob && pawn.jobs.curJob != null)

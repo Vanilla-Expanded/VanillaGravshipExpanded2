@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using LudeonTK;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -33,30 +36,16 @@ public static class SpaceRebellionsUtility
         if (pawn?.Map == null)
             return false;
 
-        for (var i = 0; i < ValidEscapePods.Count; i++)
-        {
-            var list = pawn.Map.listerThings.ThingsOfDef(ValidEscapePods[i]);
-            if (list.Count > 0 && IsEscapePodUsable(list[0].TryGetComp<CompEscapePod>()))
-                return true;
-        }
+        if (GetAllUsableEscapePods(pawn.Map).Any())
+            return true;
 
-        TileFinder.TryFindPassableTileWithTraversalDistance(Find.WorldGrid.Surface.GetClosestTile_NewTemp(pawn.Map.Tile), 0, int.MaxValue, out var closest, null, true, TileFinderMode.Near, true, true);
+        var closest = GetClosestTargetTransportPodTile(pawn.Map);
         var distance = Find.WorldGrid.TraversalDistanceBetween(pawn.Map.Tile, closest, true, int.MaxValue, true);
 
-        for (var i = 0; i < ValidTransportPods.Count; i++)
-        {
-            var list = pawn.Map.listerThings.ThingsOfDef(ValidTransportPods[i]);
-            for (var j = 0; j < list.Count; j++)
-            {
-                if (IsTransportPodUsable(list[j].TryGetComp<CompLaunchable>(), closest.Layer, distance))
-                    return true;
-            }
-        }
-
-        return false;
+        return GetAllUsableDropPods(pawn.Map, closest.Layer, distance).Any();
     }
 
-    public static void GetValidEscapePods(Map map, List<Thing> escapePods, List<Thing> dropPods)
+    public static void GetAllValidPods(Map map, List<Thing> escapePods, List<Thing> dropPods)
     {
         if (map == null)
             return;
@@ -64,17 +53,7 @@ public static class SpaceRebellionsUtility
         if (escapePods != null)
         {
             escapePods.Clear();
-
-            for (var i = 0; i < ValidEscapePods.Count; i++)
-            {
-                var list = map.listerThings.ThingsOfDef(ValidEscapePods[i]);
-                for (var j = 0; j < list.Count; j++)
-                {
-                    var thing = list[j];
-                    if (IsEscapePodUsable(thing.TryGetComp<CompEscapePod>()))
-                        escapePods.Add(thing);
-                }
-            }
+            escapePods.AddRange(GetAllUsableEscapePods(map).Select(x => x.parent));
         }
 
         if (dropPods != null)
@@ -85,16 +64,29 @@ public static class SpaceRebellionsUtility
 
             var closest = GetClosestTargetTransportPodTile(map);
             var distance = Find.WorldGrid.TraversalDistanceBetween(map.Tile, closest, true, int.MaxValue, true);
+            dropPods.AddRange(GetAllUsableDropPods(map, closest.Layer, distance).Select(x => x.parent));
+        }
+    }
 
-            for (var i = 0; i < ValidTransportPods.Count; i++)
+    private static IEnumerable<CompEscapePod> GetAllUsableEscapePods(Map map)
+    {
+        for (var i = 0; i < ValidEscapePods.Count; i++)
+        {
+            var list = map.listerThings.ThingsOfDef(ValidEscapePods[i]);
+            if (list.Count > 0 && list[0].TryGetComp<CompEscapePod>() is { } pod && IsEscapePodUsable(pod))
+                yield return pod;
+        }
+    }
+
+    private static IEnumerable<CompLaunchable> GetAllUsableDropPods(Map map, PlanetLayer targetLayer, int distance)
+    {
+        for (var i = 0; i < ValidTransportPods.Count; i++)
+        {
+            var list = map.listerThings.ThingsOfDef(ValidTransportPods[i]);
+            for (var j = 0; j < list.Count; j++)
             {
-                var list = map.listerThings.ThingsOfDef(ValidTransportPods[i]);
-                for (var j = 0; j < list.Count; j++)
-                {
-                    var thing = list[j];
-                    if (IsTransportPodUsable(thing.TryGetComp<CompLaunchable>(), closest.Layer, distance))
-                        dropPods.Add(thing);
-                }
+                if (list[j].TryGetComp<CompLaunchable>() is {} pod && IsTransportPodUsable(pod, targetLayer, distance))
+                    yield return pod;
             }
         }
     }
@@ -119,5 +111,33 @@ public static class SpaceRebellionsUtility
     {
         TileFinder.TryFindPassableTileWithTraversalDistance(Find.WorldGrid.Surface.GetClosestTile_NewTemp(map.Tile), 0, int.MaxValue, out var closest, null, true, TileFinderMode.Near, true, true);
         return closest;
+    }
+
+    [DebugAction(DebugActionCategories.Pawns, actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap, displayPriority = -1000)]
+    private static void LogSpaceRebellionData(Pawn p)
+    {
+        if (p?.Map == null)
+            return;
+
+        var builder = new StringBuilder($"Testing space prison escape for {p}.");
+        builder.AppendLine();
+        builder.Append("Pawn is");
+        if (!p.IsPrisoner)
+            builder.Append(" not");
+        builder.AppendLine(" a prisoner.");
+
+        builder.Append("Pawn is");
+        if (p.Map.Biome?.inVacuum != true)
+            builder.Append(" not");
+        builder.AppendLine(" in vacuum biome");
+
+        builder.AppendLine($"There's {GetAllUsableEscapePods(p.Map).Count()} usable escape pods.");
+
+        var closest = GetClosestTargetTransportPodTile(p.Map);
+        var distance = Find.WorldGrid.TraversalDistanceBetween(p.Map.Tile, closest, true, int.MaxValue, true);
+
+        builder.AppendLine($"There's {GetAllUsableDropPods(p.Map, closest.Layer, distance).Count()} usable drop pods.");
+
+        Log.Message(builder.ToString());
     }
 }
