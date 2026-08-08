@@ -101,7 +101,7 @@
 		<canOverlapZones>false</canOverlapZones>
 		<rotatable>true</rotatable>
 		<researchPrerequisites>
-			<li>VGE_AstrofuelRefining</li>
+			<li>BasicGravtech</li>
 		</researchPrerequisites>
 		<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
 		<uiOrder>2105</uiOrder>
