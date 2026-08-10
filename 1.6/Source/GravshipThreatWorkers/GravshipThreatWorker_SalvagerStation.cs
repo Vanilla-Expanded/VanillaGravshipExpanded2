@@ -39,7 +39,11 @@ namespace VanillaGravshipExpanded2
             comp.tributeDemandTick = Find.TickManager.TicksGame + def.baseCountdownHours * GenDate.TicksPerHour;
 
             var jammerDesc = "";
-            var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading.OfType<Building_SignalJammer>().FirstOrDefault(x => !x.OnCooldown);
+            var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading
+                .OfType<ThingWithComps>()
+                .Where(t => t.def == InternalDefOf.SignalJammer)
+                .Select(t => t.GetComp<CompSignalJammer>())
+                .FirstOrDefault(c => c != null && !c.OnCooldown);
             if (jammer != null)
             {
                 jammer.StartCooldown();

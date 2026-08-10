@@ -42,7 +42,11 @@ namespace VanillaGravshipExpanded2
             comp.incomingWarplatform = true;
             comp.warplatformTick = Find.TickManager.TicksGame + def.baseCountdownHours * GenDate.TicksPerHour;
 
-            var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading.OfType<Building_SignalJammer>().FirstOrDefault(x => !x.OnCooldown);
+            var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading
+                .OfType<ThingWithComps>()
+                .Where(t => t.def == InternalDefOf.SignalJammer)
+                .Select(t => t.GetComp<CompSignalJammer>())
+                .FirstOrDefault(c => c != null && !c.OnCooldown);
             var desc = def.letterDesc;
             if (jammer != null)
             {

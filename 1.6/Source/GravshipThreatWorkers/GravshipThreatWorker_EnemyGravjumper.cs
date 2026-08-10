@@ -12,7 +12,11 @@ namespace VanillaGravshipExpanded2
             var comp = WorldComponent_GravshipCombat.Instance;
             comp.enemyGravshipName = NameGenerator.GenerateName(InternalDefOf.VGE_NamerEnemyGravship);
 
-            var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading.OfType<Building_SignalJammer>().FirstOrDefault(x => !x.OnCooldown);
+            var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading
+                .OfType<ThingWithComps>()
+                .Where(t => t.def == InternalDefOf.SignalJammer)
+                .Select(t => t.GetComp<CompSignalJammer>())
+                .FirstOrDefault(c => c != null && !c.OnCooldown);
 
             comp.activeThreatDef = def;
             comp.incomingWarplatform = true;

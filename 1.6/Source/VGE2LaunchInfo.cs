@@ -50,7 +50,10 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
 
     private void ApplySignalJammerEffect(Gravship gravship)
     {
-        var jammer = gravship.Engine.GravshipComponents.Select(x => x.parent).OfType<Building_SignalJammer>().FirstOrDefault(x => x.OnCooldown is false);
+        var jammer = gravship.Engine.GravshipComponents
+            .Where(c => c.parent.def == InternalDefOf.SignalJammer)
+            .Select(c => c.parent.GetComp<CompSignalJammer>())
+            .FirstOrDefault(x => x != null && !x.OnCooldown);
         if (jammer is null) return;
 
         var map = gravship.Engine.Map;
@@ -68,7 +71,7 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
             jammer.StartCooldown();
             foreach (var art in enemyArtillery)
             {
-                art.GetComp<CompStunnable>()?.StunHandler?.StunFor(30000, jammer, true, true);
+                art.GetComp<CompStunnable>()?.StunHandler?.StunFor(30000, jammer.parent, true, true);
                 FleckMaker.ThrowMicroSparks(art.DrawPos, map);
                 for (int i = 0; i < 3; i++)
                 {
