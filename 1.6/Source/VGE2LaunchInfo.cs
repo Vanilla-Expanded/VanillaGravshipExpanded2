@@ -15,7 +15,7 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
     public float launchVisibilityOffset = 0;
     public float launchVisibilityOffsetNoFactor = 0;
 
-    static VGE2LaunchInfo() => ExtendedLaunchInfo.onInit += info => info.vge2Data = new VGE2LaunchInfo();
+    static VGE2LaunchInfo() => ExtendedLaunchInfo.onInit += (_, extendedInfo) => extendedInfo.vge2Data = new VGE2LaunchInfo();
 
     public override void ExposeData()
     {
@@ -26,7 +26,7 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
         Scribe_Values.Look(ref launchVisibilityOffsetNoFactor, nameof(launchVisibilityOffsetNoFactor), 1f);
     }
 
-    public override void LandingEnded(Gravship gravship, WorldComponent_GravshipController controller)
+    public override void PreLandingEnded(WorldComponent_GravshipController controller)
     {
         try
         {
@@ -37,10 +37,10 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
             }
             else
             {
-                ApplyVisibilityGain(gravship);
+                ApplyVisibilityGain(controller);
             }
 
-            ApplySignalJammerEffect(gravship, controller);
+            ApplySignalJammerEffect(controller);
         }
         catch (Exception arg)
         {
@@ -48,9 +48,9 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
         }
     }
 
-    private void ApplySignalJammerEffect(Gravship gravship, WorldComponent_GravshipController controller)
+    private void ApplySignalJammerEffect(WorldComponent_GravshipController controller)
     {
-        var jammer = gravship.Engine.GravshipComponents.Select(x => x.parent).OfType<Building_SignalJammer>().FirstOrDefault(x => x.OnCooldown is false);
+        var jammer = controller.gravship.Engine.GravshipComponents.Select(x => x.parent).OfType<Building_SignalJammer>().FirstOrDefault(x => x.OnCooldown is false);
         if (jammer is null) return;
 
         var map = controller.map;
@@ -80,9 +80,9 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
         }
     }
 
-    private void ApplyVisibilityGain(Gravship gravship)
+    private void ApplyVisibilityGain(WorldComponent_GravshipController controller)
     {
-        var engine = gravship?.Engine;
+        var engine = controller.gravship?.Engine;
         var extendedInfo = engine?.launchInfo.ExtendedInfo(false);
         if (extendedInfo == null || !extendedInfo.launchSourceTile.Valid) return;
         var distance = GravshipHelper.GetDistance(extendedInfo.launchSourceTile, engine.Tile);
