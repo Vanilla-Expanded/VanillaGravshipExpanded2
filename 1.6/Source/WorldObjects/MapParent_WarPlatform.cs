@@ -78,17 +78,13 @@ namespace VanillaGravshipExpanded2
                     {
                         threatDef.Worker.OnEngineDestroyed(this);
                     }
-                    if (!Map.mapPawns.AnyFreeColonistSpawned)
-                    {
-                        Destroy();
-                        return;
-                    }
+                    despawnTick = Find.TickManager.TicksGame;
                 }
             }
 
             if (despawnTick > 0)
             {
-                if (Find.TickManager.TicksGame >= despawnTick)
+                if (Find.TickManager.TicksGame >= despawnTick && GravshipUtility.GetPlayerGravEngine_NewTemp(Map) == null)
                 {
                     Destroy();
                     return;
@@ -139,7 +135,7 @@ namespace VanillaGravshipExpanded2
         {
             var sb = new System.Text.StringBuilder();
             sb.AppendLine(base.GetInspectString());
-            if (defeated && despawnTick > 0)
+            if (defeated && despawnTick > 0 && GravshipUtility.GetPlayerGravEngine_NewTemp(Map) == null)
             {
                 sb.AppendLine("VGE_DestabilizesIn".Translate((despawnTick - Find.TickManager.TicksGame).ToStringTicksToPeriod()));
             }
@@ -148,19 +144,15 @@ namespace VanillaGravshipExpanded2
 
         public override bool ShouldRemoveMapNow(out bool alsoRemoveWorldObject)
         {
+            if (despawnTick > 0 && Find.TickManager.TicksGame >= despawnTick && GravshipUtility.GetPlayerGravEngine_NewTemp(Map) == null)
+            {
+                alsoRemoveWorldObject = true;
+                return true;
+            }
+
             if (!defeated)
             {
                 if (playerDestroyedTick > 0 && Find.TickManager.TicksGame >= playerDestroyedTick && !Map.mapPawns.AnyFreeColonistSpawned)
-                {
-                    alsoRemoveWorldObject = true;
-                    return true;
-                }
-                alsoRemoveWorldObject = false;
-                return false;
-            }
-            if (defeated)
-            {
-                if (despawnTick > 0 && Find.TickManager.TicksGame >= despawnTick && !Map.mapPawns.AnyFreeColonistSpawned)
                 {
                     alsoRemoveWorldObject = true;
                     return true;

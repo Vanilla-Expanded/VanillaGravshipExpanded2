@@ -33,7 +33,8 @@ namespace VanillaGravshipExpanded2
                     node.options.Add(comp.GetPayTributeOption(map));
                     node.options.Add(new DiaOption("Close".Translate())
                     {
-                        link = null
+                        link = null,
+                        resolveTree = true
                     });
                     Find.WindowStack.Add(new Dialog_NodeTree(node, radioMode: true));
                 }
