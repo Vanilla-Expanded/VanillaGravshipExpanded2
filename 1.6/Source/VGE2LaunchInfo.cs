@@ -26,21 +26,21 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
         Scribe_Values.Look(ref launchVisibilityOffsetNoFactor, nameof(launchVisibilityOffsetNoFactor), 1f);
     }
 
-    public override void PreLandingEnded(WorldComponent_GravshipController controller)
+    public override void PostLandingEnded(Gravship gravship)
     {
         try
         {
             var comp = WorldComponent_GravshipCombat.Instance;
             if (comp.incomingWarplatform)
             {
-                ApplyEarlyEscape(comp, controller);
+                ApplyEarlyEscape(comp, gravship);
             }
             else
             {
-                ApplyVisibilityGain(controller);
+                ApplyVisibilityGain(gravship);
             }
 
-            ApplySignalJammerEffect(controller);
+            ApplySignalJammerEffect(gravship);
         }
         catch (Exception arg)
         {
@@ -48,12 +48,12 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
         }
     }
 
-    private void ApplySignalJammerEffect(WorldComponent_GravshipController controller)
+    private void ApplySignalJammerEffect(Gravship gravship)
     {
-        var jammer = controller.gravship.Engine.GravshipComponents.Select(x => x.parent).OfType<Building_SignalJammer>().FirstOrDefault(x => x.OnCooldown is false);
+        var jammer = gravship.Engine.GravshipComponents.Select(x => x.parent).OfType<Building_SignalJammer>().FirstOrDefault(x => x.OnCooldown is false);
         if (jammer is null) return;
 
-        var map = controller.map;
+        var map = gravship.Engine.Map;
         var enemyArtillery = new List<Building_GravshipTurret>();
         foreach (var b in map.listerBuildings.allBuildingsNonColonist)
         {
@@ -80,9 +80,9 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
         }
     }
 
-    private void ApplyVisibilityGain(WorldComponent_GravshipController controller)
+    private void ApplyVisibilityGain(Gravship gravship)
     {
-        var engine = controller.gravship?.Engine;
+        var engine = gravship?.Engine;
         var extendedInfo = engine?.launchInfo.ExtendedInfo(false);
         if (extendedInfo == null || !extendedInfo.launchSourceTile.Valid) return;
         var distance = GravshipHelper.GetDistance(extendedInfo.launchSourceTile, engine.Tile);
@@ -92,13 +92,13 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
             WorldComponent_GravshipCombat.Instance.AddVisibility(launchVisibilityOffsetNoFactor, applyFactors: false);
     }
 
-    private void ApplyEarlyEscape(WorldComponent_GravshipCombat comp, WorldComponent_GravshipController controller)
+    private void ApplyEarlyEscape(WorldComponent_GravshipCombat comp, Gravship gravship)
     {
         if (comp.incomingWarplatform)
         {
             var threatDef = comp.activeThreatDef;
             comp.incomingWarplatform = false;
-            threatDef.Worker.OnEarlyEscape(controller.map);
+            threatDef.Worker.OnEarlyEscape(gravship.Engine.Map);
         }
     }
 }
