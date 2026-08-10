@@ -9,6 +9,8 @@ namespace VanillaGravshipExpanded2;
 public class VGE2_MapComponent : MapComponent
 {
     private static readonly HashSet<JobDef> JobDefsWithPriorityOverEvacuation;
+    private static Map cachedMap;
+    private static VGE2_MapComponent cachedComp;
 
     private bool evacuationActive = false;
     public readonly HashSet<CompEscapePod> activeEscapePods = [];
@@ -43,6 +45,8 @@ public class VGE2_MapComponent : MapComponent
     public VGE2_MapComponent(Map map) : base(map)
     {
     }
+
+    public static VGE2_MapComponent GetCompFast(Map map) => map == cachedMap ? cachedComp : cachedComp = (cachedMap = map).GetComponent<VGE2_MapComponent>();
 
     public override void MapComponentTick()
     {

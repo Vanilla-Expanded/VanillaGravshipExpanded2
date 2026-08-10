@@ -328,7 +328,7 @@ public class CompEscapePod : ThingComp, IThingHolder, ISearchableContents
 
         if (IsCurrentPlanetLayerSupported)
         {
-            mapComp = parent.Map.GetComponent<VGE2_MapComponent>();
+            mapComp = VGE2_MapComponent.GetCompFast(parent.Map);
             mapComp?.activeEscapePods.Add(this);
         }
 

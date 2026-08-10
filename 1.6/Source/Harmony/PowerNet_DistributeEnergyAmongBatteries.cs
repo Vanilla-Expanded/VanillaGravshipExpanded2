@@ -13,7 +13,7 @@ public static class PowerNet_DistributeEnergyAmongBatteries_Patch
         if (energy <= 0f)
             return;
 
-        var batteries = __instance.Map.GetComponent<VGE2_MapComponent>()?.unchargedBatteries;
+        var batteries = VGE2_MapComponent.GetCompFast(__instance.Map).unchargedBatteries;
         if (batteries is not { Count: > 0 })
             return;
 

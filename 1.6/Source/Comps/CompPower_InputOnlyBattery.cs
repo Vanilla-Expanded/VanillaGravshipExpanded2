@@ -9,6 +9,7 @@ public class CompPower_InputOnlyBattery : CompPower
 {
     private float storedEnergy;
     private CompStunnable stunnableComp;
+    [Unsaved] protected VGE2_MapComponent mapComp;
 
     public float AmountCanAccept => parent.IsBrokenDown() || StunnedByEMP ? 0f : Props.storedEnergyMax - storedEnergy;
 
@@ -36,7 +37,7 @@ public class CompPower_InputOnlyBattery : CompPower
 
         storedEnergy += amount;
         if (IsFull)
-            DirtyNeedsCharging(parent.Map);
+            DirtyNeedsCharging();
     }
 
     public void DrawPower(float amount)
@@ -44,7 +45,7 @@ public class CompPower_InputOnlyBattery : CompPower
         var wasFull = IsFull;
         storedEnergy -= amount;
         if (wasFull != IsFull)
-            DirtyNeedsCharging(parent.Map);
+            DirtyNeedsCharging();
         if (storedEnergy < 0f)
         {
             Log.Error($"Drawing power we don't have from {parent}");
@@ -57,7 +58,7 @@ public class CompPower_InputOnlyBattery : CompPower
         var wasFull = IsFull;
         storedEnergy = Props.storedEnergyMax * Mathf.Clamp01(pct);
         if (wasFull != IsFull)
-            DirtyNeedsCharging(parent.Map);
+            DirtyNeedsCharging();
     }
 
     public override void ReceiveCompSignal(string signal)
@@ -76,7 +77,8 @@ public class CompPower_InputOnlyBattery : CompPower
     {
         base.PostSpawnSetup(respawningAfterLoad);
 
-        DirtyNeedsCharging(parent.Map);
+        mapComp = VGE2_MapComponent.GetCompFast(parent.Map);;
+        DirtyNeedsCharging();
     }
 
     public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
@@ -84,7 +86,7 @@ public class CompPower_InputOnlyBattery : CompPower
         base.PostDeSpawn(map, mode);
 
         // Remove even if empty
-        map.GetComponent<VGE2_MapComponent>()?.unchargedBatteries.Remove(this);
+        mapComp.unchargedBatteries.Remove(this);
     }
 
     public override void PostPostMake()
@@ -139,9 +141,9 @@ public class CompPower_InputOnlyBattery : CompPower
         }
     }
 
-    public void DirtyNeedsCharging(Map map)
+    public void DirtyNeedsCharging()
     {
-        var list = map?.GetComponent<VGE2_MapComponent>()?.unchargedBatteries;
+        var list = mapComp?.unchargedBatteries;
         if (list == null)
             return;
 
