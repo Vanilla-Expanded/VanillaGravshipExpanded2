@@ -30,20 +30,42 @@ namespace VanillaGravshipExpanded2
         public bool gravjumperLandedLocal;
 
         public static WorldComponent_GravshipCombat Instance;
+        private static Map CachedLastGravEngineMap = null;
 
         public static Building_GravEngine GetActiveGravEngine
         {
             get
             {
+                Building_GravEngine engine;
+                // Try grabbing the cached engine if possible
+                if (CachedLastGravEngineMap != null)
+                {
+                    engine = GravshipUtility.GetPlayerGravEngine_NewTemp(CachedLastGravEngineMap);
+                    if (engine != null)
+                        return engine;
+                    // Cached engine lookup failed, reset cache
+                    CachedLastGravEngineMap = null;
+                }
+
+                // Grab the Gravship world object engine first, since we don't cache at all
+                engine = Current.Game.Gravship?.Engine;
+                if (engine != null)
+                    return engine;
+
+                // Find a grav engine on one of the maps
                 foreach (var map in Current.Game.Maps)
                 {
-                    var engine = GravshipUtility.GetPlayerGravEngine_NewTemp(map);
+                    engine = GravshipUtility.GetPlayerGravEngine_NewTemp(map);
                     if (engine != null)
                     {
+                        // Cache which map had the engine
+                        CachedLastGravEngineMap = map;
                         return engine;
                     }
                 }
-                return Current.Game.Gravship?.Engine;
+
+                // No engine found. Worst case scenario, since it'll need to re-do the whole check again next time.
+                return null;
             }
         }
 
