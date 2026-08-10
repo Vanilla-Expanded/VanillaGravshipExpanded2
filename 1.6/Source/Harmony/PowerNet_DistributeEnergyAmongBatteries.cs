@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using HarmonyLib;
+﻿using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -10,22 +8,16 @@ namespace VanillaGravshipExpanded2;
 [HarmonyPatch(typeof(PowerNet), nameof(PowerNet.DistributeEnergyAmongBatteries))]
 public static class PowerNet_DistributeEnergyAmongBatteries_Patch
 {
-    private static readonly List<CompPower_InputOnlyBattery> batteriesShuffled = [];
-
     private static void Prefix(PowerNet __instance, ref float energy)
     {
         if (energy <= 0f)
             return;
 
-        var comp = __instance.Map.GetComponent<VGE2_MapComponent>();
-        if (comp == null || comp.batteries.Count <= 0)
+        var batteries = __instance.Map.GetComponent<VGE2_MapComponent>()?.unchargedBatteries;
+        if (batteries is not { Count: > 0 })
             return;
 
-        batteriesShuffled.Clear();
-        batteriesShuffled.AddRange(comp.batteries.Where(c => c.PowerNet == __instance && c.AmountCanAccept > 0f));
-        if (batteriesShuffled.Count <= 0)
-            return;
-        batteriesShuffled.Shuffle();
+        batteries.Shuffle();
 
         for (var tries = 0;; tries++)
         {
@@ -38,35 +30,33 @@ public static class PowerNet_DistributeEnergyAmongBatteries_Patch
 
             // Grab the lowest count we can add to any battery
             var minAmount = float.MaxValue;
-            for (var i = 0; i < batteriesShuffled.Count; i++)
-                minAmount = Mathf.Min(minAmount, batteriesShuffled[i].AmountCanAccept);
+            for (var i = 0; i < batteries.Count; i++)
+                minAmount = Mathf.Min(minAmount, batteries[i].AmountCanAccept);
 
             // Try to fill up all batteries by splitting all the extra energy equally
-            if (energy < minAmount * batteriesShuffled.Count)
+            if (energy < minAmount * batteries.Count)
             {
-                var addPerBattery = energy / batteriesShuffled.Count;
-                for (var i = 0; i < batteriesShuffled.Count; i++)
-                    batteriesShuffled[i].AddEnergy(addPerBattery);
+                var addPerBattery = energy / batteries.Count;
+                for (var i = 0; i < batteries.Count; i++)
+                    batteries[i].AddEnergy(addPerBattery);
                 energy = 0f;
                 break;
             }
 
             // Fill up batteries by minimum amount possible, while removing all full batteries or batteries matching min amount
-            for (var i = batteriesShuffled.Count - 1; i >= 0; i--)
+            for (var i = batteries.Count - 1; i >= 0; i--)
             {
-                var amount = batteriesShuffled[i].AmountCanAccept;
-                var shouldRemove = amount <= 0f || amount == minAmount;
+                var amount = batteries[i].AmountCanAccept;
+                var shouldRemove = amount <= 0f;
                 if (minAmount > 0)
-                    batteriesShuffled[i].AddEnergy(minAmount);
+                    batteries[i].AddEnergy(minAmount);
                 if (shouldRemove)
-                    batteriesShuffled.RemoveAt(i);
+                    batteries.RemoveAt(i);
             }
 
             // If there's basically no power, or batteries are full, break
-            if (energy < 0.0005f || batteriesShuffled.Count <= 0)
+            if (energy < 0.0005f || batteries.Count <= 0)
                 break;
         }
-
-        batteriesShuffled.Clear();
     }
 }

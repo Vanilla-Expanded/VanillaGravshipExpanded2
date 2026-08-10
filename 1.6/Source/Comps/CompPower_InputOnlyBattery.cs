@@ -35,11 +35,16 @@ public class CompPower_InputOnlyBattery : CompPower
             amount = AmountCanAccept;
 
         storedEnergy += amount;
+        if (IsFull)
+            DirtyNeedsCharging(parent.Map);
     }
 
     public void DrawPower(float amount)
     {
+        var wasFull = IsFull;
         storedEnergy -= amount;
+        if (wasFull != IsFull)
+            DirtyNeedsCharging(parent.Map);
         if (storedEnergy < 0f)
         {
             Log.Error($"Drawing power we don't have from {parent}");
@@ -49,7 +54,10 @@ public class CompPower_InputOnlyBattery : CompPower
 
     public void SetStoredEnergyPct(float pct)
     {
+        var wasFull = IsFull;
         storedEnergy = Props.storedEnergyMax * Mathf.Clamp01(pct);
+        if (wasFull != IsFull)
+            DirtyNeedsCharging(parent.Map);
     }
 
     public override void ReceiveCompSignal(string signal)
@@ -68,14 +76,15 @@ public class CompPower_InputOnlyBattery : CompPower
     {
         base.PostSpawnSetup(respawningAfterLoad);
 
-        parent.Map.GetComponent<VGE2_MapComponent>()?.batteries.Add(this);
+        DirtyNeedsCharging(parent.Map);
     }
 
     public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
     {
         base.PostDeSpawn(map, mode);
 
-        map.GetComponent<VGE2_MapComponent>()?.batteries.Remove(this);
+        // Remove even if empty
+        map.GetComponent<VGE2_MapComponent>()?.unchargedBatteries.Remove(this);
     }
 
     public override void PostPostMake()
@@ -128,5 +137,17 @@ public class CompPower_InputOnlyBattery : CompPower
                 action = () => SetStoredEnergyPct(1f),
             };
         }
+    }
+
+    public void DirtyNeedsCharging(Map map)
+    {
+        var list = map?.GetComponent<VGE2_MapComponent>()?.unchargedBatteries;
+        if (list == null)
+            return;
+
+        if (IsFull)
+            list.Remove(this);
+        else
+            list.AddDistinct(this);
     }
 }

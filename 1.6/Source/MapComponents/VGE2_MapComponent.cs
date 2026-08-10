@@ -12,7 +12,7 @@ public class VGE2_MapComponent : MapComponent
 
     private bool evacuationActive = false;
     public readonly HashSet<CompEscapePod> activeEscapePods = [];
-    public readonly HashSet<CompPower_InputOnlyBattery> batteries = [];
+    public readonly List<CompPower_InputOnlyBattery> unchargedBatteries = [];
 
     public bool EvacuationActive
     {
