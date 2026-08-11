@@ -49,6 +49,11 @@
 				<tendMax>0.6</tendMax>
 			</li>
 			<li Class="VanillaGravshipExpanded2.CompProperties_ExowormJoiner" />
+			
+			<li Class="VEF.AnimalBehaviours.CompProperties_Floating">
+
+			</li>
+	
 		</comps>
 		<race>
 			<deathAction Class="VEF.AnimalBehaviours.DeathActionProperties_VanishInsect">

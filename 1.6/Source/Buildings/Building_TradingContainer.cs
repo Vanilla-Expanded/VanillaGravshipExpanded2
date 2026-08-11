@@ -27,7 +27,7 @@ namespace VanillaGravshipExpanded2
                 float targetMarketValue = 4000;
                 List<Thing> pool = ThingSetMakerDefOf.TraderStock.root.Generate(parms).ToList();
 
-                pool.RemoveAll(t => t is Pawn || t is MinifiedThing);
+                pool.RemoveAll(t => t is Pawn || t is MinifiedThing || t.def == ThingDefOf.Gravcore);
 
                 pool.Shuffle();
 
