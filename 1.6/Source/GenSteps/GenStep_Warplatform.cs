@@ -27,7 +27,7 @@ namespace VanillaGravshipExpanded2
         {
             foreach (var crate in map.listerThings.AllThings.OfType<Building_Crate>())
             {
-                if (existingThings != null && existingThings.Contains(crate)) continue;
+                if (crate.innerContainer.Any() || existingThings != null && existingThings.Contains(crate)) continue;
                 crate.innerContainer.ClearAndDestroyContents();
                 var loot = ThingSetMakerDefOf.MapGen_HighValueCrate.root.Generate();
                 foreach (var l in loot) crate.TryAcceptThing(l);
