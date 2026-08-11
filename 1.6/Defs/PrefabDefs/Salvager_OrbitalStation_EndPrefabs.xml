@@ -110,6 +110,16 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,19)</li>
+        <li>(7,1,8,14)</li>
+        <li>(16,1,17,14)</li>
+        <li>(18,3,19,11)</li>
+        <li>(8,15,8,18)</li>
+        <li>(16,15,16,18)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,0)</li>
@@ -125,16 +135,6 @@
         <li>(9,20,15,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,15,19)</li>
-        <li>(7,1,8,14)</li>
-        <li>(16,1,17,14)</li>
-        <li>(18,3,19,11)</li>
-        <li>(8,15,8,18)</li>
-        <li>(16,15,16,18)</li>
-      </rects>
-    </OrbitalPlatform>
   </terrain>
   <modExtensions>
     <li Class="VEF.Storyteller.PrefabExtension">
@@ -197,6 +197,16 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,4)</li>
+        <li>(11,5,13,21)</li>
+        <li>(9,14,10,21)</li>
+        <li>(14,14,15,21)</li>
+        <li>(8,16,8,19)</li>
+        <li>(16,16,16,19)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,15)</li>
@@ -210,17 +220,6 @@
         <li>(9,22,15,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,4)</li>
-        <li>(14,0,15,4)</li>
-        <li>(11,1,13,21)</li>
-        <li>(9,14,10,21)</li>
-        <li>(14,14,15,21)</li>
-        <li>(8,16,8,19)</li>
-        <li>(16,16,16,19)</li>
-      </rects>
-    </OrbitalPlatform>
     <AncientTile>
       <rects>
         <li>(11,0,13,0)</li>
@@ -347,6 +346,17 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,21)</li>
+        <li>(5,4,8,21)</li>
+        <li>(16,4,19,21)</li>
+        <li>(2,7,4,21)</li>
+        <li>(20,7,22,21)</li>
+        <li>(1,8,1,20)</li>
+        <li>(23,8,23,20)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,3)</li>
@@ -362,21 +372,6 @@
         <li>(2,22,22,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,15,7)</li>
-        <li>(5,4,8,7)</li>
-        <li>(16,4,19,7)</li>
-        <li>(2,7,4,21)</li>
-        <li>(20,7,22,21)</li>
-        <li>(1,8,1,20)</li>
-        <li>(5,8,5,21)</li>
-        <li>(19,8,19,21)</li>
-        <li>(23,8,23,20)</li>
-        <li>(7,9,17,13)</li>
-        <li>(6,15,18,21)</li>
-      </rects>
-    </OrbitalPlatform>
     <MetalTile>
       <rects>
         <li>(6,8,18,8)</li>
@@ -490,6 +485,17 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,21)</li>
+        <li>(7,8,8,20)</li>
+        <li>(16,8,17,20)</li>
+        <li>(6,9,6,19)</li>
+        <li>(18,9,18,19)</li>
+        <li>(5,11,5,17)</li>
+        <li>(19,11,19,17)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,7)</li>
@@ -509,24 +515,6 @@
         <li>(9,22,15,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,8)</li>
-        <li>(14,0,15,8)</li>
-        <li>(11,3,13,8)</li>
-        <li>(7,8,8,8)</li>
-        <li>(16,8,17,8)</li>
-        <li>(6,9,7,19)</li>
-        <li>(17,9,18,19)</li>
-        <li>(9,10,15,14)</li>
-        <li>(5,11,5,17)</li>
-        <li>(19,11,19,17)</li>
-        <li>(8,16,16,20)</li>
-        <li>(7,20,7,20)</li>
-        <li>(17,20,17,20)</li>
-        <li>(9,21,15,21)</li>
-      </rects>
-    </OrbitalPlatform>
     <MetalTile>
       <rects>
         <li>(11,0,12,1)</li>
@@ -648,6 +636,17 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,24)</li>
+        <li>(8,13,8,23)</li>
+        <li>(16,13,16,23)</li>
+        <li>(7,14,7,22)</li>
+        <li>(17,14,17,22)</li>
+        <li>(6,15,6,21)</li>
+        <li>(18,15,18,21)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,12)</li>
@@ -666,21 +665,6 @@
         <li>(16,24,16,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,14)</li>
-        <li>(14,0,15,14)</li>
-        <li>(11,3,13,14)</li>
-        <li>(8,13,8,23)</li>
-        <li>(16,13,16,23)</li>
-        <li>(7,14,7,22)</li>
-        <li>(17,14,17,22)</li>
-        <li>(6,15,6,21)</li>
-        <li>(18,15,18,21)</li>
-        <li>(10,16,14,20)</li>
-        <li>(9,22,15,24)</li>
-      </rects>
-    </OrbitalPlatform>
     <AncientTile>
       <rects>
         <li>(11,0,13,0)</li>
@@ -808,6 +792,23 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,23)</li>
+        <li>(8,3,8,23)</li>
+        <li>(16,3,16,23)</li>
+        <li>(6,4,7,22)</li>
+        <li>(17,4,18,22)</li>
+        <li>(5,5,5,21)</li>
+        <li>(19,5,19,21)</li>
+        <li>(4,6,4,20)</li>
+        <li>(20,6,20,20)</li>
+        <li>(3,7,3,19)</li>
+        <li>(21,7,21,19)</li>
+        <li>(2,9,2,17)</li>
+        <li>(22,9,22,17)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,2)</li>
@@ -837,25 +838,6 @@
         <li>(8,24,16,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,23)</li>
-        <li>(14,0,15,23)</li>
-        <li>(11,2,13,23)</li>
-        <li>(8,3,8,23)</li>
-        <li>(16,3,16,23)</li>
-        <li>(6,4,7,22)</li>
-        <li>(17,4,18,22)</li>
-        <li>(5,5,5,21)</li>
-        <li>(19,5,19,21)</li>
-        <li>(4,6,4,20)</li>
-        <li>(20,6,20,20)</li>
-        <li>(3,7,3,19)</li>
-        <li>(21,7,21,19)</li>
-        <li>(2,9,2,17)</li>
-        <li>(22,9,22,17)</li>
-      </rects>
-    </OrbitalPlatform>
     <MetalTile>
       <rects>
         <li>(11,0,11,1)</li>
@@ -987,6 +969,21 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,22)</li>
+        <li>(7,4,8,22)</li>
+        <li>(16,4,17,22)</li>
+        <li>(6,5,6,21)</li>
+        <li>(18,5,18,21)</li>
+        <li>(5,7,5,19)</li>
+        <li>(19,7,19,19)</li>
+        <li>(4,9,4,17)</li>
+        <li>(20,9,20,17)</li>
+        <li>(3,11,3,15)</li>
+        <li>(21,11,21,15)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,3)</li>
@@ -1012,23 +1009,6 @@
         <li>(7,23,17,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,22)</li>
-        <li>(14,0,15,22)</li>
-        <li>(7,4,8,22)</li>
-        <li>(16,4,17,22)</li>
-        <li>(6,5,6,21)</li>
-        <li>(18,5,18,21)</li>
-        <li>(5,7,5,19)</li>
-        <li>(11,7,13,22)</li>
-        <li>(19,7,19,19)</li>
-        <li>(4,9,4,17)</li>
-        <li>(20,9,20,17)</li>
-        <li>(3,11,3,15)</li>
-        <li>(21,11,21,15)</li>
-      </rects>
-    </OrbitalPlatform>
     <AncientTile>
       <rects>
         <li>(11,0,13,2)</li>
@@ -1127,6 +1107,17 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,23)</li>
+        <li>(8,12,8,22)</li>
+        <li>(16,12,16,22)</li>
+        <li>(7,14,7,20)</li>
+        <li>(17,14,17,20)</li>
+        <li>(6,16,6,18)</li>
+        <li>(18,16,18,18)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,11)</li>
@@ -1146,19 +1137,6 @@
         <li>(9,24,15,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,23)</li>
-        <li>(14,0,15,23)</li>
-        <li>(11,2,13,23)</li>
-        <li>(8,12,8,22)</li>
-        <li>(16,12,16,22)</li>
-        <li>(7,14,7,20)</li>
-        <li>(17,14,17,20)</li>
-        <li>(6,16,6,18)</li>
-        <li>(18,16,18,18)</li>
-      </rects>
-    </OrbitalPlatform>
     <AncientTile>
       <rects>
         <li>(11,0,13,1)</li>
@@ -1331,9 +1309,7 @@
   <terrain>
     <OrbitalPlatform>
       <rects>
-        <li>(0,0,10,10)</li>
-        <li>(14,0,23,10)</li>
-        <li>(11,2,13,10)</li>
+        <li>(0,0,23,10)</li>
         <li>(2,11,10,14)</li>
         <li>(13,11,21,14)</li>
       </rects>
@@ -1533,6 +1509,16 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,13)</li>
+        <li>(16,2,21,13)</li>
+        <li>(2,4,8,19)</li>
+        <li>(1,7,1,19)</li>
+        <li>(9,14,12,19)</li>
+        <li>(15,14,19,19)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,3)</li>
@@ -1546,18 +1532,6 @@
         <li>(15,20,19,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,19)</li>
-        <li>(14,0,15,13)</li>
-        <li>(16,2,21,13)</li>
-        <li>(11,3,13,13)</li>
-        <li>(2,4,8,19)</li>
-        <li>(1,7,1,19)</li>
-        <li>(11,14,12,19)</li>
-        <li>(15,14,19,19)</li>
-      </rects>
-    </OrbitalPlatform>
     <AncientTile>
       <rects>
         <li>(11,0,11,2)</li>
@@ -1652,6 +1626,13 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,11)</li>
+        <li>(10,12,14,20)</li>
+        <li>(11,21,13,23)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,24)</li>
@@ -1663,15 +1644,6 @@
         <li>(11,24,13,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,11)</li>
-        <li>(14,0,15,11)</li>
-        <li>(11,1,13,23)</li>
-        <li>(10,12,10,20)</li>
-        <li>(14,12,14,20)</li>
-      </rects>
-    </OrbitalPlatform>
     <AncientTile>
       <rects>
         <li>(11,0,13,0)</li>
@@ -1759,6 +1731,16 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,14)</li>
+        <li>(8,1,8,9)</li>
+        <li>(16,1,16,9)</li>
+        <li>(10,15,14,17)</li>
+        <li>(11,18,13,20)</li>
+        <li>(12,21,12,23)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,0)</li>
@@ -1776,18 +1758,6 @@
         <li>(12,24,12,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,14)</li>
-        <li>(14,0,15,14)</li>
-        <li>(8,1,8,9)</li>
-        <li>(16,1,16,9)</li>
-        <li>(11,4,13,20)</li>
-        <li>(10,15,10,17)</li>
-        <li>(14,15,14,17)</li>
-        <li>(12,21,12,23)</li>
-      </rects>
-    </OrbitalPlatform>
     <AncientTile>
       <rects>
         <li>(11,0,13,0)</li>
@@ -1886,6 +1856,19 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,1)</li>
+        <li>(10,2,14,3)</li>
+        <li>(11,4,13,18)</li>
+        <li>(8,10,10,18)</li>
+        <li>(14,10,16,18)</li>
+        <li>(7,12,7,16)</li>
+        <li>(17,12,17,16)</li>
+        <li>(5,13,6,15)</li>
+        <li>(18,13,19,15)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,9)</li>
@@ -1907,19 +1890,6 @@
         <li>(8,19,16,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,15,1)</li>
-        <li>(10,2,14,3)</li>
-        <li>(11,4,13,18)</li>
-        <li>(8,10,10,18)</li>
-        <li>(14,10,16,18)</li>
-        <li>(7,12,7,16)</li>
-        <li>(17,12,17,16)</li>
-        <li>(5,13,6,15)</li>
-        <li>(18,13,19,15)</li>
-      </rects>
-    </OrbitalPlatform>
   </terrain>
   <modExtensions>
     <li Class="VEF.Storyteller.PrefabExtension">
@@ -2029,6 +1999,17 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,10)</li>
+        <li>(22,0,24,10)</li>
+        <li>(16,1,21,10)</li>
+        <li>(4,4,8,4)</li>
+        <li>(2,8,8,9)</li>
+        <li>(11,11,15,18)</li>
+        <li>(18,11,18,18)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,3)</li>
@@ -2044,20 +2025,6 @@
         <li>(18,19,18,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,10)</li>
-        <li>(14,0,15,2)</li>
-        <li>(22,0,24,10)</li>
-        <li>(16,1,21,2)</li>
-        <li>(20,3,21,10)</li>
-        <li>(4,4,8,4)</li>
-        <li>(11,6,19,10)</li>
-        <li>(2,8,8,9)</li>
-        <li>(11,11,15,18)</li>
-        <li>(18,11,18,18)</li>
-      </rects>
-    </OrbitalPlatform>
     <AncientTile>
       <rects>
         <li>(11,0,13,0)</li>
@@ -2151,6 +2118,15 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,11)</li>
+        <li>(7,3,8,10)</li>
+        <li>(16,3,17,10)</li>
+        <li>(8,11,8,11)</li>
+        <li>(16,11,16,11)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,2)</li>
@@ -2162,17 +2138,6 @@
         <li>(8,12,16,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,11)</li>
-        <li>(14,0,15,11)</li>
-        <li>(11,1,13,11)</li>
-        <li>(7,3,8,10)</li>
-        <li>(16,3,17,10)</li>
-        <li>(8,11,8,11)</li>
-        <li>(16,11,16,11)</li>
-      </rects>
-    </OrbitalPlatform>
     <AncientTile>
       <rects>
         <li>(11,0,13,0)</li>
@@ -2299,6 +2264,18 @@
     </AncientBox_ComponentIndustrial>
   </things>
   <terrain>
+    <OrbitalPlatform>
+      <rects>
+        <li>(9,0,15,13)</li>
+        <li>(5,2,8,13)</li>
+        <li>(16,2,19,13)</li>
+        <li>(4,3,4,12)</li>
+        <li>(20,3,20,12)</li>
+        <li>(6,14,7,18)</li>
+        <li>(10,14,14,18)</li>
+        <li>(17,14,18,18)</li>
+      </rects>
+    </OrbitalPlatform>
     <Space>
       <rects>
         <li>(0,0,8,1)</li>
@@ -2318,21 +2295,6 @@
         <li>(17,19,18,24)</li>
       </rects>
     </Space>
-    <OrbitalPlatform>
-      <rects>
-        <li>(9,0,10,13)</li>
-        <li>(14,0,15,13)</li>
-        <li>(5,2,8,13)</li>
-        <li>(16,2,19,13)</li>
-        <li>(4,3,4,12)</li>
-        <li>(20,3,20,12)</li>
-        <li>(11,5,13,18)</li>
-        <li>(6,14,7,18)</li>
-        <li>(10,14,10,18)</li>
-        <li>(14,14,14,18)</li>
-        <li>(17,14,18,18)</li>
-      </rects>
-    </OrbitalPlatform>
     <AncientTile>
       <rects>
         <li>(11,0,13,0)</li>
@@ -2362,6 +2324,7 @@
     </li>
   </modExtensions>
 </PrefabDef>
+
 
 
  
