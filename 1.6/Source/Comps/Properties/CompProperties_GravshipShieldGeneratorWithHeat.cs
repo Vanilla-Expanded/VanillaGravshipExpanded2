@@ -4,6 +4,8 @@ using Verse;
 
 namespace VanillaGravshipExpanded2;
 
+using UnityEngine;
+
 public class CompProperties_GravshipShieldGeneratorWithHeat : CompProperties_ProjectileInterceptor
 {
     public float maxHeat = 10f;
@@ -13,6 +15,8 @@ public class CompProperties_GravshipShieldGeneratorWithHeat : CompProperties_Pro
     public float explosionRadius = 0f;
     public int explosionDamage = -1;
     public DamageDef explosionDamageDef = null;
+
+    public HazeSettings hazeSettings = new();
 
     public float PassiveHeatGeneration => passiveHeatGeneration * CompHeatManager.BaseHeatsinkCapacityMultiplier;
     public float HeatPerDamage => heatPerDamage * CompHeatManager.BaseHeatsinkCapacityMultiplier;

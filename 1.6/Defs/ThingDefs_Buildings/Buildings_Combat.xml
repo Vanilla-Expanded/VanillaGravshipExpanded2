@@ -890,6 +890,10 @@
 				<explosionRadius>2.9</explosionRadius>
 				<explosionDamageDef>Flame</explosionDamageDef>
 				<explosionDamage>-1</explosionDamage>				<!-- Default value - damage def determines damage. -->
+				<hazeSettings>
+                    <scale>6</scale>
+                    <offset>(0, 0.2)</offset>
+                </hazeSettings>
 			</li>
 			<li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable" />
 			<li Class="CompProperties_Breakdownable" />

@@ -9,6 +9,7 @@ public class CompGravshipShieldGeneratorWithHeat : CompGravshipShieldGenerator
 {
     private CompHeatManager manager;
     private float storedHeat = 0f;
+    private Effecter haze;
 
     public new CompProperties_GravshipShieldGeneratorWithHeat Props => (CompProperties_GravshipShieldGeneratorWithHeat)props;
 
@@ -27,6 +28,17 @@ public class CompGravshipShieldGeneratorWithHeat : CompGravshipShieldGenerator
                 storedHeat = 0f;
             if (Active)
                 TryPushHeat(Props.PassiveHeatGeneration);
+        }
+
+        if (parent.IsHashIntervalTick(30, delta) && Charging)
+        {
+            if (this.haze == null)
+            {
+                this.haze        = VGEDefOf.VGE_HazeEffecter.Spawn(this.parent, this.parent.Map, Props.hazeSettings.scale);
+                this.haze.offset = this.parent.TrueCenter() - this.parent.DrawPos + Props.hazeSettings.offset.ToVector3();
+            }
+
+            this.haze.Trigger(this.parent, this.parent);
         }
     }
 
