@@ -264,7 +264,6 @@
         <defName>VGE_EnemyGravjumper</defName>
         <order>200</order>
         <genStep Class="VanillaGravshipExpanded2.GenStep_EnemyGravjumper">
-            <structureSetDef>VGE_EnemyGravjumperSet</structureSetDef>
         </genStep>
     </GenStepDef>
 

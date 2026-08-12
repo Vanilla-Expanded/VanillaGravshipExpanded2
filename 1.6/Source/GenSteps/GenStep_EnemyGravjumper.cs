@@ -7,7 +7,6 @@ namespace VanillaGravshipExpanded2
     public class GenStep_EnemyGravjumper : GenStep
     {
         public override int SeedPart => 1634184426;
-        public StructureSetDef structureSetDef;
         public override void Generate(Map map, GenStepParams parms)
         {
             var parent = map.Parent;
@@ -15,6 +14,7 @@ namespace VanillaGravshipExpanded2
             {
                 parent.SetFaction(Faction.OfSalvagers);
             }
+            var structureSetDef = Rand.Chance(0.2f) ? InternalDefOf.VGE_EnemyGravjumperSet_Complete : InternalDefOf.VGE_EnemyGravjumperSet;
             var landingStructure = (LandingStructure_StructureSet)ThingMaker.MakeThing(InternalDefOf.VGE_LandingStructure_EnemyGravjumper);
             landingStructure.structureSetDef = structureSetDef;
             var standardLayouts = StructureSetGenerator.SelectStandardLayouts(structureSetDef);

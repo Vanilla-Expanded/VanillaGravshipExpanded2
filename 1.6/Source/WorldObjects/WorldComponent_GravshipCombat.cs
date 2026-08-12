@@ -28,7 +28,7 @@ namespace VanillaGravshipExpanded2
         public int gravjumperLandingTick = -1;
         public string gravjumperLandingName;
         public bool gravjumperLandedLocal;
-
+        public EnemyStructure enemyGravjumper;
         public static WorldComponent_GravshipCombat Instance;
         private static Map CachedLastGravEngineMap = null;
 
@@ -97,6 +97,7 @@ namespace VanillaGravshipExpanded2
             Scribe_Values.Look(ref gravjumperLandingTick, "gravjumperLandingTick", -1);
             Scribe_Values.Look(ref gravjumperLandingName, "gravjumperLandingName");
             Scribe_Values.Look(ref gravjumperLandedLocal, "gravjumperLandedLocal", false);
+            Scribe_Deep.Look(ref enemyGravjumper, "enemyGravjumper");
         }
 
         public override void WorldComponentTick()
@@ -134,8 +135,12 @@ namespace VanillaGravshipExpanded2
 
             if (gravjumperLandingTick > 0 && Find.TickManager.TicksGame >= gravjumperLandingTick)
             {
-                gravjumperLandingTick = -1;
-                LandGravjumperOnPlayerMap();
+                var map = GetActiveGravEngine?.Map;
+                if (map != null)
+                {
+                    gravjumperLandingTick = -1;
+                    LandGravjumperOnPlayerMap(map);
+                }
             }
         }
 
@@ -323,24 +328,60 @@ namespace VanillaGravshipExpanded2
             activeThreatDef.Worker.SpawnThreat();
         }
 
-        private void LandGravjumperOnPlayerMap()
+        private void LandGravjumperOnPlayerMap(Map map)
         {
-            var map = GetActiveGravEngine.Map;
-            var setDef = Rand.Chance(0.2f) ? InternalDefOf.VGE_EnemyGravjumperSet_Complete : InternalDefOf.VGE_EnemyGravjumperSet;
-            var standardLayouts = VEF.Storyteller.StructureSetGenerator.SelectStandardLayouts(setDef);
             var engine = GetActiveGravEngine;
             var rotation = GetFacingRotation(map.Center, engine != null ? engine.Position : map.Center);
-            var footprint = VEF.Storyteller.StructureSetGenerator.GetFootprint(standardLayouts, rotation);
-            var landingCell = FindBestGravjumperLandingSpot(map, footprint);
 
-            var landingStructure = (LandingStructure_StructureSet)ThingMaker.MakeThing(InternalDefOf.VGE_LandingStructure_EnemyGravjumper);
-            landingStructure.structureSetDef = setDef;
-            landingStructure.selectedDefs = standardLayouts.Select(x => x.def).ToList();
-            landingStructure.shipRotation = rotation;
-            landingStructure.shipFaction = Faction.OfSalvagers;
-            landingStructure.pawnCountRange = new IntRange(5, 8);
+            var landingCell = FindBestGravjumperLandingSpot(map, enemyGravjumper);
+
+            var landingStructure = (LandingStructure_EnemyStructure)ThingMaker.MakeThing(InternalDefOf.VGE_LandingStructure_EnemyGravjumperCaptured);
+            landingStructure.structure = enemyGravjumper;
+            enemyGravjumper = null;
+
             GenSpawn.Spawn(landingStructure, landingCell, map);
             gravjumperLandedLocal = true;
+        }
+
+        private static CellRect GetEnemyStructureBounds(EnemyStructure structure)
+        {
+            int minX = int.MaxValue, minZ = int.MaxValue;
+            int maxX = int.MinValue, maxZ = int.MinValue;
+
+            foreach (var kvp in structure.Things)
+            {
+                var pos = kvp.Value.position;
+                minX = System.Math.Min(minX, pos.x);
+                maxX = System.Math.Max(maxX, pos.x);
+                minZ = System.Math.Min(minZ, pos.z);
+                maxZ = System.Math.Max(maxZ, pos.z);
+            }
+
+            foreach (var pos in structure.Terrains.Keys)
+            {
+                minX = System.Math.Min(minX, pos.x);
+                maxX = System.Math.Max(maxX, pos.x);
+                minZ = System.Math.Min(minZ, pos.z);
+                maxZ = System.Math.Max(maxZ, pos.z);
+            }
+
+            foreach (var pos in structure.Roofs.Keys)
+            {
+                minX = System.Math.Min(minX, pos.x);
+                maxX = System.Math.Max(maxX, pos.x);
+                minZ = System.Math.Min(minZ, pos.z);
+                maxZ = System.Math.Max(maxZ, pos.z);
+            }
+
+            foreach (var pos in structure.Foundations.Keys)
+            {
+                minX = System.Math.Min(minX, pos.x);
+                maxX = System.Math.Max(maxX, pos.x);
+                minZ = System.Math.Min(minZ, pos.z);
+                maxZ = System.Math.Max(maxZ, pos.z);
+            }
+
+            return CellRect.FromLimits(minX, minZ, maxX, maxZ);
         }
 
         private static Rot4 GetFacingRotation(IntVec3 from, IntVec3 to)
@@ -348,45 +389,24 @@ namespace VanillaGravshipExpanded2
             return Rot4.FromAngleFlat((to - from).AngleFlat);
         }
 
-        private static IntVec3 FindBestGravjumperLandingSpot(Map map, IntVec2 footprint)
+        private static IntVec3 FindBestGravjumperLandingSpot(Map map, EnemyStructure structure)
         {
-            var minX = 5 + footprint.x / 2;
-            var maxX = map.Size.x - 5 - footprint.x / 2;
-            var minZ = 5 + footprint.z / 2;
-            var maxZ = map.Size.z - 5 - footprint.z / 2;
+            var bounds = GetEnemyStructureBounds(structure);
+            var margin = 10;
+            var searchRect = new CellRect(margin, margin, map.Size.x - margin * 2, map.Size.z - margin * 2);
 
             var bestCell = map.Center;
             var bestScore = float.MinValue;
             var perfectSpots = new List<IntVec3>();
 
-            for (var x = minX; x <= maxX; x += 3)
+            for (var i = 0; i < 200; i++)
             {
-                for (var z = minZ; z <= maxZ; z += 3)
+                var candidate = searchRect.RandomCell;
+                var targetRect = bounds.MovedBy(candidate);
+                if (targetRect.InBounds(map) && targetRect.FullyContainedWithin(searchRect))
                 {
-                    var center = new IntVec3(x, 0, z);
-                    if (center.Fogged(map)) continue;
-
-                    var rect = CellRect.CenteredOn(center, footprint.x, footprint.z);
-                    if (!rect.FullyContainedWithin(new CellRect(5, 5, map.Size.x - 10, map.Size.z - 10)))
-                        continue;
-
-                    var score = EvaluateLandingSpotScore(rect, map);
-
-                    if (score == 0f)
-                    {
-                        perfectSpots.Add(center);
-                    }
-                    else if (perfectSpots.Count == 0 && score > bestScore)
-                    {
-                        bestScore = score;
-                        bestCell = center;
-                    }
+                    return candidate;
                 }
-            }
-
-            if (perfectSpots.Count > 0)
-            {
-                return perfectSpots.RandomElement();
             }
 
             return bestCell;

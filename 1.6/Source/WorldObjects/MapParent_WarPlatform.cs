@@ -1,5 +1,7 @@
+using System.Linq;
 using RimWorld;
 using RimWorld.Planet;
+using VanillaGravshipExpanded;
 using Verse;
 
 namespace VanillaGravshipExpanded2
@@ -36,10 +38,9 @@ namespace VanillaGravshipExpanded2
             {
                 closingInCheckTick = Find.TickManager.TicksGame + Rand.RangeInclusive(12, 16) * GenDate.TicksPerHour;
             }
-            if (closingInCheckTick > 0 && Find.TickManager.TicksGame >= closingInCheckTick && !defeated)
+            if (closingInCheckTick > 0 && Find.TickManager.TicksGame >= closingInCheckTick && !defeated && CheckClosingInMidBattle())
             {
-                closingInCheckTick = -1;
-                CheckClosingInMidBattle();
+                return;
             }
             if (!defeated)
             {
@@ -92,32 +93,28 @@ namespace VanillaGravshipExpanded2
             }
         }
 
-        private void CheckClosingInMidBattle()
+        private bool CheckClosingInMidBattle()
         {
             var map = Map;
-
-            var engineExists = map.listerThings.ThingsOfDef(InternalDefOf.VGE_EnemyGravjumperEngine).Any(x => !x.Destroyed);
-            var cockpitExists = map.listerThings.ThingsOfDef(InternalDefOf.VGE_EnemyPilotCockpit).Any(x => !x.Destroyed);
-            var thrusterExists = map.listerThings.AllThings.Any(x => x is Building b && !b.Destroyed && b.Faction == Faction &&
-                (b.def == InternalDefOf.VGE_EnemySmallThruster || b.def == InternalDefOf.VGE_EnemyLargeThruster || b.def == InternalDefOf.VGE_EnemyGiantThruster ||
-                b.TryGetComp<CompGravshipThruster>() != null || b.TryGetComp<CompElectricThruster>() != null));
-            var fuelExists = map.listerThings.AllThings.Any(x => x is Building b && !b.Destroyed && b.Faction == Faction &&
-                ((b.TryGetComp<CompRefuelable>() is CompRefuelable r && r.Fuel > 0) ||
-                (b.TryGetComp<PipeSystem.CompResourceStorage>() is PipeSystem.CompResourceStorage s && s.AmountStored > 0) ||
-                (b.TryGetComp<CompPower_InputOnlyBattery>() is CompPower_InputOnlyBattery bat && bat.StoredEnergy > 0)));
-            var noColonists = !map.mapPawns.AnyFreeColonistSpawned;
-
-            if (engineExists && cockpitExists && thrusterExists && fuelExists && noColonists)
+            if (map.mapPawns.AnyFreeColonistSpawned) return false;
+            closingInCheckTick = -1;
+            var enemyThings = map.listerThings.AllThings.Where(x => x.Faction == Faction && x.Destroyed is false).ToList();
+            var engine = enemyThings.OfType<Building_EnemyGravEngine>().FirstOrDefault();
+            var cockpitExists = enemyThings.Where(x => x.def == InternalDefOf.VGE_EnemyPilotCockpit).Any(x => !x.Destroyed);
+            var thrusterExists = enemyThings.Any(x => x.def.HasModExtension<EnemyThrusterExtension>());
+            var fuelExists = enemyThings.Any(x => x.TryGetComp<PipeSystem.CompResourceStorage>() is PipeSystem.CompResourceStorage s && s.AmountStored > 0);
+            if (engine != null && cockpitExists && thrusterExists && fuelExists)
             {
                 var combatComp = WorldComponent_GravshipCombat.Instance;
                 var redName = combatComp.enemyGravshipName.Colorize(ColorLibrary.RedReadable);
                 Messages.Message("VGE_GravjumperLaunched".Translate(redName), MessageTypeDefOf.NeutralEvent);
-
                 combatComp.gravjumperLandingTick = Find.TickManager.TicksGame + Rand.RangeInclusive(1, 2) * GenDate.TicksPerHour;
                 combatComp.gravjumperLandingName = combatComp.enemyGravshipName;
-
+                combatComp.enemyGravjumper = EnemyStructure.CaptureFrom(map, engine);
                 Destroy();
+                return true;
             }
+            return false;
         }
 
         public void Defeat()

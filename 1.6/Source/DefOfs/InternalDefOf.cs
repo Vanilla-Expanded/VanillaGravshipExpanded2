@@ -34,7 +34,9 @@ namespace VanillaGravshipExpanded2
         public static SoundDef VEG_InsectoidTurretTargetAcquired;
 
 		public static TerrainDef VGE_GravshipSubarmor;
-        public static TerrainDef VGE_Subcreep;
+		public static TerrainDef VGE_EnemySubstructure;
+		public static TerrainDef VGE_EnemySubarmor;
+		public static TerrainDef VGE_Subcreep;
 
         public static DesignationCategoryDef VGE_Designer;
 		[DefAlias("VGE_EmptySpace")]
@@ -97,6 +99,7 @@ namespace VanillaGravshipExpanded2
 		public static ThingDef VGE_OxygenCanister;
 		public static TerrainAffordanceDef VGE_SubstructureAndOrbitalPlatform;
 		public static ThingDef VGE_LandingStructure_EnemyGravjumper;
+		public static ThingDef VGE_LandingStructure_EnemyGravjumperCaptured;
 		public static ThingDef VGE_LandingStructure_StructureSet;
 		public static GravshipThreatDef VGE_EnemyGravjumper;
 		public static RulePackDef VGE_NamerEnemyGravship;
