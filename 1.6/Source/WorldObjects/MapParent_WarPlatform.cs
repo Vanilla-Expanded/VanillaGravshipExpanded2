@@ -44,7 +44,7 @@ namespace VanillaGravshipExpanded2
             }
             if (!defeated)
             {
-                var engine = WorldComponent_GravshipCombat.GetActiveGravEngine;
+                var engine = GravEngineTracker.GetPlayerGravEngine();
                 if (engine != null && engine.Destroyed is false)
                 {
                     playerDestroyedTick = -1;
@@ -74,7 +74,7 @@ namespace VanillaGravshipExpanded2
                 if (Find.TickManager.TicksGame >= playerDestroyedTick)
                 {
                     playerDestroyedTick = -1;
-                    var engine = WorldComponent_GravshipCombat.GetActiveGravEngine;
+                    var engine = GravEngineTracker.GetPlayerGravEngine();
                     if (engine is null || engine.Destroyed)
                     {
                         threatDef.Worker.OnEngineDestroyed(this);

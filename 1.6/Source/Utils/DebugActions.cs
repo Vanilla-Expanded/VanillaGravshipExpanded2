@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using LudeonTK;
 using RimWorld;
+using VanillaGravshipExpanded;
 using Verse;
 
 namespace VanillaGravshipExpanded2
@@ -63,7 +64,7 @@ namespace VanillaGravshipExpanded2
         [DebugAction("VGE2", "Force encounter (random)")]
         public static void ForceEncounter()
         {
-            if (WorldComponent_GravshipCombat.GetActiveGravEngine == null)
+            if (GravEngineTracker.GetPlayerGravEngine() == null)
             {
                 Log.Error("[VGE2] No gravengine found - cannot trigger encounter");
                 return;
@@ -74,13 +75,13 @@ namespace VanillaGravshipExpanded2
         [DebugAction("VGE2", "Force encounter (specific)")]
         public static void ForceEncounterSpecific()
         {
-            if (WorldComponent_GravshipCombat.GetActiveGravEngine == null)
+            if (GravEngineTracker.GetPlayerGravEngine() == null)
             {
                 Log.Error("[VGE2] No gravengine found - cannot trigger encounter");
                 return;
             }
 
-            var engine = WorldComponent_GravshipCombat.GetActiveGravEngine;
+            var engine = GravEngineTracker.GetPlayerGravEngine();
             var validThreats = DefDatabase<GravshipThreatDef>.AllDefsListForReading.Where(x => x.Worker.CanFire(engine));
             var list = new List<DebugMenuOption>();
             foreach (var threat in validThreats)

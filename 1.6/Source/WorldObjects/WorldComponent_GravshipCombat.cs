@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using RimWorld.Planet;
+using VanillaGravshipExpanded;
 using Verse;
 
 namespace VanillaGravshipExpanded2
@@ -30,44 +31,6 @@ namespace VanillaGravshipExpanded2
         public bool gravjumperLandedLocal;
         public EnemyStructure enemyGravjumper;
         public static WorldComponent_GravshipCombat Instance;
-        private static Map CachedLastGravEngineMap = null;
-
-        public static Building_GravEngine GetActiveGravEngine
-        {
-            get
-            {
-                Building_GravEngine engine;
-                // Try grabbing the cached engine if possible
-                if (CachedLastGravEngineMap != null)
-                {
-                    engine = GravshipUtility.GetPlayerGravEngine_NewTemp(CachedLastGravEngineMap);
-                    if (engine != null)
-                        return engine;
-                    // Cached engine lookup failed, reset cache
-                    CachedLastGravEngineMap = null;
-                }
-
-                // Grab the Gravship world object engine first, since we don't cache at all
-                engine = Current.Game.Gravship?.Engine;
-                if (engine != null)
-                    return engine;
-
-                // Find a grav engine on one of the maps
-                foreach (var map in Current.Game.Maps)
-                {
-                    engine = GravshipUtility.GetPlayerGravEngine_NewTemp(map);
-                    if (engine != null)
-                    {
-                        // Cache which map had the engine
-                        CachedLastGravEngineMap = map;
-                        return engine;
-                    }
-                }
-
-                // No engine found. Worst case scenario, since it'll need to re-do the whole check again next time.
-                return null;
-            }
-        }
 
         public WorldComponent_GravshipCombat(World world) : base(world)
         {
@@ -124,7 +87,7 @@ namespace VanillaGravshipExpanded2
 
             if (salvagerDropshipTick > 0 && Find.TickManager.TicksGame >= salvagerDropshipTick)
             {
-                var engine = GetActiveGravEngine;
+                var engine = GravEngineTracker.GetPlayerGravEngine();
                 if (engine?.Map != null)
                 {
                     salvagerDropshipTick = -1;
@@ -135,7 +98,7 @@ namespace VanillaGravshipExpanded2
 
             if (gravjumperLandingTick > 0 && Find.TickManager.TicksGame >= gravjumperLandingTick)
             {
-                var map = GetActiveGravEngine?.Map;
+                var map = GravEngineTracker.GetPlayerGravEngine()?.Map;
                 if (map != null)
                 {
                     gravjumperLandingTick = -1;
@@ -179,7 +142,7 @@ namespace VanillaGravshipExpanded2
 
         private void ShowTributeDemandDialog(bool postponed)
         {
-            var engine = GetActiveGravEngine;
+            var engine = GravEngineTracker.GetPlayerGravEngine();
             if (engine == null) return;
             var map = engine.Map;
 
@@ -227,7 +190,7 @@ namespace VanillaGravshipExpanded2
 
         public void AddVisibility(float baseAmount, bool isLaunch = false, bool applyFactors = true)
         {
-            var engine = GetActiveGravEngine;
+            var engine = GravEngineTracker.GetPlayerGravEngine();
             if (engine == null) return;
 
             var factor = 1f;
@@ -311,7 +274,7 @@ namespace VanillaGravshipExpanded2
 
         public void TriggerEncounter()
         {
-            var engine = GetActiveGravEngine;
+            var engine = GravEngineTracker.GetPlayerGravEngine();
             if (engine is null) return;
             var validThreats = DefDatabase<GravshipThreatDef>.AllDefsListForReading.Where(x => x.Worker.CanFire(engine));
             if (validThreats.TryRandomElementByWeight(x => x.weight, out var selected))
@@ -330,7 +293,7 @@ namespace VanillaGravshipExpanded2
 
         private void LandGravjumperOnPlayerMap(Map map)
         {
-            var engine = GetActiveGravEngine;
+            var engine = GravEngineTracker.GetPlayerGravEngine();
             var rotation = GetFacingRotation(map.Center, engine != null ? engine.Position : map.Center);
 
             var landingCell = FindBestGravjumperLandingSpot(map, enemyGravjumper);

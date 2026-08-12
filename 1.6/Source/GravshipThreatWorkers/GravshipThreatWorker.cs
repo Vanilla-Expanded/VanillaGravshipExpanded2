@@ -60,7 +60,7 @@ namespace VanillaGravshipExpanded2
 
         public virtual void SpawnThreat(bool suppressArrivalLetter = false)
         {
-            var engine = WorldComponent_GravshipCombat.GetActiveGravEngine;
+            var engine = GravEngineTracker.GetPlayerGravEngine();
             if (engine == null) return;
             var activeThreatDef = WorldComponent_GravshipCombat.Instance.activeThreatDef;
 
