@@ -19,9 +19,9 @@ public static class VanillaGravshipExpanded2_Building_Destroy_Patch
     private static void Prefix(DestroyMode mode, Building __instance)
     {
         chance = Rand.Chance(0.8f);
+        storedMap = __instance.Map;
         if (chance && mode == DestroyMode.KillFinalize)
         {
-            storedMap = __instance.Map;
             storedPos = __instance.Position;
             storedRot = __instance.Rotation;
         }

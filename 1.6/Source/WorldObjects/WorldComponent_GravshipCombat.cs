@@ -397,15 +397,22 @@ namespace VanillaGravshipExpanded2
 
             var bestCell = map.Center;
             var bestScore = float.MinValue;
-            var perfectSpots = new List<IntVec3>();
-
-            for (var i = 0; i < 200; i++)
+            for (var i = 0; i < 300; i++)
             {
                 var candidate = searchRect.RandomCell;
                 var targetRect = bounds.MovedBy(candidate);
                 if (targetRect.InBounds(map) && targetRect.FullyContainedWithin(searchRect))
                 {
-                    return candidate;
+                    var score = EvaluateLandingSpotScore(targetRect, map);
+                    if (score > bestScore)
+                    {
+                        bestScore = score;
+                        bestCell = candidate;
+                        if (score >= 0f)
+                        {
+                            break;
+                        }
+                    }
                 }
             }
 
@@ -421,20 +428,20 @@ namespace VanillaGravshipExpanded2
                 if (cell.Roofed(map)) score -= 500f;
                 if (map.areaManager.Home[cell]) score -= 200f;
 
-                if (!cell.Standable(map)) score -= 100f;
+                if (!cell.Standable(map)) score -= 500f;
 
                 var edifice = cell.GetEdifice(map);
                 if (edifice != null)
                 {
-                    if (edifice.def.building?.isNaturalRock == true) score -= 80f;
-                    else score -= 150f;
+                    if (edifice.def.building?.isNaturalRock == true) score -= 1000f;
+                    else score -= 1000f;
                 }
 
                 var thingList = cell.GetThingList(map);
                 for (var i = 0; i < thingList.Count; i++)
                 {
                     var t = thingList[i];
-                    if (t is Building && t != edifice) score -= 50f;
+                    if (t is Building && t != edifice) score -= 1000f;
                     if (t is Pawn) score -= 30f;
                 }
             }

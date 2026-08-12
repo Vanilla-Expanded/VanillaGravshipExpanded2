@@ -1,11 +1,14 @@
 using System.Collections;
+using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
+using VanillaGravshipExpanded;
 using Verse;
+using Verse.AI.Group;
 
 namespace VanillaGravshipExpanded2
 {
-    public class LandingStructure_EnemyStructure : VanillaGravshipExpanded.LandingStructureBase
+    public class LandingStructure_EnemyStructure : LandingStructureBase
     {
         public EnemyStructure structure;
 
@@ -46,7 +49,7 @@ namespace VanillaGravshipExpanded2
             {
                 if (tempMap.terrainGrid.TerrainAt(c) == TerrainDefOf.Space)
                 {
-                    tempMap.terrainGrid.SetTerrain(c, VanillaGravshipExpanded.VGEDefOf.VGE_FakeTerrain);
+                    tempMap.terrainGrid.SetTerrain(c, VGEDefOf.VGE_FakeTerrain);
                 }
             }
 
@@ -73,6 +76,7 @@ namespace VanillaGravshipExpanded2
 
         private void RestoreStructureToMap(Map map, IntVec3 center, EnemyStructure structure)
         {
+            var assaultPawnsByFaction = new Dictionary<Faction, List<Pawn>>();
             foreach (var kvp in structure.Things)
             {
                 var thing = kvp.Key;
@@ -83,11 +87,35 @@ namespace VanillaGravshipExpanded2
                 if (thing is Pawn pawn)
                 {
                     GenSpawn.Spawn(pawn, targetPos, map);
+                    if (pawn.Faction != null && pawn.Faction != Faction.OfPlayer)
+                    {
+                        if (!assaultPawnsByFaction.TryGetValue(pawn.Faction, out var list))
+                        {
+                            list = new List<Pawn>();
+                            assaultPawnsByFaction[pawn.Faction] = list;
+                        }
+                        list.Add(pawn);
+                    }
                 }
                 else
                 {
                     GenSpawn.Spawn(thing, targetPos, map, rot);
                 }
+
+                if (thing is Building_TurretGun turret)
+                {
+                    var artillery = turret.TryGetComp<CompWorldArtillery>();
+                    if (artillery != null)
+                    {
+                        artillery.Reset();
+                        turret.ResetForcedTarget();
+                    }
+                }
+            }
+
+            foreach (var kvp in assaultPawnsByFaction)
+            {
+                LordMaker.MakeNewLord(kvp.Key, new LordJob_AssaultColony(kvp.Key, false), map, kvp.Value);
             }
 
             foreach (var kvp in structure.Terrains)
