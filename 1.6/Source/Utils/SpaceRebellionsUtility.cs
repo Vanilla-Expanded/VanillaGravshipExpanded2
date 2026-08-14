@@ -85,7 +85,7 @@ public static class SpaceRebellionsUtility
             var list = map.listerThings.ThingsOfDef(ValidTransportPods[i]);
             for (var j = 0; j < list.Count; j++)
             {
-                if (list[j].TryGetComp<CompLaunchable>() is {} pod && IsTransportPodUsable(pod, targetLayer, distance))
+                if (list[j].TryGetComp<CompLaunchable>() is { } pod && IsTransportPodUsable(pod, targetLayer, distance))
                     yield return pod;
             }
         }

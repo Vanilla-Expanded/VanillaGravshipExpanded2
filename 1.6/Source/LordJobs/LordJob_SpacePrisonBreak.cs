@@ -20,26 +20,12 @@ public class LordJob_SpacePrisonBreak : LordJob_PrisonBreak
     public override StateGraph CreateGraph()
     {
         var stateGraph = new StateGraph();
-        var travelToil = new LordToil_Travel(groupUpLoc)
-        {
-            maxDanger = Danger.Deadly,
-            useAvoidGrid = true
-        };
-
-        stateGraph.StartingToil = travelToil;
         var escapeNoDiggingToil = new LordToil_GoToEscapePods(SpaceRebellionsUtility.GetClosestTargetTransportPodTile(Map), LocomotionUrgency.Jog)
         {
             useAvoidGrid = true
         };
         stateGraph.AddToil(escapeNoDiggingToil);
-
-        var getToEscapePodsOnArrived = new Transition(travelToil, escapeNoDiggingToil);
-        getToEscapePodsOnArrived.AddTrigger(new Trigger_Memo("TravelArrived"));
-        stateGraph.AddTransition(getToEscapePodsOnArrived);
-
-        var getToEscapePodsOnMemberLost = new Transition(travelToil, escapeNoDiggingToil);
-        getToEscapePodsOnMemberLost.AddTrigger(new Trigger_PawnLost());
-        stateGraph.AddTransition(getToEscapePodsOnMemberLost);
+        stateGraph.StartingToil = escapeNoDiggingToil;
 
         var tryGettingToPodsAgain = new Transition(escapeNoDiggingToil, escapeNoDiggingToil, true);
         tryGettingToPodsAgain.AddTrigger(new Trigger_PawnLost());
