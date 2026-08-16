@@ -67,10 +67,29 @@ public class LordToil_GoToEscapePods : LordToil
             lord.Notify_BuildingLost(building);
             launchable.Transporter.CleanUpLoadingVars(Map);
         }
-        else if ((float)building.HitPoints / building.MaxHitPoints < 0.75f || !Data.targetsForPawns.Any(x => x.Value == building && x.Key.DestroyedOrNull() || x.Key.DeadOrDowned || !heldThings.Contains(x.Key)))
+        else if ((float)building.HitPoints / building.MaxHitPoints < 0.75f)
         {
             lord.Notify_BuildingLost(building);
             LaunchDropPod(launchable);
+        }
+        else
+        {
+            var containsAllPawns = true;
+
+            foreach (var (pawn, target) in Data.targetsForPawns)
+            {
+                if (target == building && !pawn.DestroyedOrNull() && !heldThings.Contains(pawn) && !pawn.DeadOrDowned)
+                {
+                    containsAllPawns = false;
+                    break;
+                }
+            }
+
+            if (containsAllPawns)
+            {
+                lord.Notify_BuildingLost(building);
+                LaunchDropPod(launchable);
+            }
         }
     }
 
