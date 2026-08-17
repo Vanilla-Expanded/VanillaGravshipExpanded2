@@ -100,6 +100,14 @@
 			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
 				<replacementBuilding>VGE_DestroyedSmallElectricThruster</replacementBuilding>
 			</li>
+      <li Class="VanillaGravshipExpanded.AdditionalGravshipComponentTypesExtension">
+        <!-- Additional gravship component types that this counts as for the purpose of displaying missing components and working as a signal jammer. -->
+        <!-- Treat the type defined in facility as the "main" component (so the components that other mods that don't support VGE will most likely check). -->
+        <!-- Adding an additional component type that's marked as required will enable an extra Harmony patch (same with a signal jammer), so preferably use those as the "main" component. -->
+        <additionalComponentTypeDefs>
+          <li>FuelStorage</li>
+        </additionalComponentTypeDefs>
+      </li>
 		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ThrusterBase">
@@ -201,6 +209,14 @@
 			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
 				<replacementBuilding>VGE_DestroyedLargeElectricThruster</replacementBuilding>
 			</li>
+      <li Class="VanillaGravshipExpanded.AdditionalGravshipComponentTypesExtension">
+        <!-- Additional gravship component types that this counts as for the purpose of displaying missing components and working as a signal jammer. -->
+        <!-- Treat the type defined in facility as the "main" component (so the components that other mods that don't support VGE will most likely check). -->
+        <!-- Adding an additional component type that's marked as required will enable an extra Harmony patch (same with a signal jammer), so preferably use those as the "main" component. -->
+        <additionalComponentTypeDefs>
+          <li>FuelStorage</li>
+        </additionalComponentTypeDefs>
+      </li>
 		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ThrusterBase">
@@ -302,6 +318,14 @@
 			<li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
 				<replacementBuilding>VGE_DestroyedGiantElectricThruster</replacementBuilding>
 			</li>
+      <li Class="VanillaGravshipExpanded.AdditionalGravshipComponentTypesExtension">
+        <!-- Additional gravship component types that this counts as for the purpose of displaying missing components and working as a signal jammer. -->
+        <!-- Treat the type defined in facility as the "main" component (so the components that other mods that don't support VGE will most likely check). -->
+        <!-- Adding an additional component type that's marked as required will enable an extra Harmony patch (same with a signal jammer), so preferably use those as the "main" component. -->
+        <additionalComponentTypeDefs>
+          <li>FuelStorage</li>
+        </additionalComponentTypeDefs>
+      </li>
 		</modExtensions>
 	</ThingDef>
 </Defs>
