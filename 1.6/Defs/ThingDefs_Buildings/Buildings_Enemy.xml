@@ -2166,5 +2166,180 @@
 	<designationCategory>VGE_Designer</designationCategory>
   </ThingDef>
 
+    <ThingDef ParentName="VGE_EnemyArtilleryBase">
+        <defName>VGE_EnemyGaussHowitzer</defName>
+        <label>enemy gauss howitzer</label>
+        <description>A triple-barrel electromagnetic artillery piece that fires dense uranium slugs at high velocity. Designed for both local bombardments and long-range engagements, it can also target other gravships in orbit. It draws power directly from the grav engine and does not require a linked terminal to function.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <uiIconPath>Things/Enemy/EnemyGaussHowitzer/EnemyGaussHowitzer_MenuIcon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Normal</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(5,5)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>1000</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <Beauty>-40</Beauty>
+            <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+        </statBases>
+        <costList>
+            <Steel>150</Steel>
+            <GravlitePanel>24</GravlitePanel>
+            <ComponentIndustrial>5</ComponentIndustrial>
+        </costList>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <size>(5,5)</size>
+        <building>
+            <turretGunDef>VGE_Gun_EnemyGaussHowitzer</turretGunDef>
+            <turretBurstCooldownTime>90</turretBurstCooldownTime>
+            <turretTopDrawSize>7</turretTopDrawSize>
+            <turretTopOffset>(0, 0.25)</turretTopOffset>
+            <turretBurstWarmupTime>8</turretBurstWarmupTime>
+        </building>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>36</worldMapAttackRange>
+                <firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>45</rotationSpeed>
+            </li>
+            <li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+                <barrels>
+                    <li>(0.5, 0, 3)</li>
+                    <li>(0, 0, 3)</li>
+                    <li>(-0.5, 0, 3)</li>
+                </barrels>
+            </li>
+        </modExtensions>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_EnemyGaussHowitzer</defName>
+        <label>enemy gauss howitzer</label>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyGaussHowitzer/EnemyGaussHowitzer_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithSmoke</verbClass>
+                <defaultProjectile>VGE_Bullet_GaussHowitzer</defaultProjectile>
+                <range>99999</range>
+                <minRange>26</minRange>
+                <burstShotCount>3</burstShotCount>
+                <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>14</muzzleFlashScale>
+                <forcedMissRadius>18</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <consumeFuelPerShot>0</consumeFuelPerShot>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <isMortar>true</isMortar>
+                <soundCast>VGE_GravshipHowitzer</soundCast>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="VGE_EnemyArtilleryBase">
+        <defName>VGE_EnemyJavelinLauncher</defName>
+        <label>enemy javelin launcher</label>
+        <description>A heavy multi-tube missile platform that fires a spread of 12 long-range guided astrofuel-propelled javelins. Designed for saturation strikes against surface targets and rival gravships in orbit. It draws power directly from the grav engine and does not require a linked terminal to function.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <thingClass>VanillaGravshipExpanded2.Building_EnemyJavelinPod</thingClass>
+        <uiIconPath>Things/Enemy/EnemyJavelinLauncher/EnemyJavelinLauncher_MenuIcon</uiIconPath>
+        <statBases>
+            <MaxHitPoints>1000</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <Beauty>-40</Beauty>
+            <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Normal</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(5,5)</drawSize>
+        </graphicData>
+        <costList>
+            <Steel>150</Steel>
+            <GravlitePanel>24</GravlitePanel>
+            <ComponentIndustrial>5</ComponentIndustrial>
+        </costList>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <size>(5,5)</size>
+        <building>
+            <turretGunDef>VGE_Gun_EnemyJavelinLauncher</turretGunDef>
+            <turretBurstCooldownTime>120</turretBurstCooldownTime>
+            <turretTopDrawSize>6</turretTopDrawSize>
+            <turretTopOffset>(0, 0.25)</turretTopOffset>
+            <turretBurstWarmupTime>10</turretBurstWarmupTime>
+        </building>
+        <comps>
+            <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+                <worldMapAttackRange>36</worldMapAttackRange>
+                <firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
+                <rotationSpeed>45</rotationSpeed>
+            </li>
+            <li Class="VanillaGravshipExpanded.TurretExtension_Barrels">
+                <barrels>
+                    <li>(2.375, 0, 2.5)</li>
+                    <li>(2.0625, 0, 2.5)</li>
+                    <li>(1.75, 0, 2.5)</li>
+                    <li>(-1.75, 0, 2.5)</li>
+                    <li>(-2.0625, 0, 2.5)</li>
+                    <li>(-2.375, 0, 2.5)</li>
+                </barrels>
+            </li>
+        </modExtensions>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>VGE_Gun_EnemyJavelinLauncher</defName>
+        <label>enemy javelin launcher</label>
+        <graphicData>
+            <texPath>Things/Enemy/EnemyJavelinLauncher/EnemyJavelinLauncher_TurretTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <verbs>
+            <li>
+                <verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
+                <defaultProjectile>VGE_Rocket_JavelinRocket</defaultProjectile>
+                <range>99999</range>
+                <minRange>20</minRange>
+                <burstShotCount>12</burstShotCount>
+                <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                <soundCast>VGE_JavelinLauncher_Cast</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>8</muzzleFlashScale>
+                <forcedMissRadius>24</forcedMissRadius>
+                <requireLineOfSight>false</requireLineOfSight>
+                <consumeFuelPerShot>0</consumeFuelPerShot>
+                <isMortar>true</isMortar>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+        <building>
+            <turretTopLoadedGraphic>
+                <texPath>Things/Enemy/EnemyJavelinLauncher/EnemyJavelinLauncher_TurretTop_Loaded</texPath>
+                <graphicClass>Graphic_Single</graphicClass>
+            </turretTopLoadedGraphic>
+        </building>
+    </ThingDef>
+
 
 </Defs>
