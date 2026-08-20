@@ -116,20 +116,44 @@
     </Space>
     <Substructure>
       <rects>
-        <li>(2,0,4,5)</li>
-        <li>(0,1,1,1)</li>
-        <li>(1,2,1,3)</li>
-        <li>(5,2,6,12)</li>
-        <li>(7,3,7,11)</li>
-        <li>(8,5,8,9)</li>
-        <li>(3,6,4,14)</li>
-        <li>(9,6,10,8)</li>
-        <li>(11,7,11,7)</li>
+        <li>(2,0,4,0)</li>
+        <li>(0,1,2,1)</li>
+        <li>(4,1,4,2)</li>
+        <li>(1,2,2,3)</li>
+        <li>(5,2,6,2)</li>
+        <li>(6,3,7,3)</li>
+        <li>(2,4,2,5)</li>
+        <li>(7,4,7,5)</li>
+        <li>(3,5,3,6)</li>
+        <li>(8,5,8,6)</li>
+        <li>(9,6,10,6)</li>
+        <li>(5,7,5,7)</li>
+        <li>(10,7,11,7)</li>
+        <li>(3,8,3,9)</li>
+        <li>(8,8,10,8)</li>
         <li>(2,9,2,14)</li>
+        <li>(7,9,8,9)</li>
+        <li>(7,10,7,11)</li>
         <li>(1,11,1,13)</li>
+        <li>(6,11,6,12)</li>
+        <li>(4,12,5,12)</li>
         <li>(0,13,0,13)</li>
+        <li>(4,13,4,14)</li>
+        <li>(3,14,3,14)</li>
       </rects>
     </Substructure>
+    <MetalTile>
+      <rects>
+        <li>(3,1,3,4)</li>
+        <li>(4,3,5,6)</li>
+        <li>(6,4,6,10)</li>
+        <li>(7,6,7,8)</li>
+        <li>(3,7,4,7)</li>
+        <li>(8,7,9,7)</li>
+        <li>(4,8,5,11)</li>
+        <li>(3,10,3,13)</li>
+      </rects>
+    </MetalTile>
   </terrain>
   <modExtensions>
     <li Class="VEF.Storyteller.PrefabExtension">
@@ -155,6 +179,8 @@
     </li>
   </modExtensions>
 </PrefabDef>
+
+
 
 <PrefabDef>
   <defName>StartingGravjumper_TravelCraft</defName>
@@ -294,12 +320,20 @@
         <li>(4,0,11,1)</li>
         <li>(3,1,3,1)</li>
         <li>(12,1,12,1)</li>
-        <li>(4,3,6,9)</li>
-        <li>(2,4,3,8)</li>
-        <li>(7,4,9,8)</li>
-        <li>(0,5,1,7)</li>
-        <li>(10,5,12,7)</li>
-        <li>(13,6,14,6)</li>
+        <li>(4,3,4,4)</li>
+        <li>(6,3,6,4)</li>
+        <li>(2,4,3,4)</li>
+        <li>(7,4,9,4)</li>
+        <li>(0,5,2,5)</li>
+        <li>(9,5,12,5)</li>
+        <li>(0,6,0,7)</li>
+        <li>(12,6,14,6)</li>
+        <li>(1,7,2,7)</li>
+        <li>(9,7,12,7)</li>
+        <li>(2,8,4,8)</li>
+        <li>(6,8,9,8)</li>
+        <li>(4,9,4,9)</li>
+        <li>(6,9,6,9)</li>
         <li>(3,11,12,11)</li>
         <li>(4,12,11,12)</li>
       </rects>
@@ -312,6 +346,15 @@
         <li>(5,10,5,10)</li>
       </rects>
     </VGE_GravshipSubscaffold>
+    <SterileTile>
+      <rects>
+        <li>(5,3,5,9)</li>
+        <li>(3,5,4,7)</li>
+        <li>(6,5,8,7)</li>
+        <li>(1,6,2,6)</li>
+        <li>(9,6,11,6)</li>
+      </rects>
+    </SterileTile>
   </terrain>
   <modExtensions>
     <li Class="VEF.Storyteller.PrefabExtension">
@@ -331,6 +374,8 @@
     </li>
   </modExtensions>
 </PrefabDef>
+
+
 
 <PrefabDef>
   <defName>StartingGravjumper_DamagedGunship</defName>
@@ -423,6 +468,13 @@
       <position>(8, 0, 5)</position>
       <relativeRotation>Clockwise</relativeRotation>
     </VGE_PilotCockpit>
+    <WallLamp>
+      <rects>
+        <li>(4,4,4,4)</li>
+        <li>(4,6,4,6)</li>
+      </rects>
+      <relativeRotation>Counterclockwise</relativeRotation>
+    </WallLamp>
     <VQEA_DestroyedSmallAstrofuelTank>
       <position>(7, 0, 3)</position>
     </VQEA_DestroyedSmallAstrofuelTank>
@@ -459,8 +511,6 @@
         <li>(8,1,8,1)</li>
         <li>(7,2,7,2)</li>
         <li>(9,2,9,3)</li>
-        <li>(8,3,8,4)</li>
-        <li>(9,5,9,5)</li>
       </rects>
     </Filth_RubbleBuilding>
   </things>
@@ -535,6 +585,8 @@
     </li>
   </modExtensions>
 </PrefabDef>
+
+
 
 
 

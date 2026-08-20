@@ -77,7 +77,13 @@
     	  <li Class="CompProperties_InspectString">
      		   <inspectString>Contains: Gravcore</inspectString>
     	  </li>
+         <li Class="CompProperties_LetterOnRevealed">
+            <label>Warcomputer</label>
+            <text>You've discovered a hostile warcomputer running an orbital warplatform. Destroy it to disable all platform weaponry and obtain a gravcore.</text>
+             <letterDef>NeutralEvent</letterDef>
+      </li>
         </comps>
+
         <modExtensions>
             <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
                 <replacementBuilding>VGE_DestroyedWarComputer</replacementBuilding>
@@ -133,6 +139,11 @@
     	  <li Class="CompProperties_InspectString">
      		   <inspectString>Contains: Gravcore</inspectString>
     	  </li>
+        <li Class="CompProperties_LetterOnRevealed">
+               <label>Gravjumper engine</label>
+                <text>You've discovered an enemy gravjumper engine. Destroy it to obtain a gravcore and permanently disable the vessel's ability to move.</text>
+               <letterDef>NeutralEvent</letterDef>
+        </li>
         </comps>
     </ThingDef>
 
@@ -183,6 +194,11 @@
     	  <li Class="CompProperties_InspectString">
      		   <inspectString>Contains: Gravcore</inspectString>
     	  </li>
+        <li Class="CompProperties_LetterOnRevealed">
+        <label>Gravship engine</label>
+        <text>You've discovered an enemy gravship engine. Destroy it to obtain a gravcore and permanently disable the ship's ability to move.</text>
+        <letterDef>NeutralEvent</letterDef>
+      </li>
         </comps>
     </ThingDef>
 
@@ -234,6 +250,11 @@
     	  <li Class="CompProperties_InspectString">
      		   <inspectString>Contains: Gravcore</inspectString>
     	  </li>
+          <li Class="CompProperties_LetterOnRevealed">
+        <label>Gravhulk engine</label>
+        <text>You've discovered an enemy gravhulk engine. Destroy it to obtain a gravcore and permanently cripple this massive vessel's mobility.</text>
+        <letterDef>NeutralEvent</letterDef>
+      </li>
         </comps>
     </ThingDef>
 
@@ -285,6 +306,11 @@
     	  <li Class="CompProperties_InspectString">
      		   <inspectString>Contains: Gravcore</inspectString>
     	  </li>
+          <li Class="CompProperties_LetterOnRevealed">
+        <label>Gravlock tether</label>
+        <text>You've discovered an enemy gravlock tether, anchoring an orbital base in place. Destroy it to obtain a gravcore.</text>
+        <letterDef>NeutralEvent</letterDef>
+      </li>
         </comps>
         <modExtensions>
             <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
@@ -918,7 +944,7 @@
         <defName>VGE_EnemyAnticraftBeam</defName>
         <label>enemy anticraft beam</label>
         <thingClass>VanillaGravshipExpanded2.Building_EnemyAnticraftEmitter</thingClass>
-        <description>A massive anti-ship beam weapon intended to destroy flying craft, but also capable of firing onto the surface from space. Ships using ultratech signal jammers can delay the targeting of these weapons.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <description>A massive anti-ship beam weapon intended to destroy flying craft, but also capable of firing onto the surface from space. Ships using ultratech signal jammers can delay the targeting of these weapons.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be destroyed to yield some valuable resources, including a gravcore.</description>
         <graphicData>
             <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Giant</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -939,6 +965,7 @@
             <GravlitePanel>160</GravlitePanel>
             <ComponentSpacer>14</ComponentSpacer>
             <ComponentIndustrial>22</ComponentIndustrial>
+            <Gravcore>1</Gravcore>
         </costList>
         <building>
             <turretGunDef>VGE_Gun_EnemyAnticraftBeam</turretGunDef>
@@ -957,6 +984,14 @@
                 <worldMapAttackRange>36</worldMapAttackRange>
                 <firingMode>GroundToSpace, SpaceToSpace, SpaceToGround</firingMode>
             </li>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
+        <li Class="CompProperties_LetterOnRevealed">
+        <label>Beam emitter</label>
+        <text>You've discovered an anticraft beam. This powerful orbital weapon can annihilate any gravship that challenges it. Destroy it to secure the airspace and obtain a gravcore.</text>
+        <letterDef>NeutralEvent</letterDef>
+      </li>
         </comps>
         <modExtensions>
             <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
@@ -1653,11 +1688,11 @@
                 <glowRadius>5</glowRadius>
                 <glowColor>(255, 40, 40, 0)</glowColor>
             </li>
-            <li Class="CompProperties_LetterOnRevealed">
-                <label>Ancient signal jammer</label>
-                <text>You detect an energy signature of a signal jammer nearby. Destroy it to obtain a valuable gravcore.</text>
-                <letterDef>NeutralEvent</letterDef>
-            </li>
+        <li Class="CompProperties_LetterOnRevealed">
+        <label>Signal jammer</label>
+        <text>You've discovered an ancient signal jammer actively preventing vessels from leaving the area. Destroy it to lift the lockdown and obtain a gravcore.</text>
+        <letterDef>NeutralEvent</letterDef>
+      </li>
             <li Class="CompProperties_InspectString">
                <inspectString>Contains: Gravcore</inspectString>
               </li>
@@ -1667,7 +1702,7 @@
     <ThingDef ParentName="VGE_EnemyArtilleryBase">
         <defName>VGE_EnemyGaussCannon</defName>
         <label>enemy gauss cannon</label>
-        <description>A massive, single-barrel anti-ship cannon that uses powerful electromagnets to launch large metallic darts at extreme velocities. While formidable, ships equipped with ultratech signal jammers can temporarily paralyze its targeting systems, rendering it unable to fire during the disruption.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources.</description>
+        <description>A massive, single-barrel anti-ship cannon that uses powerful electromagnets to launch large metallic darts at extreme velocities. While formidable, ships equipped with ultratech signal jammers can temporarily paralyze its targeting systems, rendering it unable to fire during the disruption.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be destroyed to yield some valuable resources, including a gravcore.</description>
         <uiIconPath>Things/Enemy/EnemyGaussCannon/EnemyGaussCannon_MenuIcon</uiIconPath>
         <graphicData>
             <texPath>Things/Structures/Artillery/GravshipArtillery_Base_Giant</texPath>
@@ -1695,6 +1730,7 @@
             <GravlitePanel>200</GravlitePanel>
             <ComponentIndustrial>30</ComponentIndustrial>
             <ComponentSpacer>10</ComponentSpacer>
+            <Gravcore>1</Gravcore>
         </costList>
         <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
         <comps>
@@ -1702,6 +1738,14 @@
                 <worldMapAttackRange>24</worldMapAttackRange>
                 <firingMode>SpaceToGround, SpaceToSpace, GroundToSpace, GroundToGround</firingMode>
             </li>
+    	  <li Class="CompProperties_InspectString">
+     		   <inspectString>Contains: Gravcore</inspectString>
+    	  </li>
+        <li Class="CompProperties_LetterOnRevealed">
+        <label>Gauss cannon</label>
+        <text>You've discovered a gauss cannon, a devastating piece of orbital artillery. Destroy it to eliminate the threat and obtain a gravcore.</text>
+        <letterDef>NeutralEvent</letterDef>
+      </li>
         </comps>
         <modExtensions>
             <li Class="VanillaGravshipExpanded.TurretExtension_RotationSpeed">
