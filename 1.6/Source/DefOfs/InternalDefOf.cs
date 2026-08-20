@@ -112,5 +112,8 @@ namespace VanillaGravshipExpanded2
 		public static RaidStrategyDef Siege;
 		public static RaidStrategyDef ImmediateAttackSappers;
 		public static RaidStrategyDef ImmediateAttackSmart;
+		public static GravshipThreatDef VGE_EnemyGravship;
+		public static VEF.Storyteller.StructureSetDef VGE_EnemyGravshipSet;
+		public static ThingDef VGE_LandingStructure_EnemyGravship;
 	}
 }

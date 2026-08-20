@@ -308,4 +308,27 @@
             <li>VGE_OrbitalCluster</li>
         </genSteps>
     </MapGeneratorDef>
+
+    <GenStepDef>
+        <defName>VGE_EnemyGravship</defName>
+        <order>200</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_EnemyGravship" />
+    </GenStepDef>
+
+    <WorldObjectDef ParentName="SpaceBase">
+        <defName>VGE_ActiveEnemyGravship</defName>
+        <label>Enemy gravship</label>
+        <description>An enemy gravship, which is a versatile mid-sized vessel powered by a standard gravship engine and launched via a pilot console. Balanced in size and support, it can serve as a mobile base with sufficient upgrades. Suitable for long-term travel and projecting power.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <worldObjectClass>VanillaGravshipExpanded2.MapParent_WarPlatform</worldObjectClass>
+        <expandingIconTexture>UI/MapIcons/EnemyGravship</expandingIconTexture>
+        <mapGenerator>VGE_ActiveEnemyGravship</mapGenerator>
+    </WorldObjectDef>
+
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>VGE_ActiveEnemyGravship</defName>
+        <label>active enemy gravship</label>
+        <genSteps>
+            <li>VGE_EnemyGravship</li>
+        </genSteps>
+    </MapGeneratorDef>
 </Defs>

@@ -126,4 +126,37 @@
         <alertExplanation>A mechanoid orbital combat cluster has targeted {0}. It will continuously bombard the gravship until it is destroyed. Destroy the mechanoid grav engine, as well as all enemy artillery pieces, or try and escape, but bear in mind that another cluster will likely attack you when you do.</alertExplanation>
     </VanillaGravshipExpanded2.GravshipThreatDef>
 
+    <VanillaGravshipExpanded2.GravshipThreatDef>
+        <defName>VGE_EnemyGravship</defName>
+        <label>Enemy gravship</label>
+        <incomingLabel>Incoming gravship</incomingLabel>
+        <weight>4</weight>
+        <description>An enemy gravship is preparing the bombardment and will engage shortly.\n\nTime until arrival: {0}\n\nMove away before it arrives to avoid it, or prepare to fight it.</description>
+        <workerClass>VanillaGravshipExpanded2.GravshipThreatWorker_EnemyGravship</workerClass>
+        <letterLabel>Enemy gravship</letterLabel>
+        <letterDesc>An enemy gravship called {0} has successfully triangulated your landing coordinates and is moving into a high-orbit position to begin orbital bombardment. It is currently locking targeting sensors onto your position. Gravship is a versatile mid-sized vessel powered by a standard gravship engine and launched via a pilot console. Balanced in size and support, it can serve as a mobile base with sufficient upgrades. Suitable for long-term travel and projecting power. Destroying the gravship engine will disable it permanently.\n\nThe gravship will continuously fire at your location until you move out of range or destroy it. If you move away now, you may be able to shake it off.\n\nPoint defense turrets, gravarmor, and shield generators can be used to protect against the bombardment. Gravship artillery can be used to attack the enemy over long distances. You can also send a shuttle or drop pods to the enemy location to handle it personally.</letterDesc>
+        <arrivalLetterLabel>Gravship attacks</arrivalLetterLabel>
+        <arrivalLetterDesc>An enemy gravship has arrived in orbit and begins the attack on your gravship. Your vessel will be under continuous fire from the gravship’s weapons. To survive, you must destroy the enemy gravship engine, as well as eliminate all of the gravship’s artillery turrets.\n\nYou can fight back using your gravship's artillery, shield generators, and point defenses to withstand the bombardment. Alternatively, send a shuttle or drop pods to the enemy location to board the gravjumper and destroy it from the inside. If you cannot defend yourself, you must attempt to escape its range immediately.</arrivalLetterDesc>
+        <baseCountdownHours>72</baseCountdownHours>
+        <jammerExtensionHours>24</jammerExtensionHours>
+        <escapeMidBattleVisibilityLoss>400000</escapeMidBattleVisibilityLoss>
+        <earlyEscapeVisibilityLoss>100000</earlyEscapeVisibilityLoss>
+        <escapeDistance>25</escapeDistance>
+        <despawnHours>24</despawnHours>
+        <hoursBombardmentOnEngineDestroyed>12</hoursBombardmentOnEngineDestroyed>
+        <worldObjectDef>VGE_ActiveEnemyGravship</worldObjectDef>
+        <tileSpawnDistanceRange>5~20</tileSpawnDistanceRange>
+        <mapSize>250</mapSize>
+        <defeatBuildings>
+            <li>VGE_EnemyGravEngine</li>
+        </defeatBuildings>
+        <escapedMessage>You have escaped the enemy gravship.</escapedMessage>
+        <earlyEscapeMessage>You have escaped the enemy gravship.</earlyEscapeMessage>
+        <defeatLetter>Gravship defeated</defeatLetter>
+        <defeatLetterDesc>Enemy gravjumper threat has been defeated, but the area still offers valuable loot. You can salvage the wreck of the gravship to gain some valuable resources.\n\nGravship will destabilize and collapse within {0}.</defeatLetterDesc>
+        <disengagesLetter>Gravship disengages</disengagesLetter>
+        <disengagesLetterDesc>{0} has effectively destroyed your gravship. It has now disengaged.\n\nConsider this a valuable lesson.</disengagesLetterDesc>
+        <alertExplanation>An enemy gravship has targeted {0}. It will continuously bombard the gravship until it is destroyed. Destroy the enemy gravship engine and any artillery they have to permanently disable their ship.</alertExplanation>
+    </VanillaGravshipExpanded2.GravshipThreatDef>
+
 </Defs>

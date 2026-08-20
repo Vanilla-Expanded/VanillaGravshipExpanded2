@@ -359,4 +359,25 @@
       </li>
     </structureLayouts>
   </VEF.Storyteller.StructureSetDef>
+
+  <VEF.Storyteller.StructureSetDef>
+    <defName>VGE_EnemyGravshipSet</defName>
+    <structureLayouts>
+      <li>
+        <pattern>EnemyGravship_Stern_[0-9]+</pattern>
+        <offset>(0,0,0)</offset>
+        <randomRotated>false</randomRotated>
+      </li>
+      <li>
+        <pattern>EnemyGravship_Hull_[0-9]+</pattern>
+        <offset>(1,0,0)</offset>
+        <randomRotated>false</randomRotated>
+      </li>
+      <li>
+        <pattern>EnemyGravship_Bow_[0-9]+</pattern>
+        <offset>(2,0,0)</offset>
+        <randomRotated>false</randomRotated>
+      </li>
+    </structureLayouts>
+  </VEF.Storyteller.StructureSetDef>
 </Defs>
