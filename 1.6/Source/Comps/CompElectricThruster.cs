@@ -99,11 +99,35 @@ public class CompElectricThruster : CompGravshipThruster, IGravshipFuelProvider
         return currentAmount;
     }
 
-    public List<(IGravshipFuelProvider, float)> ConsumeFuelRatio(Building_GravEngine engine, float fuelConsumedRatio, List<CompGravshipThruster> activeThrusters, List<IGravshipFuelProvider> otherProviders)
+    public FuelUsageData ConsumeFuelRatio(Building_GravEngine engine, float fuelConsumedRatio, List<CompGravshipThruster> activeThrusters, List<IGravshipFuelProvider> otherProviders, bool consumeFuel)
     {
-        var amountToConsume = battery.StoredEnergy * fuelConsumedRatio;
-        battery.DrawPower(amountToConsume);
-        return [(this, amountToConsume)];
+        if (!IsActive(engine, activeThrusters, otherProviders))
+            return null;
+
+        var report = new FuelUsageData();
+
+        var maxCharge = battery.Props.storedEnergyMax;
+        var range = RangeProvidedByThrusters(null, false);
+        report.fuelData[this] = report.totalAmount = battery.StoredEnergy * fuelConsumedRatio;
+
+        otherProviders?.RemoveAll(x =>
+        {
+            if (x is not CompElectricThruster other)
+                return false;
+
+            var charge = other.battery.StoredEnergy * fuelConsumedRatio;
+            maxCharge += other.battery.Props.storedEnergyMax;
+            range += other.RangeProvidedByThrusters(null, false);
+            report.fuelData[this] = charge;
+            report.totalAmount += charge;
+            return true;
+        });
+
+        report.sortingOrder = range * fuelConsumedRatio;
+        if (report.totalAmount > 0)
+            report.reportString = $"{(report.totalAmount / maxCharge).ToStringPercent()} {"VGE_UsedCharge".Translate()}";
+
+        return report;
     }
 
     public float AddFuelAmount(Building_GravEngine engine, float amount)
@@ -156,28 +180,5 @@ public class CompElectricThruster : CompGravshipThruster, IGravshipFuelProvider
         entry.text.Add($"{"VGE_FuelTab_Range".Translate().CapitalizeFirst()}: {currentRange} / {maxRange}");
 
         return entry;
-    }
-
-    public (string report, float sortingOrder) GetFuelUsageReport(Building_GravEngine engine, float fuelConsumedRatio, List<CompGravshipThruster> activeThrusters, List<IGravshipFuelProvider> otherProviders)
-    {
-        if (!IsActive(engine, activeThrusters, otherProviders))
-            return (null, 0);
-
-        var currentCharge = battery.StoredEnergy;
-        var maxCharge = battery.Props.storedEnergyMax;
-
-        otherProviders?.RemoveAll(x =>
-        {
-            if (x is not CompElectricThruster other)
-                return false;
-
-            currentCharge += other.battery.StoredEnergy;
-            maxCharge += other.battery.Props.storedEnergyMax;
-            return true;
-        });
-
-        var usedCharge = currentCharge * fuelConsumedRatio;
-
-        return ($"{(usedCharge / maxCharge).ToStringPercent()} {"VGE_UsedCharge".Translate()}", usedCharge);
     }
 }
