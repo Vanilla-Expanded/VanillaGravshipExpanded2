@@ -40,7 +40,7 @@ namespace VanillaGravshipExpanded2
             var comp = WorldComponent_GravshipCombat.Instance;
             comp.activeThreatDef = def;
             comp.incomingWarplatform = true;
-            comp.warplatformTick = Find.TickManager.TicksGame + def.baseCountdownHours * GenDate.TicksPerHour;
+            comp.warplatformTick = Find.TickManager.TicksGame + def.baseCountdownHours.RandomInRange * GenDate.TicksPerHour;
 
             var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading
                 .OfType<ThingWithComps>()

@@ -308,4 +308,55 @@
       </li>
     </structureLayouts>
   </VEF.Storyteller.StructureSetDef>
+
+  <VEF.Storyteller.StructureSetDef>
+    <defName>VGE_OrbitalClusterSet</defName>
+    <structureLayouts>
+      <li>
+        <pattern>OrbitalCluster_Core_[0-9]+</pattern>
+        <offset>(0,0,0)</offset>
+        <randomRotated>true</randomRotated>
+      </li>
+      <li>
+        <pattern>OrbitalCluster_Straight_[0-9]+</pattern>
+        <offset>(0,0,1)</offset>
+        <rotationOffset>0</rotationOffset>
+      </li>
+      <li>
+        <pattern>OrbitalCluster_Straight_[0-9]+</pattern>
+        <offset>(1,0,0)</offset>
+        <rotationOffset>1</rotationOffset>
+      </li>
+      <li>
+        <pattern>OrbitalCluster_Straight_[0-9]+</pattern>
+        <offset>(0,0,-1)</offset>
+        <rotationOffset>2</rotationOffset>
+      </li>
+      <li>
+        <pattern>OrbitalCluster_Straight_[0-9]+</pattern>
+        <offset>(-1,0,0)</offset>
+        <rotationOffset>3</rotationOffset>
+      </li>
+      <li>
+        <pattern>OrbitalCluster_Corner_[0-9]+</pattern>
+        <offset>(-1,0,1)</offset>
+        <rotationOffset>0</rotationOffset>
+      </li>
+      <li>
+        <pattern>OrbitalCluster_Corner_[0-9]+</pattern>
+        <offset>(1,0,1)</offset>
+        <rotationOffset>1</rotationOffset>
+      </li>
+      <li>
+        <pattern>OrbitalCluster_Corner_[0-9]+</pattern>
+        <offset>(1,0,-1)</offset>
+        <rotationOffset>2</rotationOffset>
+      </li>
+      <li>
+        <pattern>OrbitalCluster_Corner_[0-9]+</pattern>
+        <offset>(-1,0,-1)</offset>
+        <rotationOffset>3</rotationOffset>
+      </li>
+    </structureLayouts>
+  </VEF.Storyteller.StructureSetDef>
 </Defs>

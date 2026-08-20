@@ -102,5 +102,6 @@
 	<VGE_GravjumperLaunched>{0} has launched and will land in your local area imminently.</VGE_GravjumperLaunched>
 	<VGE_GravjumperDefeated>Gravjumper defeated</VGE_GravjumperDefeated>
 	<VGE_GravjumperDefeatedDesc>Enemy gravjumper threat has been defeated, but the area still offers valuable loot. You can salvage the wreck of the gravjumper to gain some valuable resources.</VGE_GravjumperDefeatedDesc>
-
+	<VGE_JammerScrambledCluster>Your signal jammer scrambled the signal lock, giving you an additional {0} days before the warplatform finds you.</VGE_JammerScrambledCluster>
+	<VGE_OrbitalClusterRelayed>Mechanoid orbital cluster has relayed your coordinates to another cluster in radius. It’s moving in to engage.</VGE_OrbitalClusterRelayed>
 </LanguageData>

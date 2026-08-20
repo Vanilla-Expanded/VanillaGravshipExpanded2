@@ -48,6 +48,7 @@ namespace VanillaGravshipExpanded2
 		public static StatDef VGE_GravshipLaunchVisibilityOffset;
 		public static ThingDef VGE_GravshipArmor;
 		public static SoundDef Hive_Spawn;
+		public static ThingDef VGE_MechanoidGravTether;
 		public static ThingDef VGE_EnemyGravjumperEngine;
 		public static ThingDef VGE_EnemyGravEngine;
 		public static ThingDef VGE_EnemyGravhulkEngine;

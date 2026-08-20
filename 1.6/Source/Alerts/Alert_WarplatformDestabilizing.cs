@@ -5,7 +5,7 @@ namespace VanillaGravshipExpanded2
 {
     public class Alert_WarplatformDestabilizing : Alert_Warplatform
     {
-        protected override bool ShouldReport(MapParent_WarPlatform wp) => wp.defeated && wp.despawnTick > 0 && (wp.despawnTick - Find.TickManager.TicksGame) < 12 * GenDate.TicksPerHour && wp.Map.mapPawns.AnyFreeColonistSpawned && GravshipUtility.GetPlayerGravEngine_NewTemp(wp.Map) == null;
+        protected override bool ShouldReport(MapParent_WarPlatform wp) => wp.defeated && wp.despawnTick > 0 && (wp.despawnTick - Find.TickManager.TicksGame) < 12 * GenDate.TicksPerHour && wp.HasMap && wp.Map.mapPawns.AnyFreeColonistSpawned && GravshipUtility.GetPlayerGravEngine_NewTemp(wp.Map) == null;
         public override string GetLabel() => "VGE_LocationDestabilizing".Translate();
 
         public override TaggedString GetExplanation()

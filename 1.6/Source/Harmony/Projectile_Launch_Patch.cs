@@ -13,7 +13,7 @@ namespace VanillaGravshipExpanded2
         {
             var map = __instance.Map;
             var start = origin.ToIntVec3();
-            var end = intendedTarget.Cell;
+            var end = __instance.destination.ToIntVec3();
             var dir = (end - start).ToVector3();
             float dist = dir.magnitude;
             if (dist > 0.1f)

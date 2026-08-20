@@ -27,7 +27,7 @@ namespace VanillaGravshipExpanded2
         {
             base.Tick();
 
-            var shouldBeFiringBurst = CanFire && CurrentTarget.IsValid && Active && (AttackVerb.state == VerbState.Bursting || burstWarmupTicksLeft > 0 || (currentStrike != null && !currentStrike.Destroyed));
+            var shouldBeFiringBurst = CanFire && CurrentTarget.IsValid && Active && (AttackVerb.state == VerbState.Bursting || (currentStrike != null && !currentStrike.Destroyed));
 
             if (shouldBeFiringBurst != isFiringBurst)
             {

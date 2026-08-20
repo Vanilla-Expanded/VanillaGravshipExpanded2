@@ -20,7 +20,7 @@ namespace VanillaGravshipExpanded2
 
             comp.activeThreatDef = def;
             comp.incomingWarplatform = true;
-            comp.warplatformTick = Find.TickManager.TicksGame + def.baseCountdownHours * GenDate.TicksPerHour;
+            comp.warplatformTick = Find.TickManager.TicksGame + def.baseCountdownHours.RandomInRange * GenDate.TicksPerHour;
             var redName = comp.enemyGravshipName.Colorize(ColorLibrary.RedReadable);
             var desc = def.letterDesc.Formatted(redName);
 

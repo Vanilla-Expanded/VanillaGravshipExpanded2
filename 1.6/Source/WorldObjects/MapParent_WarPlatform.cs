@@ -141,24 +141,26 @@ namespace VanillaGravshipExpanded2
 
         public override bool ShouldRemoveMapNow(out bool alsoRemoveWorldObject)
         {
-            if (despawnTick > 0 && Find.TickManager.TicksGame >= despawnTick && GravshipUtility.GetPlayerGravEngine_NewTemp(Map) == null)
+            alsoRemoveWorldObject = false;
+            if (despawnTick > 0 && Find.TickManager.TicksGame >= despawnTick)
             {
-                alsoRemoveWorldObject = true;
-                return true;
-            }
-
-            if (!defeated)
-            {
-                if (playerDestroyedTick > 0 && Find.TickManager.TicksGame >= playerDestroyedTick && !Map.mapPawns.AnyFreeColonistSpawned)
+                if (!HasMap || GravshipUtility.GetPlayerGravEngine_NewTemp(Map) == null)
                 {
                     alsoRemoveWorldObject = true;
                     return true;
                 }
-                alsoRemoveWorldObject = false;
-                return false;
             }
 
-            return base.ShouldRemoveMapNow(out alsoRemoveWorldObject);
+            if (!defeated)
+            {
+                if (playerDestroyedTick > 0 && Find.TickManager.TicksGame >= playerDestroyedTick && (!HasMap || !Map.mapPawns.AnyFreeColonistSpawned))
+                {
+                    alsoRemoveWorldObject = true;
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

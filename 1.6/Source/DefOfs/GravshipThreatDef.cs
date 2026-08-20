@@ -15,7 +15,7 @@ namespace VanillaGravshipExpanded2
         public string letterDesc;
         public string arrivalLetterLabel;
         public string arrivalLetterDesc;
-        public int baseCountdownHours;
+        public IntRange baseCountdownHours;
         public int jammerExtensionHours;
         public float escapeMidBattleVisibilityLoss;
         public float earlyEscapeVisibilityLoss;

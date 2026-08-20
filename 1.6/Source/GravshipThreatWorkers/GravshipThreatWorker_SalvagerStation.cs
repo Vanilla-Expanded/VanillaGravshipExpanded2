@@ -14,7 +14,7 @@ namespace VanillaGravshipExpanded2
         {
             var enemiesExist = map.listerThings.ThingsInGroup(ThingRequestGroup.BuildingArtificial)
                 .Any(x => x.Faction == Faction.OfSalvagers && (x is Building_GravshipTurret || x.def == InternalDefOf.VGE_EnemyGravlockTether));
-            return !enemiesExist;
+            return enemiesExist is false;
         }
 
         public override void Fire(Building_GravEngine engine)
@@ -36,14 +36,14 @@ namespace VanillaGravshipExpanded2
             comp.salvagerTributeAmount = tribute;
             comp.salvagerDelayDays = delayDays;
             comp.salvagerStationName = stationName;
-            comp.tributeDemandTick = Find.TickManager.TicksGame + def.baseCountdownHours * GenDate.TicksPerHour;
+            comp.tributeDemandTick = Find.TickManager.TicksGame + def.baseCountdownHours.RandomInRange * GenDate.TicksPerHour;
 
             var jammerDesc = "";
             var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading
                 .OfType<ThingWithComps>()
                 .Where(t => t.def == InternalDefOf.SignalJammer)
                 .Select(t => t.GetComp<CompSignalJammer>())
-                .FirstOrDefault(c => c != null && !c.OnCooldown);
+                .FirstOrDefault(c => c != null && c.OnCooldown is false);
             if (jammer != null)
             {
                 jammer.StartCooldown();

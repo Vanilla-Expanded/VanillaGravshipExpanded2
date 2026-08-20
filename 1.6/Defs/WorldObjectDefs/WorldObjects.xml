@@ -283,4 +283,29 @@
             <li>VGE_EnemyGravjumper</li>
         </genSteps>
     </MapGeneratorDef>
+
+    <GenStepDef>
+        <defName>VGE_OrbitalCluster</defName>
+        <order>200</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_OrbitalCluster">
+            <structureSetDef>VGE_OrbitalClusterSet</structureSetDef>
+        </genStep>
+    </GenStepDef>
+
+    <WorldObjectDef ParentName="SpaceBase">
+        <defName>VGE_ActiveOrbitalCluster</defName>
+        <label>active orbital cluster</label>
+        <description>A heavily armed mechanoid orbital combat cluster currently bombarding your gravship. The station is equipped with a mechanoid grav engine and numerous artillery pieces that must be destroyed to stop the bombardment.\n\nThis location can be reached using transport pods, shuttles, or a gravship.</description>
+        <worldObjectClass>VanillaGravshipExpanded2.MapParent_WarPlatform</worldObjectClass>
+        <expandingIconTexture>UI/MapIcons/OrbitalCluster</expandingIconTexture>
+        <mapGenerator>VGE_ActiveOrbitalCluster</mapGenerator>
+    </WorldObjectDef>
+
+    <MapGeneratorDef ParentName="SpaceMapGenerator">
+        <defName>VGE_ActiveOrbitalCluster</defName>
+        <label>active orbital cluster</label>
+        <genSteps>
+            <li>VGE_OrbitalCluster</li>
+        </genSteps>
+    </MapGeneratorDef>
 </Defs>

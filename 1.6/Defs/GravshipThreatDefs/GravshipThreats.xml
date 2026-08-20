@@ -96,4 +96,34 @@
         <alertExplanation>An enemy gravjumper has targeted {0}. It will continuously bombard the gravship until it is destroyed. Destroy the enemy gravjumper engine to permanently disable their ship.</alertExplanation>
     </VanillaGravshipExpanded2.GravshipThreatDef>
 
+    <VanillaGravshipExpanded2.GravshipThreatDef>
+        <defName>VGE_OrbitalCluster</defName>
+        <label>Orbital cluster</label>
+        <incomingLabel>Incoming orbital cluster</incomingLabel>
+        <weight>6</weight>
+        <description>A mechanoid orbital combat cluster has locked in on your position and will attack soon.\n\nTime until arrival: {0}\n\nMoving away will likely delay the attack, but sooner or later an orbital cluster will need to be defeated to stop the threat.</description>
+        <workerClass>VanillaGravshipExpanded2.GravshipThreatWorker_OrbitalCluster</workerClass>
+        <letterLabel>Incoming orbital cluster</letterLabel>
+        <letterDesc>A mechanoid orbital cluster has locked onto your gravship's coordinates and is slowly moving into position to engage. This massive structure houses a mechanoid grav engine; destroying this core will yield a gravcore. The cluster is heavily armed with a vast number of mechanoid gravship artillery units and is defended by a significant force of mechanoids - all of which have to be destroyed to defeat the cluster.\n\nBe warned: this cluster is part of an extensive orbital network. It will relentlessly track your signature: attempting to flee will only cause another orbital cluster to move into range to engage. You must prepare to neutralize this threat or face the consequences.\n\nPoint defense turrets, gravarmor, and shield generators can be used to protect against the bombardment. Gravship artillery can be used to attack the enemy over long distances. You can also send a shuttle or drop pods to the enemy location to handle it personally.</letterDesc>
+        <arrivalLetterLabel>Orbital cluster</arrivalLetterLabel>
+        <arrivalLetterDesc>A mechanoid orbital cluster has arrived and is actively engaging your gravship. Your vessel will be under continuous fire from the cluster's weapons. To survive, you must neutralize the cluster by destroying the mechanoid grav engine, as well as all enemy artillery.\n\nYou can fight back using your gravship's artillery, shield generators, and point defenses to withstand the bombardment. Alternatively, send a shuttle or drop pods to the enemy location to board the cluster and destroy the mechanoid grav engine directly. If you cannot stop the bombardment, you must attempt to escape its range immediately, but be warned that another orbital cluster will likely engage you again.</arrivalLetterDesc>
+        <baseCountdownHours>240~600</baseCountdownHours>
+        <jammerExtensionHours>120</jammerExtensionHours>
+        <escapeMidBattleVisibilityLoss>400000</escapeMidBattleVisibilityLoss>
+        <earlyEscapeVisibilityLoss>100000</earlyEscapeVisibilityLoss>
+        <escapeDistance>25</escapeDistance>
+        <despawnHours>48</despawnHours>
+        <hoursBombardmentOnEngineDestroyed>12</hoursBombardmentOnEngineDestroyed>
+        <worldObjectDef>VGE_ActiveOrbitalCluster</worldObjectDef>
+        <tileSpawnDistanceRange>5~20</tileSpawnDistanceRange>
+        <mapSize>250</mapSize>
+        <escapedMessage>You have managed to escape the mechanoid orbital cluster.</escapedMessage>
+        <earlyEscapeMessage>You have managed to shake off the mechanoid orbital cluster.</earlyEscapeMessage>
+        <defeatLetter>Orbital cluster defeated</defeatLetter>
+        <defeatLetterDesc>Orbital cluster threat has been defeated, but the area still offers valuable loot. You can salvage the wreck of the cluster to gain some valuable resources - but be careful, as the defending mechanoids will still put up a fight.\n\nOrbital cluster will destabilize and collapse within {0}.</defeatLetterDesc>
+        <disengagesLetter>Orbital cluster disengages</disengagesLetter>
+        <disengagesLetterDesc>Orbital cluster no longer perceives you as a threat and has effectively destroyed your gravship. It has now disengaged.\n\nConsider this a valuable lesson.</disengagesLetterDesc>
+        <alertExplanation>A mechanoid orbital combat cluster has targeted {0}. It will continuously bombard the gravship until it is destroyed. Destroy the mechanoid grav engine, as well as all enemy artillery pieces, or try and escape, but bear in mind that another cluster will likely attack you when you do.</alertExplanation>
+    </VanillaGravshipExpanded2.GravshipThreatDef>
+
 </Defs>

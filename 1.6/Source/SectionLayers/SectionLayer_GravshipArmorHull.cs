@@ -5,6 +5,7 @@ using LudeonTK;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using VanillaGravshipExpanded;
 
 namespace VanillaGravshipExpanded2
 {
@@ -329,6 +330,11 @@ namespace VanillaGravshipExpanded2
             }
             var terrainDef = terrGrid.FoundationAt(pos);
             if (terrainDef != null && terrainDef.IsSubstructure)
+            {
+                return false;
+            }
+            TerrainDef combinedDef = terrainDef ?? terrGrid.TerrainAt(pos);
+            if (combinedDef != null && combinedDef.GetModExtension<SubstructureEdgeGraphicsExtension>()?.renderAsSubstructure == true)
             {
                 return false;
             }

@@ -506,6 +506,7 @@
         <description>A colossal defensive structure that projects a powerful, static energy shield with a huge radius. This barrier intercepts all incoming projectiles but permits fire from within. Once its substantial energy is depleted, the shield collapses, and the generator must endure a lengthy 15-day recharge cycle before the overshield can be redeployed.</description>
         <thingClass>VanillaGravshipExpanded2.Building_MechanoidOvershield</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
+        <drawOffscreen>true</drawOffscreen>
         <graphicData>
             <graphicClass>Graphic_Single</graphicClass>
             <texPath>Things/Mechanoid/MechanoidOvershieldGenerator/MechanoidOvershieldGenerator</texPath>
