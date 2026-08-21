@@ -26,4 +26,127 @@
     <growthRate>-3</growthRate>
   </FleckDef>
 
+    <FleckDef ParentName="FleckBase">
+        <defName>VGE_Fleck_GravEngineImplosion_Small</defName>
+        <altitudeLayer>MoteLow</altitudeLayer>
+        <fadeInTime>0.1</fadeInTime>
+        <solidTime>0.4</solidTime>
+        <fadeOutTime>0</fadeOutTime>
+        <growthRate>-19.6</growthRate>
+        <graphicData>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <texPath>Things/Mote/Black</texPath>
+            <shaderType>MoteLargeDistortionWave</shaderType>
+            <shaderParameters>
+                <_DistortionTex>/Things/Mote/PsychicDistortionCurrents</_DistortionTex>
+                <_NoiseTex>/Things/Mote/PsycastNoise</_NoiseTex>
+                <_distortionIntensity>0.4</_distortionIntensity>
+                <_brightnessMultiplier>2</_brightnessMultiplier>
+            </shaderParameters>
+            <drawSize>9.8</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase">
+        <defName>VGE_Fleck_GravEngineImplosion_Medium</defName>
+        <altitudeLayer>MoteLow</altitudeLayer>
+        <fadeInTime>0.1</fadeInTime>
+        <solidTime>0.4</solidTime>
+        <fadeOutTime>0</fadeOutTime>
+        <growthRate>-31.6</growthRate>
+        <graphicData>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <texPath>Things/Mote/Black</texPath>
+            <shaderType>MoteLargeDistortionWave</shaderType>
+            <shaderParameters>
+                <_DistortionTex>/Things/Mote/PsychicDistortionCurrents</_DistortionTex>
+                <_NoiseTex>/Things/Mote/PsycastNoise</_NoiseTex>
+                <_distortionIntensity>0.4</_distortionIntensity>
+                <_brightnessMultiplier>2</_brightnessMultiplier>
+            </shaderParameters>
+            <drawSize>15.8</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase">
+        <defName>VGE_Fleck_GravEngineImplosion_Large</defName>
+        <altitudeLayer>MoteLow</altitudeLayer>
+        <fadeInTime>0.1</fadeInTime>
+        <solidTime>0.4</solidTime>
+        <fadeOutTime>0</fadeOutTime>
+        <growthRate>-59.6</growthRate>
+        <graphicData>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <texPath>Things/Mote/Black</texPath>
+            <shaderType>MoteLargeDistortionWave</shaderType>
+            <shaderParameters>
+                <_DistortionTex>/Things/Mote/PsychicDistortionCurrents</_DistortionTex>
+                <_NoiseTex>/Things/Mote/PsycastNoise</_NoiseTex>
+                <_distortionIntensity>0.4</_distortionIntensity>
+                <_brightnessMultiplier>2</_brightnessMultiplier>
+            </shaderParameters>
+            <drawSize>29.8</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase">
+        <defName>VGE_Fleck_GravEngineImplosion_Giant</defName>
+        <altitudeLayer>MoteLow</altitudeLayer>
+        <fadeInTime>0.1</fadeInTime>
+        <solidTime>0.4</solidTime>
+        <fadeOutTime>0</fadeOutTime>
+        <growthRate>-87.6</growthRate>
+        <graphicData>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <texPath>Things/Mote/Black</texPath>
+            <shaderType>MoteLargeDistortionWave</shaderType>
+            <shaderParameters>
+                <_DistortionTex>/Things/Mote/PsychicDistortionCurrents</_DistortionTex>
+                <_NoiseTex>/Things/Mote/PsycastNoise</_NoiseTex>
+                <_distortionIntensity>0.4</_distortionIntensity>
+                <_brightnessMultiplier>2</_brightnessMultiplier>
+            </shaderParameters>
+            <drawSize>43.8</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase" Name="VGE_Fleck_GravEngineShockwave_Base" Abstract="True">
+        <altitudeLayer>MoteOverheadLow</altitudeLayer>
+        <fadeInTime>0</fadeInTime>
+        <solidTime>0</solidTime>
+        <fadeOutTime>0.4</fadeOutTime>
+        <graphicData>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <texPath>Things/Mote/Black</texPath>
+            <shaderType>MoteLargeDistortionWave</shaderType>
+            <shaderParameters>
+                <_DistortionTex>/Things/Mote/PsychicDistortionCurrents</_DistortionTex>
+                <_NoiseTex>/Things/Mote/PsycastNoise</_NoiseTex>
+                <_distortionIntensity>0.2</_distortionIntensity>
+                <_brightnessMultiplier>5.15</_brightnessMultiplier>
+            </shaderParameters>
+            <drawSize>1</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="VGE_Fleck_GravEngineShockwave_Base">
+        <defName>VGE_Fleck_GravEngineShockwave_Small</defName>
+        <growthRate>62</growthRate>
+    </FleckDef>
+
+    <FleckDef ParentName="VGE_Fleck_GravEngineShockwave_Base">
+        <defName>VGE_Fleck_GravEngineShockwave_Medium</defName>
+        <growthRate>107</growthRate>
+    </FleckDef>
+
+    <FleckDef ParentName="VGE_Fleck_GravEngineShockwave_Base">
+        <defName>VGE_Fleck_GravEngineShockwave_Large</defName>
+        <growthRate>182</growthRate>
+    </FleckDef>
+
+    <FleckDef ParentName="VGE_Fleck_GravEngineShockwave_Base">
+        <defName>VGE_Fleck_GravEngineShockwave_Giant</defName>
+        <growthRate>277</growthRate>
+    </FleckDef>
+	
 </Defs>

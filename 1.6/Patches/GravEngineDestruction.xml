@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="VGE_GravjumperEngine" or defName="VGE_EnemyGravjumperEngine"]/comps</xpath>
+        <value>
+            <li Class="VanillaGravshipExpanded2.CompProperties_GravEngineDestruction">
+                <explosionRadius>4.9</explosionRadius>
+                <shockwaveRadius>12.9</shockwaveRadius>
+                <substructureDamageRadius>1.9</substructureDamageRadius>
+                <gravJunkCountRange>1~2</gravJunkCountRange>
+                <implosionFleck>VGE_Fleck_GravEngineImplosion_Small</implosionFleck>
+                <shockwaveFleck>VGE_Fleck_GravEngineShockwave_Small</shockwaveFleck>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="GravEngine" or defName="VGE_EnemyGravEngine"]/comps</xpath>
+        <value>
+            <li Class="VanillaGravshipExpanded2.CompProperties_GravEngineDestruction">
+                <explosionRadius>7.9</explosionRadius>
+                <shockwaveRadius>21.9</shockwaveRadius>
+                <substructureDamageRadius>3.9</substructureDamageRadius>
+                <gravJunkCountRange>2~5</gravJunkCountRange>
+                <implosionFleck>VGE_Fleck_GravEngineImplosion_Medium</implosionFleck>
+                <shockwaveFleck>VGE_Fleck_GravEngineShockwave_Medium</shockwaveFleck>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="VGE_GravhulkEngine" or defName="VGE_EnemyGravhulkEngine"]/comps</xpath>
+        <value>
+            <li Class="VanillaGravshipExpanded2.CompProperties_GravEngineDestruction">
+                <explosionRadius>14.9</explosionRadius>
+                <shockwaveRadius>36.9</shockwaveRadius>
+                <substructureDamageRadius>6.9</substructureDamageRadius>
+                <gravJunkCountRange>5~9</gravJunkCountRange>
+                <implosionFleck>VGE_Fleck_GravEngineImplosion_Large</implosionFleck>
+                <shockwaveFleck>VGE_Fleck_GravEngineShockwave_Large</shockwaveFleck>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="VGE_EnemyGravlockTether"]/comps</xpath>
+        <value>
+            <li Class="VanillaGravshipExpanded2.CompProperties_GravEngineDestruction">
+                <explosionRadius>21.9</explosionRadius>
+                <shockwaveRadius>55.9</shockwaveRadius>
+                <substructureDamageRadius>0</substructureDamageRadius>
+                <gravJunkCountRange>9~12</gravJunkCountRange>
+                <implosionFleck>VGE_Fleck_GravEngineImplosion_Giant</implosionFleck>
+                <shockwaveFleck>VGE_Fleck_GravEngineShockwave_Giant</shockwaveFleck>
+            </li>
+        </value>
+    </Operation>
+</Patch>

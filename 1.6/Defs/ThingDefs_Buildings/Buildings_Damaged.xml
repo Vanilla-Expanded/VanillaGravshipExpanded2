@@ -990,4 +990,24 @@
 		
 	</ThingDef>
 
+	<ThingDef ParentName="VGE_GravshipExpandedChapterTwoDestroyedBuilding">
+		<defName>VGE_GravJunk</defName>
+		<label>grav junk</label>
+		<description>A twisted chunk of a grav engine. Doesn't contain anything of value.</description>
+		<size>(1,1)</size>
+		<costList />
+		<statBases>
+			<MaxHitPoints>40</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<Beauty>-10</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Structures/Destroyed/GravJunk</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<pathCost>42</pathCost>
+		<fillPercent>0.5</fillPercent>
+	</ThingDef>
 </Defs>

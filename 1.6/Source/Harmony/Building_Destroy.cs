@@ -16,8 +16,19 @@ public static class VanillaGravshipExpanded2_Building_Destroy_Patch
     public static Rot4 storedRot;
     public static bool chance = false;
 
-    private static void Prefix(DestroyMode mode, Building __instance)
+    private static bool Prefix(DestroyMode mode, Building __instance)
     {
+        if (mode == DestroyMode.KillFinalize)
+        {
+            var comp = __instance.GetComp<CompGravEngineDestruction>();
+            if (comp != null)
+            {
+                chance = false;
+                storedMap = __instance.Map;
+                comp.StartImplosion();
+                return false;
+            }
+        }
         chance = Rand.Chance(0.8f);
         storedMap = __instance.Map;
         if (chance && mode == DestroyMode.KillFinalize)
@@ -25,6 +36,7 @@ public static class VanillaGravshipExpanded2_Building_Destroy_Patch
             storedPos = __instance.Position;
             storedRot = __instance.Rotation;
         }
+        return true;
     }
 
     private static void Postfix(DestroyMode mode, Building __instance)

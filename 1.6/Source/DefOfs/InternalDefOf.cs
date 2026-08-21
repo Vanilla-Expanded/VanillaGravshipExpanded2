@@ -106,14 +106,13 @@ namespace VanillaGravshipExpanded2
 		public static RulePackDef VGE_NamerEnemyGravship;
 		public static VEF.Storyteller.StructureSetDef VGE_EnemyGravjumperSet;
 		public static VEF.Storyteller.StructureSetDef VGE_EnemyGravjumperSet_Complete;
-		public static ThingDef VGE_EnemySmallThruster;
-		public static ThingDef VGE_EnemyLargeThruster;
-		public static ThingDef VGE_EnemyGiantThruster;
 		public static RaidStrategyDef Siege;
 		public static RaidStrategyDef ImmediateAttackSappers;
 		public static RaidStrategyDef ImmediateAttackSmart;
-		public static GravshipThreatDef VGE_EnemyGravship;
 		public static VEF.Storyteller.StructureSetDef VGE_EnemyGravshipSet;
 		public static ThingDef VGE_LandingStructure_EnemyGravship;
-	}
+        public static ThingDef VGE_Projectile_GravJunk;
+        public static ThingDef VGE_GravJunk;
+        public static DamageDef BombSuper;
+    }
 }

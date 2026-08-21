@@ -94,6 +94,7 @@
     <ThingDef ParentName="VGE_EnemyPropBase">
         <defName>VGE_EnemyGravjumperEngine</defName>
         <label>enemy gravjumper engine</label>
+        <tickerType>Normal</tickerType>
         <description>A compact gravtech engine designed for short-range jumps within a planet's atmosphere. The gravjumper engine creates a brief, localized distortion in gravitational flow, allowing rapid vertical lift, but does not produce forward thrust. It can't function far from a large gravity well like a planet, so it is useless for interplanetary travel.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources, including a gravcore.</description>
         <thingClass>VanillaGravshipExpanded2.Building_EnemyGravEngine</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
@@ -145,11 +146,17 @@
                <letterDef>NeutralEvent</letterDef>
         </li>
         </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+                <replacementBuilding>VGE_DestroyedGravjumperEngine</replacementBuilding>
+            </li>
+        </modExtensions>
     </ThingDef>
 
     <ThingDef ParentName="VGE_EnemyPropBase">
         <defName>VGE_EnemyGravEngine</defName>
         <label>enemy gravship engine</label>
+        <tickerType>Normal</tickerType>
         <description>The ultratech heart of a gravship. The grav engine generates lift by inverting and intensifying the effect of gravity in a field around itself. This engine can lift upwards, but does not produce forward thrust.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources, including a gravcore.</description>
         <thingClass>VanillaGravshipExpanded2.Building_EnemyGravEngine</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
@@ -200,11 +207,17 @@
         <letterDef>NeutralEvent</letterDef>
       </li>
         </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+                <replacementBuilding>VGE_DestroyedGravEngine</replacementBuilding>
+            </li>
+        </modExtensions>
     </ThingDef>
 
     <ThingDef ParentName="VGE_EnemyPropBase">
         <defName>VGE_EnemyGravhulkEngine</defName>
         <label>enemy gravhulk engine</label>
+        <tickerType>Normal</tickerType>
         <description>The gravhulk is a colossal class of gravship, engineered to transport entire megacolonies, orbital platforms, or mobile city-cores across the skies of a planet. The grav engine generates lift by inverting and intensifying the effect of gravity in a field around itself. This engine can lift upwards, but does not produce forward thrust. It can't function far from a large gravity well like a planet, so it is useless for interplanetary travel.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources, including a gravcore.</description>
         <thingClass>VanillaGravshipExpanded2.Building_EnemyGravEngine</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
@@ -256,6 +269,11 @@
         <letterDef>NeutralEvent</letterDef>
       </li>
         </comps>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded2.WreckedBuildingReplacementExtension">
+                <replacementBuilding>VGE_DestroyedGravhulkEngine</replacementBuilding>
+            </li>
+        </modExtensions>
     </ThingDef>
 
     <ThingDef ParentName="VGE_EnemyPropBase">
@@ -264,6 +282,7 @@
         <description>The gravlock tether is the core stabilization unit of an orbital station, anchoring it in a fixed position. A specialized conversion of the gravhulk engine, this device generates a stabilized gravitational field to maintain the station's orbital trajectory.\n\nThis particular device is owned by the enemy and can't be decrypted or unlocked. It can still be deconstructed to yield some valuable resources, including a gravcore.</description>
         <thingClass>VanillaGravshipExpanded2.Building_EnemyGravEngine</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
+        <tickerType>Normal</tickerType>
         <graphicData>
             <graphicClass>Graphic_Single</graphicClass>
             <texPath>Things/Enemy/EnemyGravlockTether/EnemyGravlockTether</texPath>
