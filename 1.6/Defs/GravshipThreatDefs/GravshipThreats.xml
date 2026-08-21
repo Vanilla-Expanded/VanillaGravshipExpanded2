@@ -153,7 +153,7 @@
         <escapedMessage>You have escaped the enemy gravship.</escapedMessage>
         <earlyEscapeMessage>You have escaped the enemy gravship.</earlyEscapeMessage>
         <defeatLetter>Gravship defeated</defeatLetter>
-        <defeatLetterDesc>Enemy gravjumper threat has been defeated, but the area still offers valuable loot. You can salvage the wreck of the gravship to gain some valuable resources.\n\nGravship will destabilize and collapse within {0}.</defeatLetterDesc>
+        <defeatLetterDesc>Enemy gravship threat has been defeated, but the area still offers valuable loot. You can salvage the wreck of the gravship to gain some valuable resources.\n\nGravship will destabilize and collapse within {0}.</defeatLetterDesc>
         <disengagesLetter>Gravship disengages</disengagesLetter>
         <disengagesLetterDesc>{0} has effectively destroyed your gravship. It has now disengaged.\n\nConsider this a valuable lesson.</disengagesLetterDesc>
         <alertExplanation>An enemy gravship has targeted {0}. It will continuously bombard the gravship until it is destroyed. Destroy the enemy gravship engine and any artillery they have to permanently disable their ship.</alertExplanation>
