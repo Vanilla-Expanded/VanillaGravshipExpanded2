@@ -11,28 +11,19 @@ namespace VanillaGravshipExpanded2
 
         public override void Fire(Building_GravEngine engine)
         {
-            var comp = WorldComponent_GravshipCombat.Instance;
-            comp.enemyGravshipName = NameGenerator.GenerateName(InternalDefOf.VGE_NamerEnemyGravship);
+            WorldComponent_GravshipCombat.Instance.enemyGravshipName = NameGenerator.GenerateName(InternalDefOf.VGE_NamerEnemyGravship);
+            base.Fire(engine);
+        }
 
-            var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading
-                .OfType<ThingWithComps>()
-                .Where(t => t.def == InternalDefOf.SignalJammer)
-                .Select(t => t.GetComp<CompSignalJammer>())
-                .FirstOrDefault(c => c != null && !c.OnCooldown);
-
-            comp.activeThreatDef = def;
-            comp.incomingWarplatform = true;
-            comp.warplatformTick = Find.TickManager.TicksGame + def.baseCountdownHours.RandomInRange * GenDate.TicksPerHour;
-            var redName = comp.enemyGravshipName.Colorize(ColorLibrary.RedReadable);
+        public override TaggedString GetLetterDesc(CompSignalJammer jammer)
+        {
+            var redName = WorldComponent_GravshipCombat.Instance.enemyGravshipName.Colorize(ColorLibrary.RedReadable);
             var desc = def.letterDesc.Formatted(redName);
-
             if (jammer != null)
             {
-                jammer.StartCooldown();
-                comp.warplatformTick += def.jammerExtensionHours * GenDate.TicksPerHour;
                 desc += "\n\n" + "VGE_JammerScrambledGravship".Translate(redName);
             }
-            Find.LetterStack.ReceiveLetter(def.letterLabel, desc, LetterDefOf.ThreatBig);
+            return desc;
         }
 
         public override bool ShouldDefeat(Map map)

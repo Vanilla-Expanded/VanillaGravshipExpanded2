@@ -31,6 +31,9 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
         try
         {
             var comp = WorldComponent_GravshipCombat.Instance;
+            var engine = gravship.Engine;
+            comp.lastKnownShipMap = engine.Map;
+            comp.lastKnownShipTile = engine.Tile;
             if (comp.incomingWarplatform)
             {
                 ApplyEarlyEscape(comp, gravship);

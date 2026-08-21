@@ -30,6 +30,8 @@ namespace VanillaGravshipExpanded2
         public string gravjumperLandingName;
         public bool gravjumperLandedLocal;
         public EnemyStructure enemyGravjumper;
+        public Map lastKnownShipMap;
+        public PlanetTile lastKnownShipTile;
         public static WorldComponent_GravshipCombat Instance;
 
         public WorldComponent_GravshipCombat(World world) : base(world)
@@ -61,6 +63,29 @@ namespace VanillaGravshipExpanded2
             Scribe_Values.Look(ref gravjumperLandingName, "gravjumperLandingName");
             Scribe_Values.Look(ref gravjumperLandedLocal, "gravjumperLandedLocal", false);
             Scribe_Deep.Look(ref enemyGravjumper, "enemyGravjumper");
+            Scribe_References.Look(ref lastKnownShipMap, "lastKnownShipMap");
+            Scribe_Values.Look(ref lastKnownShipTile, "lastKnownShipTile");
+        }
+
+        public Map GetPlayerTargetMap()
+        {
+            var engine = GravEngineTracker.GetPlayerGravEngine();
+            if (engine != null)
+            {
+                lastKnownShipMap = engine.Map;
+                lastKnownShipTile = engine.Tile;
+                return engine.Map;
+            }
+            if (lastKnownShipMap != null && Find.Maps.Contains(lastKnownShipMap) && !lastKnownShipMap.Parent.Destroyed && lastKnownShipMap.Parent is not MapParent_WarPlatform)
+            {
+                return lastKnownShipMap;
+            }
+            if (lastKnownShipTile.Valid)
+            {
+                var tileMap = Find.Maps.FirstOrDefault(m => m.Tile == lastKnownShipTile && m.Parent is not MapParent_WarPlatform);
+                if (tileMap != null) return tileMap;
+            }
+            return Find.Maps.FirstOrDefault(m => m.mapPawns.AnyFreeColonistSpawned && m.Parent is not MapParent_WarPlatform && m.IsPocketMap is false) ?? Find.AnyPlayerHomeMap ?? Find.Maps.FirstOrDefault(m => m.Parent is not MapParent_WarPlatform && m.IsPocketMap is false);
         }
 
         public override void WorldComponentTick()
@@ -87,23 +112,15 @@ namespace VanillaGravshipExpanded2
 
             if (salvagerDropshipTick > 0 && Find.TickManager.TicksGame >= salvagerDropshipTick)
             {
-                var engine = GravEngineTracker.GetPlayerGravEngine();
-                if (engine?.Map != null)
-                {
-                    salvagerDropshipTick = -1;
-                    var parms = PawnsArrivalModeWorker_SalvagerDropshipRaid.CreateRaidParms(engine.Map);
-                    IncidentDefOf.RaidEnemy.Worker.TryExecute(parms);
-                }
+                salvagerDropshipTick = -1;
+                var parms = PawnsArrivalModeWorker_SalvagerDropshipRaid.CreateRaidParms(GetPlayerTargetMap());
+                IncidentDefOf.RaidEnemy.Worker.TryExecute(parms);
             }
 
             if (gravjumperLandingTick > 0 && Find.TickManager.TicksGame >= gravjumperLandingTick)
             {
-                var map = GravEngineTracker.GetPlayerGravEngine()?.Map;
-                if (map != null)
-                {
-                    gravjumperLandingTick = -1;
-                    LandGravjumperOnPlayerMap(map);
-                }
+                gravjumperLandingTick = -1;
+                LandGravjumperOnPlayerMap(GetPlayerTargetMap());
             }
         }
 
@@ -142,9 +159,8 @@ namespace VanillaGravshipExpanded2
 
         private void ShowTributeDemandDialog(bool postponed)
         {
+            var map = GetPlayerTargetMap();
             var engine = GravEngineTracker.GetPlayerGravEngine();
-            if (engine == null) return;
-            var map = engine.Map;
 
             var leaderName = salvagerLeader.Name.ToStringFull.Colorize(ColoredText.NameColor);
             var coloredStation = salvagerStationName.Colorize(ColoredText.FactionColor_Hostile);
@@ -167,7 +183,7 @@ namespace VanillaGravshipExpanded2
                     action = () =>
                     {
                         engineLockedRemotely = true;
-                        if (engine.cooldownCompleteTick < Find.TickManager.TicksGame) engine.cooldownCompleteTick = Find.TickManager.TicksGame + salvagerDelayDays * GenDate.TicksPerDay;
+                        if (engine != null && engine.cooldownCompleteTick < Find.TickManager.TicksGame) engine.cooldownCompleteTick = Find.TickManager.TicksGame + salvagerDelayDays * GenDate.TicksPerDay;
                         tributeDemandTick = Find.TickManager.TicksGame + salvagerDelayDays * GenDate.TicksPerDay;
                     }
                 });
@@ -275,8 +291,7 @@ namespace VanillaGravshipExpanded2
         public void TriggerEncounter()
         {
             var engine = GravEngineTracker.GetPlayerGravEngine();
-            if (engine is null) return;
-            var validThreats = DefDatabase<GravshipThreatDef>.AllDefsListForReading.Where(x => x.Worker.CanFire(engine));
+            var validThreats = DefDatabase<GravshipThreatDef>.AllDefsListForReading.Where(x => engine == null || x.Worker.CanFire(engine));
             if (validThreats.TryRandomElementByWeight(x => x.weight, out var selected))
             {
                 activeThreatDef = selected;
@@ -302,7 +317,7 @@ namespace VanillaGravshipExpanded2
             landingStructure.structure = enemyGravjumper;
             enemyGravjumper = null;
 
-            GenSpawn.Spawn(landingStructure, landingCell, map);
+            GenSpawn.Spawn(landingStructure, landingCell, map, rotation);
             gravjumperLandedLocal = true;
         }
 

@@ -8,28 +8,14 @@ namespace VanillaGravshipExpanded2
     {
         public override Faction EnemyFaction => Faction.OfMechanoids;
 
-        public override void Fire(Building_GravEngine engine)
+        public override TaggedString GetLetterDesc(CompSignalJammer jammer)
         {
-            var comp = WorldComponent_GravshipCombat.Instance;
-            comp.activeThreatDef = def;
-            comp.incomingWarplatform = true;
-            comp.warplatformTick = Find.TickManager.TicksGame + def.baseCountdownHours.RandomInRange * GenDate.TicksPerHour;
-
-            var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading
-                .OfType<ThingWithComps>()
-                .Where(t => t.def == InternalDefOf.SignalJammer)
-                .Select(t => t.GetComp<CompSignalJammer>())
-                .FirstOrDefault(c => c != null && c.OnCooldown is false);
-
-            var desc = def.letterDesc;
+            var desc = (TaggedString)def.letterDesc;
             if (jammer != null)
             {
-                jammer.StartCooldown();
-                comp.warplatformTick += def.jammerExtensionHours * GenDate.TicksPerHour;
                 desc += "\n\n" + "VGE_JammerScrambledCluster".Translate(def.jammerExtensionHours / 24);
             }
-
-            Find.LetterStack.ReceiveLetter(def.letterLabel, desc, LetterDefOf.ThreatBig);
+            return desc;
         }
 
         public override bool ShouldDefeat(Map map)

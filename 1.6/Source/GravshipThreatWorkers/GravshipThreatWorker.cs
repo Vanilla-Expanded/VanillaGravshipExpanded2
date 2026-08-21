@@ -38,47 +38,65 @@ namespace VanillaGravshipExpanded2
         public virtual void Fire(Building_GravEngine engine)
         {
             var comp = WorldComponent_GravshipCombat.Instance;
+            var map = comp.GetPlayerTargetMap();
+            comp.lastKnownShipMap = engine?.Map ?? map;
+            comp.lastKnownShipTile = engine?.Tile ?? map.Tile;
             comp.activeThreatDef = def;
             comp.incomingWarplatform = true;
             comp.warplatformTick = Find.TickManager.TicksGame + def.baseCountdownHours.RandomInRange * GenDate.TicksPerHour;
 
+            var jammer = TryApplyJammer(engine);
+            var desc = GetLetterDesc(jammer);
+            Find.LetterStack.ReceiveLetter(def.letterLabel, desc, LetterDefOf.ThreatBig);
+        }
+
+        public CompSignalJammer TryApplyJammer(Building_GravEngine engine)
+        {
+            if (engine == null) return null;
             var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading
                 .OfType<ThingWithComps>()
                 .Where(t => t.def == InternalDefOf.SignalJammer)
                 .Select(t => t.GetComp<CompSignalJammer>())
                 .FirstOrDefault(c => c != null && !c.OnCooldown);
-            var desc = def.letterDesc;
             if (jammer != null)
             {
                 jammer.StartCooldown();
-                comp.warplatformTick += def.jammerExtensionHours * GenDate.TicksPerHour;
+                WorldComponent_GravshipCombat.Instance.warplatformTick += def.jammerExtensionHours * GenDate.TicksPerHour;
+            }
+            return jammer;
+        }
+
+        public virtual TaggedString GetLetterDesc(CompSignalJammer jammer)
+        {
+            var desc = (TaggedString)def.letterDesc;
+            if (jammer != null)
+            {
                 desc += "\n\n" + "VGE_JammerScrambledSignal".Translate(def.jammerExtensionHours);
             }
-
-            Find.LetterStack.ReceiveLetter(def.letterLabel, desc, LetterDefOf.ThreatBig);
+            return desc;
         }
 
         public virtual void SpawnThreat(bool suppressArrivalLetter = false)
         {
-            var engine = GravEngineTracker.GetPlayerGravEngine();
-            if (engine == null) return;
+            var map = WorldComponent_GravshipCombat.Instance.GetPlayerTargetMap();
             var activeThreatDef = WorldComponent_GravshipCombat.Instance.activeThreatDef;
 
             var warplatform = (MapParent_WarPlatform)WorldObjectMaker.MakeWorldObject(activeThreatDef.worldObjectDef);
             warplatform.threatDef = activeThreatDef;
 
-            if (!Find.WorldGrid.TryGetFirstAdjacentLayerOfDef(engine.Tile, PlanetLayerDefOf.Orbit, out var orbitLayer))
+            var engineTile = map.Tile;
+            if (!Find.WorldGrid.TryGetFirstAdjacentLayerOfDef(engineTile, PlanetLayerDefOf.Orbit, out var orbitLayer))
             {
                 return;
             }
-            var orbitTile = engine.Tile.LayerDef == PlanetLayerDefOf.Orbit ? engine.Tile : orbitLayer.GetClosestTile_NewTemp(engine.Tile);
+            var orbitTile = engineTile.LayerDef == PlanetLayerDefOf.Orbit ? engineTile : orbitLayer.GetClosestTile_NewTemp(engineTile);
             var validTiles = new List<PlanetTile>();
             foreach (var tile in orbitLayer.Tiles)
             {
                 var distance = DistanceUtil.GetDistanceInOrbitTiles(tile.tile, orbitTile);
                 if (distance < def.escapeDistance && def.tileSpawnDistanceRange.Includes(distance))
                 {
-                    if (!def.tileSpawnDistanceRange.Includes(GravshipHelper.GetDistance(tile.tile, engine.Tile)))
+                    if (!def.tileSpawnDistanceRange.Includes(GravshipHelper.GetDistance(tile.tile, engineTile)))
                     {
                         continue;
                     }
@@ -97,7 +115,7 @@ namespace VanillaGravshipExpanded2
                 {
                     Find.WorldObjects.Remove(worldObject);
                 }
-                SpawnWarplatform(engine, warplatform, result, suppressArrivalLetter);
+                SpawnWarplatform(map, warplatform, result, suppressArrivalLetter);
             }
             else
             {
@@ -105,7 +123,7 @@ namespace VanillaGravshipExpanded2
             }
         }
 
-        private void SpawnWarplatform(Building_GravEngine engine, MapParent_WarPlatform warplatform, PlanetTile tile, bool suppressArrivalLetter)
+        private void SpawnWarplatform(Map playerMap, MapParent_WarPlatform warplatform, PlanetTile tile, bool suppressArrivalLetter)
         {
             warplatform.Tile = tile;
             warplatform.SetFaction(EnemyFaction);
@@ -115,7 +133,9 @@ namespace VanillaGravshipExpanded2
                 MapGenerator.GenerateMap(new IntVec3(def.mapSize, 1, def.mapSize), warplatform, warplatform.MapGeneratorDef);
                 if (!suppressArrivalLetter)
                 {
-                    Find.LetterStack.ReceiveLetter(def.arrivalLetterLabel, def.arrivalLetterDesc.Formatted(engine.RenamableLabel), LetterDefOf.ThreatBig, new LookTargets(warplatform));
+                    var engine = GravEngineTracker.GetPlayerGravEngine();
+                    var shipName = engine != null ? engine.RenamableLabel : (string)"VGE_GravshipGeneric".Translate();
+                    Find.LetterStack.ReceiveLetter(def.arrivalLetterLabel, def.arrivalLetterDesc.Formatted(shipName), LetterDefOf.ThreatBig, new LookTargets(warplatform));
                 }
                 CameraJumper.TryJump(new GlobalTargetInfo(warplatform.Map.Center, warplatform.Map));
                 Find.CameraDriver.SetRootPosAndSize(warplatform.Map.Center.ToVector3(), 60f);

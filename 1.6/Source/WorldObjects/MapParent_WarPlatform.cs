@@ -44,23 +44,19 @@ namespace VanillaGravshipExpanded2
             }
             if (!defeated)
             {
-                var engine = GravEngineTracker.GetPlayerGravEngine();
-                if (engine != null && engine.Destroyed is false)
+                var playerMap = WorldComponent_GravshipCombat.Instance.GetPlayerTargetMap();
+                if (playerMap != null && playerMap.mapPawns.AnyFreeColonistSpawned)
                 {
                     playerDestroyedTick = -1;
-                    var engineTile = engine.Tile;
-                    if (engineTile.Valid)
+                    var dist = DistanceUtil.GetDistanceInOrbitTiles(Tile, playerMap.Tile);
+                    if (dist > threatDef.escapeDistance && !Map.mapPawns.AnyFreeColonistSpawned)
                     {
-                        var dist = DistanceUtil.GetDistanceInOrbitTiles(Tile, engineTile);
-                        if (dist > threatDef.escapeDistance && !Map.mapPawns.AnyFreeColonistSpawned)
-                        {
-                            threatDef.Worker.OnEscape(this);
-                            Destroy();
-                            return;
-                        }
+                        threatDef.Worker.OnEscape(this);
+                        Destroy();
+                        return;
                     }
                 }
-                else if (playerDestroyedTick < 0)
+                else if (playerDestroyedTick < 0 && (playerMap == null || !playerMap.mapPawns.AllPawns.Any(p => p.Faction == Faction.OfPlayer)))
                 {
                     playerDestroyedTick = Find.TickManager.TicksGame + threatDef.hoursBombardmentOnEngineDestroyed * GenDate.TicksPerHour;
                 }
@@ -74,11 +70,7 @@ namespace VanillaGravshipExpanded2
                 if (Find.TickManager.TicksGame >= playerDestroyedTick)
                 {
                     playerDestroyedTick = -1;
-                    var engine = GravEngineTracker.GetPlayerGravEngine();
-                    if (engine is null || engine.Destroyed)
-                    {
-                        threatDef.Worker.OnEngineDestroyed(this);
-                    }
+                    threatDef.Worker.OnEngineDestroyed(this);
                     despawnTick = Find.TickManager.TicksGame;
                 }
             }

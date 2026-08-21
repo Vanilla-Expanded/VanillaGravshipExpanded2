@@ -107,4 +107,5 @@
 	<VGE_JammerScrambledGravship>Your signal jammer scrambled their scanning process, giving you an additional 24 hours before {0} engages.</VGE_JammerScrambledGravship>
 	<VGE_GravshipAttacks>Gravship attacks</VGE_GravshipAttacks>
 	<VGE_GravshipAttacksDesc>Despite your attempts to shake off the pursuit, the enemy gravship {0} has successfully tracked your new landing coordinates. It has arrived in orbit and is immediately engaging your gravship. Prepare for immediate combat.\n\nYour vessel will be under continuous fire from the gravship’s weapons. To survive, you must destroy the enemy gravship engine, as well as eliminate all of the gravship’s artillery turrets.\n\nYou can fight back using your gravship's artillery, shield generators, and point defenses to withstand the bombardment. Alternatively, send a shuttle or drop pods to the enemy location to board the gravjumper and destroy it from the inside. If you cannot defend yourself, you must attempt to escape its range immediately.</VGE_GravshipAttacksDesc>
+	<VGE_GravshipGeneric>your gravship</VGE_GravshipGeneric>
 </LanguageData>

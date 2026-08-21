@@ -20,12 +20,10 @@ namespace VanillaGravshipExpanded2
         public override void Fire(Building_GravEngine engine)
         {
             var comp = WorldComponent_GravshipCombat.Instance;
-            comp.activeThreatDef = def;
-            comp.incomingWarplatform = true;
 
             var delayDays = 5;
-            if (engine.def == InternalDefOf.VGE_GravjumperEngine) delayDays = 10;
-            else if (engine.def == InternalDefOf.VGE_GravhulkEngine) delayDays = 3;
+            if (engine?.def == InternalDefOf.VGE_GravjumperEngine) delayDays = 10;
+            else if (engine?.def == InternalDefOf.VGE_GravhulkEngine) delayDays = 3;
 
             var tribute = (int)Mathf.Max(2500f, Find.Maps.Sum(m => m.wealthWatcher.WealthTotal) * 0.025f);
             var stationName = NameGenerator.GenerateName(InternalDefOf.VGE_NamerPirateOrbitalStation);
@@ -36,28 +34,27 @@ namespace VanillaGravshipExpanded2
             comp.salvagerTributeAmount = tribute;
             comp.salvagerDelayDays = delayDays;
             comp.salvagerStationName = stationName;
-            comp.tributeDemandTick = Find.TickManager.TicksGame + def.baseCountdownHours.RandomInRange * GenDate.TicksPerHour;
 
-            var jammerDesc = "";
-            var jammer = engine.AffectedByFacilities.LinkedFacilitiesListForReading
-                .OfType<ThingWithComps>()
-                .Where(t => t.def == InternalDefOf.SignalJammer)
-                .Select(t => t.GetComp<CompSignalJammer>())
-                .FirstOrDefault(c => c != null && c.OnCooldown is false);
+            base.Fire(engine);
+            comp.tributeDemandTick = comp.warplatformTick;
+        }
+
+        public override TaggedString GetLetterDesc(CompSignalJammer jammer)
+        {
+            var comp = WorldComponent_GravshipCombat.Instance;
+            var engine = GravEngineTracker.GetPlayerGravEngine();
+            var shipName = engine != null ? engine.RenamableLabel : (string)"VGE_GravshipGeneric".Translate();
+            var desc = def.letterDesc.Formatted(
+                comp.salvagerStationName.Colorize(ColoredText.FactionColor_Hostile),
+                comp.salvagerLeader.Name.ToStringFull.Colorize(ColoredText.NameColor),
+                shipName.Colorize(ColoredText.NameColor),
+                comp.salvagerTributeAmount.ToString().Colorize(ColoredText.CurrencyColor),
+                comp.salvagerDelayDays);
             if (jammer != null)
             {
-                jammer.StartCooldown();
-                comp.tributeDemandTick += def.jammerExtensionHours * GenDate.TicksPerHour;
-                jammerDesc = "\n\n" + "VGE_JammerScrambledSalvager".Translate();
+                desc += "\n\n" + "VGE_JammerScrambledSalvager".Translate();
             }
-
-            var letterText = def.letterDesc.Formatted(
-                stationName.Colorize(ColoredText.FactionColor_Hostile),
-                leader.Name.ToStringFull.Colorize(ColoredText.NameColor),
-                engine.RenamableLabel.Colorize(ColoredText.NameColor),
-                tribute.ToString().Colorize(ColoredText.CurrencyColor),
-                delayDays) + jammerDesc;
-            Find.LetterStack.ReceiveLetter(def.letterLabel, letterText, LetterDefOf.ThreatBig);
+            return desc;
         }
 
         public override void OnDefeat(Map map)
