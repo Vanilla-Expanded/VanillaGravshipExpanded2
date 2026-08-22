@@ -40,7 +40,6 @@
 		</costList>
 		<comps Inherit="False">
 			<li Class="VanillaGravshipExpanded.CompProperties_PipeNetFuelProvider">
-        <resourceToRangeRatio>5</resourceToRangeRatio> <!-- Resource amount divided by this gives total range provided by the tank. -->
         <pipeNet>VGE_AstrofuelNet</pipeNet> <!-- Which pipe net to use, in case there's multiple. -->
 				<providesFuel>true</providesFuel>
 				<componentTypeDef>FuelStorage</componentTypeDef>
