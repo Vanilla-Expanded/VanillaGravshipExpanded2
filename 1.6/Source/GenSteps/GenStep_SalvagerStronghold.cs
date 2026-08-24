@@ -20,7 +20,6 @@ namespace VanillaGravshipExpanded2
             {
                 parent.SetFaction(Faction.OfSalvagers);
             }
-            map.OrbitalDebris = InternalDefOf.VGE_GravshipDebris;
             var rects = StructureSetGenerator.Generate(map, structureSetDef, map.ParentFaction);
             GenStep_Warplatform.MakeAllCratesANew(map);
 

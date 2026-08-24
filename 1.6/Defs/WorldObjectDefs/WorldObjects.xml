@@ -347,19 +347,8 @@
         <defName>VGE_SalvagerStronghold_Asteroid</defName>
         <linkWithSite>VGE_SalvagerStronghold</linkWithSite>
         <order>199</order>
-        <genStep Class="GenStep_Asteroid">
+        <genStep Class="VanillaGravshipExpanded2.GenStep_AsteroidNoRocks">
             <numChunks>1~1</numChunks>
-            <ruinsChance>0</ruinsChance>
-            <archeanTreeChance>0</archeanTreeChance>
-            <mineableCounts>
-                <MineableGold>14~22</MineableGold>
-                <MineableSilver>50~70</MineableSilver>
-                <MineableSteel>80~110</MineableSteel>
-                <MineableUranium>15~25</MineableUranium>
-                <MineablePlasteel>12~15</MineablePlasteel>
-                <MineableComponentsIndustrial>65~85</MineableComponentsIndustrial>
-                <MineableJade>20~35</MineableJade>
-            </mineableCounts>
         </genStep>
     </GenStepDef>
 
