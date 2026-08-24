@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ScenarioDef ParentName="ScenarioBase">
+    <defName>VGE_TheGravship</defName>
+    <label>The Gravship</label>
+    <description>Your gravship's engine is burning out. You managed to drift into an empty patch of orbit to bleed off the heat, but the cooldown cycle is excruciatingly slow. You know your pursuers are right behind you. It's only a matter of hours before their gravship drops into your local space and the boarding action begins. You must fortify your ship, patch up your crew, and prepare to repel boarders. If you survive, the space is yours.\n\nNote: This is a difficult scenario and is not recommended for new players.</description>
+    <scenario>
+      <summary>A crew stranded in orbit, bracing for an imminent enemy boarding action.</summary>
+      <playerFaction>
+        <factionDef>GravshipCrew</factionDef>
+      </playerFaction>
+      <parts Inherit="False">
+        <li Class="ScenPart_PlanetLayer">
+          <def>PlanetLayerFixed</def>
+          <tag>Orbit</tag>
+          <layer>Orbit</layer>
+          <settingsDef>Orbit</settingsDef>
+          <hide>true</hide>
+          <connections>
+            <Surface>
+              <zoomMode>ZoomIn</zoomMode>
+            </Surface>
+          </connections>
+        </li>
+
+        <li Class="ScenPart_GameStartDialog">
+          <def>GameStartDialog</def>
+          <text>Your gravship engine is completely overheated from the chase. You managed to drop into this empty pocket of orbit to bleed off the heat, but the emergency cooldown cycle will take hours.\n\nYou are not safe here. Your pursuers are tracking your signature, and their gravship will drop into your local space soon. They will not hesitate to breach your hull.\n\nUse this time to patch up your crew, fortify your ship, and prepare to repel boarders. Once the engine cooldown finishes, select the pilot console to initiate a launch and escape.\n\nAlternatively, if you are feeling bold, you can stand your ground, wipe out the boarding party, and strip their gravship for valuable parts before leaving.</text>
+          <closeSound>GameStartSting</closeSound>
+        </li>
+
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigPage_ConfigureStartingPawns</def>
+          <pawnCount>5</pawnCount>
+          <pawnChoiceCount>8</pawnChoiceCount>
+          <allowedDevelopmentalStages>Adult, Child</allowedDevelopmentalStages>
+        </li>
+
+        <li Class="ScenPart_ForcedMap">
+          <def>ForcedMap</def>
+          <mapGenerator>VGE_EmptySpace</mapGenerator>
+          <layerDef>Orbit</layerDef>
+        </li>
+
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <method>Gravship</method>
+        </li>
+
+        <li Class="VanillaGravshipExpanded.ScenPart_ChooseStartingGravship">
+          <def>VGE_ChooseStartingGravship</def>
+          <tag>Gravship</tag>
+          <startingAstrofuel>100</startingAstrofuel>
+          <startingOxygen>125</startingOxygen>
+        </li>
+
+        <li Class="VanillaGravshipExpanded2.ScenPart_ForcedInjuries">
+          <def>VGE_ForcedInjuries</def>
+        </li>
+
+        <li Class="VanillaGravshipExpanded2.ScenPart_TheGravship">
+          <def>VGE_TheGravship</def>
+        </li>
+
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>BiofuelRefining</project>
+        </li>
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>BasicGravtech</project>
+        </li>
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>VGE_OxygenNetwork</project>
+        </li>
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>VGE_GravshipPower</project>
+        </li>
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>VGE_GravshipLiving</project>
+        </li>
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>StandardGravtech</project>
+        </li>
+
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>WoodLog</thingDef>
+          <count>250</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MealSurvivalPack</thingDef>
+          <count>75</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MedicineIndustrial</thingDef>
+          <count>40</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ComponentIndustrial</thingDef>
+          <count>40</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>ComponentSpacer</thingDef>
+          <count>10</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Gravcore</thingDef>
+          <count>1</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>GravlitePanel</thingDef>
+          <count>500</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Steel</thingDef>
+          <count>650</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Silver</thingDef>
+          <count>750</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Gun_AssaultRifle</thingDef>
+          <count>1</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Gun_AssaultRifle_Unique</thingDef>
+          <count>1</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>Gun_ChainShotgun</thingDef>
+          <count>2</count>
+        </li>
+        <li Class="ScenPart_StartingThing_Defined">
+          <def>StartingThing_Defined</def>
+          <thingDef>MeleeWeapon_BreachAxe</thingDef>
+          <stuff>Steel</stuff>
+          <count>1</count>
+        </li>
+      </parts>
+    </scenario>
+  </ScenarioDef>
+</Defs>

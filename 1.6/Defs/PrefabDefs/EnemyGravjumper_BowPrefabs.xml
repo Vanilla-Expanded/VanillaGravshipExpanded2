@@ -84,19 +84,6 @@
     </VGE_GravshipShelf>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,4)</li>
-        <li>(3,5,12,5)</li>
-        <li>(6,6,12,7)</li>
-        <li>(10,8,12,8)</li>
-        <li>(11,9,12,20)</li>
-        <li>(10,12,10,20)</li>
-        <li>(6,13,9,20)</li>
-        <li>(3,15,5,20)</li>
-        <li>(0,16,2,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(0,5,2,15)</li>
@@ -201,23 +188,6 @@
     </VGE_GravshipShelf>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,4)</li>
-        <li>(3,5,12,5)</li>
-        <li>(4,6,12,6)</li>
-        <li>(5,7,12,7)</li>
-        <li>(7,8,12,8)</li>
-        <li>(9,9,12,9)</li>
-        <li>(10,10,12,20)</li>
-        <li>(9,11,9,20)</li>
-        <li>(7,12,8,20)</li>
-        <li>(5,13,6,20)</li>
-        <li>(4,14,4,20)</li>
-        <li>(3,15,3,20)</li>
-        <li>(0,16,2,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(0,5,2,15)</li>
@@ -374,25 +344,6 @@
     </VGE2_ExplosivesCrate>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,1)</li>
-        <li>(0,2,4,4)</li>
-        <li>(9,2,12,3)</li>
-        <li>(5,4,5,5)</li>
-        <li>(10,4,12,5)</li>
-        <li>(4,5,4,5)</li>
-        <li>(11,6,12,8)</li>
-        <li>(12,9,12,20)</li>
-        <li>(11,12,11,20)</li>
-        <li>(4,15,5,16)</li>
-        <li>(10,15,10,20)</li>
-        <li>(0,16,3,20)</li>
-        <li>(4,17,4,20)</li>
-        <li>(9,17,9,20)</li>
-        <li>(5,19,8,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(5,2,8,3)</li>
@@ -516,21 +467,6 @@
     </VGE_GravshipShelf>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,4)</li>
-        <li>(3,5,12,5)</li>
-        <li>(4,6,12,6)</li>
-        <li>(7,7,12,7)</li>
-        <li>(8,8,12,8)</li>
-        <li>(11,9,12,20)</li>
-        <li>(8,12,10,20)</li>
-        <li>(7,13,7,20)</li>
-        <li>(4,14,6,20)</li>
-        <li>(3,15,3,20)</li>
-        <li>(0,16,2,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(0,5,2,15)</li>
@@ -637,19 +573,6 @@
     </VGE_GravshipShelf>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,4)</li>
-        <li>(3,5,12,5)</li>
-        <li>(6,6,12,6)</li>
-        <li>(7,7,12,8)</li>
-        <li>(8,9,12,20)</li>
-        <li>(7,12,7,20)</li>
-        <li>(6,14,6,20)</li>
-        <li>(3,15,5,20)</li>
-        <li>(0,16,2,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(0,5,2,15)</li>
@@ -759,25 +682,6 @@
     </VGE_GravshipShelf>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,1)</li>
-        <li>(0,2,1,2)</li>
-        <li>(3,2,12,2)</li>
-        <li>(0,3,0,4)</li>
-        <li>(4,3,12,4)</li>
-        <li>(5,5,12,5)</li>
-        <li>(6,6,12,8)</li>
-        <li>(7,9,12,20)</li>
-        <li>(6,12,6,20)</li>
-        <li>(5,15,5,20)</li>
-        <li>(0,16,0,20)</li>
-        <li>(4,16,4,20)</li>
-        <li>(1,18,1,20)</li>
-        <li>(3,18,3,20)</li>
-        <li>(2,19,2,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(2,2,2,18)</li>
@@ -906,21 +810,6 @@
     </VGE_GravshipShelf>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,3)</li>
-        <li>(0,4,3,4)</li>
-        <li>(7,4,12,5)</li>
-        <li>(3,5,3,5)</li>
-        <li>(8,6,12,6)</li>
-        <li>(9,7,12,20)</li>
-        <li>(8,14,8,20)</li>
-        <li>(3,15,3,20)</li>
-        <li>(7,15,7,20)</li>
-        <li>(0,16,2,20)</li>
-        <li>(4,17,6,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(4,4,6,16)</li>
@@ -1045,22 +934,6 @@
     </AncientSealedContainer>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,2)</li>
-        <li>(0,3,2,4)</li>
-        <li>(4,3,5,4)</li>
-        <li>(7,3,12,6)</li>
-        <li>(8,7,12,7)</li>
-        <li>(9,8,12,20)</li>
-        <li>(8,13,8,20)</li>
-        <li>(7,14,7,20)</li>
-        <li>(0,16,2,20)</li>
-        <li>(4,16,5,20)</li>
-        <li>(3,18,3,20)</li>
-        <li>(6,18,6,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(3,3,3,17)</li>

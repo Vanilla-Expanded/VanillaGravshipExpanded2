@@ -54,6 +54,7 @@ namespace VanillaGravshipExpanded2
             }
 
             ScanGeneratedLayout(tempMap, cellRect, out var engine);
+            enginePos = IntVec3.Invalid;
             landingRotation = Rot4.North;
             RenderAndSaveTexture(tempMap, mainCamera, cellRect, engine);
 

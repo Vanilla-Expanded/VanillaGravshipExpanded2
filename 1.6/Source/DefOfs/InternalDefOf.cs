@@ -114,5 +114,8 @@ namespace VanillaGravshipExpanded2
         public static ThingDef VGE_Projectile_GravJunk;
         public static ThingDef VGE_GravJunk;
         public static DamageDef BombSuper;
+        public static HediffDef Shredded;
+        public static HediffDef Crack;
+        public static ThingDef VGE_LandingStructure_EnemyGravshipRaid;
     }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ScenPartDef>
+    <defName>VGE_ForcedInjuries</defName>
+    <label>forced starting injuries</label>
+    <scenPartClass>VanillaGravshipExpanded2.ScenPart_ForcedInjuries</scenPartClass>
+    <category>Fixed</category>
+    <selectionWeight>1</selectionWeight>
+  </ScenPartDef>
+
+  <ScenPartDef>
+    <defName>VGE_TheGravship</defName>
+    <label>the gravship</label>
+    <scenPartClass>VanillaGravshipExpanded2.ScenPart_TheGravship</scenPartClass>
+    <category>Fixed</category>
+    <selectionWeight>1</selectionWeight>
+  </ScenPartDef>
+</Defs>

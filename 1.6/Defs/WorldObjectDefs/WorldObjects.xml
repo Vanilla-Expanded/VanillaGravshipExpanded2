@@ -31,6 +31,8 @@
         <disableCallAid>true</disableCallAid>
         <genSteps>
             <li>VGE_EmptySpace</li>
+            <li>ScenParts</li>
+            <li>FogSpace</li>
         </genSteps>
     </MapGeneratorDef>
 

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravship_Default</defName>
+    <label>Default</label>
+    <description>The default starting gravship from Vanilla Gravships Expanded - Chapter 2.</description>
+    <prefab>StartingGravship_Default</prefab>
+    <imagePreview>UI/StartingGravships/StartingGravship_Default</imagePreview>
+    <gravshipTags>
+      <li>Gravship</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravship_Explorer</defName>
+    <label>Explorer</label>
+    <description>A well-rounded exploration vessel with crew quarters and defenses.</description>
+    <prefab>StartingGravship_Explorer</prefab>
+    <imagePreview>UI/StartingGravships/StartingGravship_Explorer</imagePreview>
+    <gravshipTags>
+      <li>Gravship</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravship_Freighter</defName>
+    <label>Freighter</label>
+    <description>A large freighter with large cargo space and a shield generator.</description>
+    <prefab>StartingGravship_Freighter</prefab>
+    <imagePreview>UI/StartingGravships/StartingGravship_Freighter</imagePreview>
+    <gravshipTags>
+      <li>Gravship</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravship_Battlecruiser</defName>
+    <label>Battlecruiser</label>
+    <description>A heavily armored battle cruiser with lacking living space.</description>
+    <prefab>StartingGravship_Battlecruiser</prefab>
+    <imagePreview>UI/StartingGravships/StartingGravship_Battlecruiser</imagePreview>
+    <gravshipTags>
+      <li>Gravship</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravjumper_StealthShip</defName>
+    <label>Stealth ship</label>
+    <description>A small, camouflaged gravjumper with electric thrusters.</description>
+    <prefab>StartingGravjumper_StealthShip</prefab>
+    <imagePreview>UI/StartingGravjumpers/StartingGravjumper_StealthShip</imagePreview>
+    <gravshipTags>
+      <li>Gravjumper</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravjumper_TravelCraft</defName>
+    <label>Travel craft</label>
+    <description>A compact, luxurious travel craft with arrays of solar panels.</description>
+    <prefab>StartingGravjumper_TravelCraft</prefab>
+    <imagePreview>UI/StartingGravjumpers/StartingGravjumper_TravelCraft</imagePreview>
+    <gravshipTags>
+      <li>Gravjumper</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+  <VanillaGravshipExpanded.StartingGravshipDef>
+    <defName>VGE_StartingGravjumper_DamagedGunship</defName>
+    <label>Damaged gunship</label>
+    <description>A battered gunship with compact gravship turrets and armored gravjumper engine.</description>
+    <prefab>StartingGravjumper_DamagedGunship</prefab>
+    <imagePreview>UI/StartingGravjumpers/StartingGravjumper_DamagedGunship</imagePreview>
+    <gravshipTags>
+      <li>Gravjumper</li>
+    </gravshipTags>
+  </VanillaGravshipExpanded.StartingGravshipDef>
+
+</Defs>

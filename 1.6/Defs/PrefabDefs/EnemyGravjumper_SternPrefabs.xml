@@ -88,19 +88,6 @@
     </ChemfuelTank>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,2)</li>
-        <li>(0,3,4,20)</li>
-        <li>(8,3,12,3)</li>
-        <li>(10,4,12,4)</li>
-        <li>(5,8,6,12)</li>
-        <li>(7,10,7,10)</li>
-        <li>(10,16,12,20)</li>
-        <li>(8,17,9,20)</li>
-        <li>(5,18,7,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(5,3,7,7)</li>
@@ -215,17 +202,6 @@
     </ChemfuelTank>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,4)</li>
-        <li>(0,5,3,20)</li>
-        <li>(7,5,8,5)</li>
-        <li>(4,10,5,10)</li>
-        <li>(7,15,8,20)</li>
-        <li>(4,16,6,20)</li>
-        <li>(9,16,12,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(4,5,6,9)</li>
@@ -318,18 +294,6 @@
     </ChemfuelTank>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,4)</li>
-        <li>(0,5,9,5)</li>
-        <li>(0,6,7,6)</li>
-        <li>(0,7,6,20)</li>
-        <li>(7,10,7,10)</li>
-        <li>(7,14,7,20)</li>
-        <li>(8,15,9,20)</li>
-        <li>(10,16,12,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(10,5,12,15)</li>
@@ -431,20 +395,6 @@
     </ChemfuelTank>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,0)</li>
-        <li>(0,1,7,20)</li>
-        <li>(11,1,12,2)</li>
-        <li>(12,3,12,4)</li>
-        <li>(8,4,8,16)</li>
-        <li>(9,5,9,5)</li>
-        <li>(9,15,9,15)</li>
-        <li>(12,16,12,20)</li>
-        <li>(11,18,11,20)</li>
-        <li>(8,20,10,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(8,1,10,3)</li>
@@ -570,21 +520,6 @@
     </VGE2_ExplosivesCrate>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,3)</li>
-        <li>(0,4,6,6)</li>
-        <li>(11,4,12,4)</li>
-        <li>(7,6,9,6)</li>
-        <li>(0,7,5,8)</li>
-        <li>(0,9,4,20)</li>
-        <li>(5,12,5,20)</li>
-        <li>(6,14,9,14)</li>
-        <li>(6,15,6,20)</li>
-        <li>(11,16,12,20)</li>
-        <li>(7,17,10,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(7,4,10,5)</li>
@@ -702,23 +637,6 @@
     </ChemfuelTank>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,2)</li>
-        <li>(0,3,9,3)</li>
-        <li>(12,3,12,4)</li>
-        <li>(0,4,7,5)</li>
-        <li>(8,5,9,5)</li>
-        <li>(0,6,6,7)</li>
-        <li>(0,8,5,20)</li>
-        <li>(6,13,6,20)</li>
-        <li>(7,15,9,15)</li>
-        <li>(7,16,7,20)</li>
-        <li>(12,16,12,20)</li>
-        <li>(8,17,9,20)</li>
-        <li>(10,18,11,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(10,3,11,17)</li>
@@ -835,16 +753,6 @@
     </ChemfuelTank>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,4)</li>
-        <li>(0,5,10,5)</li>
-        <li>(0,6,5,20)</li>
-        <li>(6,10,8,10)</li>
-        <li>(6,15,10,20)</li>
-        <li>(11,16,12,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(11,5,12,15)</li>
@@ -974,16 +882,6 @@
     </ChemfuelTank>
   </things>
   <terrain>
-    <Space>
-      <rects>
-        <li>(0,0,12,4)</li>
-        <li>(0,5,4,20)</li>
-        <li>(8,5,9,5)</li>
-        <li>(8,15,9,20)</li>
-        <li>(5,16,7,20)</li>
-        <li>(10,16,12,20)</li>
-      </rects>
-    </Space>
     <VGE_EnemySubstructure>
       <rects>
         <li>(5,5,7,15)</li>

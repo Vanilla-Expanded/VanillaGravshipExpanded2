@@ -40,6 +40,7 @@ namespace VanillaGravshipExpanded2
                 var standardLayouts = VEF.Storyteller.StructureSetGenerator.SelectStandardLayouts(structureSetDef, 0f, selectedDefs);
                 var preExisting = new HashSet<Thing>(tempMap.listerThings.AllThings);
                 var rects = VEF.Storyteller.StructureSetGenerator.Generate(tempMap, structureSetDef, shipFaction, tempMap.Center, standardLayouts, 0f, shipRotation);
+                var vacuumCells = tempMap.AllCells.Where(c => tempMap.terrainGrid.TerrainAt(c) == TerrainDefOf.Space).ToHashSet();
                 foreach (var c in tempMap.AllCells)
                 {
                     if (tempMap.terrainGrid.TerrainAt(c) == TerrainDefOf.Space)
@@ -54,9 +55,10 @@ namespace VanillaGravshipExpanded2
                 var cellRect = CellRect.FromLimits(minX, minZ, maxX, maxZ);
                 Refog(tempMap, cellRect);
                 PostProcessMap(tempMap, shipFaction, preExisting);
-                GeneratePawns(tempMap, cellRect);
+                GeneratePawns(tempMap, cellRect, vacuumCells);
                 Rand.PopState();
                 ScanGeneratedLayout(tempMap, cellRect, out var engine);
+                enginePos = IntVec3.Invalid;
                 landingRotation = Rot4.North;
                 RenderAndSaveTexture(tempMap, mainCamera, cellRect, engine);
                 DespawnPawns();
@@ -101,7 +103,13 @@ namespace VanillaGravshipExpanded2
                 PostProcessMap(map, shipFaction, preExisting);
                 Rand.PopState();
                 OnImpact(map, cellRect, preExisting);
-                Refog(map, cellRect);
+                foreach (var c in cellRect)
+                {
+                    if (c.InBounds(map) && c.GetTerrain(map) != TerrainDefOf.Space)
+                    {
+                        map.fogGrid.Refog(CellRect.SingleCell(c));
+                    }
+                }
                 Destroy(DestroyMode.Vanish);
             }
             finally
@@ -131,7 +139,7 @@ namespace VanillaGravshipExpanded2
             }
         }
 
-        private void OnImpact(Map map, CellRect cellRect, HashSet<Thing> preExisting)
+        protected virtual void OnImpact(Map map, CellRect cellRect, HashSet<Thing> preExisting)
         {
             var center = cellRect.CenterCell;
             foreach (var pair in pawnPositions)
@@ -158,10 +166,10 @@ namespace VanillaGravshipExpanded2
             }
         }
 
-        private void GeneratePawns(Map map, CellRect cellRect)
+        private void GeneratePawns(Map map, CellRect cellRect, HashSet<IntVec3> vacuumCells)
         {
             if (shipFaction == null || pawnCountRange.max <= 0) return;
-            var cells = cellRect.Cells.Where(c => c.Standable(map) && c.GetTerrain(map) != TerrainDefOf.Space && c.Roofed(map)).ToList();
+            var cells = cellRect.Cells.Where(c => c.Standable(map) && c.Roofed(map) && !vacuumCells.Contains(c)).ToList();
             var center = cellRect.CenterCell;
             var pawnCount = pawnCountRange.RandomInRange;
             for (var i = 0; i < pawnCount; i++)

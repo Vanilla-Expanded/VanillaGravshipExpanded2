@@ -20,6 +20,7 @@ namespace VanillaGravshipExpanded2
             {
                 terrainGrid.SetTerrain(allCell, TerrainDefOf.Space);
             }
+            MapGenerator.PlayerStartSpot = map.Center;
         }
     }
 }
