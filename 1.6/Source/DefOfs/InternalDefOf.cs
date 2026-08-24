@@ -84,6 +84,7 @@ namespace VanillaGravshipExpanded2
 		public static OrbitalDebrisDef VGE_GravshipDebris;
 		public static SitePartDef VGE_GravshipGraveyard;
 		public static SitePartDef VGE_InfestedInstallation;
+		public static SitePartDef VGE_SalvagerStronghold;
 		public static HistoryAutoRecorderDef VGE_GravshipVisibilityRecorder;
 		public static ThingDef VGE_SalvagerDropship;
 		public static ThingDef VGE_SalvagerDropshipBombardment;

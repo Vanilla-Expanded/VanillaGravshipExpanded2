@@ -333,4 +333,42 @@
             <li>VGE_EnemyGravship</li>
         </genSteps>
     </MapGeneratorDef>
+
+    <SitePartDef ParentName="SpaceGravcoreLocationBase">
+        <defName>VGE_SalvagerStronghold</defName>
+        <label>salvager stronghold</label>
+        <description>A heavily defended salvager base built on an asteroid, containing a gravcore.</description>
+        <tags>
+            <li>VGE_SalvagerStronghold</li>
+        </tags>
+    </SitePartDef>
+
+    <GenStepDef>
+        <defName>VGE_SalvagerStronghold_Asteroid</defName>
+        <linkWithSite>VGE_SalvagerStronghold</linkWithSite>
+        <order>199</order>
+        <genStep Class="GenStep_Asteroid">
+            <numChunks>1~1</numChunks>
+            <ruinsChance>0</ruinsChance>
+            <archeanTreeChance>0</archeanTreeChance>
+            <mineableCounts>
+                <MineableGold>14~22</MineableGold>
+                <MineableSilver>50~70</MineableSilver>
+                <MineableSteel>80~110</MineableSteel>
+                <MineableUranium>15~25</MineableUranium>
+                <MineablePlasteel>12~15</MineablePlasteel>
+                <MineableComponentsIndustrial>65~85</MineableComponentsIndustrial>
+                <MineableJade>20~35</MineableJade>
+            </mineableCounts>
+        </genStep>
+    </GenStepDef>
+
+    <GenStepDef>
+        <defName>VGE_SalvagerStronghold</defName>
+        <linkWithSite>VGE_SalvagerStronghold</linkWithSite>
+        <order>200</order>
+        <genStep Class="VanillaGravshipExpanded2.GenStep_SalvagerStronghold">
+            <structureSetDef>VGE_SalvagerAsteroidBaseSet</structureSetDef>
+        </genStep>
+    </GenStepDef>
 </Defs>

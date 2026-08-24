@@ -74,7 +74,8 @@
             <li>PlaceWorker_TurretTop</li>
         </placeWorkers>
    		<genericMarketSellable>false</genericMarketSellable>
-    	<thingCategories>
+   		<designationCategory Inherit="False" />
+   		<thingCategories>
      		<li>BuildingsMisc</li>
    		</thingCategories>
    		<minifiedDef>MinifiedThing</minifiedDef>

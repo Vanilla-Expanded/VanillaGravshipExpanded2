@@ -257,4 +257,28 @@
 			<layer>Orbit</layer>
 		</root>
 	</QuestScriptDef>
+
+	<QuestScriptDef>
+		<defName>VGE_SalvagerStronghold</defName>
+		<autoAccept>true</autoAccept>
+		<questNameRules>
+			<rulesStrings>
+				<li>questName->Salvager stronghold</li>
+			</rulesStrings>
+		</questNameRules>
+		<questDescriptionRules>
+			<rulesStrings>
+				<li>questDescription->You have detected the distinct energy signature of a gravcore emanating from a large asteroid. Scans reveal that a well-armed faction of salvagers has claimed the rock, building a heavily defended stronghold upon it. An active enemy signal jammer within the facility prevents your gravship from landing in close proximity, forcing you to touch down on the dangerous outskirts of the asteroid.\n\nYou must assault the base, navigate their defenses, and destroy the gravlock tether located in the center of the compound to obtain the gravcore.\n\nBe careful, orbital locations are extremely dangerous. Equip your colonists with vacsuits. Plan your return trip, as living in orbit for long periods is very difficult.</li>
+			</rulesStrings>
+		</questDescriptionRules>
+		<questAvailableLetterLabel>Gravcore detected: Salvager stronghold</questAvailableLetterLabel>
+		<questAvailableLetterTextIsDescription>true</questAvailableLetterTextIsDescription>
+		<canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+		<root Class="VanillaGravshipExpanded2.QuestNode_Root_Gravcore_SalvagerStronghold">
+			<distanceFromColonyRange>6~16</distanceFromColonyRange>
+			<selectLandmarkChance>0</selectLandmarkChance>
+			<requiredSubquestsGiven>7</requiredSubquestsGiven>
+			<layer>Orbit</layer>
+		</root>
+	</QuestScriptDef>
 </Defs>

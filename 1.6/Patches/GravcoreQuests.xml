@@ -5,6 +5,7 @@
 		<value>
 			<li>VGE_GravshipGraveyard</li>
 			<li>VGE_InfestedInstallation</li>
+			<li>VGE_SalvagerStronghold</li>
 		</value>
 	</Operation>
 </Patch>

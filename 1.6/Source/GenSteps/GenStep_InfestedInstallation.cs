@@ -12,6 +12,7 @@ namespace VanillaGravshipExpanded2
 
         public override void Generate(Map map, GenStepParams parms)
         {
+            map.regionAndRoomUpdater.Enabled = true;
             var parent = map.Parent;
             if (parent.Faction == null || parent.Faction == Faction.OfPlayer)
             {
