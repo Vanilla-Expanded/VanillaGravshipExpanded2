@@ -118,5 +118,7 @@ namespace VanillaGravshipExpanded2
         public static HediffDef Shredded;
         public static HediffDef Crack;
         public static ThingDef VGE_LandingStructure_EnemyGravshipRaid;
+        public static ThingDef AncientMiningCharge;
+        public static ThingDef AncientDrillPlatform;
     }
 }
