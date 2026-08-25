@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="VFEI2_BuildingInsectoidBase">
+		<defName>VFEI2_VGE_ArtificialExoHive</defName>
+		<label>artificial exo hive</label>
+		<description>An artificially constructed hive of giant insects. It is capable of spawning various exoinsectoids over time, as well as some amount of insect jelly. It requires regular maintenance, and constructing too many hives near each other will increase the maintenance required.</description>
+		<thingClass>VFEInsectoids.ArtificialHive</thingClass>
+		<graphicData>
+			<texPath>Mods/ArtificialExoHive</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<uiIconScale>0.65</uiIconScale>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>false</rotatable>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<MarketValue>250</MarketValue>
+			<WorkToBuild>3000</WorkToBuild>
+		</statBases>
+		<pathCost>42</pathCost>
+		<receivesSignals>true</receivesSignals>
+		<blockWind>true</blockWind>
+		<tickerType>Normal</tickerType>
+		<passability>PassThroughOnly</passability>
+		<killedLeavings>
+			<InsectJelly>30</InsectJelly>
+		</killedLeavings>
+		<placeWorkers>
+			<li>VFEInsectoids.PlaceWorker_ArtificialHivesNear</li>
+		</placeWorkers>
+		<building>
+			<buildingTags>
+				<li>VFEI_ArtificialHive</li>
+			</buildingTags>
+		</building>
+		<comps>
+			<li Class="VFEInsectoids.CompProperties_Hive">
+				<insectTypes>
+					<li>
+						<insect>VGE_Exoworm</insect>
+						<insectType>Worker</insectType>
+					</li>
+					<li>
+						<insect>VGE_Exopede</insect>
+						<insectType>Defender</insectType>
+					</li>
+				
+					<li>
+						<insect>VGE_Exoleech</insect>
+						<insectType>Hunter</insectType>
+					</li>
+				
+				</insectTypes>
+				<insectoidRespawnTime>180000</insectoidRespawnTime>
+				<spawnSound>Hive_Spawn</spawnSound>
+			</li>
+			
+			<li Class="CompProperties_SelfhealHitpoints">
+				<ticksPerHeal>6000</ticksPerHeal>
+				<!-- 60k ticks = 1 day, 10 hp per day -->
+			</li>
+			<li Class="CompProperties_Spawner">
+				<thingToSpawn>InsectJelly</thingToSpawn>
+				<spawnCount>20</spawnCount>
+				<spawnIntervalRange>26000~30000</spawnIntervalRange>
+				<spawnMaxAdjacent>40</spawnMaxAdjacent>
+				<spawnForbidden>false</spawnForbidden>
+				<saveKeysPrefix>jelly</saveKeysPrefix>
+			</li>
+			<li Class="CompProperties_Spawner">
+				<thingToSpawn>GlowPod</thingToSpawn>
+				<spawnCount>1</spawnCount>
+				<spawnIntervalRange>30000~60000</spawnIntervalRange>
+				<spawnMaxAdjacent>1</spawnMaxAdjacent>
+				<saveKeysPrefix>pod</saveKeysPrefix>
+				<inheritFaction>true</inheritFaction>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<heatPerSecond>6</heatPerSecond>
+				<heatPushMaxTemperature>38</heatPushMaxTemperature>
+			</li>
+			<li Class="CompProperties_SpawnerFilth">
+				<filthDef>Filth_Slime</filthDef>
+				<spawnCountOnSpawn>10</spawnCountOnSpawn>
+				<spawnMtbHours>4</spawnMtbHours>
+				<spawnRadius>5</spawnRadius>
+			</li>
+			<li Class="CompProperties_Maintainable">
+				<compClass>VFEInsectoids.CompMaintenableHive</compClass>
+				<ticksHealthy>60000</ticksHealthy>
+				<ticksNeedsMaintenance>60000</ticksNeedsMaintenance>
+				<damagePerTickRare>10</damagePerTickRare>
+			</li>
+		</comps>
+		<costList>
+			<InsectJelly>150</InsectJelly>
+			<VFEI2_RoyalInsectJelly>50</VFEI2_RoyalInsectJelly>
+			<VFEI2_PherocoreExo>1</VFEI2_PherocoreExo>
+		</costList>
+		<designationCategory>VFEI2_Insectoids</designationCategory>
+		<researchPrerequisites>
+			<li>VFEI2_ExoticHivetech</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+</Defs>
