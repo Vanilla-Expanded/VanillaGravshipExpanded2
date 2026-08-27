@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<HediffDef>
+		<defName>VFEI2_ExtremeRegeneration</defName>
+		<description>This creature is capable of instantly regenerating all wounds. Exposure to fire will temporarily stop the regeneration ability.</description>
+		<label>extreme regeneration</label>
+		<defaultLabelColor>(.8,0,0)</defaultLabelColor>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<stages>
+			<li>
+			
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef>
+		<defName>VFEI2_ExtremeRegeneration_Inactive</defName>
+		<description>This creature is capable of instantly regenerating all wounds. Exposure to fire will temporarily stop the regeneration ability.</description>
+		<label>extreme regeneration (inactive)</label>
+		<defaultLabelColor>(.8,0,0)</defaultLabelColor>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<stages>
+			<li>
+			
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

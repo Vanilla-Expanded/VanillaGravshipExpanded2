@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="VFEI2_Nullipede"]/statBases/LeatherAmount</xpath>
+		<value>
+			<LeatherAmount>30</LeatherAmount>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VFEI2_Nullipede"]/race</xpath>
+		<value>
+			<leatherDef>VFEI2_Chitin</leatherDef>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="VFEI2_Nullipede"]</xpath>
+		<value>
+			<killedLeavings>
+				<VFEI2_PherocoreExo>1</VFEI2_PherocoreExo>
+			</killedLeavings>
+		</value>
+	</Operation>
+</Patch>

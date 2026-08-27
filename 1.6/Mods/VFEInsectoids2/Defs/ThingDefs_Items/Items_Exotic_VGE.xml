@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-	
-
-
 	<ThingDef ParentName="VFEI2_PherocoreBase">
 		<defName>VFEI2_PherocoreExo</defName>
 		<label>exo pherocore</label>
@@ -23,6 +19,4 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
-	
 </Defs>

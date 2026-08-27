@@ -19,34 +19,29 @@
 	<VGE_LaunchWarpodDesc>Launch this sub-orbital warpod towards a precise target destination.</VGE_LaunchWarpodDesc>
 	<VGE_WarpodLocationNeedRevealed>Can't launch warpods here: location needs to be revealed.</VGE_WarpodLocationNeedRevealed>
 	<VGE_MustBePlacedInSpace>Must be placed in space.</VGE_MustBePlacedInSpace>
-
 	<!-- Gravship shield -->
 	<VGE_ShieldOverheated>Gravship shield generator has overheated due to lack of empty heatsinks. Consider building more heatsinks.</VGE_ShieldOverheated>
 	<VGE_ShieldOverheatedGizmo>Overheated</VGE_ShieldOverheatedGizmo>
 	<VGE_ShieldInternalHeat>Heat units stored internally: {0}/{1}</VGE_ShieldInternalHeat>
-
-  <!-- Escape pod -->
-  <VGE_EscapePod_Enter>Enter escape pod</VGE_EscapePod_Enter>
-  <VGE_EscapePod_InsertPawn>Carry to escape pod</VGE_EscapePod_InsertPawn>
-  <VGE_EscapePod_InsertCarriedPawn>Place {PAWN} in escape pod</VGE_EscapePod_InsertCarriedPawn>
-  <VGE_EscapePod_Occupied>Escape pod is already occupied</VGE_EscapePod_Occupied>
-  <VGE_CommandAutoRebuild_EscapePod>If this is on, {BUILDING_definite} will automatically be replaced after it's used.</VGE_CommandAutoRebuild_EscapePod>
-  <VGE_EscapePod_CancelEvacuation>Cancel Evacuation</VGE_EscapePod_CancelEvacuation>
-  <VGE_EscapePod_Evacuation>Evacuate Gravship</VGE_EscapePod_Evacuation>
-  <VGE_EscapePod_EvacuationDesc>Initiates a gravship-wide evacuation protocol. All colonists will immediately seek out and board the closest available escape pod. The evacuation process plays a ship-wide siren until all pods have launched. If there is not enough escape pods, some colonists may fail to evacuate.</VGE_EscapePod_EvacuationDesc>
-  <VGE_EscapePod_EvacuationConfirmation>Are you sure you want to issue an evacuation?\n\nEvery colonist who's able to do so will immediately stop doing what they are doing and attempt to find an escape pod to use. If they're unable to immediately find an escape pod, they'll keep trying to find one unless they're drafted or an evacuation is stopped.\n\nIf you decide to cancel the evacuation your colonists will attempt to return to anything they may have been working on at the time (if that's possible).</VGE_EscapePod_EvacuationConfirmation>
-
-  <!-- Vacuum emergency light -->
-  <VGE_VacuumEmergencyLight_UnsafeVacuumLevel>Select dangerous vacuum level</VGE_VacuumEmergencyLight_UnsafeVacuumLevel>
-  <VGE_VacuumEmergencyLight_UnsafeVacuumLevelDesc>Select a vacuum level that will be considered unsafe. Once the vacuum reaches this level the light will turn on and any undrafted colonists (without vacuum protective gear) will attempt to seek safety.</VGE_VacuumEmergencyLight_UnsafeVacuumLevelDesc>
-  <VGE_VacuumEmergencyLight_UnsafeVacuumSlider>Unsafe vacuum level: {0_percentage}</VGE_VacuumEmergencyLight_UnsafeVacuumSlider>
-  <VGE_VacuumEmergencyLight_EvacuatePawns>Evacuate area when unsafe vacuum level reached</VGE_VacuumEmergencyLight_EvacuatePawns>
-
-  <!-- Fuel provider/electric thrusters -->
-  <VGE_FuelTab_ElectricThrusters>electric thrusters</VGE_FuelTab_ElectricThrusters>
-  <VGE_FuelTab_ChargedThrusters>charged thrusters</VGE_FuelTab_ChargedThrusters>
-  <VGE_UsedCharge>charge</VGE_UsedCharge>
-
+	<!-- Escape pod -->
+	<VGE_EscapePod_Enter>Enter escape pod</VGE_EscapePod_Enter>
+	<VGE_EscapePod_InsertPawn>Carry to escape pod</VGE_EscapePod_InsertPawn>
+	<VGE_EscapePod_InsertCarriedPawn>Place {PAWN} in escape pod</VGE_EscapePod_InsertCarriedPawn>
+	<VGE_EscapePod_Occupied>Escape pod is already occupied</VGE_EscapePod_Occupied>
+	<VGE_CommandAutoRebuild_EscapePod>If this is on, {BUILDING_definite} will automatically be replaced after it's used.</VGE_CommandAutoRebuild_EscapePod>
+	<VGE_EscapePod_CancelEvacuation>Cancel Evacuation</VGE_EscapePod_CancelEvacuation>
+	<VGE_EscapePod_Evacuation>Evacuate Gravship</VGE_EscapePod_Evacuation>
+	<VGE_EscapePod_EvacuationDesc>Initiates a gravship-wide evacuation protocol. All colonists will immediately seek out and board the closest available escape pod. The evacuation process plays a ship-wide siren until all pods have launched. If there is not enough escape pods, some colonists may fail to evacuate.</VGE_EscapePod_EvacuationDesc>
+	<VGE_EscapePod_EvacuationConfirmation>Are you sure you want to issue an evacuation?\n\nEvery colonist who's able to do so will immediately stop doing what they are doing and attempt to find an escape pod to use. If they're unable to immediately find an escape pod, they'll keep trying to find one unless they're drafted or an evacuation is stopped.\n\nIf you decide to cancel the evacuation your colonists will attempt to return to anything they may have been working on at the time (if that's possible).</VGE_EscapePod_EvacuationConfirmation>
+	<!-- Vacuum emergency light -->
+	<VGE_VacuumEmergencyLight_UnsafeVacuumLevel>Select dangerous vacuum level</VGE_VacuumEmergencyLight_UnsafeVacuumLevel>
+	<VGE_VacuumEmergencyLight_UnsafeVacuumLevelDesc>Select a vacuum level that will be considered unsafe. Once the vacuum reaches this level the light will turn on and any undrafted colonists (without vacuum protective gear) will attempt to seek safety.</VGE_VacuumEmergencyLight_UnsafeVacuumLevelDesc>
+	<VGE_VacuumEmergencyLight_UnsafeVacuumSlider>Unsafe vacuum level: {0_percentage}</VGE_VacuumEmergencyLight_UnsafeVacuumSlider>
+	<VGE_VacuumEmergencyLight_EvacuatePawns>Evacuate area when unsafe vacuum level reached</VGE_VacuumEmergencyLight_EvacuatePawns>
+	<!-- Fuel provider/electric thrusters -->
+	<VGE_FuelTab_ElectricThrusters>electric thrusters</VGE_FuelTab_ElectricThrusters>
+	<VGE_FuelTab_ChargedThrusters>charged thrusters</VGE_FuelTab_ChargedThrusters>
+	<VGE_UsedCharge>charge</VGE_UsedCharge>
 	<VGE_HackWarcomputer>Hack enemy warcomputer to retrieve gravdata</VGE_HackWarcomputer>
 	<VGE_GravdataWillBeLostWarning>Gravdata obtained will be lost unless you select a gravtech research project.</VGE_GravdataWillBeLostWarning>
 	<VGE_WarcomputerHackedBlackBox>Hostile warcomputer hacked. {0} gravdata stored in the gravship black box.</VGE_WarcomputerHackedBlackBox>
@@ -114,4 +109,7 @@
 	<VGE_GravshipEngineReadyDesc>Your gravship engine is off-cooldown. You can now perform a gravship launch.</VGE_GravshipEngineReadyDesc>
 	<VGE_SalvagerStrongholdLetter>Gravcore detected: Salvager stronghold</VGE_SalvagerStrongholdLetter>
 	<VGE_SalvagerStrongholdLetterDesc>You have detected the distinct energy signature of a gravcore emanating from a large asteroid. Scans reveal that a well-armed faction of salvagers has claimed the rock, building a heavily defended stronghold upon it. An active enemy signal jammer within the facility prevents your gravship from landing in close proximity, forcing you to touch down on the dangerous outskirts of the asteroid.\n\nYou must assault the base, navigate their defenses, and destroy the gravlock tether located in the center of the compound to obtain the gravcore.\n\nBe careful, orbital locations are extremely dangerous. Equip your colonists with vacsuits. Plan your return trip, as living in orbit for long periods is very difficult.</VGE_SalvagerStrongholdLetterDesc>
+	<!--Misc-->
+	<VGE_NullipedeThumperNeedsSpace>Nullipede thumper cannot be activated on the surface.</VGE_NullipedeThumperNeedsSpace>
+	<VGE_NeedsHiveOrSubcreeper>Can’t place subcreep outside of the radius of exo hives or subcreepers.</VGE_NeedsHiveOrSubcreeper>
 </LanguageData>
