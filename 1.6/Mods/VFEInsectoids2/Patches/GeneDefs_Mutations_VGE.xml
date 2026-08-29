@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Races Expanded - Insector</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+					<defName>VGE_Gene_AstrofuelSacks</defName>
+					<label>astrofuel sacks</label>
+					<description>Carriers of this gene develop volatile astrofuel sacks resembling a tail, drastically increasing their susceptibility to flame damage. If engulfed in large enough flames or upon death, they erupt in a devastating astrofire explosion. Additionally, these sacks can be "milked" periodically to yield valuable astrofuel.</description>
+					<selectionWeight>0</selectionWeight>
+					<unlockable>true</unlockable>
+					<iconPath>Mods/Genes/Gene_AstrofuelSacks</iconPath>
+					<displayOrderInCategory>3001</displayOrderInCategory>
+					<mentalBreakMtbDays>0.1</mentalBreakMtbDays>
+					<mentalBreakDef>VGE_FireTerror</mentalBreakDef>
+					<symbolPack>
+						<prefixSymbols>
+							<li>
+								<symbol>fuel</symbol>
+							</li>
+							<li>
+								<symbol>void</symbol>
+							</li>
+							<li>
+								<symbol>astro</symbol>
+							</li>
+						</prefixSymbols>
+					</symbolPack>
+					<damageFactors>
+						<Flame>2</Flame>
+					</damageFactors>
+					<exclusionTags>
+						<li>Tail</li>
+						<li>InsectorFire</li>
+					</exclusionTags>
+					<modExtensions>
+						<li Class="VEF.Genes.GeneExtension">
+							<backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+							<backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+						</li>
+					</modExtensions>
+				</VanillaRacesExpandedInsector.GenelineGeneDef>
+				<VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+					<defName>VGE_Gene_FloatingOrgans</defName>
+					<label>floating organs</label>
+					<description>Carriers of this gene lack the internal connective tissues that normally hold organs in place under planetary gravity. Subjecting them to standard gravity causes their internal organs to shift and sag painfully, resulting in chronic nausea and persistent lethargy.</description>
+					<iconPath>Mods/Genes/Gene_FloatingOrgans</iconPath>
+					<displayOrderInCategory>3002</displayOrderInCategory>
+					<unlockable>true</unlockable>
+					<selectionWeight>0</selectionWeight>
+					<symbolPack>
+						<prefixSymbols>
+							<li>
+								<symbol>grav</symbol>
+							</li>
+							<li>
+								<symbol>frail</symbol>
+							</li>
+							<li>
+								<symbol>pale</symbol>
+							</li>
+							<li>
+								<symbol>sick</symbol>
+							</li>
+						</prefixSymbols>
+					</symbolPack>
+				
+					<modExtensions>
+						<li Class="VEF.Genes.GeneExtension">
+							<backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+							<backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+							<hediffToWholeBody>VGE_FloatingOrgans</hediffToWholeBody>
+						</li>
+					</modExtensions>
+				</VanillaRacesExpandedInsector.GenelineGeneDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>
+

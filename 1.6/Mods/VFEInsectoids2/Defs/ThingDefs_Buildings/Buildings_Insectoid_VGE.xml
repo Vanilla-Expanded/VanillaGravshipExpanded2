@@ -151,4 +151,88 @@
 			<li>BasicGravtech</li>
 		</researchPrerequisites>
 	</ThingDef>
+	<ThingDef ParentName="VFEI2_TurretBase">
+		<defName>VFEI2_Siegeworm</defName>
+		<label>siegeworm</label>
+		<description>A massive, heavily muscled worm anchored deep within a fortified mound of reinforced creep, acting as living siege artillery. The siegeworm regurgitates and forcefully ejects dense, boulder-sized chunks of hardened insectoid biomass and rock. It possesses the necessary strength to launch these projectiles across extreme distances, capable of bombarding adjacent map tiles and even targeting orbiting enemy gravships, provided it’s regularly fed with insect jelly. If starved, the mound will gradually deteriorate. Once completely deteriorated, the siegeworm will retreat back into the deephive tunnels.</description>
+		<uiIconPath>Mods/TurretInsectoidExo/TurretInsectoidExo_MenuIcon</uiIconPath>
+		<statBases>
+			<ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+			<MaxHitPoints>400</MaxHitPoints>
+		</statBases>
+		<costList>
+			<InsectJelly>160</InsectJelly>
+			<VFEI2_PherocoreExo>1</VFEI2_PherocoreExo>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<building>
+			<turretGunDef>VFEI2_Siegeworm_Gun</turretGunDef>
+			<destroySound>Hive_Spawn</destroySound>
+			<playTargetAcquiredSound>false</playTargetAcquiredSound>
+			<turretBurstCooldownTime>25</turretBurstCooldownTime>
+		</building>
+		<researchPrerequisites>
+			<li>VFEI2_ExoticHivetech</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>VFEI2_Siegeworm_Gun</defName>
+		<label>siegeworm</label>
+		<description>A massive, heavily muscled worm anchored deep within a fortified mound of reinforced creep, acting as living siege artillery. The siegeworm regurgitates and forcefully ejects dense, boulder-sized chunks of hardened insectoid biomass and rock. It possesses the necessary strength to launch these projectiles across extreme distances, capable of bombarding adjacent map tiles and even targeting orbiting enemy gravships, provided it’s regularly fed with insect jelly. If starved, the mound will gradually deteriorate. Once completely deteriorated, the siegeworm will retreat back into the deephive tunnels.</description>
+		<graphicData>
+			<texPath>Mods/TurretInsectoidExo/TurretInsectoidExo_Top</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<RangedWeapon_Cooldown>10</RangedWeapon_Cooldown>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Mass>40</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+				<warmupTime>8</warmupTime>
+				<defaultCooldownTime>10</defaultCooldownTime>
+				<defaultProjectile>VFEI2_Siegeworm_Projectile</defaultProjectile>
+				<requireLineOfSight>false</requireLineOfSight>
+				<minRange>16</minRange>
+				<forcedMissRadius>9</forcedMissRadius>
+				<range>500</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>VFEI2_AcidSpray_Resolve</soundCast>
+				<muzzleFlashScale>16</muzzleFlashScale>
+				<consumeFuelPerShot>0</consumeFuelPerShot>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+	<ThingDef ParentName="BaseGrenadeProjectile">
+		<defName>VFEI2_Siegeworm_Projectile</defName>
+		<label>siegeworm projectile</label>
+		<graphicData>
+			<texPath>Things/Projectile/InfestedRock_Medium</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>40</damageAmountBase>
+			<armorPenetrationBase>0.15</armorPenetrationBase>
+			<speed>75</speed>
+			<explosionRadius>2.9</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+			<stoppingPower>2</stoppingPower>
+			<soundImpact>BulletImpact_Metal</soundImpact>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+		</projectile>
+	</ThingDef>
 </Defs>

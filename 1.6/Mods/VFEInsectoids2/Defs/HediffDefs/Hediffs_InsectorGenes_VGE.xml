@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<HediffDef>
+		<defName>VGE_Floating_Space</defName>
+		<label>microgravity adapted</label>
+		<description>While in space, this person moves with enhanced agility, works with greater efficiency, and effortlessly glides across the vacuum of space.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="VEF.AnimalBehaviours.HediffCompProperties_Floating">
+				<inSpace>true</inSpace>
+			</li>
+		</comps>
+	</HediffDef>
+	<HediffDef>
+		<defName>VGE_FloatingOrgans</defName>
+		<label>floating organs</label>
+		<description>This person lacks the internal connective tissues that normally hold organs in place under planetary gravity. Subjecting them to standard gravity causes their internal organs to shift and sag painfully, resulting in chronic nausea and persistent lethargy.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			
+		</comps>
+	</HediffDef>
+	
+</Defs>
