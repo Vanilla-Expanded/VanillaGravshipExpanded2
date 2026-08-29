@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<MentalBreakDef>
+	<MentalBreakDef MayRequire="vanillaracesexpanded.insector">
 		<defName>VGE_FireTerror</defName>
 		<label>fire terror</label>
 		<intensity>Minor</intensity>
@@ -8,7 +8,7 @@
 		<mentalState>VGE_PanicFleeFire</mentalState>
 		<requiredGene>VGE_Gene_AstrofuelSacks</requiredGene>
 	</MentalBreakDef>
-	<MentalStateDef ParentName="BaseMentalState">
+	<MentalStateDef ParentName="BaseMentalState" MayRequire="vanillaracesexpanded.insector">
 		<defName>VGE_PanicFleeFire</defName>
 		<label>panic-fleeing fire</label>
 		<stateClass>MentalState_PanicFleeFire</stateClass>

@@ -10,7 +10,7 @@ namespace VanillaGravshipExpanded2
     {
         public static void Postfix(Building_TurretGun __instance, LocalTargetInfo ___currentTargetInt)
         {
-            if (__instance?.def == InternalDefOf.VGE_GiantWormspitter)
+            if (__instance?.def == InternalDefOf.VGE_GiantWormspitter || __instance?.def == InternalDefOf.VFEI2_Siegeworm)
             {
                 if (___currentTargetInt.IsValid)
                 {

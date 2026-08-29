@@ -85,7 +85,7 @@ namespace VanillaGravshipExpanded2
             {
                 if (pawn.health.hediffSet.hediffs[i] is Hediff_Injury hediff_Injury)
                 {
-                    if (hediff_Injury.def != InternalDefOf.Burn && (getOnlyBleeding && hediff_Injury.Bleeding)||(getTended && !hediff_Injury.TendableNow()))
+                    if (hediff_Injury.def != InternalDefOf.Burn && (getOnlyBleeding && hediff_Injury.Bleeding)||(getTended && !hediff_Injury.Bleeding))
                     {
                         injuries.Add(hediff_Injury);
                     }

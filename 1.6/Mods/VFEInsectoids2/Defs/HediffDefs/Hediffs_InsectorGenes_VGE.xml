@@ -25,8 +25,59 @@
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
 		<comps>
-			
+			<li Class="VEF.AnimalBehaviours.HediffCompProperties_StageByVacuum">
+			</li>
 		</comps>
+		<stages>
+			<li>
+				<minSeverity>0.1</minSeverity>
+				<vomitMtbDays>1.5</vomitMtbDays>
+				<statOffsets>
+					<MoveSpeed>-0.6</MoveSpeed>
+				</statOffsets>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.15</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>1</minSeverity>
+			</li>
+		</stages>
 	</HediffDef>
 	
+	<HediffDef>
+		<defName>VGE_AstrofuelProduction</defName>
+		<label>astrofuel production</label>
+		<description>This person has developed volatile astrofuel sacks resembling a tail, drastically increasing their susceptibility to flame damage. If engulfed in large enough flames or upon death, they erupt in a devastating astrofire explosion. Additionally, these sacks can be "milked" periodically to yield valuable astrofuel.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="VEF.AnimalBehaviours.HediffCompProperties_Spawner">
+				<thingToSpawn>VGE_Astrofuel</thingToSpawn>
+				<spawnCount>20</spawnCount>
+				<spawnIntervalRange>600000~600000</spawnIntervalRange>
+				<spawnMaxAdjacent>30</spawnMaxAdjacent>
+				<spawnForbidden>false</spawnForbidden>
+				<showMessageIfOwned>false</showMessageIfOwned>
+				
+			</li>
+			<li Class="VEF.AnimalBehaviours.HediffCompProperties_Exploder">
+				<explosionForce>4.9</explosionForce>
+				<damageDef>VGE_AstrofireDamage</damageDef>
+			</li>
+			<li Class="VEF.AnimalBehaviours.HediffCompProperties_ExplodeOnFire">
+				<minFireToExplode>0.35</minFireToExplode>
+				<damageType>VGE_AstrofireDamage</damageType>
+				<radius>4.9</radius>
+				<ticksToRecheck>60000</ticksToRecheck>
+				<checkInterval>30</checkInterval>
+			</li>
+		</comps>
+	</HediffDef>
 </Defs>

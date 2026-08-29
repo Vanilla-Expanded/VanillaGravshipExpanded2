@@ -113,6 +113,8 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>3</drawSize>
 		</graphicData>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<thingClass>Building</thingClass>
 		<uiIconScale>0.65</uiIconScale>
 		<altitudeLayer>Building</altitudeLayer>
 		<rotatable>false</rotatable>
@@ -123,6 +125,7 @@
 			<MarketValue>1000</MarketValue>
 			<WorkToBuild>4000</WorkToBuild>
 		</statBases>
+		<size>(3,3)</size>
 		<pathCost>42</pathCost>
 		<receivesSignals>true</receivesSignals>
 		<blockWind>true</blockWind>
@@ -217,7 +220,7 @@
 		<label>siegeworm projectile</label>
 		<graphicData>
 			<texPath>Things/Projectile/InfestedRock_Medium</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Random</graphicClass>
 		</graphicData>
 		<thingClass>Projectile_Explosive</thingClass>
 		<projectile>

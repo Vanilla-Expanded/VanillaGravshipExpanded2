@@ -3,7 +3,7 @@
 	<ThingDef ParentName="VFEI2_PherocoreBase">
 		<defName>VFEI2_PherocoreExo</defName>
 		<label>exo pherocore</label>
-		<description> A pheromone controlling micro-organ. It is necessary to construct certain types of insectoid hives. Pherocores have been embedded deep into the brains of geneline leaders which allowed ancient civilizations to control the hives.\n\nThis pherocore belongs to the exoinsectoid geneline that evolved in the vacuum of space, known for their vacuum resistance and endurance.</description>
+		<description>A pheromone controlling micro-organ. It is necessary to construct certain types of insectoid hives. Pherocores have been embedded deep into the brains of geneline leaders which allowed ancient civilizations to control the hives.\n\nThis pherocore belongs to the exoinsectoid geneline that evolved in the vacuum of space, known for their vacuum resistance and endurance.</description>
 		<graphicData>
 			<texPath>Mods/Pherocore_Exo</texPath>
 		</graphicData>

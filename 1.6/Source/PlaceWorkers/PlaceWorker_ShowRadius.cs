@@ -9,10 +9,7 @@ namespace VanillaGravshipExpanded2
     {
         public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot, Color ghostCol, Thing thing = null)
         {
-            if (thing != null)
-            {
-                return;
-            }
+
            
             GenDraw.DrawRadiusRing(center, 5.9f);
             

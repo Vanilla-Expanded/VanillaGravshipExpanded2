@@ -23,6 +23,9 @@
 		<terrainAffordanceNeeded IsNull="True"/>
 		<affordances Inherit="false">
 			<li>VFEI2_Creep</li>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
 			<li>Walkable</li>
 		</affordances>
 		<fertility>0</fertility>
