@@ -157,6 +157,7 @@
 	<ThingDef ParentName="VFEI2_TurretBase">
 		<defName>VFEI2_Siegeworm</defName>
 		<label>siegeworm</label>
+		<thingClass>VanillaGravshipExpanded2.Building_Siegeworm</thingClass>
 		<description>A massive, heavily muscled worm anchored deep within a fortified mound of reinforced creep, acting as living siege artillery. The siegeworm regurgitates and forcefully ejects dense, boulder-sized chunks of hardened insectoid biomass and rock. It possesses the necessary strength to launch these projectiles across extreme distances, capable of bombarding adjacent map tiles and even targeting orbiting enemy gravships, provided it’s regularly fed with insect jelly. If starved, the mound will gradually deteriorate. Once completely deteriorated, the siegeworm will retreat back into the deephive tunnels.</description>
 		<uiIconPath>Mods/TurretInsectoidExo/TurretInsectoidExo_MenuIcon</uiIconPath>
 		<statBases>
@@ -169,6 +170,10 @@
 		</costList>
 		<comps>
 			<li Class="CompProperties_Forbiddable"/>
+			<li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+				<worldMapAttackRange>36</worldMapAttackRange>
+				<firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
+			</li>
 		</comps>
 		<building>
 			<turretGunDef>VFEI2_Siegeworm_Gun</turretGunDef>
@@ -196,7 +201,7 @@
 		</statBases>
 		<verbs>
 			<li>
-				<verbClass>Verb_Shoot</verbClass>
+				<verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
 				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
 				<warmupTime>8</warmupTime>
 				<defaultCooldownTime>10</defaultCooldownTime>
@@ -222,7 +227,7 @@
 			<texPath>Things/Projectile/InfestedRock_Medium</texPath>
 			<graphicClass>Graphic_Random</graphicClass>
 		</graphicData>
-		<thingClass>Projectile_Explosive</thingClass>
+		<thingClass>VanillaGravshipExpanded.Projectile_Artillery</thingClass>
 		<projectile>
 			<damageDef>Bomb</damageDef>
 			<damageAmountBase>40</damageAmountBase>
