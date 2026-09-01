@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="GravshipComponentBase">
+    <defName>VGE_EmergencyGenerator</defName>
+    <label>emergency gravship generator</label>
+    <description>A generator capable of producing a significant amount of power, ccapable of powering an entire gravship on its own in an emergency. Once activated, its power output will grow to match the power demand while its maintenance level will drop based on how much power it prodices and how long it was active until it eventually breaks down, most likely overheating and setting itself on fire. After it breaks down it'll require 30 days before it can be activated again.</description>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Things/Structures/Power/IndustrialAstrofuelGenerator</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <shadowData>
+        <volume>(1.93,1,1.69)</volume>
+        <offset>(-0.03,0,-0.1)</offset>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <blockWind>true</blockWind>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <fillPercent>1.0</fillPercent>
+    <rotatable>false</rotatable>
+    <costList>
+      <Steel>200</Steel>
+      <GravlitePanel>80</GravlitePanel>
+      <ComponentSpacer>8</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Beauty>-20</Beauty>
+      <Mass>250</Mass>
+      <VGE_MaintenanceSensitivity>0</VGE_MaintenanceSensitivity>
+      <VGE_MaintenanceDifficulty>2.5</VGE_MaintenanceDifficulty>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <size>(3,3)</size>
+    <comps>
+      <li Class="VanillaGravshipExpanded2.CompProperties_EmergencyGravshipGenerator">
+        <transmitsPower>true</transmitsPower>
+        <!-- Both the base power consumption, as well as the global power net power output this generator will maintain. -->
+        <basePowerConsumption>-1000</basePowerConsumption>
+
+        <!-- Each rare tick, the emergency generator power output will grow by up to this amount, -->
+        <!-- until the grid output has reached a stable amount. -->
+        <maxPowerIncreasePerRareTick>2500</maxPowerIncreasePerRareTick>
+        <!-- The base daily maintenance loss of the building once turned on. -->
+        <baseDailyMaintenanceLoss>0.1</baseDailyMaintenanceLoss>
+        <!-- For each extra million watts (after base consumption), the daily maintenance loss will raise by this amount. -->
+        <!-- To get a per-watt value, just divide by 1000000. The value was chosen to be per million wats to simplify the XML, -->
+        <!-- as otherwise the values you'd put in here would be so small you may have to use scientific notation, depending -->
+        <!-- on the actual increase amount. It's much easier that way. -->
+        <extraDailyMaintenanceLossPerMillionWatts>10</extraDailyMaintenanceLossPerMillionWatts>
+        <!-- The amount of daily maintenance loss that's increased once an hour. -->
+        <extraDailyMaintenanceLossHourlyIncrease>0.01</extraDailyMaintenanceLossHourlyIncrease>
+
+        <!-- After the building breaks down, how many days you'll have to wait until you can use another emergency generator. -->
+        <cooldownDaysAfterBreakdown>30</cooldownDaysAfterBreakdown>
+        <!-- Chance for fire after breakdown (and size of the fire). Also supports astrofire. Only affects cells occupied by generator. -->
+        <fireChanceAfterBreakdown>0.85</fireChanceAfterBreakdown>
+        <fireSizeAfterBreakdown>1.25~2.5</fireSizeAfterBreakdown>
+
+        <!-- Explosion on breakdown data. If def is not specified there'll be no explosion. Also includes a lot more data like -->
+        <!-- normal explosions (not all), like armor penetration or chance to start fire. All start with "<breakdownExplosion". -->
+        <breakdownExplosionDamageDef>EMP</breakdownExplosionDamageDef>
+        <breakdownExplosionDamage>50</breakdownExplosionDamage>
+        <breakdownExplosionRadius>24.9</breakdownExplosionRadius>
+      </li>
+      <li Class="VanillaGravshipExpanded.CompProperties_GravMaintainable">
+        <toggleMaintainGizmoEnabled>true</toggleMaintainGizmoEnabled>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>8</glowRadius>
+        <glowColor>(90,140,90,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Interactable">
+        <compClass>VanillaGravshipExpanded2.CompInteractable_EmergencyGravshipGenerator</compClass>
+        <ticksToActivate>120</ticksToActivate>
+        <jobString>activate</jobString>
+        <requiresPower>false</requiresPower>
+        <activateTexPath>UI/Gizmos/ExtractAstrofuel_Gizmo</activateTexPath>
+        <onCooldownString>unstable</onCooldownString>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+        </targetingParameters>
+      </li>
+<!--      <li Class="CompProperties_HeatPusher">-->
+<!--        <compClass>PipeSystem.CompHeatPusherNeedResource</compClass>-->
+<!--        <heatPerSecond>12</heatPerSecond>-->
+<!--      </li>-->
+      <li Class="CompProperties_Breakdownable"/>
+<!--      <li Class="CompProperties_Explosive">-->
+<!--        <explosiveRadius>0</explosiveRadius>-->
+<!--        <explosiveExpandPerFuel>0.95</explosiveExpandPerFuel>-->
+<!--        <explosiveDamageType>VGE_AstrofireDamage</explosiveDamageType>-->
+<!--        <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>-->
+<!--        <startWickHitPointsPercent>0.333</startWickHitPointsPercent>-->
+<!--        <preExplosionSpawnThingDef>VGE_Filth_Astrofuel</preExplosionSpawnThingDef>-->
+<!--        <preExplosionSpawnChance>1</preExplosionSpawnChance>-->
+<!--        <wickTicks>70~150</wickTicks>-->
+<!--      </li>-->
+      <li Class="CompProperties_Stunnable">
+        <useLargeEMPEffecter>true</useLargeEMPEffecter>
+        <affectedDamageDefs>
+          <li>EMP</li>
+        </affectedDamageDefs>
+      </li>
+    </comps>
+    <terrainAffordanceNeeded>Substructure</terrainAffordanceNeeded>
+    <constructEffect>ConstructMetal</constructEffect>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+  </ThingDef>
+
+</Defs>

@@ -32,6 +32,10 @@ namespace VanillaGravshipExpanded2
         public EnemyStructure enemyGravjumper;
         public Map lastKnownShipMap;
         public PlanetTile lastKnownShipTile;
+
+        public Thing activeEmergencyGravshipGenerator = null;
+        public int emergencyGravshipGeneratorCooldownTicks = 0;
+
         public static WorldComponent_GravshipCombat Instance;
 
         public WorldComponent_GravshipCombat(World world) : base(world)
@@ -65,6 +69,11 @@ namespace VanillaGravshipExpanded2
             Scribe_Deep.Look(ref enemyGravjumper, "enemyGravjumper");
             Scribe_References.Look(ref lastKnownShipMap, "lastKnownShipMap");
             Scribe_Values.Look(ref lastKnownShipTile, "lastKnownShipTile");
+
+            Scribe_References.Look(ref activeEmergencyGravshipGenerator, "activeEmergencyGravshipGenerator");
+            Scribe_Values.Look(ref emergencyGravshipGeneratorCooldownTicks, "emergencyGravshipGeneratorCooldownTicks", -1000000);
+            if (Scribe.mode is LoadSaveMode.Saving or LoadSaveMode.PostLoadInit && (activeEmergencyGravshipGenerator.DestroyedOrNull() || activeEmergencyGravshipGenerator.TryGetComp<CompPowerEmergencyGravshipGenerator>() is not { IsActive: true }))
+                activeEmergencyGravshipGenerator = null;
         }
 
         public Map GetPlayerTargetMap()
@@ -122,6 +131,9 @@ namespace VanillaGravshipExpanded2
                 gravjumperLandingTick = -1;
                 LandGravjumperOnPlayerMap(GetPlayerTargetMap());
             }
+
+            if (emergencyGravshipGeneratorCooldownTicks > 0)
+                emergencyGravshipGeneratorCooldownTicks--;
         }
 
         public void PayTribute(Map map)
