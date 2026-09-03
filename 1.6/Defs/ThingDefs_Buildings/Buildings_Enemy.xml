@@ -369,6 +369,7 @@
         </statBases>
         <size>(1,2)</size>
         <hasInteractionCell>true</hasInteractionCell>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
         <interactionCellOffset>(0,0,2)</interactionCellOffset>
         <defaultPlacingRot>South</defaultPlacingRot>
         <costList>
@@ -400,6 +401,7 @@
         </statBases>
         <size>(3,2)</size>
         <hasInteractionCell>true</hasInteractionCell>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
         <interactionCellOffset>(0,0,-1)</interactionCellOffset>
         <costList>
             <Steel>140</Steel>
@@ -429,6 +431,7 @@
             <Beauty>0</Beauty>
         </statBases>
         <size>(5,3)</size>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
         <hasInteractionCell>true</hasInteractionCell>
         <interactionCellOffset>(0,0,2)</interactionCellOffset>
         <defaultPlacingRot>South</defaultPlacingRot>
@@ -462,6 +465,7 @@
         <hasInteractionCell>true</hasInteractionCell>
         <interactionCellOffset>(0,0,-1)</interactionCellOffset>
         <pathCost>50</pathCost>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
         <costList>
             <Steel>30</Steel>
             <ComponentIndustrial>2</ComponentIndustrial>
@@ -491,6 +495,7 @@
         <hasInteractionCell>true</hasInteractionCell>
         <interactionCellOffset>(0,0,-1)</interactionCellOffset>
         <pathCost>50</pathCost>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
         <costList>
             <GravlitePanel>45</GravlitePanel>
             <ComponentIndustrial>4</ComponentIndustrial>
@@ -520,6 +525,7 @@
         <size>(2,2)</size>
         <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
         <passability>PassThroughOnly</passability>
+        <rotatable>false</rotatable>
         <costList>
             <Steel>80</Steel>
             <ComponentIndustrial>2</ComponentIndustrial>
