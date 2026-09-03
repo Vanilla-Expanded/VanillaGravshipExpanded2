@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="VFEI2_BuildingInsectoidBase">
+		<defName>VFEI2_VGE_ArtificialExoHive</defName>
+		<label>artificial exo hive</label>
+		<description>An artificially constructed hive of giant insects. It is capable of spawning various exoinsectoids over time, as well as some amount of insect jelly. It requires regular maintenance, and constructing too many hives near each other will increase the maintenance required.</description>
+		<thingClass>VFEInsectoids.ArtificialHive</thingClass>
+		<graphicData>
+			<texPath>Mods/ArtificialExoHive</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<uiIconScale>0.65</uiIconScale>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>false</rotatable>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<MarketValue>250</MarketValue>
+			<WorkToBuild>3000</WorkToBuild>
+		</statBases>
+		<pathCost>42</pathCost>
+		<receivesSignals>true</receivesSignals>
+		<blockWind>true</blockWind>
+		<tickerType>Normal</tickerType>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<passability>PassThroughOnly</passability>
+		<killedLeavings>
+			<InsectJelly>30</InsectJelly>
+		</killedLeavings>
+		<placeWorkers>
+			<li>VFEInsectoids.PlaceWorker_ArtificialHivesNear</li>
+			<li>VanillaGravshipExpanded2.PlaceWorker_ShowRadius</li>
+		</placeWorkers>
+		<building>
+			<buildingTags>
+				<li>VFEI_ArtificialHive</li>
+			</buildingTags>
+		</building>
+		<comps>
+			<li Class="VFEInsectoids.CompProperties_Hive">
+				<insectTypes>
+					<li>
+						<insect>VGE_Exoworm</insect>
+						<insectType>Worker</insectType>
+					</li>
+					<li>
+						<insect>VGE_Exopede</insect>
+						<insectType>Defender</insectType>
+					</li>
+					<li>
+						<insect>VGE_Exoleech</insect>
+						<insectType>Hunter</insectType>
+					</li>
+				</insectTypes>
+				<insectoidRespawnTime>180000</insectoidRespawnTime>
+				<spawnSound>Hive_Spawn</spawnSound>
+			</li>
+			<li Class="CompProperties_SelfhealHitpoints">
+				<ticksPerHeal>6000</ticksPerHeal>
+				<!-- 60k ticks = 1 day, 10 hp per day -->
+			</li>
+			<li Class="CompProperties_Spawner">
+				<thingToSpawn>InsectJelly</thingToSpawn>
+				<spawnCount>20</spawnCount>
+				<spawnIntervalRange>26000~30000</spawnIntervalRange>
+				<spawnMaxAdjacent>40</spawnMaxAdjacent>
+				<spawnForbidden>false</spawnForbidden>
+				<saveKeysPrefix>jelly</saveKeysPrefix>
+			</li>
+			<li Class="CompProperties_Spawner">
+				<thingToSpawn>GlowPod</thingToSpawn>
+				<spawnCount>1</spawnCount>
+				<spawnIntervalRange>30000~60000</spawnIntervalRange>
+				<spawnMaxAdjacent>1</spawnMaxAdjacent>
+				<saveKeysPrefix>pod</saveKeysPrefix>
+				<inheritFaction>true</inheritFaction>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<heatPerSecond>6</heatPerSecond>
+				<heatPushMaxTemperature>38</heatPushMaxTemperature>
+			</li>
+			<li Class="CompProperties_SpawnerFilth">
+				<filthDef>Filth_Slime</filthDef>
+				<spawnCountOnSpawn>10</spawnCountOnSpawn>
+				<spawnMtbHours>4</spawnMtbHours>
+				<spawnRadius>5</spawnRadius>
+			</li>
+			<li Class="CompProperties_Maintainable">
+				<compClass>VFEInsectoids.CompMaintenableHive</compClass>
+				<ticksHealthy>60000</ticksHealthy>
+				<ticksNeedsMaintenance>60000</ticksNeedsMaintenance>
+				<damagePerTickRare>10</damagePerTickRare>
+			</li>
+		</comps>
+		<costList>
+			<InsectJelly>150</InsectJelly>
+			<VFEI2_RoyalInsectJelly>50</VFEI2_RoyalInsectJelly>
+			<VFEI2_PherocoreExo>1</VFEI2_PherocoreExo>
+		</costList>
+		<designationCategory>VFEI2_Insectoids</designationCategory>
+		<researchPrerequisites>
+			<li>VFEI2_ExoticHivetech</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<ThingDef ParentName="VFEI2_BuildingInsectoidBase">
+		<defName>VFEI2_VGE_Subcreeper</defName>
+		<label>subcreeper</label>
+		<description>A specialized hive-like structure typically associated with exoinsectoid hives. It acts as an anchor point for subcreep, allowing worker insectoids to cultivate and expand the hive’s influence across gravflight capable vessels. By stabilizing the gravity field's interaction with the subcreep, this structure enables the construction of extensive insectoid platforms that would otherwise collapse in orbit and during launch.</description>
+		<graphicData>
+			<texPath>Mods/Subcreeper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>3</drawSize>
+		</graphicData>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<thingClass>Building</thingClass>
+		<uiIconScale>0.65</uiIconScale>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>false</rotatable>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>120</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<MarketValue>1000</MarketValue>
+			<WorkToBuild>4000</WorkToBuild>
+		</statBases>
+		<size>(3,3)</size>
+		<pathCost>42</pathCost>
+		<receivesSignals>true</receivesSignals>
+		<blockWind>true</blockWind>
+		<tickerType>Normal</tickerType>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<passability>PassThroughOnly</passability>
+		<killedLeavings>
+			<InsectJelly>70</InsectJelly>
+		</killedLeavings>
+		<placeWorkers>
+			<li>VanillaGravshipExpanded2.PlaceWorker_ShowBiggerRadius</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_SelfhealHitpoints">
+				<ticksPerHeal>6000</ticksPerHeal>
+				<!-- 60k ticks = 1 day, 10 hp per day -->
+			</li>
+		</comps>
+		<costList>
+			<InsectJelly>140</InsectJelly>
+			<VFEI2_PherocoreExo>1</VFEI2_PherocoreExo>
+		</costList>
+		<designationCategory>VFEI2_Insectoids</designationCategory>
+		<researchPrerequisites>
+			<li>VFEI2_ExoticHivetech</li>
+			<li>BasicGravtech</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<ThingDef ParentName="VFEI2_TurretBase">
+		<defName>VFEI2_Siegeworm</defName>
+		<label>siegeworm</label>
+		<thingClass>VanillaGravshipExpanded2.Building_Siegeworm</thingClass>
+		<description>A massive, heavily muscled worm anchored deep within a fortified mound of reinforced creep, acting as living siege artillery. The siegeworm regurgitates and forcefully ejects dense, boulder-sized chunks of hardened insectoid biomass and rock. It possesses the necessary strength to launch these projectiles across extreme distances, capable of bombarding adjacent map tiles and even targeting orbiting enemy gravships, provided it’s regularly fed with insect jelly. If starved, the mound will gradually deteriorate. Once completely deteriorated, the siegeworm will retreat back into the deephive tunnels.</description>
+		<uiIconPath>Mods/TurretInsectoidExo/TurretInsectoidExo_MenuIcon</uiIconPath>
+		<statBases>
+			<ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+			<MaxHitPoints>400</MaxHitPoints>
+		</statBases>
+		<costList>
+			<InsectJelly>160</InsectJelly>
+			<VFEI2_PherocoreExo>1</VFEI2_PherocoreExo>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
+				<worldMapAttackRange>36</worldMapAttackRange>
+				<firingMode>GroundToSpace, GroundToGround, SpaceToSpace, SpaceToGround</firingMode>
+			</li>
+		</comps>
+		<building>
+			<turretGunDef>VFEI2_Siegeworm_Gun</turretGunDef>
+			<destroySound>Hive_Spawn</destroySound>
+			<playTargetAcquiredSound>false</playTargetAcquiredSound>
+			<turretBurstCooldownTime>25</turretBurstCooldownTime>
+		</building>
+		<researchPrerequisites>
+			<li>VFEI2_ExoticHivetech</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>VFEI2_Siegeworm_Gun</defName>
+		<label>siegeworm</label>
+		<description>A massive, heavily muscled worm anchored deep within a fortified mound of reinforced creep, acting as living siege artillery. The siegeworm regurgitates and forcefully ejects dense, boulder-sized chunks of hardened insectoid biomass and rock. It possesses the necessary strength to launch these projectiles across extreme distances, capable of bombarding adjacent map tiles and even targeting orbiting enemy gravships, provided it’s regularly fed with insect jelly. If starved, the mound will gradually deteriorate. Once completely deteriorated, the siegeworm will retreat back into the deephive tunnels.</description>
+		<graphicData>
+			<texPath>Mods/TurretInsectoidExo/TurretInsectoidExo_Top</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<RangedWeapon_Cooldown>10</RangedWeapon_Cooldown>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Mass>40</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>VanillaGravshipExpanded.Verb_ShootWithWorldTargeting</verbClass>
+				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+				<warmupTime>8</warmupTime>
+				<defaultCooldownTime>10</defaultCooldownTime>
+				<defaultProjectile>VFEI2_Siegeworm_Projectile</defaultProjectile>
+				<requireLineOfSight>false</requireLineOfSight>
+				<minRange>16</minRange>
+				<forcedMissRadius>9</forcedMissRadius>
+				<range>500</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>VFEI2_AcidSpray_Resolve</soundCast>
+				<muzzleFlashScale>16</muzzleFlashScale>
+				<consumeFuelPerShot>0</consumeFuelPerShot>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+	<ThingDef ParentName="BaseGrenadeProjectile">
+		<defName>VFEI2_Siegeworm_Projectile</defName>
+		<label>siegeworm projectile</label>
+		<graphicData>
+			<texPath>Things/Projectile/InfestedRock_Medium</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<thingClass>VanillaGravshipExpanded.Projectile_Artillery</thingClass>
+		<projectile>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>40</damageAmountBase>
+			<armorPenetrationBase>0.15</armorPenetrationBase>
+			<speed>75</speed>
+			<explosionRadius>2.9</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+			<stoppingPower>2</stoppingPower>
+			<soundImpact>BulletImpact_Metal</soundImpact>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+		</projectile>
+	</ThingDef>
+</Defs>

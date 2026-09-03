@@ -1,0 +1,62 @@
+<Defs>
+	<TerrainDef ParentName="FloorBase">
+		<defName>VGE_PlayerSubcreep</defName>
+		<label>subcreep</label>
+		<description>An insectoid-made lightweight sponge-goop structure with creep on top that forms the surface of an exohive. Only things on top of this substructure can be lifted by the grav engine's levitation field. This floor must be constructed within range of a grav engine. Supports insectoid structures and significantly hinders non-insectoid movement.</description>
+		<texturePath>Mods/PlayerSubcreep</texturePath>
+		<uiIconPath>Terrain/Subcreep_MenuIcon</uiIconPath>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>70</renderPrecedence>
+		<isPaintable>false</isPaintable>
+		<pathCost>46</pathCost>
+		<statBases>
+			<Beauty>0</Beauty>
+			<Cleanliness>-2</Cleanliness>
+			<FilthMultiplier>1.5</FilthMultiplier>
+			<WorkToBuild>4000</WorkToBuild>
+			<CleaningTimeFactor>0.5</CleaningTimeFactor>
+			<Flammability>0</Flammability>
+			<MarketValue>14</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+		<isFoundation>true</isFoundation>
+		<terrainAffordanceNeeded IsNull="True"/>
+		<affordances Inherit="false">
+			<li>VFEI2_Creep</li>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>Walkable</li>
+		</affordances>
+		<fertility>0</fertility>
+		<uiOrder>2020</uiOrder>
+		<designationCategory>VFEI2_Insectoids</designationCategory>
+		<tags>
+			<li>VFEI2_Creep</li>
+			<li>DestroyableByArtillery</li>
+		</tags>
+		<spaceEdgeGraphicData>
+			<OShapeTexPath>Terrain/SubcreepBorder/SubcreepBorder_OShape</OShapeTexPath>
+			<UShapeTexPath>Terrain/SubcreepBorder/SubcreepBorder_UShape</UShapeTexPath>
+			<CornerInnerTexPath>Terrain/SubcreepBorder/SubcreepBorder_CornerInner</CornerInnerTexPath>
+			<CornerOuterTexPath>Terrain/SubcreepBorder/SubcreepBorder_CornerOuter</CornerOuterTexPath>
+			<FlatTexPath>Terrain/SubcreepBorder/SubcreepBorder_Flat</FlatTexPath>
+			<LoopLeftTexPath>Terrain/SubcreepBorder/SubcreepProps_Right</LoopLeftTexPath>
+			<LoopRightTexPath>Terrain/SubcreepBorder/SubcreepProps_Right</LoopRightTexPath>
+			<LoopSingleTexPath>Terrain/SubcreepBorder/SubcreepProps_Right</LoopSingleTexPath>
+			<LoopTexPaths>
+				<li>Terrain/SubcreepBorder/SubcreepProps_Loops</li>
+			</LoopTexPaths>
+		</spaceEdgeGraphicData>
+		<modExtensions>
+			<li Class="VanillaGravshipExpanded.SubstructureEdgeGraphicsExtension"/>
+		</modExtensions>
+		<placeWorkers>
+			<li>VanillaGravshipExpanded2.PlaceWorker_NearHiveOrCreeper</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>VFEI2_ExoticHivetech</li>
+			<li>BasicGravtech</li>
+		</researchPrerequisites>
+	</TerrainDef>
+</Defs>

@@ -30,6 +30,12 @@
 		<skinCovered>true</skinCovered>
 	</BodyPartDef>
 	<BodyPartDef>
+		<defName>VGE_WormTail</defName>
+		<label>worm tail</label>
+		<hitPoints>25</hitPoints>
+		<skinCovered>true</skinCovered>
+	</BodyPartDef>
+	<BodyPartDef>
 		<defName>VGE_EcholocationOrgan</defName>
 		<label>echolocation organ</label>
 		<hitPoints>10</hitPoints>

@@ -45,6 +45,27 @@ namespace VanillaGravshipExpanded2
             }
             LordMaker.MakeNewLord(Faction.OfSalvagers, new LordJob_DefendBase(Faction.OfSalvagers, map.Center, 25000), map, pawns);
             foreach (var pawn in pawns) GenSpawn.Spawn(pawn, cells.RandomElement(), map);
+            ScatterMiningProps(map, parms, rects);
+        }
+
+        private void ScatterMiningProps(Map map, GenStepParams parms, List<CellRect> rects)
+        {
+            Scatter(map, parms, rects, InternalDefOf.AncientMiningCharge, new FloatRange(0f, 15f));
+            Scatter(map, parms, rects, ThingDefOf.AncientExplosivesCrate, new FloatRange(0f, 1.25f));
+            Scatter(map, parms, rects, InternalDefOf.AncientDrillPlatform, new FloatRange(0f, 1.25f));
+        }
+
+        private void Scatter(Map map, GenStepParams parms, List<CellRect> rects, ThingDef thingDef, FloatRange countPer10kCellsRange)
+        {
+            var genStep = new GenStep_ScatterThingsOnEmptyTerrain
+            {
+                thingDef = thingDef,
+                countPer10kCellsRange = countPer10kCellsRange,
+                minSpacing = 5f,
+                disallowedRects = rects,
+                warnOnFail = false
+            };
+            genStep.Generate(map, parms);
         }
     }
 }

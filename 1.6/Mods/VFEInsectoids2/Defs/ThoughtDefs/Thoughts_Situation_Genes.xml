@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThoughtDef>
+		<defName>VGE_FloatingOrgans</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>VGE_FloatingOrgans</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>floating organs</label>
+				<description>I feel like my organs are floating. They probably are.</description>
+				<baseMoodEffect>-8</baseMoodEffect>
+			</li>
+			<li>
+				<label>floating organs</label>
+				<description>Everything seems where it should be.</description>
+				<baseMoodEffect>0</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="VFEI2_ThumperBase">
+		<defName>VFEI2_Thumper_Nullipede</defName>
+		<label>nullipede thumper</label>
+		<description>A vibration-producing thumper device. When activated, it starts emitting powerful thump pulses, which will attract an exoinsectoid nullipede meteor attack with its escorts. If you can defeat it, you can collect a special pherocore from its corpse. The thumps destabilise the thumper, so this building can only be used once. Since it attracts an exoinsectoid attack, it can only be used in orbit.</description>
+		<graphicData>
+			<texPath>Mods/NullipedeThumper/NullipedeThumper_Base</texPath>
+		</graphicData>
+		<uiIconPath>Mods/NullipedeThumper/NullipedeThumper_MenuIcon</uiIconPath>
+		<costList>
+			<Steel>70</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<researchPrerequisites>
+			<li>VFEI2_StandardHivetech</li>
+			<li>Electricity</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="VFEInsectoids.CompProperties_Thumper">
+				<topGraphic>
+					<texPath>Mods/NullipedeThumper/NullipedeThumper_Top</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>(2,2)</drawSize>
+				</topGraphic>
+				<needsOrbit>true</needsOrbit>
+				<wave>VFEI2_Thumper_Nullipede</wave>
+			</li>
+			<li Class="VanillaGravshipExpanded2.CompProperties_NullipedeThumper"/>
+		</comps>
+	</ThingDef>
+	<VFEInsectoids.InsectWaveDef>
+		<defName>VFEI2_Thumper_Nullipede</defName>
+		<minWaveRepeatIndex>2</minWaveRepeatIndex>
+		<waves>
+			<li>
+				<insects>
+					<VFEI2_Nullipede>1</VFEI2_Nullipede>
+					<VGE_Exoleech>2</VGE_Exoleech>
+					<VGE_Exopede>3</VGE_Exopede>
+					<VGE_Exoworm>10</VGE_Exoworm>
+				</insects>
+			</li>
+			<li>
+				<insects>
+					<VFEI2_Nullipede>1</VFEI2_Nullipede>
+					<VGE_Exoleech>2</VGE_Exoleech>
+					<VGE_Exopede>3</VGE_Exopede>
+					<VGE_Exoworm>12</VGE_Exoworm>
+				</insects>
+			</li>
+			<li>
+				<insects>
+					<VFEI2_Nullipede>1</VFEI2_Nullipede>
+					<VGE_Exoleech>4</VGE_Exoleech>
+					<VGE_Exopede>6</VGE_Exopede>
+					<VGE_Exoworm>13</VGE_Exoworm>
+				</insects>
+			</li>
+			<li>
+				<insects>
+					<VFEI2_Nullipede>2</VFEI2_Nullipede>
+					<VGE_Exoleech>5</VGE_Exoleech>
+					<VGE_Exopede>9</VGE_Exopede>
+					<VGE_Exoworm>14</VGE_Exoworm>
+				</insects>
+			</li>
+			<li>
+				<insects>
+					<VFEI2_Nullipede>2</VFEI2_Nullipede>
+					<VGE_ExowormKnot>1</VGE_ExowormKnot>
+					<VGE_Exoleech>6</VGE_Exoleech>
+					<VGE_Exopede>8</VGE_Exopede>
+					<VGE_Exoworm>14</VGE_Exoworm>
+				</insects>
+			</li>
+			<li>
+				<insects>
+					<VFEI2_Nullipede>2</VFEI2_Nullipede>
+					<VGE_ExowormKnot>2</VGE_ExowormKnot>
+					<VGE_Exoleech>8</VGE_Exoleech>
+					<VGE_Exopede>12</VGE_Exopede>
+					<VGE_Exoworm>18</VGE_Exoworm>
+				</insects>
+			</li>
+			<li>
+				<insects>
+					<VFEI2_Nullipede>2</VFEI2_Nullipede>
+					<VGE_ExowormKnot>3</VGE_ExowormKnot>
+					<VGE_Exoleech>10</VGE_Exoleech>
+					<VGE_Exopede>15</VGE_Exopede>
+					
+				</insects>
+			</li>
+			<li>
+				<insects>
+					<VFEI2_Nullipede>3</VFEI2_Nullipede>
+					<VGE_ExowormKnot>5</VGE_ExowormKnot>
+					<VGE_Exoleech>14</VGE_Exoleech>
+					<VGE_Exopede>20</VGE_Exopede>
+				</insects>
+			</li>
+		</waves>
+	</VFEInsectoids.InsectWaveDef>
+</Defs>

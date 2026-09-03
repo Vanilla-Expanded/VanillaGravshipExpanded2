@@ -15,9 +15,12 @@ namespace VanillaGravshipExpanded2
 		[MayRequireBiotech]
 		public static GeneDef PerfectImmunity;
 
-		public static HediffDef VGE_ExowormInfestation;
+        public static HediffDef Burn;
+        public static HediffDef VGE_ExowormInfestation;
+        [MayRequire("OskarPotocki.VFE.Insectoid2")]
+        public static HediffDef VFEI2_NullipedeSpawn;
 
-		public static ThingDef VGE_GiantWormspitter;
+        public static ThingDef VGE_GiantWormspitter;
         public static ThingDef VGE_ExoHive_Building;
         public static ThingDef VGE_EggSac;
         public static ThingDef VGE_ExowormCocoon;
@@ -26,6 +29,14 @@ namespace VanillaGravshipExpanded2
         public static ThingDef VGE_Projectile_InfestedChunkLarge;
 		public static ThingDef VGE_Filth_Astrofuel;
 		public static ThingDef VGE_InfestedVent;
+		[MayRequire("OskarPotocki.VFE.Insectoid2")]
+		public static ThingDef VFEI2_PherocoreExo;
+        [MayRequire("OskarPotocki.VFE.Insectoid2")]
+        public static ThingDef VFEI2_VGE_ArtificialExoHive;
+        [MayRequire("OskarPotocki.VFE.Insectoid2")]
+        public static ThingDef VFEI2_VGE_Subcreeper;
+        [MayRequire("OskarPotocki.VFE.Insectoid2")]
+        public static ThingDef VFEI2_Siegeworm;
 
         public static PawnKindDef VGE_ExowormKnot;
         public static PawnKindDef VGE_Exopede;
@@ -118,5 +129,7 @@ namespace VanillaGravshipExpanded2
         public static HediffDef Shredded;
         public static HediffDef Crack;
         public static ThingDef VGE_LandingStructure_EnemyGravshipRaid;
+        public static ThingDef AncientMiningCharge;
+        public static ThingDef AncientDrillPlatform;
     }
 }

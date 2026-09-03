@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<MentalBreakDef MayRequire="vanillaracesexpanded.insector">
+		<defName>VGE_FireTerror</defName>
+		<label>fire terror</label>
+		<intensity>Minor</intensity>
+		<workerClass>MentalBreakWorker_FireTerror</workerClass>
+		<mentalState>VGE_PanicFleeFire</mentalState>
+		<requiredGene>VGE_Gene_AstrofuelSacks</requiredGene>
+	</MentalBreakDef>
+	<MentalStateDef ParentName="BaseMentalState" MayRequire="vanillaracesexpanded.insector">
+		<defName>VGE_PanicFleeFire</defName>
+		<label>panic-fleeing fire</label>
+		<stateClass>MentalState_PanicFleeFire</stateClass>
+		<category>Misc</category>
+		<nameColor>(0.65, 0.9, 0.93)</nameColor>
+		<beginLetterLabel>fleeing fire</beginLetterLabel>
+		<beginLetter>{0} is fleeing fire.</beginLetter>
+		<recoveryMessage>{0} is no longer fleeing fire.</recoveryMessage>
+		<baseInspectLine>Mental state: Fleeing fire</baseInspectLine>
+		<blockNormalThoughts>true</blockNormalThoughts>
+		<minTicksBeforeRecovery>120</minTicksBeforeRecovery>
+	</MentalStateDef>
+</Defs>

@@ -33,6 +33,8 @@
 	<loadAfter>
 		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
 		<li>vanillaexpanded.gravship</li>
+		<li>vanillaracesexpanded.insector</li>
+		<li>OskarPotocki.VFE.Insectoid2</li>
 	</loadAfter>
 	<incompatibleWith>
 		<li>Bulldog.VanillaChemfuelExpandedOdysseyPatch</li>
