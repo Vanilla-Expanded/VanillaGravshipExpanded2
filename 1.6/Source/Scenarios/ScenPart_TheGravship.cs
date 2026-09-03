@@ -32,6 +32,8 @@ namespace VanillaGravshipExpanded2
         {
             base.PostMapGenerate(map);
             if (Find.GameInitData is null) return;
+            enemyArrived = false;
+            engineReadyLetterSent = false;
             WorldComponent_GravshipCombat.Instance.visibility = StartingVisibility;
             engineReadyTick = Find.TickManager.TicksGame + EngineCooldownDuration;
             enemyArrivalTick = Find.TickManager.TicksGame + EnemyArrivalRange.RandomInRange;
