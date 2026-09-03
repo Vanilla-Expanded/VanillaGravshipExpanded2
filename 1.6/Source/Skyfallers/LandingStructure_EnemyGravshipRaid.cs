@@ -9,8 +9,17 @@ namespace VanillaGravshipExpanded2
 {
     public class LandingStructure_EnemyGravshipRaid : LandingStructure_StructureSet
     {
+        public bool spawnedByScenario;
+
         protected override void OnImpact(Map map, CellRect cellRect, HashSet<Thing> preExisting)
         {
+            if (spawnedByScenario)
+            {
+                foreach (var c in cellRect)
+                {
+                    if (c.InBounds(map) && c.GetTerrain(map) != TerrainDefOf.Space) map.fogGrid.Unfog(c);
+                }
+            }
             var center = cellRect.CenterCell;
             foreach (var pair in pawnPositions)
             {

@@ -102,7 +102,6 @@ namespace VanillaGravshipExpanded2
                 var cellRect = CellRect.FromLimits(minX, minZ, maxX, maxZ);
                 PostProcessMap(map, shipFaction, preExisting);
                 Rand.PopState();
-                OnImpact(map, cellRect, preExisting);
                 foreach (var c in cellRect)
                 {
                     if (c.InBounds(map) && c.GetTerrain(map) != TerrainDefOf.Space)
@@ -110,6 +109,7 @@ namespace VanillaGravshipExpanded2
                         map.fogGrid.Refog(CellRect.SingleCell(c));
                     }
                 }
+                OnImpact(map, cellRect, preExisting);
                 Destroy(DestroyMode.Vanish);
             }
             finally

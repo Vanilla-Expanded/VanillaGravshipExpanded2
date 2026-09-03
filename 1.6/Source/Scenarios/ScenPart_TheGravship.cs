@@ -79,6 +79,7 @@ namespace VanillaGravshipExpanded2
             landingStructure.shipFaction = Faction.OfSalvagers;
             landingStructure.pawnCountRange = new IntRange(9, 14);
             var spawnSpot = FindEdgeSpawnSpot(map, standardLayouts, landingStructure.shipRotation);
+            landingStructure.spawnedByScenario = true;
             GenSpawn.Spawn(landingStructure, spawnSpot, map);
             Find.LetterStack.ReceiveLetter("VGE_RaidEnemyGravship".Translate(), "VGE_RaidEnemyGravshipDesc".Translate(shipName.Colorize(ColorLibrary.RedReadable)), LetterDefOf.ThreatBig, new LookTargets(landingStructure));
         }
