@@ -74,7 +74,7 @@
 				<hediffseverity>1</hediffseverity>
 			</li>
 			<li Class="VanillaGravshipExpanded2.CompProperties_ExtremeRegeneration">
-				<rateInTicks>360</rateInTicks>
+				<rateInTicks>60</rateInTicks>
 				<tendMin>0.2</tendMin>
 				<tendMax>0.7</tendMax>
 				<activeHediff>VFEI2_ExtremeRegeneration</activeHediff>
