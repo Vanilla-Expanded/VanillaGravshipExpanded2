@@ -6,16 +6,17 @@ namespace VanillaGravshipExpanded2;
 public class CompProperties_EmergencyGravshipGenerator : CompProperties_Power
 {
     public float maxPowerIncreasePerRareTick;
-    public float baseDailyMaintenanceLoss;
-    public float extraDailyMaintenanceLossPerMillionWatts;
-    public float extraDailyMaintenanceLossHourlyIncrease;
+    public float maxWattDaysOutput = 10000f;
+
+    public bool pushHeatIntoEntireGravship = false;
+    public SimpleCurve heatPerSecond;
 
     public float cooldownDaysAfterBreakdown;
 
-    public float fireChanceAfterBreakdown;
-    public FloatRange fireSizeAfterBreakdown = FloatRange.One;
-    public float astrofireChanceAfterBreakdown;
-    public FloatRange astrofireSizeAfterBreakdown = FloatRange.One;
+    public SimpleCurve fireChanceAfterBreakdown;
+    public SimpleCurve fireSizeAfterBreakdown;
+    public SimpleCurve astrofireChanceAfterBreakdown;
+    public SimpleCurve astrofireSizeAfterBreakdown;
 
     public DamageDef breakdownExplosionDamageDef;
     public int breakdownExplosionDamage = -1;

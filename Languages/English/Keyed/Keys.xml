@@ -48,10 +48,11 @@
 	<VGE_UsedCharge>charge</VGE_UsedCharge>
 
   <!-- Emergency generator -->
-  <VGE_EmergencyGenerator_DailyLoss>daily maintenance loss: {0_percentage}</VGE_EmergencyGenerator_DailyLoss>
-  <VGE_EmergencyGenerator_Inactive>inactive, no maintenance loss</VGE_EmergencyGenerator_Inactive>
+  <VGE_EmergencyGenerator_RemainingPowerOutput>remaining power output: {0} Wd ({1})</VGE_EmergencyGenerator_RemainingPowerOutput>
+  <VGE_EmergencyGenerator_Inactive>inactive</VGE_EmergencyGenerator_Inactive>
   <VGE_EmergencyGenerator_AnotherActive>another generator is active</VGE_EmergencyGenerator_AnotherActive>
-  <VGE_EmergencyGenerator_MustBeFullyMaintained>must be fully maintained.</VGE_EmergencyGenerator_MustBeFullyMaintained>
+  <VGE_EmergencyGenerator_MustBeFullyMaintained>must be fully maintained</VGE_EmergencyGenerator_MustBeFullyMaintained>
+  <VGE_EmergencyGenerator_MustBeConnectedToGravEngine>must be connected to a grav engine</VGE_EmergencyGenerator_MustBeConnectedToGravEngine>
 
 	<VGE_HackWarcomputer>Hack enemy warcomputer to retrieve gravdata</VGE_HackWarcomputer>
 	<VGE_GravdataWillBeLostWarning>Gravdata obtained will be lost unless you select a gravtech research project.</VGE_GravdataWillBeLostWarning>

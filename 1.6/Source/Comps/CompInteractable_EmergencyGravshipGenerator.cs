@@ -23,10 +23,14 @@ public class CompInteractable_EmergencyGravshipGenerator : CompInteractable
     {
         base.CompTick();
 
-        var wasOnCooldown = OnCooldown;
-        cooldownTicks = WorldComponent_GravshipCombat.Instance.emergencyGravshipGeneratorCooldownTicks;
-        if (wasOnCooldown && !OnCooldown)
-            CooldownEnded();
+        UpdateCooldown();
+    }
+
+    public override void PostSpawnSetup(bool respawningAfterLoad)
+    {
+        base.PostSpawnSetup(respawningAfterLoad);
+
+        UpdateCooldown();
     }
 
     public override void PostPostMake()
@@ -34,14 +38,30 @@ public class CompInteractable_EmergencyGravshipGenerator : CompInteractable
         base.PostPostMake();
         
         InitComps();
+        UpdateCooldown();
+    }
+
+    protected void UpdateCooldown()
+    {
+        var wasOnCooldown = OnCooldown;
+        cooldownTicks = WorldComponent_GravshipCombat.Instance.emergencyGravshipGeneratorCooldownTicks;
+        if (wasOnCooldown && !OnCooldown)
+            CooldownEnded();
     }
 
     public override void PostExposeData()
     {
         base.PostExposeData();
 
-        if (Scribe.mode == LoadSaveMode.LoadingVars)
-            InitComps();
+        switch (Scribe.mode)
+        {
+            case LoadSaveMode.LoadingVars:
+                InitComps();
+                break;
+            case LoadSaveMode.PostLoadInit:
+                UpdateCooldown();
+                break;
+        }
     }
 
     public override void OnInteracted(Pawn caster)
@@ -53,14 +73,16 @@ public class CompInteractable_EmergencyGravshipGenerator : CompInteractable
     public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
     {
         if (WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator != null && WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator != parent)
-            return "VGE_EmergencyGenerator_AnotherActive".Translate();
+            return "VGE_EmergencyGenerator_AnotherActive".Translate().CapitalizeFirst();
+        if (generator.facility is { engine: null })
+            return "VGE_EmergencyGenerator_MustBeConnectedToGravEngine".Translate().CapitalizeFirst();
 
         var result = base.CanInteract(activateBy, checkOptionalItems);
         if (!result.Accepted)
             return result;
 
-        if (generator.maintainable.maintenance <= 0.99f)
-            return "VGE_EmergencyGenerator_MustBeFullyMaintained".Translate();
+        if (generator.maintainable is { maintenance: <= 0.99f })
+            return "VGE_EmergencyGenerator_MustBeFullyMaintained".Translate().CapitalizeFirst();
         if (generator.breakdownableComp is { BrokenDown: true })
             return "BrokenDown".Translate().CapitalizeFirst();
 
@@ -75,21 +97,27 @@ public class CompInteractable_EmergencyGravshipGenerator : CompInteractable
     public override string CompInspectStringExtra()
     {
         var prevCooldownTicks = cooldownTicks;
+        var prevShowMustBeActivated = Props.showMustBeActivatedByColonist;
         var anyGeneratorActive = WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator != null;
 
         try
         {
-            // Temporarily remove the cooldown text, since base class doesn't ever remove it otherwise.
+            // Temporarily remove the cooldown, since base class doesn't ever remove the relevant text otherwise.
+            // Same with text for sending a colonist to activate the generator.
             if (anyGeneratorActive)
+            {
                 cooldownTicks = 0;
+                Props.showMustBeActivatedByColonist = false;
+            }
 
             isCompInspectStringExtraCall = true;
             return base.CompInspectStringExtra();
         }
         finally
         {
-            cooldownTicks = prevCooldownTicks;
             isCompInspectStringExtraCall = false;
+            cooldownTicks = prevCooldownTicks;
+            Props.showMustBeActivatedByColonist = prevShowMustBeActivated;
         }
     }
 }

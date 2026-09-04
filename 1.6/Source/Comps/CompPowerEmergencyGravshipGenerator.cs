@@ -9,10 +9,12 @@ namespace VanillaGravshipExpanded2;
 
 public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
 {
+    public CompGravshipFacility facility;
     public CompGravMaintainable maintainable;
+    protected CompHeatManager manager;
     protected bool isActive = false;
     protected float currentPowerOutput;
-    protected float currentMaintenanceLoss;
+    protected float totalWattDaysOutputThisActivation = 0f;
 
     public new CompProperties_EmergencyGravshipGenerator Props => (CompProperties_EmergencyGravshipGenerator)props;
 
@@ -44,6 +46,10 @@ public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
         }
     }
 
+    private float RemainingPower => Mathf.Max(Props.maxWattDaysOutput - totalWattDaysOutputThisActivation, 0);
+
+    private int RemainingDurationTicksAtCurrentOutput => (int)(RemainingPower / (-currentPowerOutput * WattsToWattDaysPerTick));
+
     public override void CompTickInterval(int delta)
     {
         base.CompTickInterval(delta);
@@ -51,14 +57,8 @@ public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
         if (!isActive || !parent.Spawned)
             return;
 
-        if (parent.Map.GameConditionManager.ElectricityDisabled(parent.Map))
-        {
-            ResetPowerOutputIfNeeded(true);
-            return;
-        }
-
         var powerNet = PowerNet;
-        if (powerNet == null)
+        if (powerNet == null || facility is { engine: null } || maintainable is { maintenance: <= 0f } || parent.Map.GameConditionManager.ElectricityDisabled(parent.Map))
         {
             ResetPowerOutputIfNeeded(true);
             return;
@@ -67,31 +67,46 @@ public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
         // Rare tick check
         if (parent.IsHashIntervalTick(GenTicks.TickRareInterval, delta))
         {
-            // Hourly check (nested)
-            if (parent.IsHashIntervalTick(GenDate.TicksPerHour, GenTicks.TickRareInterval))
-                currentMaintenanceLoss += Props.extraDailyMaintenanceLossHourlyIncrease;
-
             var energyGainRate = TargetEnergyGainRatePerDay + Props.basePowerConsumption;
             if (energyGainRate < 0)
             {
                 var powerChange = Mathf.Max(energyGainRate, -Props.maxPowerIncreasePerRareTick);
                 currentPowerOutput += powerChange;
-                currentMaintenanceLoss -= Props.extraDailyMaintenanceLossPerMillionWatts / 1000000 * powerChange;
             }
         }
 
         // Cooldown starts once the building breaks down
         WorldComponent_GravshipCombat.Instance.emergencyGravshipGeneratorCooldownTicks += delta;
+        totalWattDaysOutputThisActivation -= currentPowerOutput * delta * WattsToWattDaysPerTick;
 
-        maintainable.maintenance -= currentMaintenanceLoss / GenDate.TicksPerDay * delta;
-        switch (maintainable.maintenance)
+        if (totalWattDaysOutputThisActivation >= Props.maxWattDaysOutput)
         {
-            case <= 0f:
-                ResetPowerOutputIfNeeded(true);
-                break;
-            case > 1f:
-                maintainable.maintenance = 1f;
-                break;
+            ResetPowerOutputIfNeeded(true);
+            return;
+        }
+
+        if (Props.heatPerSecond != null)
+        {
+            // If no engine, once per second push heat
+            if (facility?.engine == null || !Props.pushHeatIntoEntireGravship)
+            {
+                if (parent.IsHashIntervalTick(GenTicks.TicksPerRealSecond, delta))
+                    GenTemperature.PushHeat(parent.Position, parent.Map, Props.heatPerSecond.Evaluate(-currentPowerOutput));
+            }
+            // If connected to an engine, push heat once per 15 seconds (since we push to a lot more places)
+            else if (parent.IsHashIntervalTick(GenTicks.TicksPerRealSecond * 15, delta))
+            {
+                if (manager == null || manager.parent != facility.engine)
+                {
+                    manager = facility.engine.GetComp<CompHeatManager>();
+                    if (manager == null)
+                        return;
+                }
+
+                var heat = Props.heatPerSecond.Evaluate(-currentPowerOutput) * 10;
+                if (!manager.TryApplyHeatToShip(heat))
+                    GenTemperature.PushHeat(parent.Position, parent.Map, heat);
+            }
         }
     }
 
@@ -116,6 +131,7 @@ public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
         base.PostExposeData();
 
         Scribe_Values.Look(ref currentPowerOutput, nameof(currentPowerOutput));
+        Scribe_Values.Look(ref totalWattDaysOutputThisActivation, nameof(totalWattDaysOutputThisActivation));
         Scribe_Values.Look(ref isActive, nameof(isActive));
 
         switch (Scribe.mode)
@@ -139,6 +155,7 @@ public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
 
     private void InitComps()
     {
+        facility = parent.GetComp<CompGravshipFacility>();
         maintainable = parent.GetComp<CompGravMaintainable>();
         // CompPowerPlant should set up the comp... but only in spawn setup. Not post make or expose data.
         breakdownableComp ??= parent.GetComp<CompBreakdownable>();
@@ -147,12 +164,14 @@ public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
     protected void ResetPowerOutputIfNeeded(bool forceDisable = false, Map mapOverride = null, bool disableWithoutDownsides = false)
     {
         var wasEnabled = isActive;
-        if (forceDisable || breakdownableComp.BrokenDown || maintainable == null || maintainable.maintenance <= 0f)
+        if (!isActive || forceDisable || breakdownableComp is { BrokenDown: true } || maintainable is { maintenance: <= 0f })
             isActive = false;
-        else if (isActive)
+        else
             return;
 
+        var outputBefore = -currentPowerOutput;
         currentPowerOutput = Props.PowerConsumption;
+        totalWattDaysOutputThisActivation = 0f;
 
         if (wasEnabled)
         {
@@ -171,24 +190,19 @@ public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
                 {
                     var position = parent.PositionHeld;
 
-                    var fire = Rand.Chance(Props.fireChanceAfterBreakdown);
-                    var astrofire = Rand.Chance(Props.astrofireChanceAfterBreakdown);
+                    var fireSize = Props.fireSizeAfterBreakdown?.Evaluate(outputBefore) ?? -1;
+                    var astrofireSize = Props.astrofireSizeAfterBreakdown?.Evaluate(outputBefore) ?? -1;
+                    var fire = fireSize > 0 && Props.fireChanceAfterBreakdown != null && Rand.Chance(Props.fireChanceAfterBreakdown.Evaluate(outputBefore));
+                    var astrofire = astrofireSize > 0 && Props.astrofireChanceAfterBreakdown != null && Rand.Chance(Props.astrofireChanceAfterBreakdown.Evaluate(outputBefore));
+
                     if (fire || astrofire)
                     {
                         foreach (var pos in GenAdj.OccupiedRect(position, parent.Rotation, parent.def.size))
                         {
                             if (fire)
-                            {
-                                var size = Props.fireSizeAfterBreakdown.RandomInRange;
-                                if (size > 0)
-                                    FireUtility.TryStartFireIn(pos, map, size, null);
-                            }
+                                FireUtility.TryStartFireIn(pos, map, fireSize, null);
                             if (astrofire)
-                            {
-                                var size = Props.astrofireSizeAfterBreakdown.RandomInRange;
-                                if (size > 0)
-                                    FireUtility.TryStartFireIn(pos, map, size, null);
-                            }
+                                FireUtility.TryStartFireIn(pos, map, astrofireSize, null);
                         }
                     }
 
@@ -216,7 +230,6 @@ public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
     public virtual void Activate(Pawn caster)
     {
         isActive = true;
-        currentMaintenanceLoss = Props.baseDailyMaintenanceLoss;
         WorldComponent_GravshipCombat.Instance.emergencyGravshipGeneratorCooldownTicks = Mathf.RoundToInt(Props.cooldownDaysAfterBreakdown * GenDate.TicksPerDay);
         WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator = parent;
     }
@@ -226,13 +239,9 @@ public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
         var builder = new StringBuilder(base.CompInspectStringExtra());
 
         if (isActive)
-        {
-            builder.AppendInNewLine("VGE_EmergencyGenerator_DailyLoss".Translate(currentMaintenanceLoss).CapitalizeFirst());
-        }
+            builder.AppendInNewLine("VGE_EmergencyGenerator_RemainingPowerOutput".Translate(RemainingPower.ToStringDecimalIfSmall(), RemainingDurationTicksAtCurrentOutput.ToStringTicksToPeriod()).CapitalizeFirst());
         else
-        {
             builder.AppendInNewLine("VGE_EmergencyGenerator_Inactive".Translate().CapitalizeFirst());
-        }
 
         return builder.ToString();
     }
@@ -244,55 +253,47 @@ public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
 
         if (DebugSettings.ShowDevGizmos)
         {
-            var resetGizmo = new Command_Action
-            {
-                defaultLabel = "DEV: Actually reset cooldown",
-                action = () =>
-                {
-                    if (WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator == null)
-                        WorldComponent_GravshipCombat.Instance.emergencyGravshipGeneratorCooldownTicks = 0;
-                },
-            };
-            var breakdownGizmo = new Command_Action
-            {
-                defaultLabel = "DEV: Breakdown active generator",
-                action = () =>
-                {
-                    if (WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator != null)
-                    {
-                        var comp = WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator.TryGetComp<CompPowerEmergencyGravshipGenerator>();
-                        comp?.ResetPowerOutputIfNeeded(true);
-                        WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator = null;
-                    }
-                }
-            };
-            var disableGizmo = new Command_Action
-            {
-                defaultLabel = "DEV: Disable active generator",
-                action = () =>
-                {
-                    if (WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator != null)
-                    {
-                        var comp = WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator.TryGetComp<CompPowerEmergencyGravshipGenerator>();
-                        comp?.ResetPowerOutputIfNeeded(true, disableWithoutDownsides: true);
-                        WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator = null;
-                    }
-                }
-            };
-
             if (WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator != null)
             {
-                resetGizmo.Disable("A generator is active");
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: Breakdown active generator",
+                    action = () =>
+                    {
+                        if (WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator != null)
+                        {
+                            var comp = WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator.TryGetComp<CompPowerEmergencyGravshipGenerator>();
+                            comp?.ResetPowerOutputIfNeeded(true);
+                            WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator = null;
+                        }
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: Disable active generator",
+                    action = () =>
+                    {
+                        if (WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator != null)
+                        {
+                            var comp = WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator.TryGetComp<CompPowerEmergencyGravshipGenerator>();
+                            comp?.ResetPowerOutputIfNeeded(true, disableWithoutDownsides: true);
+                            WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator = null;
+                        }
+                    }
+                };
             }
-            else
+            else if (WorldComponent_GravshipCombat.Instance.emergencyGravshipGeneratorCooldownTicks > 0)
             {
-                breakdownGizmo.Disable("No generator active");
-                disableGizmo.Disable("No generator active");
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: Actually reset cooldown",
+                    action = () =>
+                    {
+                        if (WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator == null)
+                            WorldComponent_GravshipCombat.Instance.emergencyGravshipGeneratorCooldownTicks = 0;
+                    },
+                };
             }
-
-            yield return resetGizmo;
-            yield return breakdownGizmo;
-            yield return disableGizmo;
         }
     }
 }
