@@ -135,6 +135,9 @@
         <pattern>Infested_OrbitalStation_Core_[0-9]+</pattern>
         <offset>(0,0,0)</offset>
         <randomRotated>true</randomRotated>
+        <spawnPawns>
+          <VFEI2_Nullipede>1</VFEI2_Nullipede>
+        </spawnPawns>
         <spawnThings>
           <VGE_ExoHive_Building>3</VGE_ExoHive_Building>
         </spawnThings>
