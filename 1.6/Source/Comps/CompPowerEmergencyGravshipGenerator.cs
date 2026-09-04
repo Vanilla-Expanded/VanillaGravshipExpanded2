@@ -229,6 +229,9 @@ public class CompPowerEmergencyGravshipGenerator : CompPowerPlant
 
     public virtual void Activate(Pawn caster)
     {
+        if (!parent.Spawned)
+            return;
+
         isActive = true;
         WorldComponent_GravshipCombat.Instance.emergencyGravshipGeneratorCooldownTicks = Mathf.RoundToInt(Props.cooldownDaysAfterBreakdown * GenDate.TicksPerDay);
         WorldComponent_GravshipCombat.Instance.activeEmergencyGravshipGenerator = parent;

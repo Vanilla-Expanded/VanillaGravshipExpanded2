@@ -6,8 +6,9 @@
     <label>emergency gravship generator</label>
     <description>An emergency power source capable of fully powering a gravship by adjusting its output to match demand. It is designed to be kept for emergencies, as it incurs high maintenance costs while active that lead to a critical breakdown and EMP explosion if left unmanaged. The more power it needs to generate, the higher the maintenance drain.</description>
     <drawerType>MapMeshAndRealTime</drawerType>
+    <thingClass>VanillaGravshipExpanded2.Building_EmergencyGravshipGenerator</thingClass>
     <graphicData>
-      <texPath>Things/Structures/Misc/EmergencyGravshipGenerator/EmergencyGenerator_Off</texPath>
+      <texPath>Things/Structures/Misc/EmergencyGravshipGenerator/EmergencyGenerator</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3,3)</drawSize>
       <shadowData>
