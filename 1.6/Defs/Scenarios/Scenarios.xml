@@ -50,8 +50,8 @@
         <li Class="VanillaGravshipExpanded.ScenPart_ChooseStartingGravship">
           <def>VGE_ChooseStartingGravship</def>
           <tag>Gravship</tag>
-          <startingAstrofuel>100</startingAstrofuel>
-          <startingOxygen>125</startingOxygen>
+          <startingAstrofuel>250</startingAstrofuel>
+          <startingOxygen>200</startingOxygen>
         </li>
 
         <li Class="VanillaGravshipExpanded2.ScenPart_ForcedInjuries">
