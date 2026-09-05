@@ -16,9 +16,10 @@ namespace VanillaGravshipExpanded2
             base.PostSpawnSetup(respawningAfterLoad);
             if (!respawningAfterLoad)
             {
-                Messages.Message("VGE_NullipedeThumperNeedsSpace".Translate(), parent,  MessageTypeDefOf.RejectInput);
-
-               
+                if(parent.Map?.Biome.inVacuum != true)
+                {
+                    Messages.Message("VGE_NullipedeThumperNeedsSpace".Translate(), parent, MessageTypeDefOf.RejectInput);
+                }
             }
         }
     }
