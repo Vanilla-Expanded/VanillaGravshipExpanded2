@@ -53,13 +53,17 @@ namespace VanillaGravshipExpanded2
                 var maxX = rects.Max(r => r.maxX);
                 var maxZ = rects.Max(r => r.maxZ);
                 var cellRect = CellRect.FromLimits(minX, minZ, maxX, maxZ);
-                Refog(tempMap, cellRect);
+                Unfog(tempMap, cellRect);
                 PostProcessMap(tempMap, shipFaction, preExisting);
                 GeneratePawns(tempMap, cellRect, vacuumCells);
                 Rand.PopState();
                 ScanGeneratedLayout(tempMap, cellRect, out var engine);
                 enginePos = IntVec3.Invalid;
                 landingRotation = Rot4.North;
+                GravshipCapturer.IsGravshipRenderInProgress = true;
+                GravshipCapturer.GravshipCaptureBounds = cellRect.ExpandedBy(1);
+                Find.ScreenshotModeHandler.Active = true;
+                tempMap.mapDrawer.RegenerateEverythingNow();
                 RenderAndSaveTexture(tempMap, mainCamera, cellRect, engine);
                 DespawnPawns();
             }
@@ -67,6 +71,8 @@ namespace VanillaGravshipExpanded2
             {
                 Log.Error("Failed to capture " + structureSetDef + ": " + ex.ToString());
             }
+            GravshipCapturer.IsGravshipRenderInProgress = false;
+            Find.ScreenshotModeHandler.Active = false;
             Current.Game.CurrentMap = originalMap;
             mainCamera.enabled = wasCamEnabled;
             cameraDriver.enabled = wasCamDriverEnabled;
@@ -106,7 +112,7 @@ namespace VanillaGravshipExpanded2
                 {
                     if (c.InBounds(map) && c.GetTerrain(map) != TerrainDefOf.Space)
                     {
-                        map.fogGrid.Refog(CellRect.SingleCell(c));
+                        map.fogGrid.Unfog(c);
                     }
                 }
                 OnImpact(map, cellRect, preExisting);
@@ -121,14 +127,15 @@ namespace VanillaGravshipExpanded2
             }
         }
 
-        private static void Refog(Map map, CellRect cellRect)
+        private static void Unfog(Map map, CellRect cellRect)
         {
-            map.fogGrid.SetAllFogged();
-            foreach (var allCell in map.AllCells)
+            foreach (var c in cellRect.ExpandedBy(1).ClipInsideMap(map))
             {
-                map.mapDrawer.MapMeshDirty(allCell, MapMeshFlagDefOf.FogOfWar);
+                if (map.fogGrid.IsFogged(c))
+                {
+                    map.fogGrid.Unfog(c);
+                }
             }
-            FloodFillerFog.FloodUnfog(cellRect.ExpandedBy(1).EdgeCells.RandomElement(), map);
         }
 
         private void DespawnPawns()
