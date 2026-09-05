@@ -4,7 +4,7 @@
   <ThingDef ParentName="GravshipComponentBase">
     <defName>VGE_EmergencyGenerator</defName>
     <label>emergency gravship generator</label>
-    <description>An emergency power source capable of fully powering a gravship by adjusting its output to match demand. It is designed to be kept for emergencies, as it incurs high maintenance costs while active that lead to a critical breakdown and EMP explosion if left unmanaged. The more power it needs to generate, the higher the maintenance drain.</description>
+    <description>An emergency power source capable of fully powering a gravship by adjusting its output to match demand. It is designed to be kept for emergencies, as it will always cause a critical breakdown and an EMP detonation when it produces all the power it’s able to generate. It is capable of producing up to 50,000 W/d before it breaks down.</description>
     <drawerType>MapMeshAndRealTime</drawerType>
     <thingClass>VanillaGravshipExpanded2.Building_EmergencyGravshipGenerator</thingClass>
     <graphicData>
@@ -24,7 +24,7 @@
     <rotatable>false</rotatable>
     <costList>
       <Steel>200</Steel>
-<!--      <GravlitePanel>80</GravlitePanel>-->
+      <GravlitePanel>40</GravlitePanel>
       <ComponentIndustrial>12</ComponentIndustrial>
       <ComponentSpacer>6</ComponentSpacer>
     </costList>
@@ -105,7 +105,7 @@
         <compClass>VanillaGravshipExpanded2.CompInteractable_EmergencyGravshipGenerator</compClass>
         <ticksToActivate>120</ticksToActivate>
         <requiresPower>false</requiresPower>
-        <activateTexPath>UI/Gizmos/ExtractAstrofuel_Gizmo</activateTexPath>
+        <activateTexPath>UI/Gizmos/EmergencyGeneratorTrigger_Gizmo</activateTexPath>
 
         <jobString>activate emergency gravship generator</jobString>
         <onCooldownString>unstable</onCooldownString>

@@ -1163,10 +1163,6 @@
                     <li>Bullet_Heatspike</li>
                 </blacklistedProjectileDefs>
             </li>
-            <li Class="CompProperties_Power">
-                <compClass>CompPowerTrader</compClass>
-                <basePowerConsumption>200</basePowerConsumption>
-            </li>
         </comps>
         <building>
             <turretGunDef>VGE_Gun_EnemyPointDefense</turretGunDef>
