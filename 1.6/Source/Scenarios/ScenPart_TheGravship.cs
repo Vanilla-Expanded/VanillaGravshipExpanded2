@@ -12,12 +12,14 @@ namespace VanillaGravshipExpanded2
     {
         private const float StartingVisibility = 460000f;
         private const int EngineCooldownDuration = 9 * GenDate.TicksPerHour;
-        private static readonly IntRange EnemyArrivalRange = new(4 * GenDate.TicksPerHour, 6 * GenDate.TicksPerHour);
+        private const int EnemyArrivalDelay = 8 * GenDate.TicksPerHour;
+
+        public static ScenPart_TheGravship Active => Find.Scenario.AllParts.OfType<ScenPart_TheGravship>().FirstOrDefault();
 
         private int engineReadyTick = -1;
-        private int enemyArrivalTick = -1;
+        public int enemyArrivalTick = -1;
         private bool engineReadyLetterSent;
-        private bool enemyArrived;
+        public bool enemyArrived;
 
         public override void ExposeData()
         {
@@ -36,7 +38,7 @@ namespace VanillaGravshipExpanded2
             engineReadyLetterSent = false;
             WorldComponent_GravshipCombat.Instance.visibility = StartingVisibility;
             engineReadyTick = Find.TickManager.TicksGame + EngineCooldownDuration;
-            enemyArrivalTick = Find.TickManager.TicksGame + EnemyArrivalRange.RandomInRange;
+            enemyArrivalTick = Find.TickManager.TicksGame + EnemyArrivalDelay;
             var engine = GravEngineTracker.GetPlayerGravEngine();
             engine.cooldownCompleteTick = engineReadyTick;
             RefillBatteries(map);
@@ -51,6 +53,11 @@ namespace VanillaGravshipExpanded2
                 if (thing.TryGetComp<CompPower_InputOnlyBattery>() is CompPower_InputOnlyBattery ib)
                     ib.SetStoredEnergyPct(1f);
             }
+        }
+
+        public void NotifyPlayerEscaped()
+        {
+            enemyArrivalTick = -1;
         }
 
         public override void Tick()

@@ -5,12 +5,12 @@ using Verse;
 
 namespace VanillaGravshipExpanded2
 {
-    public class GenStep_InfestedInstallation : GenStep
+    public class GenStep_InfestedInstallation : GenStep_SpaceEncounter
     {
         public override int SeedPart => 1345184429;
         public StructureSetDef structureSetDef;
 
-        public override void Generate(Map map, GenStepParams parms)
+        protected override void GenerateSpaceMap(Map map, GenStepParams parms)
         {
             map.regionAndRoomUpdater.Enabled = true;
             var parent = map.Parent;

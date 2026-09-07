@@ -7,12 +7,12 @@ using Verse.AI.Group;
 
 namespace VanillaGravshipExpanded2
 {
-    public class GenStep_SalvagerStronghold : GenStep
+    public class GenStep_SalvagerStronghold : GenStep_SpaceEncounter
     {
         public override int SeedPart => 1634184455;
         public StructureSetDef structureSetDef;
 
-        public override void Generate(Map map, GenStepParams parms)
+        protected override void GenerateSpaceMap(Map map, GenStepParams parms)
         {
             map.regionAndRoomUpdater.Enabled = true;
             var parent = map.Parent;
