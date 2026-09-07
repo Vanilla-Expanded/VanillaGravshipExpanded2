@@ -6,12 +6,12 @@ using Verse;
 namespace VanillaGravshipExpanded2
 {
     [HotSwappable]
-    public class GenStep_GravshipGraveyard : GenStep
+    public class GenStep_GravshipGraveyard : GenStep_SpaceEncounter
     {
         public override int SeedPart => 1345184428;
         public StructureSetDef structureSetDef;
 
-        public override void Generate(Map map, GenStepParams parms)
+        protected override void GenerateSpaceMap(Map map, GenStepParams parms)
         {
             map.OrbitalDebris = InternalDefOf.VGE_GravshipDebris;
             StructureSetGenerator.Generate(map, structureSetDef, map.ParentFaction);

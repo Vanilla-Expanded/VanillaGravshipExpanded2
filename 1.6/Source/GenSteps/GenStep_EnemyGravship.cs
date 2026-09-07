@@ -5,10 +5,10 @@ using Verse;
 
 namespace VanillaGravshipExpanded2
 {
-    public class GenStep_EnemyGravship : GenStep
+    public class GenStep_EnemyGravship : GenStep_SpaceEncounter
     {
         public override int SeedPart => 1634184429;
-        public override void Generate(Map map, GenStepParams parms)
+        protected override void GenerateSpaceMap(Map map, GenStepParams parms)
         {
             var parent = map.Parent;
             if (parent.Faction == null || parent.Faction == Faction.OfPlayer) parent.SetFaction(Faction.OfSalvagers);

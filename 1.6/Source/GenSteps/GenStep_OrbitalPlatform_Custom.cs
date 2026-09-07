@@ -10,24 +10,32 @@ namespace VanillaGravshipExpanded2
         public StructureSetDef structureSet;
         public override void Generate(Map map, GenStepParams parms)
         {
-            var faction = GetFaction(map);
-            if (faction?.def == FactionDefOf.TradersGuild)
+            Rand.PushState(Find.TickManager.TicksGame ^ map.uniqueID ^ SeedPart);
+            try
             {
-                map.FogOfWarColor = fogOfWarColor.ToColor;
-                var rects = StructureSetGenerator.Generate(map, structureSet, faction);
-                GenStep_Warplatform.MakeAllCratesANew(map);
+                var faction = GetFaction(map);
+                if (faction?.def == FactionDefOf.TradersGuild)
+                {
+                    map.FogOfWarColor = fogOfWarColor.ToColor;
+                    var rects = StructureSetGenerator.Generate(map, structureSet, faction);
+                    GenStep_Warplatform.MakeAllCratesANew(map);
 
-                var minX = rects.Min(r => r.minX);
-                var minZ = rects.Min(r => r.minZ);
-                var maxX = rects.Max(r => r.maxX);
-                var maxZ = rects.Max(r => r.maxZ);
-                var spawnRect = CellRect.FromLimits(minX, minZ, maxX, maxZ);
-                MapGenerator.SetVar("SpawnRect", spawnRect);
-                MapGenerator.UsedRects.Add(spawnRect);
+                    var minX = rects.Min(r => r.minX);
+                    var minZ = rects.Min(r => r.minZ);
+                    var maxX = rects.Max(r => r.maxX);
+                    var maxZ = rects.Max(r => r.maxZ);
+                    var spawnRect = CellRect.FromLimits(minX, minZ, maxX, maxZ);
+                    MapGenerator.SetVar("SpawnRect", spawnRect);
+                    MapGenerator.UsedRects.Add(spawnRect);
+                }
+                else
+                {
+                    base.Generate(map, parms);
+                }
             }
-            else
+            finally
             {
-                base.Generate(map, parms);
+                Rand.PopState();
             }
         }
     }
