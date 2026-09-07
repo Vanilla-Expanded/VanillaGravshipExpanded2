@@ -19,6 +19,11 @@ namespace VanillaGravshipExpanded2
             {
                 turret.TryAddVisibility();
             };
+            ScenPart_PlayerPawnsArriveMethod_DoGravship_Patch.postGravshipGenerated += (_, _, things, _) =>
+            {
+                foreach (var spawnedThing in things)
+                    spawnedThing?.TryGetComp<CompPower_InputOnlyBattery>()?.SetStoredEnergyPct(1f);
+            };
         }
     }
 }

@@ -41,18 +41,7 @@ namespace VanillaGravshipExpanded2
             enemyArrivalTick = Find.TickManager.TicksGame + EnemyArrivalDelay;
             var engine = GravEngineTracker.GetPlayerGravEngine();
             engine.cooldownCompleteTick = engineReadyTick;
-            RefillBatteries(map);
-        }
-
-        private void RefillBatteries(Map map)
-        {
-            foreach (var thing in map.listerThings.AllThings)
-            {
-                if (thing.TryGetComp<CompPowerBattery>() is CompPowerBattery b)
-                    b.SetStoredEnergyPct(1f);
-                if (thing.TryGetComp<CompPower_InputOnlyBattery>() is CompPower_InputOnlyBattery ib)
-                    ib.SetStoredEnergyPct(1f);
-            }
+            // Battery refill handled by ScenPart_PlayerPawnsArriveMethod in VGE1 and our hook to postGravshipGenerated in VGE2
         }
 
         public void NotifyPlayerEscaped()
