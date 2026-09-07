@@ -34,7 +34,13 @@ public class VGE2LaunchInfo : ExtendedLaunchInfoComp
             var engine = gravship.Engine;
             comp.lastKnownShipMap = engine.Map;
             comp.lastKnownShipTile = engine.Tile;
-            if (comp.incomingWarplatform)
+            var scenPart = ScenPart_TheGravship.Active;
+            if (scenPart != null && !scenPart.enemyArrived && scenPart.enemyArrivalTick > 0)
+            {
+                scenPart.NotifyPlayerEscaped();
+                comp.RemoveVisibility(comp.visibility);
+            }
+            else if (comp.incomingWarplatform)
             {
                 ApplyEarlyEscape(comp, gravship);
             }

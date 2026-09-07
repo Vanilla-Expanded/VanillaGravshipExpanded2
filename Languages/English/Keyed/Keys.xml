@@ -124,4 +124,6 @@
 	<!--Misc-->
 	<VGE_NullipedeThumperNeedsSpace>Nullipede thumper cannot be activated on the surface.</VGE_NullipedeThumperNeedsSpace>
 	<VGE_NeedsHiveOrSubcreeper>Can’t place subcreep outside of the radius of exo hives or subcreepers.</VGE_NeedsHiveOrSubcreeper>
+	<VGE_IncomingEnemyGravship>Incoming gravship</VGE_IncomingEnemyGravship>
+	<VGE_IncomingEnemyGravshipDesc>An enemy gravship is approaching fast.\n\nTime until arrival: {0}\n\nYou will not be able to escape before it arrives. Prepare for them to fire a volley at you and escape as soon as you can.</VGE_IncomingEnemyGravshipDesc>
 </LanguageData>
