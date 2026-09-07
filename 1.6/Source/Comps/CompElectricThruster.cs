@@ -108,18 +108,23 @@ public class CompElectricThruster : CompGravshipThruster, IGravshipFuelProvider
 
         var maxCharge = battery.Props.storedEnergyMax;
         var range = RangeProvidedByThrusters(null, false);
-        report.fuelData[this] = report.totalAmount = battery.StoredEnergy * fuelConsumedRatio;
+        var charge = battery.StoredEnergy * fuelConsumedRatio;
+        report.fuelData[this] = report.totalAmount = charge;
+        if (consumeFuel)
+            battery.DrawPower(charge);
 
         otherProviders?.RemoveAll(x =>
         {
             if (x is not CompElectricThruster other)
                 return false;
 
-            var charge = other.battery.StoredEnergy * fuelConsumedRatio;
+            charge = other.battery.StoredEnergy * fuelConsumedRatio;
             maxCharge += other.battery.Props.storedEnergyMax;
             range += other.RangeProvidedByThrusters(null, false);
             report.fuelData[x] = charge;
             report.totalAmount += charge;
+            if (consumeFuel)
+                other.battery.DrawPower(charge);
             return true;
         });
 
