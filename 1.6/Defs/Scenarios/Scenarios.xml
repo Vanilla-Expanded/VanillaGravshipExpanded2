@@ -38,7 +38,7 @@
 
         <li Class="ScenPart_ForcedMap">
           <def>ForcedMap</def>
-          <mapGenerator>VGE_EmptySpace</mapGenerator>
+          <mapGenerator>VGE_EmptySpace_NeverKeep</mapGenerator>
           <layerDef>Orbit</layerDef>
         </li>
 

@@ -24,7 +24,7 @@
         </modExtensions>
     </WorldObjectDef>
 
-    <MapGeneratorDef ParentName="SpaceMapGenerator">
+    <MapGeneratorDef ParentName="SpaceMapGenerator" Name="VGE_EmptySpace">
         <defName>VGE_EmptySpace</defName>
         <label>empty space</label>
         <ignoreAreaRevealedLetter>true</ignoreAreaRevealedLetter>
@@ -34,6 +34,14 @@
             <li>ScenParts</li>
             <li>FogSpace</li>
         </genSteps>
+    </MapGeneratorDef>
+
+    <!-- Separate def in case we need empty space for something else. -->
+    <MapGeneratorDef ParentName="VGE_EmptySpace">
+        <defName>VGE_EmptySpace_NeverKeep</defName>
+        <modExtensions>
+            <li Class="VanillaGravshipExpanded.NeverKeepThisMapAfterTakeoffExtension"/>
+        </modExtensions>
     </MapGeneratorDef>
 
     <GenStepDef>
