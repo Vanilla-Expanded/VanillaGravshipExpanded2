@@ -17,6 +17,16 @@ public static class PowerNet_DistributeEnergyAmongBatteries_Patch
         if (batteries is not { Count: > 0 })
             return;
 
+        var batteriesInSameNet = 0;
+        for (var i = 0; i < batteries.Count; i++)
+        {
+            if (batteries[i].PowerNet == __instance)
+                batteriesInSameNet++;
+        }
+
+        if (batteriesInSameNet <= 0)
+            return;
+
         batteries.Shuffle();
 
         for (var tries = 0;; tries++)
@@ -31,14 +41,20 @@ public static class PowerNet_DistributeEnergyAmongBatteries_Patch
             // Grab the lowest count we can add to any battery
             var minAmount = float.MaxValue;
             for (var i = 0; i < batteries.Count; i++)
-                minAmount = Mathf.Min(minAmount, batteries[i].AmountCanAccept);
+            {
+                if (batteries[i].PowerNet == __instance)
+                    minAmount = Mathf.Min(minAmount, batteries[i].AmountCanAccept);
+            }
 
             // Try to fill up all batteries by splitting all the extra energy equally
-            if (energy < minAmount * batteries.Count)
+            if (energy < minAmount * batteriesInSameNet)
             {
-                var addPerBattery = energy / batteries.Count;
+                var addPerBattery = energy / batteriesInSameNet;
                 for (var i = 0; i < batteries.Count; i++)
-                    batteries[i].AddEnergy(addPerBattery);
+                {
+                    if (batteries[i].PowerNet == __instance)
+                        batteries[i].AddEnergy(addPerBattery);
+                }
                 energy = 0f;
                 break;
             }
@@ -46,16 +62,22 @@ public static class PowerNet_DistributeEnergyAmongBatteries_Patch
             // Fill up batteries by minimum amount possible, while removing all full batteries or batteries matching min amount
             for (var i = batteries.Count - 1; i >= 0; i--)
             {
-                var amount = batteries[i].AmountCanAccept;
-                var shouldRemove = amount <= 0f;
-                if (minAmount > 0)
-                    batteries[i].AddEnergy(minAmount);
-                if (shouldRemove)
-                    batteries.RemoveAt(i);
+                if (batteries[i].PowerNet == __instance)
+                {
+                    var amount = batteries[i].AmountCanAccept;
+                    var shouldRemove = amount <= 0f;
+                    if (minAmount > 0)
+                        batteries[i].AddEnergy(minAmount);
+                    if (shouldRemove)
+                    {
+                        batteriesInSameNet--;
+                        batteries.RemoveAt(i);
+                    }
+                }
             }
 
             // If there's basically no power, or batteries are full, break
-            if (energy < 0.0005f || batteries.Count <= 0)
+            if (energy < 0.0005f || batteriesInSameNet <= 0)
                 break;
         }
     }
