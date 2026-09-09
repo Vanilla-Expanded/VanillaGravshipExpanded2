@@ -37,6 +37,7 @@ namespace VanillaGravshipExpanded2
         public static ThingDef VFEI2_VGE_Subcreeper;
         [MayRequire("OskarPotocki.VFE.Insectoid2")]
         public static ThingDef VFEI2_Siegeworm;
+        public static ThingDef CocoonMegascarab;
 
         public static PawnKindDef VGE_ExowormKnot;
         public static PawnKindDef VGE_Exopede;
