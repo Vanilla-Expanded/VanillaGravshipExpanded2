@@ -36,6 +36,7 @@
 		<building>
 			<mineableThing>Steel</mineableThing>
 			<mineableYield>60</mineableYield>
+			<deconstructible>false</deconstructible>
 			<mineableDropChance>1</mineableDropChance>
 			<mineableYieldWasteable>false</mineableYieldWasteable>
 			<isInert>true</isInert>
@@ -87,6 +88,7 @@
 		<building>
 			<mineableThing>ComponentIndustrial</mineableThing>
 			<mineableYield>2</mineableYield>
+			<deconstructible>false</deconstructible>
 			<mineableDropChance>1</mineableDropChance>
 			<mineableYieldWasteable>false</mineableYieldWasteable>
 			<isInert>true</isInert>
@@ -141,6 +143,7 @@
 			<mineableDropChance>1</mineableDropChance>
 			<mineableYieldWasteable>false</mineableYieldWasteable>
 			<isInert>true</isInert>
+			<deconstructible>false</deconstructible>
 			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 			<mineableScatterCommonality>0</mineableScatterCommonality>
 		</building>
@@ -192,6 +195,7 @@
 			<mineableDropChance>1</mineableDropChance>
 			<mineableYieldWasteable>false</mineableYieldWasteable>
 			<isInert>true</isInert>
+			<deconstructible>false</deconstructible>
 			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 			<mineableScatterCommonality>0</mineableScatterCommonality>
 		</building>
