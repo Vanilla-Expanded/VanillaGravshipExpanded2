@@ -40,7 +40,7 @@ namespace VanillaGravshipExpanded2
 
         public static Hive DetectExoHive(Hive hive, Pawn pawn, IntVec3 intVec)
         {
-            Hive returnHive = null;
+            Hive returnHive = hive;
             if (hive == null) {
                 returnHive = (Hive)pawn.Map.thingGrid.ThingAt(intVec, InternalDefOf.VGE_ExoHive_Building);
             }
