@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using RimWorld;
 
 namespace VanillaGravshipExpanded2
 {
@@ -27,7 +28,7 @@ namespace VanillaGravshipExpanded2
         private void TryInitiateKnotForming()
         {
             var pawn = parent as Pawn;
-            if (pawn.Dead || pawn.Downed || pawn.Destroyed || pawn.InMentalState || pawn.CurJob?.def == InternalDefOf.VGE_FormKnot)
+            if (pawn.Dead || pawn.Downed || pawn.Destroyed || pawn.InMentalState || pawn.Faction == Faction.OfPlayerSilentFail || pawn.CurJob?.def == InternalDefOf.VGE_FormKnot)
             {
                 return;
             }
