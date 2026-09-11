@@ -28,7 +28,7 @@
 			<ComponentIndustrial>6</ComponentIndustrial>
 		</costList>
 		<researchPrerequisites>
-			<li>StandardGravtech</li>
+			<li>AdvancedGravtech</li>
 		</researchPrerequisites>
 		<comps>
 			<li Class="VanillaGravshipExpanded2.CompProperties_ElectricThruster">
@@ -139,7 +139,7 @@
 			<ComponentIndustrial>9</ComponentIndustrial>
 		</costList>
 		<researchPrerequisites>
-			<li>StandardGravtech</li>
+			<li>AdvancedGravtech</li>
 		</researchPrerequisites>
 		<comps>
 			<li Class="VanillaGravshipExpanded2.CompProperties_ElectricThruster">
