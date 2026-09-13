@@ -16,6 +16,7 @@ namespace VanillaGravshipExpanded2
                 var faction = GetFaction(map);
                 if (faction?.def == FactionDefOf.TradersGuild)
                 {
+                    map.regionAndRoomUpdater.Enabled = true;
                     map.FogOfWarColor = fogOfWarColor.ToColor;
                     var rects = StructureSetGenerator.Generate(map, structureSet, faction);
                     GenStep_Warplatform.MakeAllCratesANew(map);
