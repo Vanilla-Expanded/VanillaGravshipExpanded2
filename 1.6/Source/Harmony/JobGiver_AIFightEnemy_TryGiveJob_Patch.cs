@@ -11,7 +11,7 @@ namespace VanillaGravshipExpanded2
     {
         public static void Postfix(JobGiver_AIFightEnemy __instance, Pawn pawn, ref Job __result)
         {
-            if (__result != null || pawn.Faction == null) return;
+            if (__result != null || pawn.Faction == null || pawn.Faction.IsPlayer) return;
 
             if (pawn.skills != null && !pawn.skills.GetSkill(SkillDefOf.Intellectual).TotallyDisabled)
             {
