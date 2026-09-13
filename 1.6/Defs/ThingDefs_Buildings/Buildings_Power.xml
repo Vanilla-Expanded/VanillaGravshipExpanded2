@@ -105,7 +105,7 @@
         <compClass>VanillaGravshipExpanded2.CompInteractable_EmergencyGravshipGenerator</compClass>
         <ticksToActivate>120</ticksToActivate>
         <requiresPower>false</requiresPower>
-        <activateTexPath>UI/Gizmos/EmergencyGeneratorTrigger_Gizmo</activateTexPath>
+        <activateTexPath>UI/Gizmo/EmergencyGeneratorTrigger_Gizmo</activateTexPath>
 
         <jobString>activate emergency gravship generator</jobString>
         <onCooldownString>unstable</onCooldownString>
