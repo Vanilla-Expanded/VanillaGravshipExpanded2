@@ -9,8 +9,6 @@ namespace VanillaGravshipExpanded2
 {
     public class CompLaunchable_Warpod : CompLaunchable
     {
-        private static List<CompLaunchable_Warpod> selectedWarpodsToLaunch;
-
         public CompRefuelable FuelingPortSource => FuelingPortUtility.FuelingPortGiverAtFuelingPortCell(parent.Position, parent.Map).GetComp<CompRefuelable>();
         public bool ConnectedToFuelingPort => FuelingPortUtility.FuelingPortGiverAtFuelingPortCell(parent.Position, parent.Map) is Building;
         public override CompRefuelable Refuelable => FuelingPortSource;
@@ -80,14 +78,14 @@ namespace VanillaGravshipExpanded2
         private void StartChoosingWarpodDestination()
         {
             ResetCachedTile();
-            selectedWarpodsToLaunch = Find.Selector.SelectedObjects
+            var selectedWarpodsToLaunch = Find.Selector.SelectedObjects
                 .OfType<Thing>()
                 .Select(t => t.TryGetComp<CompLaunchable_Warpod>())
                 .Where(c => c != null && c.CanLaunch().Accepted)
                 .ToList();
             CameraJumper.TryJump(CameraJumper.GetWorldTarget(new GlobalTargetInfo(parent.Map.Tile)));
             Find.WorldSelector.ClearSelection();
-            Find.WorldTargeter.BeginTargeting(ChoseWorldTarget, true, null, false, () =>
+            Find.WorldTargeter.BeginTargeting(target => ChoseWorldTarget(target, selectedWarpodsToLaunch), true, null, false, () =>
             {
                 var tile = parent.Map.Tile;
                 PlanetTile planetTile;
@@ -106,7 +104,7 @@ namespace VanillaGravshipExpanded2
             });
         }
 
-        private bool ChoseWorldTarget(GlobalTargetInfo target)
+        private bool ChoseWorldTarget(GlobalTargetInfo target, List<CompLaunchable_Warpod> selectedWarpodsToLaunch)
         {
             if (!target.IsValid) return false;
 
@@ -127,8 +125,8 @@ namespace VanillaGravshipExpanded2
             {
                 var options = new List<FloatMenuOption>
                 {
-                    new FloatMenuOption("DropAtEdge".Translate(), () => LaunchHellpodTo(mp, PawnsArrivalModeDefOf.EdgeDrop)),
-                    new FloatMenuOption("DropInCenter".Translate(), () => LaunchHellpodTo(mp, PawnsArrivalModeDefOf.CenterDrop))
+                    new FloatMenuOption("DropAtEdge".Translate(), () => LaunchHellpodTo(mp, PawnsArrivalModeDefOf.EdgeDrop, selectedWarpodsToLaunch)),
+                    new FloatMenuOption("DropInCenter".Translate(), () => LaunchHellpodTo(mp, PawnsArrivalModeDefOf.CenterDrop, selectedWarpodsToLaunch))
                 };
                 Find.WindowStack.Add(new FloatMenu(options));
                 return true;
@@ -153,7 +151,7 @@ namespace VanillaGravshipExpanded2
                 canTargetPawns = true
             }, (LocalTargetInfo localTarget) =>
             {
-                LaunchWarpodTo(mp.Map, mp.Tile, localTarget.Cell);
+                LaunchWarpodTo(mp, mp.Tile, localTarget.Cell, selectedWarpodsToLaunch);
             }, (LocalTargetInfo targetCell) =>
             {
                 GenDraw.DrawTargetHighlight(targetCell);
@@ -169,7 +167,7 @@ namespace VanillaGravshipExpanded2
             return true;
         }
 
-        private void LaunchHellpodTo(MapParent mapParent, PawnsArrivalModeDef arrivalMode)
+        private void LaunchHellpodTo(MapParent mapParent, PawnsArrivalModeDef arrivalMode, List<CompLaunchable_Warpod> selectedWarpodsToLaunch)
         {
             foreach (var warpod in selectedWarpodsToLaunch)
             {
@@ -198,8 +196,11 @@ namespace VanillaGravshipExpanded2
             CameraJumper.TryHideWorld();
         }
 
-        private void LaunchWarpodTo(Map destMap, PlanetTile destTile, IntVec3 destCell)
+        private void LaunchWarpodTo(MapParent destination, PlanetTile destTile, IntVec3 destCell, List<CompLaunchable_Warpod> selectedWarpodsToLaunch)
         {
+            if (destination.Map is not Map destMap)
+                return;
+
             var finalCell = destCell;
             if (Designator_MoveGravship_IsValidCell_Patch.IsCellJammed(finalCell, destMap))
             {
