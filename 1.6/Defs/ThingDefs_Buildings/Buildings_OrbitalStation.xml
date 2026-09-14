@@ -918,6 +918,12 @@
             <ComponentSpacer>6</ComponentSpacer>
             <InsectJelly>150</InsectJelly>
         </costList>
+        <killedLeavings>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>100</GravlitePanel>
+            <ComponentSpacer>6</ComponentSpacer>
+            <InsectJelly>150</InsectJelly>
+        </killedLeavings>
         <tickerType>Normal</tickerType>
         <comps>
             <li Class="VanillaGravshipExpanded2.CompProperties_InfestedGravlockTether" />
