@@ -7,6 +7,7 @@ namespace VanillaGravshipExpanded2
         public override void Generate(Map map, GenStepParams parms)
         {
             Rand.PushState(Find.TickManager.TicksGame ^ map.uniqueID ^ SeedPart);
+            map.regionAndRoomUpdater.Enabled = true;
             try
             {
                 GenerateSpaceMap(map, parms);
