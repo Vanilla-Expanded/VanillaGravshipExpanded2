@@ -4,6 +4,11 @@
 		<li>1.6</li>
 		<li IfModActive="OskarPotocki.VFE.Insectoid2">1.6/Mods/VFEInsectoids2</li>
 	</v1.6>
+	<v1.7>
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModActive="OskarPotocki.VFE.Insectoid2">1.6/Mods/VFEInsectoids2</li>
+	</v1.7>
 </loadFolders>
 
 
